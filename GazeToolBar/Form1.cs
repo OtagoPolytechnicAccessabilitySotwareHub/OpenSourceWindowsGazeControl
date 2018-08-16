@@ -241,8 +241,7 @@ namespace GazeToolBar
                     //special scrolling case
                     if(isScroll)
                     {
-                        SystemFlags.scrolling = false;
-                        stateManager.scrollWorker.stopScroll();
+                        stopScroll();
                     }
                     return true;
                 }
@@ -250,11 +249,18 @@ namespace GazeToolBar
             return false;
         }
 
+        //stop ScrollControll from scrolling when another button is selected
+        private void stopScroll()
+        {
+            SystemFlags.scrolling = false;
+            stateManager.scrollWorker.stopScroll();
+        }
+
         private void btnRightClick_Click(object sender, EventArgs e)
         {
             if (AttemptToggle(ActionToBePerformed.RightClick))
                 return;
-
+            stopScroll();
             SystemFlags.actionButtonSelected = true;//raise action button flag
             SystemFlags.actionToBePerformed = ActionToBePerformed.RightClick;   
         }
@@ -263,7 +269,7 @@ namespace GazeToolBar
         {
             if (AttemptToggle(ActionToBePerformed.LeftClick))
                 return;
-
+            stopScroll();
             SystemFlags.actionButtonSelected = true;//raise action button flag
             SystemFlags.actionToBePerformed = ActionToBePerformed.LeftClick;
         }
@@ -272,13 +278,14 @@ namespace GazeToolBar
         {
             if (AttemptToggle(ActionToBePerformed.DoubleClick))
                 return;
-
+            stopScroll();
             SystemFlags.actionButtonSelected = true;//raise action button flag
             SystemFlags.actionToBePerformed = ActionToBePerformed.DoubleClick;
         }
 
         private void btnKeyboard_Click(object sender, EventArgs e)
         {
+            stopScroll();
             if (keyboard.IsVisible)
             {
                 keyboard.Hide();
