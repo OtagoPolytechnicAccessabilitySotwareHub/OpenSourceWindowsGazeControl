@@ -315,7 +315,7 @@ namespace GazeToolBar
                 File.WriteAllText(Program.path, settings);
 
                 Program.readSettings = setting;
-                form1.stateManager.RefreshZoom();
+                //form1.stateManager.RefreshZoom();
 
                 form1.NotifyIcon.BalloonTipTitle = "Saving success";
                 form1.NotifyIcon.BalloonTipText = "Your settings are successfuly saved";
@@ -675,20 +675,27 @@ namespace GazeToolBar
 
         }
 
+        
         private void trackBarZoomAmount_ValueChanged(object sender, EventArgs e)
         {
-            form1.stateManager.magnifier.MaxZoom = trackBarZoomAmount.Value * Constants.GAPTST + Constants.MINTST;
+            form1.stateManager.SetMagnifierMaxZoom(trackBarZoomAmount.Value * Constants.GAPTST + Constants.MINTST);
         }
+        
+
         private void trackBarFixTimeLength_ValueChanged(object sender, EventArgs e)
         {
-            form1.stateManager.fixationWorker.FixationDetectionTimeLength = trackBarFixTimeLength.Value * Constants.GAP_TIME_LENGTH + Constants.MIN_TIME_LENGTH;
-            form1.stateManager.fixationWorker.fixationTimer.Interval = trackBarFixTimeLength.Value * Constants.GAP_TIME_LENGTH + Constants.MIN_TIME_LENGTH;
+            //form1.stateManager.fixationWorker.FixationDetectionTimeLength = trackBarFixTimeLength.Value * Constants.GAP_TIME_LENGTH + Constants.MIN_TIME_LENGTH;
+            //form1.stateManager.fixationWorker.fixationTimer.Interval = trackBarFixTimeLength.Value * Constants.GAP_TIME_LENGTH + Constants.MIN_TIME_LENGTH;
+            form1.trackBarFixTimeLength(trackBarFixTimeLength.Value * Constants.GAP_TIME_LENGTH + Constants.MIN_TIME_LENGTH,
+                trackBarFixTimeLength.Value * Constants.GAP_TIME_LENGTH + Constants.MIN_TIME_LENGTH);
         }
 
         private void trackBarFixTimeOut_ValueChanged(object sender, EventArgs e)
         {
-            form1.stateManager.fixationWorker.FixationTimeOutLength = trackBarFixTimeOut.Value * Constants.GAP_TIME_OUT + Constants.MIN_TIME_OUT;
-            form1.stateManager.fixationWorker.timeOutTimer.Interval = trackBarFixTimeOut.Value * Constants.GAP_TIME_OUT + Constants.MIN_TIME_OUT;
+            //form1.stateManager.fixationWorker.FixationTimeOutLength = trackBarFixTimeOut.Value * Constants.GAP_TIME_OUT + Constants.MIN_TIME_OUT;
+            //form1.stateManager.fixationWorker.timeOutTimer.Interval = trackBarFixTimeOut.Value * Constants.GAP_TIME_OUT + Constants.MIN_TIME_OUT;
+            form1.trackBarFixTimeOut(trackBarFixTimeOut.Value * Constants.GAP_TIME_OUT + Constants.MIN_TIME_OUT,
+                trackBarFixTimeOut.Value * Constants.GAP_TIME_OUT + Constants.MIN_TIME_OUT);
         }
 
         //Methods to rearrange sidebar

@@ -31,7 +31,7 @@ namespace GazeToolBar
         private ZoomMagnifier magnifier;
 
         //Monitor Gaze fixation data and raise systems flag when this occurs.
-        private FixationDetection fixationWorker; 
+        private FixationDetection fixationWorker;
 
         public StateManager_new()
         {
@@ -50,6 +50,7 @@ namespace GazeToolBar
             magnifier = CreateMagnifier();
             fixationWorker = new FixationDetection();
         }
+
 
         /*
             * Runs evey timer tick, updates the state then applies the action
@@ -143,7 +144,7 @@ namespace GazeToolBar
 
         public void DoActionZooming()
         {
-                //TODO
+            //TODO
         }
 
         public void DoActionZoomWait()
@@ -277,6 +278,38 @@ namespace GazeToolBar
             SystemFlags.timeOut = false;
             fixationWorker.IsZoomerFixation(false);
             SetState(SystemState.Wait);
+        }
+
+        /*
+            *Allows the settings to update the max zoom
+        */
+        public void SetMagnifierMaxZoom(int maxZoom)
+        {
+            magnifier.MaxZoom = maxZoom;
+        }
+
+        /*
+            *Allows the settings to update fixationDetection fixationDetectionTimeOutLength
+            * and timeOutTimer intterval
+        */
+        public void trackBarFixTimeOut(int FixationTimeOutLength, int timeOutTimerInterval)
+        {
+            //fixationWorker.FixationTimeOutLength = FixationTimeOutLength;
+            //fixationWorker.timeOutTimer.Interval = timeOutTimerInterval;
+            fixationWorker.UpdateTimeOut(FixationTimeOutLength, timeOutTimerInterval);
+
+        }
+
+        /*
+            *Allows the settings to update fixationDetection fixationDetectionTimeLength
+            * and timer interval
+        */
+
+        public void trackBarFixTimeLength(int fixationDetectionTimeLength, int fixationTimerInterval)
+        {
+            //fixationWorker.FixationDetectionTimeLength = fixationDetectionTimeLength;
+            //fixationWorker.fixationTimer.Interval = fixationTimerInterval;
+            fixationWorker.UpdateTimeLength(fixationDetectionTimeLength, fixationTimerInterval);
         }
     }
 }

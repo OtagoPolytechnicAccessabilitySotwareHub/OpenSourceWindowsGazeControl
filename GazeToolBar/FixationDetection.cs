@@ -208,6 +208,16 @@ namespace GazeToolBar
             fixationState = EFixationState.WaitingForFixationRequest;
         }
 
+        public void UpdateTimeLength(int timeLength, int interval)
+        {
+            FixationTimeOutLength = timeLength;
+            fixationTimer.Interval = interval;
+        }
+        public void UpdateTimeOut(int timeOut, int interval)
+        {
+            FixationDetectionTimeLength = FixationTimeOutLength;
+            timeOutTimer.Interval = interval;
+        }
 
 
         /// <summary>
