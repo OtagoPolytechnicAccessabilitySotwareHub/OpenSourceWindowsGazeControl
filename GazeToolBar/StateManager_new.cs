@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,6 +60,7 @@ namespace GazeToolBar
         {
             UpdateState();
             DoAction();
+            //MessageBox.Show(SystemFlags.currentState.ToString());
         }
 
         /*
@@ -94,6 +96,9 @@ namespace GazeToolBar
                 case SystemState.ApplyAction:
                     DoActionApply();
                     break;
+                default:
+                    MessageBox.Show("invalid system flag");
+                    break;
             }
         }
 
@@ -122,6 +127,9 @@ namespace GazeToolBar
                 case SystemState.ApplyAction:
                     UpdateApplyActionState();
                     break;
+                default:
+                    MessageBox.Show("invalid currentState");
+                    break;
             }
         }
 
@@ -140,11 +148,22 @@ namespace GazeToolBar
                 fixationWorker.StartDetectingFixation();
                 SystemFlags.fixationRunning = true;
             }
+
+            //draws the crosshairs at point of gaze
+            runZoomForm(fixationWorker.getXY());
         }
 
+        /*
+            *   DoActionZooming happens when the fixationTimer in fixationWorker reaches it's limit
+            *   and SystemFlags.hasGaze is set to true Happens just once.
+        */
         public void DoActionZooming()
         {
-            //TODO
+            magnifier.FixationPoint = fixationWorker.getXY();
+            magnifier.Timer.Enabled = true;
+
+            SystemFlags.hasGaze = false;
+            SystemFlags.fixationRunning = false;
         }
 
         public void DoActionZoomWait()
@@ -154,6 +173,7 @@ namespace GazeToolBar
                 fixationWorker.StartDetectingFixation();
                 SystemFlags.fixationRunning = true;
             }
+            runZoomForm(magnifier.GetLookPosition());
         }
 
         public void DoActionScrollWait()
@@ -278,6 +298,13 @@ namespace GazeToolBar
             SystemFlags.timeOut = false;
             fixationWorker.IsZoomerFixation(false);
             SetState(SystemState.Wait);
+        }
+
+        private void runZoomForm(Point fixationPoint)
+        {
+            zoomForm.Start();
+            zoomForm.Show();
+            zoomForm.CrossHairPos = fixationPoint;
         }
 
         /*
