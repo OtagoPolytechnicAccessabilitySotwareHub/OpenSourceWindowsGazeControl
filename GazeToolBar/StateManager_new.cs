@@ -96,9 +96,6 @@ namespace GazeToolBar
                 case SystemState.ApplyAction:
                     DoActionApply();
                     break;
-                default:
-                    MessageBox.Show("invalid system flag");
-                    break;
             }
         }
 
@@ -127,11 +124,10 @@ namespace GazeToolBar
                 case SystemState.ApplyAction:
                     UpdateApplyActionState();
                     break;
-                default:
-                    MessageBox.Show("invalid currentState");
-                    break;
             }
         }
+
+/*---------Do action methods-----------*/
 
         public void DoActionWait()
         {
@@ -183,9 +179,24 @@ namespace GazeToolBar
 
         public void DoActionApply()
         {
+
             //TODO
+            //Point fixationPoint = fixationWorker.getXY();
+            Point lookPosition = magnifier.GetLookPosition();
+            //performAction(SystemFlags.actionToBePerformed, magnifier.GetLookPosition());
+
+            zoomForm.ResetZoomLens();
+            magnifier.ResetZoomValue();
+            magnifier.Stop();
+            //VirtualMouse.LeftMouseClick(lookPosition.X, lookPosition.Y);
+            //MessageBox.Show(SystemFlags.actionToBePerformed.ToString());
+            performAction(SystemFlags.actionToBePerformed, lookPosition);
+            //MessageBox.Show(String.Format("FixationWorker: x:{0}, y:{1} \n Magnifier: x:{2}, y:{3}",
+            //    fixationPoint.X, fixationPoint.Y, lookPosition.X, lookPosition.Y));
         }
 
+/*------^^-Do action methods end-^^------------------
+ * -----vv-Update state methods--vv-------------------*/
 
         /*
              *  Called from UpdateState() when the system state is in the Wait phase
@@ -274,6 +285,31 @@ namespace GazeToolBar
             if (!SystemFlags.scrolling)
             {
                 EnterWaitState();
+                //zoomForm.ResetZoomLens();
+            }
+        }
+
+
+        /*---------End of update state methods--------------*/
+
+
+        /*
+            * Method to do the selected action on DoActionApply
+        */
+
+        private void performAction(ActionToBePerformed action, Point fixationPoint)
+        {
+            switch(action)
+            {
+                case ActionToBePerformed.LeftClick:
+                    VirtualMouse.LeftMouseClick(fixationPoint.X, fixationPoint.Y);
+                    break;
+                case ActionToBePerformed.RightClick:
+                    VirtualMouse.RightMouseClick(fixationPoint.X, fixationPoint.Y);
+                    break;
+                case ActionToBePerformed.DoubleClick:
+                    VirtualMouse.LeftDoubleClick(fixationPoint.X, fixationPoint.Y);
+                    break;
             }
         }
 
