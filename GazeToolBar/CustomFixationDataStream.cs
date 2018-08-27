@@ -8,6 +8,8 @@ using Tobii.EyeX.Framework;
 using Tobii.EyeX.Client;
 using System.Threading;
 using EyeXFramework.Forms;
+using System.Net.Sockets;
+using System.IO;
 
 /*
  *  Class: CustomFixationDataStream
@@ -53,6 +55,17 @@ namespace GazeToolBar
 
         EFixationStreamEventType fixationState;
 
+        //Settings for local gazpoint server
+        const int ServerPort = 4242;
+        const string ServerAddr = "127.0.0.1";
+
+        //Gazepoint variables
+        int startindex, endindex;
+        TcpClient gp3_client;
+        NetworkStream data_feed;
+        StreamWriter data_write;
+        String incoming_data = "";
+
         //Global variable containing the current gaze average location.
         GazePoint gPAverage;
 
@@ -79,6 +92,22 @@ namespace GazeToolBar
 
             fixationState = EFixationStreamEventType.Waiting;
             ZoomerFixation = false;
+
+            gp3_client = new TcpClient(ServerAddr, ServerPort);
+
+            //GazePoint Initialization
+            // Load the read and write streams
+            data_feed = gp3_client.GetStream();
+            data_write = new StreamWriter(data_feed);
+
+            // Setup the data records
+            data_write.Write("<SET ID=\"ENABLE_SEND_TIME\" STATE=\"1\" />\r\n");
+            data_write.Write("<SET ID=\"ENABLE_SEND_POG_FIX\" STATE=\"1\" />\r\n");
+            data_write.Write("<SET ID=\"ENABLE_SEND_CURSOR\" STATE=\"1\" />\r\n");
+            data_write.Write("<SET ID=\"ENABLE_SEND_DATA\" STATE=\"1\" />\r\n");
+
+            // Flush the buffer out the socket
+            data_write.Flush();
         }
 
 
@@ -219,7 +248,9 @@ namespace GazeToolBar
         {
             double xTotal = 0;
             double yTotal = 0;
-            
+            double fpogx = 0;
+            double fpogy = 0;
+
             GazePoint returnSmoothPoint = new GazePoint();
 
             for (int arrayIndex = 0; arrayIndex < bufferFullIndex; arrayIndex++)
@@ -228,8 +259,51 @@ namespace GazeToolBar
                 yTotal += yBuffer[arrayIndex];
             }
 
-            returnSmoothPoint.X = xTotal / bufferFullIndex;
-            returnSmoothPoint.Y = yTotal / bufferFullIndex;
+            //=====================================
+            int ch = data_feed.ReadByte();
+            if (ch != -1)
+            {
+                incoming_data += (char)ch;
+
+                // find string terminator ("\r\n") 
+                if (incoming_data.IndexOf("\r\n") != -1)
+                {
+                    // only process DATA RECORDS, ie <REC .... />
+                    if (incoming_data.IndexOf("<REC") != -1)
+                    {
+                        double time_val;                        
+                        int fpog_valid;
+
+                        // Process incoming_data string to extract FPOGX, FPOGY, etc...
+                        startindex = incoming_data.IndexOf("TIME=\"") + "TIME=\"".Length;
+                        endindex = incoming_data.IndexOf("\"", startindex);
+                        time_val = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                        startindex = incoming_data.IndexOf("FPOGX=\"") + "FPOGX=\"".Length;
+                        endindex = incoming_data.IndexOf("\"", startindex);
+                        fpogx = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                        startindex = incoming_data.IndexOf("FPOGY=\"") + "FPOGY=\"".Length;
+                        endindex = incoming_data.IndexOf("\"", startindex);
+                        fpogy = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                        startindex = incoming_data.IndexOf("FPOGV=\"") + "FPOGV=\"".Length;
+                        endindex = incoming_data.IndexOf("\"", startindex);
+                        fpog_valid = Int32.Parse(incoming_data.Substring(startindex, endindex - startindex));
+                    }
+
+                    incoming_data = "";
+                }
+            }
+            //=====================================
+
+            double resX = fpogx * 1920;
+            double resY = fpogy * 1080;
+            double perX = fpogx * 100;
+            double perY = fpogy * 100;
+
+            returnSmoothPoint.X = perX / bufferFullIndex;
+            returnSmoothPoint.Y = perY / bufferFullIndex;           
 
             return returnSmoothPoint;
         }
