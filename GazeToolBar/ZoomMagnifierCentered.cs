@@ -1,4 +1,4 @@
-﻿using Karna.Magnification;
+﻿/*using Karna.Magnification;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,7 +14,7 @@ namespace GazeToolBar
         private int FORM_WIDTH { get; set; }
         private int FORM_HEIGHT { get; set;}
 
-        public ZoomMagnifierCentered(Form displayform, Point fixationPoint) : base(displayform, fixationPoint)
+        public ZoomMagnifierCentered(Form displayform, Point fixationPoint) : base(displayform)
         {
             FORM_WIDTH = Program.readSettings.zoomWindowSize * 100;
             FORM_HEIGHT = FORM_WIDTH / 2;
@@ -99,3 +99,4 @@ namespace GazeToolBar
         }
     }
 }
+*/

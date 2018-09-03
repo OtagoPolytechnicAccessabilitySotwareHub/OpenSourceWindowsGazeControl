@@ -56,8 +56,9 @@ namespace GazeToolBar
 
             //Setup the zoom form
             zoomForm = new ZoomLens();
-            magnifier = CreateMagnifier();
+            
             fixationWorker = new FixationDetection(eyeXHost);
+            magnifier = CreateMagnifier();
             scrollWorker = new ScrollControl(eyeXHost);
             this.shortcutKeyWorker = shortcutKeyWorker;
         }
@@ -78,7 +79,7 @@ namespace GazeToolBar
          */
         private ZoomMagnifier CreateMagnifier()
         {
-            return new ZoomMagnifierCentered(zoomForm, new System.Drawing.Point()); //TODO: remove the need for the point here
+            return new ZoomMagnifier(zoomForm, fixationWorker); //TODO: remove the need for the point here
         }
 
         /*

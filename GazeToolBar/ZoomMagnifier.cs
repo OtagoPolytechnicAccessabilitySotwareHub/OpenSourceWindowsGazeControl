@@ -10,11 +10,11 @@ namespace GazeToolBar
 {
     public class ZoomMagnifier
     {
-        protected const int UPDATE_SPEED = 1; //how fast the lens will update
+        protected const int UPDATE_SPEED = 100; //how fast the lens will update
 
         //TODO: Move these to settings json
-        public static bool DO_ZOOM = false;         //Zoom enabled
-        public static float ZOOM_SPEED = 0.005F;    //Amount zoom will increment
+        public static bool DO_ZOOM = true;         //Zoom enabled
+        public static float ZOOM_SPEED = 0.01F;//005F;    //Amount zoom will increment
         public static float ZOOM_MAX = Program.readSettings.maxZoom;          //Max zoom amount
 
         public Point FixationPoint { get; set; }
@@ -36,7 +36,9 @@ namespace GazeToolBar
         protected bool hasInitialized;
         protected float magnification;
 
-        public ZoomMagnifier(Form displayform, Point fixationPoint)
+        protected FixationDetection fixationWorker;
+
+        public ZoomMagnifier(Form displayform, FixationDetection fixationWorker)//, Point fixationPoint)
         {
             ZOOM_MAX = Program.readSettings.maxZoom;          //Max zoom amount
             Magnification = DO_ZOOM ? 1 : Program.readSettings.maxZoom; //Set magnification to the max if not zooming
@@ -44,7 +46,9 @@ namespace GazeToolBar
             form.TopMost = true;
             updateTimer = new Timer();
 
-            FixationPoint = fixationPoint;
+            this.fixationWorker = fixationWorker;
+
+            FixationPoint = new System.Drawing.Point();//fixationPoint;
             InitLens();
 
             //Event handlers
@@ -126,7 +130,8 @@ namespace GazeToolBar
             {
                 return;
             }
-
+            PlaceZoomWindow(FixationPoint);
+            /*
             sourceRect = new RECT();
             Point zoomPosition = Utils.SubtractPoints(GetZoomPosition(), Offset);
             Rectangle screenBounds = Screen.FromControl(form).Bounds;
@@ -140,6 +145,45 @@ namespace GazeToolBar
             sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - width);
             sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - height);
 
+            NativeMethods.MagSetWindowSource(hwndMag, sourceRect);  //Sets the source of the zoom
+            NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
+            */
+        }
+
+        public void PlaceZoomWindow(Point fixationPoint)
+        {
+            sourceRect = new RECT();
+            Point zoomPosition = FixationPoint;// Utils.SubtractPoints(GetZoomPosition(), Offset);
+            Rectangle screenBounds = Screen.FromControl(form).Bounds;
+            form.Width = 800;
+            form.Height = 600;
+
+            UpdatePosition(fixationPoint);
+
+            int width = (int)(form.Width / Magnification);
+            int height = (int)(form.Height / Magnification);
+
+            //position of pointer when zooming
+            sourceRect.left = zoomPosition.X - (width / 2);
+            sourceRect.top = zoomPosition.Y - (height / 2);
+
+            int inLeft = sourceRect.left;
+            int inTop = sourceRect.top;
+
+            sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - width);
+            sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - height);
+
+            int fnLeft = sourceRect.left - inLeft;
+            int fnTop = sourceRect.top - inTop;
+
+            if (SecondaryOffset.X == 0 && SecondaryOffset.Y == 0)
+            {
+                //     MessageBox.Show(SecondaryOffset.X + " " + SecondaryOffset.Y + " " + inLeft + " " + fnLeft);
+
+                SecondaryOffset = new Point(fnLeft, fnTop);
+            }
+
+            //does flicker happen before or after this?
             NativeMethods.MagSetWindowSource(hwndMag, sourceRect);  //Sets the source of the zoom
             NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
         }
@@ -169,7 +213,7 @@ namespace GazeToolBar
         {
             Offset = new Point(0, 0);
             SecondaryOffset = new Point(0, 0);
-            Magnification = Program.readSettings.maxZoom;
+            Magnification = 1;// Program.readSettings.maxZoom;
             MaxZoom = magnification;
             Timer.Enabled = false;
         }
