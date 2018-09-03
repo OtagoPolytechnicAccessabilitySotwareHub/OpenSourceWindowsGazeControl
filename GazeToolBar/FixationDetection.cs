@@ -65,6 +65,7 @@ namespace GazeToolBar
         //Fixation data stream.
         CustomFixationDataStream customfixStream;
 
+        /*
         public FixationDetection() : this(new FormsEyeXHost())
         {
 
@@ -74,6 +75,7 @@ namespace GazeToolBar
         {
             pointSmootherBufferSize = bufferSize;
         }
+        */
 
         public FixationDetection(FormsEyeXHost EyeXHost)
         {

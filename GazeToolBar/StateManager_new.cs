@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EyeXFramework.Forms;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -34,7 +35,14 @@ namespace GazeToolBar
         //Monitor Gaze fixation data and raise systems flag when this occurs.
         private FixationDetection fixationWorker;
 
-        public StateManager_new()
+        //Controls the scrolling functionality
+        private ScrollControl scrollWorker;
+
+        //Controls the shortcut keys
+        private ShortcutKeyWorker shortcutKeyWorker;
+
+
+        public StateManager_new(FormsEyeXHost eyeXHost, ShortcutKeyWorker shortcutKeyWorker)
         {
             /*
              * Set up the timer.
@@ -49,7 +57,9 @@ namespace GazeToolBar
             //Setup the zoom form
             zoomForm = new ZoomLens();
             magnifier = CreateMagnifier();
-            fixationWorker = new FixationDetection();
+            fixationWorker = new FixationDetection(eyeXHost);
+            scrollWorker = new ScrollControl(eyeXHost);
+            this.shortcutKeyWorker = shortcutKeyWorker;
         }
 
 
@@ -131,10 +141,7 @@ namespace GazeToolBar
 
         public void DoActionWait()
         {
-            if (SystemFlags.hasSelectedButtonColourBeenReset == false)
-            {
-                SystemFlags.hasSelectedButtonColourBeenReset = true;
-            }
+            resetColorButton();
         }
 
         public void DoActionButtonSelected()
@@ -155,9 +162,18 @@ namespace GazeToolBar
         */
         public void DoActionZooming()
         {
-            magnifier.FixationPoint = fixationWorker.getXY();
+            if (SystemFlags.shortCutKeyPressed)//if a user defined click key is pressed
+            {
+                magnifier.FixationPoint = shortcutKeyWorker.GetXY();
+            }
+            else
+            {
+                magnifier.FixationPoint = fixationWorker.getXY();
+            }
+            
             magnifier.Timer.Enabled = true;
 
+            SystemFlags.shortCutKeyPressed = false;
             SystemFlags.hasGaze = false;
             SystemFlags.fixationRunning = false;
         }
@@ -177,26 +193,26 @@ namespace GazeToolBar
             //nofu
         }
 
+        /*
+             * Calls PerformAction to do the action the user has selected
+             * And resets the Zoomlens and ZoomMagnifier
+        */ 
         public void DoActionApply()
         {
 
-            //TODO
-            //Point fixationPoint = fixationWorker.getXY();
             Point lookPosition = magnifier.GetLookPosition();
-            //performAction(SystemFlags.actionToBePerformed, magnifier.GetLookPosition());
 
             zoomForm.ResetZoomLens();
             magnifier.ResetZoomValue();
             magnifier.Stop();
-            //VirtualMouse.LeftMouseClick(lookPosition.X, lookPosition.Y);
-            //MessageBox.Show(SystemFlags.actionToBePerformed.ToString());
+
             performAction(SystemFlags.actionToBePerformed, lookPosition);
-            //MessageBox.Show(String.Format("FixationWorker: x:{0}, y:{1} \n Magnifier: x:{2}, y:{3}",
-            //    fixationPoint.X, fixationPoint.Y, lookPosition.X, lookPosition.Y));
         }
 
-/*------^^-Do action methods end-^^------------------
- * -----vv-Update state methods--vv-------------------*/
+/*
+ *------^^-Do action methods end-^^------------------
+ *------vv-Update state methods--vv------------------
+ */
 
         /*
              *  Called from UpdateState() when the system state is in the Wait phase
@@ -251,6 +267,7 @@ namespace GazeToolBar
         */
         public void UpdateZoomWaitState()
         {
+            
             if (SystemFlags.hasGaze)   //if the second zoomGaze has happed an action needs to be performed
             {
                 SetState(SystemState.ApplyAction);
@@ -267,6 +284,9 @@ namespace GazeToolBar
         */
         public void UpdateApplyActionState()
         {
+            //resetColorButton();
+
+
             if (SystemFlags.scrolling)
             {
                 SetState(SystemState.ScrollWait);
@@ -310,6 +330,12 @@ namespace GazeToolBar
                 case ActionToBePerformed.DoubleClick:
                     VirtualMouse.LeftDoubleClick(fixationPoint.X, fixationPoint.Y);
                     break;
+                case ActionToBePerformed.Scroll:
+                    SystemFlags.currentState = SystemState.ScrollWait;
+                    SystemFlags.scrolling = true;
+                    VirtualMouse.SetCursorPos(fixationPoint.X, fixationPoint.Y);
+                    scrollWorker.StartScroll();
+                    break;
             }
         }
 
@@ -343,10 +369,18 @@ namespace GazeToolBar
             zoomForm.CrossHairPos = fixationPoint;
         }
 
-        /*
-            *Allows the settings to update the max zoom
-        */
-        public void SetMagnifierMaxZoom(int maxZoom)
+        private void resetColorButton()
+        {
+            if (SystemFlags.hasSelectedButtonColourBeenReset == false)
+            {
+                SystemFlags.hasSelectedButtonColourBeenReset = true;
+            }
+        }
+
+    /*
+        *Allows the settings to update the max zoom
+    */
+    public void SetMagnifierMaxZoom(int maxZoom)
         {
             magnifier.MaxZoom = maxZoom;
         }

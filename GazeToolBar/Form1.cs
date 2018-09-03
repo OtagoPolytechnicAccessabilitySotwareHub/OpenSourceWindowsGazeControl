@@ -186,7 +186,7 @@ namespace GazeToolBar
             LowLevelKeyBoardHook.HookKeyboard();
             Edge = AppBarEdges.Right;
 
-            stateManager = new StateManager_new();// this, shortCutKeyWorker, eyeXHost);
+            stateManager = new StateManager_new(eyeXHost, shortCutKeyWorker);// this, shortCutKeyWorker, eyeXHost);
 
             /* 
             stateManager.fixationWorker.FixationDetectionTimeLength = Program.readSettings.fixationTimeLength;

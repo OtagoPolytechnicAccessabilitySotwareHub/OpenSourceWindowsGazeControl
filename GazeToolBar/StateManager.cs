@@ -40,9 +40,9 @@ namespace GazeToolBar
 
             SystemFlags.currentState = SystemState.Wait;
 
-            fixationWorker = new FixationDetection(eyeXHost, 25);
+            fixationWorker = new FixationDetection(eyeXHost);//, 25);
 
-            scrollWorker = new ScrollControl(200, 5, 50, 20, eyeXHost);
+            scrollWorker = new ScrollControl(eyeXHost, 200, 5, 50, 20);
 
             SystemFlags.currentState = SystemState.Wait;
 
@@ -84,7 +84,7 @@ namespace GazeToolBar
             SystemFlags.currentState = SystemState.Wait;
             zoomer.Refresh();
 
-            fixationWorker = new FixationDetection();
+            //fixationWorker = new FixationDetection();
         }
 
 
@@ -301,7 +301,7 @@ namespace GazeToolBar
                             }
                         }
                     }
-                    fixationWorker = new FixationDetection();
+                    //fixationWorker = new FixationDetection();
                     break;
             }
         }
