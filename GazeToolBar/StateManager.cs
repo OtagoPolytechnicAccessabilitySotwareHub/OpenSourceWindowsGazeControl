@@ -125,6 +125,9 @@ namespace GazeToolBar
                     }
                     break;
                 case SystemState.Zooming:
+                    MessageBox.Show(fixationPoint.ToString());
+                    magnifier.sourceRect.left = fixationPoint.X;
+                    magnifier.sourceRect.top = fixationPoint.Y;
                     if (SystemFlags.actionToBePerformed == ActionToBePerformed.Scroll)
                     {
                         currentState = SystemState.ApplyAction;
@@ -221,12 +224,12 @@ namespace GazeToolBar
                     // magnifier.UpdatePosition(fixationPoint);
                     // Give the magnifier the point on screen to magnify
                     magnifier.FixationPoint = fixationPoint;
-                    Point p1 = Utils.DividePoint(magnifier.Offset, magnifier.MagnifierDivAmount());
+                    /*Point p1 = Utils.DividePoint(magnifier.Offset, magnifier.MagnifierDivAmount());
                     Point p2 = Utils.DividePoint(magnifier.SecondaryOffset, magnifier.MagnifierDivAmount());
 
                     Point o = Utils.SubtractPoints(p1, p2);
 
-                    zoomer.Offset = o;                    // This initiate's the timer for drawing of the user feedback image
+                    zoomer.Offset = o;   */               // This initiate's the timer for drawing of the user feedback image
                     zoomer.Start();
                     zoomer.Show();
                     zoomer.CrossHairPos = magnifier.GetLookPosition();

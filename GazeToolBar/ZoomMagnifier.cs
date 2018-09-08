@@ -19,12 +19,12 @@ namespace GazeToolBar
 
         public Point FixationPoint { get; set; }
         public Point Offset { get; set; }  //Offset is the amount of pixels moved when repositioning the form if it is offscreen. It's used to reposition the Fixation point.
-        public Point SecondaryOffset { get; set; }  //Used for the Centered zoom offset from the sides..
+        //public Point SecondaryOffset { get; set; }  //Used for the Centered zoom offset from the sides..
         protected Form form;
         protected Timer updateTimer;
         protected RECT magWindowRect = new RECT();
         protected IntPtr hwndMag;
-        protected RECT sourceRect;
+        public RECT sourceRect;
         FormsEyeXHost eyeXHost;
         GazePointDataStream gazeStream;
 
@@ -50,6 +50,7 @@ namespace GazeToolBar
 
             FixationPoint = new System.Drawing.Point();//fixationPoint;
             InitLens();
+            sourceRect = new RECT();
 
             //Event handlers
             form.Resize += new EventHandler(form_Resize);
@@ -59,7 +60,7 @@ namespace GazeToolBar
             updateTimer.Interval = UPDATE_SPEED;
             updateTimer.Enabled = false;
             Offset = new Point(0, 0);
-            SecondaryOffset = new Point(0, 0);
+            //SecondaryOffset = new Point(0, 0);
 
             eyeXHost = new FormsEyeXHost();
             eyeXHost.Start();
@@ -87,9 +88,11 @@ namespace GazeToolBar
 
                 // Create a magnifier control that fills the client area.
                 NativeMethods.GetClientRect(form.Handle, ref magWindowRect);
-                hwndMag = NativeMethods.CreateWindow((int)ExtendedWindowStyles.WS_EX_CLIENTEDGE, NativeMethods.WC_MAGNIFIER, "Zoom Lens",
+                hwndMag = NativeMethods.CreateWindow((int)ExtendedWindowStyles.WS_EX_CLIENTEDGE,
+                    NativeMethods.WC_MAGNIFIER, "Zoom Lens",
                     (int)WindowStyles.WS_CHILD | (int)WindowStyles.WS_VISIBLE,
-                    magWindowRect.left, magWindowRect.top, magWindowRect.right, magWindowRect.bottom, form.Handle, IntPtr.Zero, hInst, IntPtr.Zero);
+                    magWindowRect.left, magWindowRect.top, magWindowRect.right, magWindowRect.bottom,
+                    form.Handle, IntPtr.Zero, hInst, IntPtr.Zero);
 
                 // Set the magnification factor.
                 Transformation matrix = new Transformation(Magnification);
@@ -130,30 +133,13 @@ namespace GazeToolBar
             {
                 return;
             }
-            PlaceZoomWindow(FixationPoint);
-            /*
-            sourceRect = new RECT();
-            Point zoomPosition = Utils.SubtractPoints(GetZoomPosition(), Offset);
-            Rectangle screenBounds = Screen.FromControl(form).Bounds;
-            //Magnified width and height
-            int width = (int)(form.Width / Magnification);
-            int height = (int)(form.Height / Magnification);
-
-            //Zoom rectangle position
-            sourceRect.left = zoomPosition.X - (width / 2);
-            sourceRect.top = zoomPosition.Y - (height / 2);
-            sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - width);
-            sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - height);
-
-            NativeMethods.MagSetWindowSource(hwndMag, sourceRect);  //Sets the source of the zoom
-            NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
-            */
+            PlaceZoomWindow();// FixationPoint);
         }
 
-        public void PlaceZoomWindow(Point fixationPoint)
+        public void PlaceZoomWindow()
         {
-            sourceRect = new RECT();
-            Point zoomPosition = FixationPoint;// Utils.SubtractPoints(GetZoomPosition(), Offset);
+            Point fixationPoint = GetZoomPosition();
+            Point zoomPosition =  fixationPoint;// Utils.SubtractPoints(GetZoomPosition(), Offset);
             Rectangle screenBounds = Screen.FromControl(form).Bounds;
             form.Width = 800;
             form.Height = 600;
@@ -163,27 +149,35 @@ namespace GazeToolBar
             int width = (int)(form.Width / Magnification);
             int height = (int)(form.Height / Magnification);
 
-            //position of pointer when zooming
-            sourceRect.left = zoomPosition.X - (width / 2);
-            sourceRect.top = zoomPosition.Y - (height / 2);
+            //sourceRect.left = zoomPosition.X - (width / 2);
+            //sourceRect.top = zoomPosition.Y - (height / 2);
 
-            int inLeft = sourceRect.left;
-            int inTop = sourceRect.top;
+            /*
+            if(Magnification <= ZOOM_MAX)
+            {
+                sourceRect.left = fixationWorker.getXY().X - (width / 2);
+                sourceRect.top = fixationWorker.getXY().Y - (width / 2);
+            }
+            */
+
+            //int inLeft = sourceRect.left;
+            //int inTop = sourceRect.top;
 
             sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - width);
             sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - height);
 
-            int fnLeft = sourceRect.left - inLeft;
-            int fnTop = sourceRect.top - inTop;
+            //int fnLeft = sourceRect.left - inLeft;
+            //int fnTop = sourceRect.top - inTop;
 
+            /*
             if (SecondaryOffset.X == 0 && SecondaryOffset.Y == 0)
             {
                 //     MessageBox.Show(SecondaryOffset.X + " " + SecondaryOffset.Y + " " + inLeft + " " + fnLeft);
 
                 SecondaryOffset = new Point(fnLeft, fnTop);
             }
+            */
 
-            //does flicker happen before or after this?
             NativeMethods.MagSetWindowSource(hwndMag, sourceRect);  //Sets the source of the zoom
             NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
         }
@@ -212,7 +206,7 @@ namespace GazeToolBar
         public void ResetZoomValue()
         {
             Offset = new Point(0, 0);
-            SecondaryOffset = new Point(0, 0);
+            //SecondaryOffset = new Point(0, 0);
             Magnification = 1;// Program.readSettings.maxZoom;
             MaxZoom = magnification;
             Timer.Enabled = false;
@@ -235,7 +229,8 @@ namespace GazeToolBar
             {
                 NativeMethods.GetClientRect(form.Handle, ref magWindowRect);
                 // Resize the control to fill the window.
-                NativeMethods.SetWindowPos(hwndMag, IntPtr.Zero, magWindowRect.left, magWindowRect.top, magWindowRect.right, magWindowRect.bottom, 0);
+                NativeMethods.SetWindowPos(hwndMag, IntPtr.Zero, magWindowRect.left,
+                    magWindowRect.top, magWindowRect.right, magWindowRect.bottom, 0);
             }
         }
 

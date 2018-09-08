@@ -163,6 +163,9 @@ namespace GazeToolBar
         */
         public void DoActionZooming()
         {
+            //MessageBox.Show(fixationWorker.getXY().ToString());
+            magnifier.sourceRect.left = fixationWorker.getXY().X;
+            magnifier.sourceRect.top = fixationWorker.getXY().Y;
             if (SystemFlags.shortCutKeyPressed)//if a user defined click key is pressed
             {
                 magnifier.FixationPoint = shortcutKeyWorker.GetXY();
@@ -220,6 +223,7 @@ namespace GazeToolBar
         */
         public void UpdateWaitState()
         {
+
             if (SystemFlags.actionButtonSelected) //If a button has been selected in the toolbar
             {
                 SetState(SystemState.ActionButtonSelected);
