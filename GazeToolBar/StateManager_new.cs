@@ -71,7 +71,6 @@ namespace GazeToolBar
         {
             UpdateState();
             DoAction();
-            //MessageBox.Show(SystemFlags.currentState.ToString());
         }
 
         /*

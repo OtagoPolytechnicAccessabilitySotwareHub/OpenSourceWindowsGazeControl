@@ -14,7 +14,7 @@ namespace GazeToolBar
 
         //TODO: Move these to settings json
         public static bool DO_ZOOM = true;         //Zoom enabled
-        public static float ZOOM_SPEED = 0.01F;//005F;    //Amount zoom will increment
+        public static float ZOOM_SPEED = 0.005F;//005F;    //Amount zoom will increment
         public static float ZOOM_MAX = Program.readSettings.maxZoom;          //Max zoom amount
 
         public Point FixationPoint { get; set; }
@@ -27,7 +27,7 @@ namespace GazeToolBar
         public RECT sourceRect;
         FormsEyeXHost eyeXHost;
         GazePointDataStream gazeStream;
-
+        protected bool zooming;
         public Point CurrentLook { get; set; }
         public float MaxZoom { get; set; } //Max zoom amount
 
@@ -71,6 +71,7 @@ namespace GazeToolBar
             form.Top = -5000;
             form.Width = 1;
             form.Height = 1;
+            zooming = true;
 
         }
 
@@ -152,13 +153,13 @@ namespace GazeToolBar
             //sourceRect.left = zoomPosition.X - (width / 2);
             //sourceRect.top = zoomPosition.Y - (height / 2);
 
-            /*
-            if(Magnification <= ZOOM_MAX)
-            {
+
+            //if (Magnification < ZOOM_MAX + .1)
+            //{
                 sourceRect.left = fixationWorker.getXY().X - (width / 2);
                 sourceRect.top = fixationWorker.getXY().Y - (width / 2);
-            }
-            */
+            //}
+            
 
             //int inLeft = sourceRect.left;
             //int inTop = sourceRect.top;
