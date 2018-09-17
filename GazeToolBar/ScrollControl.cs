@@ -93,7 +93,7 @@ namespace GazeToolBar
 
             //pass in ScrollscalarValue, this will be set by the users saved settings.
             ScrollScalarValue = InitialScrollScalarValue;
-
+            
         }
 
         //This method is run when the scrollStepTime raises an elapsed event. The method checks if the latest gaze coordinate from the user is out side the

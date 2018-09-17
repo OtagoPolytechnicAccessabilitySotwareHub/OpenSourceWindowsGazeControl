@@ -48,6 +48,7 @@
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.pnlHighLightMic = new System.Windows.Forms.Panel();
             this.btnMic = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlHighLightKeyboard.SuspendLayout();
             this.pnlHighLightScrol.SuspendLayout();
             this.pnlHighLightSettings.SuspendLayout();
@@ -179,6 +180,7 @@
             // 
             // timer2
             // 
+            this.timer2.Enabled = true;
             this.timer2.Interval = 1;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
@@ -207,6 +209,11 @@
             this.btnMic.TabIndex = 4;
             this.btnMic.UseVisualStyleBackColor = false;
             this.btnMic.Click += new System.EventHandler(this.btnMic_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -264,6 +271,7 @@
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.Panel pnlHighLightMic;
         private System.Windows.Forms.Button btnMic;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

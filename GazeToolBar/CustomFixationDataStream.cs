@@ -38,33 +38,34 @@ namespace GazeToolBar
         //Fixation variance threshold
         double xFixationThreashold = .9;
         double yFixationThreashold = .3;
-        
+
         //Adjustments to fixation detection, where EyeX Y-Axis data stream becomes unstable when a user is gazing at the top edge of the screen.
         //these settings work well for 21 inch 1680x1050 res screen
         double yFixationCutOffThreasholdWhenGazeAtTopOfScreen = 100;
         double yFixationScreenBoundary;
         double screenBoudaryCutOffPercent = 15;
 
-        public bool ZoomerFixation {get; set;}
+        public bool ZoomerFixation { get; set; }
 
         //ring buffer arrays.
         double[] xBuffer;
         double[] yBuffer;
 
-
-
-        EFixationStreamEventType fixationState;
-
-        //Settings for local gazpoint server
+        //Gazepoint variables
         const int ServerPort = 4242;
         const string ServerAddr = "127.0.0.1";
 
-        //Gazepoint variables
         int startindex, endindex;
         TcpClient gp3_client;
         NetworkStream data_feed;
         StreamWriter data_write;
         String incoming_data = "";
+        double time_val = 0;
+        double fpogx = 0;
+        double fpogy = 0;
+        int fpog_valid;
+
+        EFixationStreamEventType fixationState;
 
         //Global variable containing the current gaze average location.
         GazePoint gPAverage;
@@ -92,10 +93,27 @@ namespace GazeToolBar
 
             fixationState = EFixationStreamEventType.Waiting;
             ZoomerFixation = false;
+        }
 
-            gp3_client = new TcpClient(ServerAddr, ServerPort);
 
-            //GazePoint Initialization
+        /// <summary>
+        /// Method get subscribed to eye tracker gaze event data stream, then runs methods that convert users current gaze into fixation events.
+        /// </summary>
+        /// <param name="o"></param>
+        /// <param name="currentGaze"></param>
+        private void updateGazeCoodinates(object o, GazePointEventArgs currentGaze)
+        {           
+            // Try to create client object, return if no server found
+            try
+            {
+                gp3_client = new TcpClient(ServerAddr, ServerPort);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Failed to connect with error: {0}", e);
+                return;
+            }
+
             // Load the read and write streams
             data_feed = gp3_client.GetStream();
             data_write = new StreamWriter(data_feed);
@@ -108,21 +126,53 @@ namespace GazeToolBar
 
             // Flush the buffer out the socket
             data_write.Flush();
-        }
 
+            do
+            {
+                int ch = data_feed.ReadByte();
+                if (ch != -1)
+                {
+                    incoming_data += (char)ch;
 
-        /// <summary>
-        /// Method get subscribed to eye tracker gaze event data stream, then runs methods that convert users current gaze into fixation events.
-        /// </summary>
-        /// <param name="o"></param>
-        /// <param name="currentGaze"></param>
-        private void updateGazeCoodinates(object o, GazePointEventArgs currentGaze)
-        {
-            addCoordinateToBuffer(currentGaze.X, currentGaze.Y);
+                    // find string terminator ("\r\n") 
+                    if (incoming_data.IndexOf("\r\n") != -1)
+                    {
+                        // only process DATA RECORDS, ie <REC .... />
+                        if (incoming_data.IndexOf("<REC") != -1)
+                        {
 
+                            // Process incoming_data string to extract FPOGX, FPOGY, etc...
+                            startindex = incoming_data.IndexOf("TIME=\"") + "TIME=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            time_val = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                            startindex = incoming_data.IndexOf("FPOGX=\"") + "FPOGX=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            fpogx = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                            startindex = incoming_data.IndexOf("FPOGY=\"") + "FPOGY=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            fpogy = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                            startindex = incoming_data.IndexOf("FPOGV=\"") + "FPOGV=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            fpog_valid = Int32.Parse(incoming_data.Substring(startindex, endindex - startindex));
+                        }
+
+                        incoming_data = "";
+                    }
+                }
+            } while (fpogx == 0);
+            double resX = fpogx * 1920;
+            double resY = fpogy * 1080;
+            double perX = fpogx * 100;
+            double perY = fpogy * 100;
+
+            addCoordinateToBuffer(resX, resY);
+            
             gPAverage = average();
 
-            generateFixationState(calculateVariance(), currentGaze.Timestamp);
+            generateFixationState(calculateVariance(), time_val);
         }
 
 
@@ -131,17 +181,17 @@ namespace GazeToolBar
         /// </summary>
         /// <param name="gazeVariation"></param>
         /// <param name="timestamp"></param>
-          private void generateFixationState(GazePoint gazeVariation, double timestamp)
+        private void generateFixationState(GazePoint gazeVariation, double timestamp)
         {
-           //Set pointer to next fixation data bucket.
-           CustomFixationEventArgs cpe = null;
+            //Set pointer to next fixation data bucket.
+            CustomFixationEventArgs cpe = null;
 
-           //check where users gaze is, if it is less than yFixationScreenBoundary set yAdjustedThreashold to yFixationCutOffThreasholdWhenGazeAtTopOfScreen
-           //To compensate for EyeX's poor accuracy when gazing near top edge of screen.
-           double yAdjustedThreashold = gPAverage.Y < yFixationScreenBoundary && !ZoomerFixation ? yFixationCutOffThreasholdWhenGazeAtTopOfScreen : yFixationThreashold;
-            
+            //check where users gaze is, if it is less than yFixationScreenBoundary set yAdjustedThreashold to yFixationCutOffThreasholdWhenGazeAtTopOfScreen
+            //To compensate for EyeX's poor accuracy when gazing near top edge of screen.
+            double yAdjustedThreashold = gPAverage.Y < yFixationScreenBoundary && !ZoomerFixation ? yFixationCutOffThreasholdWhenGazeAtTopOfScreen : yFixationThreashold;
 
-              //Check gaze data variation, current state and create appropriate event. Then set the CustomfixationDetectionStreams state.
+
+            //Check gaze data variation, current state and create appropriate event. Then set the CustomfixationDetectionStreams state.
             if (fixationState == EFixationStreamEventType.Waiting && gazeVariation.X < xFixationThreashold && gazeVariation.Y < yAdjustedThreashold)
             {
                 cpe = new CustomFixationEventArgs(EFixationStreamEventType.Start, timestamp, gPAverage.X, gPAverage.Y);
@@ -158,8 +208,8 @@ namespace GazeToolBar
             }
 
 
-              //raise the event.
-            if( cpe != null)
+            //raise the event.
+            if (cpe != null)
             {
                 onFixationStateChange(cpe);
             }
@@ -170,7 +220,7 @@ namespace GazeToolBar
         //Method that raises fixation event.
         private void onFixationStateChange(CustomFixationEventArgs newFixation)
         {
-            if(next != null)
+            if (next != null)
             {
                 next(this, newFixation);
             }
@@ -203,7 +253,7 @@ namespace GazeToolBar
             double xTotal = 0;
             double yTotal = 0;
 
-           
+
 
             for (int arrayIndex = 0; arrayIndex < bufferFullIndex; arrayIndex++)
             {
@@ -248,8 +298,6 @@ namespace GazeToolBar
         {
             double xTotal = 0;
             double yTotal = 0;
-            double fpogx = 0;
-            double fpogy = 0;
 
             GazePoint returnSmoothPoint = new GazePoint();
 
@@ -259,51 +307,8 @@ namespace GazeToolBar
                 yTotal += yBuffer[arrayIndex];
             }
 
-            //=====================================
-            int ch = data_feed.ReadByte();
-            if (ch != -1)
-            {
-                incoming_data += (char)ch;
-
-                // find string terminator ("\r\n") 
-                if (incoming_data.IndexOf("\r\n") != -1)
-                {
-                    // only process DATA RECORDS, ie <REC .... />
-                    if (incoming_data.IndexOf("<REC") != -1)
-                    {
-                        double time_val;                        
-                        int fpog_valid;
-
-                        // Process incoming_data string to extract FPOGX, FPOGY, etc...
-                        startindex = incoming_data.IndexOf("TIME=\"") + "TIME=\"".Length;
-                        endindex = incoming_data.IndexOf("\"", startindex);
-                        time_val = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
-
-                        startindex = incoming_data.IndexOf("FPOGX=\"") + "FPOGX=\"".Length;
-                        endindex = incoming_data.IndexOf("\"", startindex);
-                        fpogx = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
-
-                        startindex = incoming_data.IndexOf("FPOGY=\"") + "FPOGY=\"".Length;
-                        endindex = incoming_data.IndexOf("\"", startindex);
-                        fpogy = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
-
-                        startindex = incoming_data.IndexOf("FPOGV=\"") + "FPOGV=\"".Length;
-                        endindex = incoming_data.IndexOf("\"", startindex);
-                        fpog_valid = Int32.Parse(incoming_data.Substring(startindex, endindex - startindex));
-                    }
-
-                    incoming_data = "";
-                }
-            }
-            //=====================================
-
-            double resX = fpogx * 1920;
-            double resY = fpogy * 1080;
-            double perX = fpogx * 100;
-            double perY = fpogy * 100;
-
-            returnSmoothPoint.X = perX / bufferFullIndex;
-            returnSmoothPoint.Y = perY / bufferFullIndex;           
+            returnSmoothPoint.X = xTotal / bufferFullIndex;
+            returnSmoothPoint.Y = yTotal / bufferFullIndex;
 
             return returnSmoothPoint;
         }

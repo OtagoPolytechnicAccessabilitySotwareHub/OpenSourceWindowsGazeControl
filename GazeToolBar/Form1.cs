@@ -10,6 +10,7 @@ using EyeXFramework.Forms;
 using OptiKey;
 using OptiKey.UI.Windows;
 using GazeToolBar;
+using System.Net.Sockets;
 
 namespace GazeToolBar
 {
@@ -26,7 +27,8 @@ namespace GazeToolBar
         private MenuItem menuItemStartOnOff;
         private MenuItem settingsItem;
         public StateManager stateManager;
-        private static FormsEyeXHost eyeXHost; 
+        private static FormsEyeXHost eyeXHost;
+        Point fixationPoint;
 
         //Allocate memory location for KeyboardHook and worker.
         public KeyboardHook LowLevelKeyBoardHook;
@@ -38,6 +40,20 @@ namespace GazeToolBar
         public Dictionary<ActionToBePerformed, String> FKeyMapDictionary;
 
         List<Panel> highlightPannerList;
+
+        //Gazepoint variables
+        const int ServerPort = 4242;
+        const string ServerAddr = "127.0.0.1";
+
+        int startindex, endindex;
+        TcpClient gp3_client;
+        NetworkStream data_feed;
+        StreamWriter data_write;
+        String incoming_data = "";
+        double time_val = 0;
+        double fpogx = 0;
+        double fpogy = 0;
+        int fpog_valid;
 
         public Form1()
         {
@@ -71,6 +87,31 @@ namespace GazeToolBar
 
             String[] sidebarArrangement = Program.readSettings.sidebar;
             ArrangeSidebar(sidebarArrangement);
+
+            //============================================================
+            // Try to create client object, return if no server found
+            try
+            {
+                gp3_client = new TcpClient(ServerAddr, ServerPort);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Failed to connect with error: {0}", e);
+                return;
+            }
+
+            // Load the read and write streams
+            data_feed = gp3_client.GetStream();
+            data_write = new StreamWriter(data_feed);
+
+            // Setup the data records
+            data_write.Write("<SET ID=\"ENABLE_SEND_TIME\" STATE=\"1\" />\r\n");
+            data_write.Write("<SET ID=\"ENABLE_SEND_POG_FIX\" STATE=\"1\" />\r\n");
+            data_write.Write("<SET ID=\"ENABLE_SEND_CURSOR\" STATE=\"1\" />\r\n");
+            data_write.Write("<SET ID=\"ENABLE_SEND_DATA\" STATE=\"1\" />\r\n");
+
+            // Flush the buffer out the socket
+            data_write.Flush();
         }
 
         public void ArrangeSidebar(string[] sidebarArrangement)
@@ -198,7 +239,7 @@ namespace GazeToolBar
             shortCutKeyWorker.keyAssignments[ActionToBePerformed.Scroll] = Program.readSettings.scoll;
             shortCutKeyWorker.keyAssignments[ActionToBePerformed.MicInput] = Program.readSettings.micInput;
             timer2.Enabled = true;
-
+            fixationPoint = shortCutKeyWorker.GetXY();
             Height = (int)System.Windows.SystemParameters.PrimaryScreenHeight;
 
             String[] sidebarArrangement = Program.readSettings.sidebar;
@@ -328,7 +369,7 @@ namespace GazeToolBar
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            stateManager.Run();
+            stateManager.Run();           
         }
 
 
@@ -368,5 +409,51 @@ namespace GazeToolBar
             eyeXHost.Dispose();
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            do
+            {
+                int ch = data_feed.ReadByte();
+                if (ch != -1)
+                {
+                    incoming_data += (char)ch;
+
+                    // find string terminator ("\r\n") 
+                    if (incoming_data.IndexOf("\r\n") != -1)
+                    {
+                        // only process DATA RECORDS, ie <REC .... />
+                        if (incoming_data.IndexOf("<REC") != -1)
+                        {
+
+                            // Process incoming_data string to extract FPOGX, FPOGY, etc...
+                            startindex = incoming_data.IndexOf("TIME=\"") + "TIME=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            time_val = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                            startindex = incoming_data.IndexOf("FPOGX=\"") + "FPOGX=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            fpogx = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                            startindex = incoming_data.IndexOf("FPOGY=\"") + "FPOGY=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            fpogy = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                            startindex = incoming_data.IndexOf("FPOGV=\"") + "FPOGV=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            fpog_valid = Int32.Parse(incoming_data.Substring(startindex, endindex - startindex));
+                        }
+
+                        incoming_data = "";
+                    }
+                }
+            } while (fpogx == 0);
+            double resX = fpogx * 1920;
+            double resY = fpogy * 1080;
+            double perX = fpogx * 100;
+            double perY = fpogy * 100;
+            btnDoubleClick.Text = resX.ToString();
+            btnDoubleClick.ForeColor = Color.Red;
+            btnDoubleClick.TextAlign = ContentAlignment.BottomCenter;
+        }
     }
 }
