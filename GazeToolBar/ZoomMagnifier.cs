@@ -56,7 +56,7 @@ namespace GazeToolBar
             updateTimer = new Timer();
             //fixationWorker = new FixationDetection();
             //fixationSmoother = (FixationSmootherExponential)fixationWorker.CreateSmoother(SMOOTHER_BUFFER);//new FixationSmootherExponential(SMOOTHER_BUFFER);
-            //positionSmoother = new FixationSmootherExponential(SMOOTHER_BUFFER);
+            positionSmoother = new FixationSmootherExponential(SMOOTHER_BUFFER);
 
             this.fixationWorker = fixationWorker;
 
@@ -157,7 +157,7 @@ namespace GazeToolBar
 
         public void PlaceZoomWindow()
         {
-            Point fixationPoint = GetZoomPosition();
+            Point fixationPoint = getZoomPositionSmoothed();
             Point zoomPosition =  fixationPoint;// Utils.SubtractPoints(GetZoomPosition(), Offset);
 
             //sourceRect = new RECT();
@@ -232,21 +232,21 @@ namespace GazeToolBar
             //GazePoint smoothed = fixationSmoother.UpdateAndGetSmoothPoint(fixationInstance.X, fixationInstance.Y);
             //FixationPoint = new Point((int)smoothed.X, (int)smoothed.Y);
 
-            PlaceZoomWindow(FixationPoint);
+            PlaceZoomWindow();// FixationPoint);
             
         }
 
         public void Zoom()
         {
-            //if (DO_ZOOM)
-            //{
-            //    Magnification += ZOOM_SPEED;
-            //}
-
-            if(Magnification < 3)
+            if (DO_ZOOM)
             {
                 Magnification += ZOOM_SPEED;
             }
+
+            //if(Magnification < 3)
+            //{
+            //   Magnification += ZOOM_SPEED;
+            //}
         }
 
         //Gets the position that the zoom will be centered on
@@ -256,7 +256,7 @@ namespace GazeToolBar
             return Utils.AddPoints(FixationPoint, Offset);
         }
 
-        //attempt to smoothe the postion zoom is centered on
+        //attempt to smooth the postion zoom is centered on
         //not working yet
         public Point getZoomPositionSmoothed()
         {
@@ -354,12 +354,12 @@ namespace GazeToolBar
             Point adjustedPoint = Utils.SubtractPoints(actualLook, formPos);
             Point magAdjust = new Point((int)(adjustedPoint.X / ZOOM_MAX), (int)(adjustedPoint.Y / ZOOM_MAX));
 
-            //Point finalPoint = Utils.AddPoints(magAdjust, startPoint);
+            Point finalPoint = Utils.AddPoints(magAdjust, startPoint);
 
             //Point finalPoint = adjustedPoint;//Utils.SubtractPoints(Utils.AddPoints(startPoint, adjustedPoint), 1);
             //  MessageBox.Show(adjustedPoint.X + " " + adjustedPoint.Y + " " + finalPoint.X + " " + finalPoint.Y);
 
-            Point finalPoint = actualLook;
+            //Point finalPoint = actualLook;
 
             //MessageBox.Show(startPoint.ToString());
             //MessageBox.Show(finalPoint.ToString());
