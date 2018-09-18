@@ -267,12 +267,9 @@ namespace GazeToolBar
                     //special scrolling case
                     if(isScroll)
                     {
-<<<<<<< HEAD
+
                         stopScroll();
-=======
-                        SystemFlags.scrolling = false;
-                        //stateManager.scrollWorker.stopScroll();
->>>>>>> merging-dynamic-zoom
+
                     }
                     return true;
                 }

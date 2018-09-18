@@ -14,8 +14,11 @@ namespace GazeToolBar
 
         //TODO: Move these to settings json
         public static bool DO_ZOOM = true;         //Zoom enabled
+
         public static float ZOOM_SPEED = 0.005F;//005F;    //Amount zoom will increment
+
         public static float ZOOM_MAX = Program.readSettings.maxZoom;          //Max zoom amount
+        public static int SMOOTHER_BUFFER = 5;
 
         public Point FixationPoint { get; set; }
         public Point Offset { get; set; }  //Offset is the amount of pixels moved when repositioning the form if it is offscreen. It's used to reposition the Fixation point.
@@ -27,7 +30,13 @@ namespace GazeToolBar
         public RECT sourceRect;
         FormsEyeXHost eyeXHost;
         GazePointDataStream gazeStream;
+
         protected bool zooming;
+
+        //protected FixationDetection fixationWorker;
+        protected FixationSmootherExponential fixationSmoother;
+        protected FixationSmootherExponential positionSmoother;
+
         public Point CurrentLook { get; set; }
         public float MaxZoom { get; set; } //Max zoom amount
 
@@ -45,6 +54,9 @@ namespace GazeToolBar
             form = displayform;
             form.TopMost = true;
             updateTimer = new Timer();
+            //fixationWorker = new FixationDetection();
+            //fixationSmoother = (FixationSmootherExponential)fixationWorker.CreateSmoother(SMOOTHER_BUFFER);//new FixationSmootherExponential(SMOOTHER_BUFFER);
+            //positionSmoother = new FixationSmootherExponential(SMOOTHER_BUFFER);
 
             this.fixationWorker = fixationWorker;
 
@@ -126,8 +138,14 @@ namespace GazeToolBar
             //Offset = new Point(offsetX, offsetY);
             Utils.Print("Offset-", offsetX, offsetY);
         }
-
-        public virtual void UpdateMagnifier()
+        /*
+        public void UpdateFixationPoint()
+        {
+            Point fixationInstance = fixationWorker.getXY();
+            FixationPoint = new Point(fixationInstance.X, fixationInstance.Y);
+        }
+        */
+        public void PlaceZoomWindow(Point fixationPoint)
         {
             //If the magnifier is not setup correctly (will crash otherwise)
             if ((!hasInitialized) || (hwndMag == IntPtr.Zero) || !updateTimer.Enabled)
@@ -141,6 +159,9 @@ namespace GazeToolBar
         {
             Point fixationPoint = GetZoomPosition();
             Point zoomPosition =  fixationPoint;// Utils.SubtractPoints(GetZoomPosition(), Offset);
+
+            sourceRect = new RECT();
+
             Rectangle screenBounds = Screen.FromControl(form).Bounds;
             form.Width = 800;
             form.Height = 600;
@@ -149,9 +170,6 @@ namespace GazeToolBar
 
             int width = (int)(form.Width / Magnification);
             int height = (int)(form.Height / Magnification);
-
-            //sourceRect.left = zoomPosition.X - (width / 2);
-            //sourceRect.top = zoomPosition.Y - (height / 2);
 
 
             //if (Magnification < ZOOM_MAX + .1)
@@ -164,28 +182,68 @@ namespace GazeToolBar
             //int inLeft = sourceRect.left;
             //int inTop = sourceRect.top;
 
+            //Zoom rectangle position
+            sourceRect.left = zoomPosition.X - (width / 2);
+            sourceRect.top = zoomPosition.Y - (height / 2);
+
+            int inLeft = sourceRect.left;
+            int inTop = sourceRect.top;
+
             sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - width);
             sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - height);
+
 
             //int fnLeft = sourceRect.left - inLeft;
             //int fnTop = sourceRect.top - inTop;
 
             /*
+
+            int fnLeft = sourceRect.left - inLeft;
+            int fnTop = sourceRect.top - inTop;
+
+
             if (SecondaryOffset.X == 0 && SecondaryOffset.Y == 0)
             {
                 //     MessageBox.Show(SecondaryOffset.X + " " + SecondaryOffset.Y + " " + inLeft + " " + fnLeft);
 
                 SecondaryOffset = new Point(fnLeft, fnTop);
             }
+
             */
+
 
             NativeMethods.MagSetWindowSource(hwndMag, sourceRect);  //Sets the source of the zoom
             NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
         }
 
+        public virtual void UpdateMagnifier()
+        {
+            //If the magnifier is not setup correctly (will crash otherwise)
+            if ((!hasInitialized) || (hwndMag == IntPtr.Zero) || !updateTimer.Enabled)
+            {
+                return;
+            }
+
+            //this only happens once, so can't be smoothed...
+
+            //Update fixation point and smooth it out with fixation smoother. 
+            //fixationWorker.StartDetectingFixation();
+            //Point fixationInstance = fixationWorker.getXY();
+            //GazePoint smoothed = fixationSmoother.UpdateAndGetSmoothPoint(fixationInstance.X, fixationInstance.Y);
+            //FixationPoint = new Point((int)smoothed.X, (int)smoothed.Y);
+
+            PlaceZoomWindow(FixationPoint);
+            
+        }
+
         public void Zoom()
         {
-            if (DO_ZOOM)
+            //if (DO_ZOOM)
+            //{
+            //    Magnification += ZOOM_SPEED;
+            //}
+
+            if(Magnification < 3)
             {
                 Magnification += ZOOM_SPEED;
             }
@@ -194,9 +252,19 @@ namespace GazeToolBar
         //Gets the position that the zoom will be centered on
         public Point GetZoomPosition()
         {
+            //GazePoint smoothePosition = Smoother(Utils.AddPoints(FixationPoint, Offset));
             return Utils.AddPoints(FixationPoint, Offset);
         }
 
+        //attempt to smoothe the postion zoom is centered on
+        //not working yet
+        public Point getZoomPositionSmoothed()
+        {
+            Point position = Utils.AddPoints(FixationPoint, Offset);
+            GazePoint smoothePosition = positionSmoother.UpdateAndGetSmoothPoint(position.X, position.Y);
+            return new Point((int) smoothePosition.X, (int) smoothePosition.Y);
+        }
+        
         //TODO: move to utility class
         //Forces an int to be between two integers
         public int Clamp(int current, int min, int max)
@@ -207,9 +275,13 @@ namespace GazeToolBar
         public void ResetZoomValue()
         {
             Offset = new Point(0, 0);
+
             //SecondaryOffset = new Point(0, 0);
             Magnification = 1;// Program.readSettings.maxZoom;
             MaxZoom = magnification;
+
+            MaxZoom = Program.readSettings.maxZoom; //magnification;
+
             Timer.Enabled = false;
         }
 
@@ -217,6 +289,7 @@ namespace GazeToolBar
         {
             Zoom();
             UpdateMagnifier();
+            //UpdatePosition(FixationPoint);
         }
 
         private void form_FormClosing(object sender, FormClosingEventArgs e)
@@ -243,9 +316,9 @@ namespace GazeToolBar
                 if (magnification != value)
                 {
                     magnification = value;
-                    if (magnification > ZOOM_MAX)
+                    if (magnification > 3)//ZOOM_MAX)
                     {
-                        magnification = ZOOM_MAX;
+                        magnification = 3;//ZOOM_MAX;
                     }
                     // Set the magnification factor.
                     Transformation matrix = new Transformation(magnification);
@@ -274,16 +347,22 @@ namespace GazeToolBar
 
         public Point GetLookPosition()
         {
+
             Point startPoint = new Point(sourceRect.left, sourceRect.top);
             Point actualLook = CurrentLook;
             Point formPos = new Point(form.Left, form.Top);
             Point adjustedPoint = Utils.SubtractPoints(actualLook, formPos);
             Point magAdjust = new Point((int)(adjustedPoint.X / ZOOM_MAX), (int)(adjustedPoint.Y / ZOOM_MAX));
 
-            Point finalPoint = Utils.AddPoints(magAdjust, startPoint);
+            //Point finalPoint = Utils.AddPoints(magAdjust, startPoint);
 
-            //  Point finalPoint = adjustedPoint;//Utils.SubtractPoints(Utils.AddPoints(startPoint, adjustedPoint), 1);
+            //Point finalPoint = adjustedPoint;//Utils.SubtractPoints(Utils.AddPoints(startPoint, adjustedPoint), 1);
             //  MessageBox.Show(adjustedPoint.X + " " + adjustedPoint.Y + " " + finalPoint.X + " " + finalPoint.Y);
+
+            Point finalPoint = actualLook;
+
+            //MessageBox.Show(startPoint.ToString());
+            //MessageBox.Show(finalPoint.ToString());
 
             return finalPoint;
         }

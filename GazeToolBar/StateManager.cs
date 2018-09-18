@@ -220,11 +220,27 @@ namespace GazeToolBar
                     {
                         fixationPoint = fixationWorker.getXY();//get the location the user looked
                     }
+
+                    //TODO put zoom window in correct place before starting timer (I think...) - Done.
+
+                    //magnifier.UpdateFixationPoint();
+                    
+
+                    magnifier.FixationPoint = fixationPoint;
+
+                    magnifier.UpdateMagnifier();
+                    //magnifier.PlaceZoomWindow(fixationPoint);
+
                     magnifier.Timer.Enabled = true;
                     // magnifier.UpdatePosition(fixationPoint);
                     // Give the magnifier the point on screen to magnify
                     magnifier.FixationPoint = fixationPoint;
                     /*Point p1 = Utils.DividePoint(magnifier.Offset, magnifier.MagnifierDivAmount());
+
+
+                    //original position
+                    //magnifier.FixationPoint = fixationPoint;
+                    Point p1 = Utils.DividePoint(magnifier.Offset, magnifier.MagnifierDivAmount());
                     Point p2 = Utils.DividePoint(magnifier.SecondaryOffset, magnifier.MagnifierDivAmount());
 
                     Point o = Utils.SubtractPoints(p1, p2);
@@ -248,12 +264,19 @@ namespace GazeToolBar
                     //SetZoomerOffset();
                     break;
                 case SystemState.ApplyAction: //the fixation on the zoom lens has been detected
-                    fixationPoint = fixationWorker.getXY();
+
+                    //
+                    //This was settin fixationPoint twice for some reason?
+                    //
+                    //Wait, Whaaat? Setting the fixation point does nothing?
+                    //Why was it set twice? Where is it set?
+
+                    //fixationPoint = fixationWorker.getXY();
 
                     //SetZoomerOffset();
 
-                    fixationPoint.X += zoomer.Offset.X;
-                    fixationPoint.Y += zoomer.Offset.Y;
+                    //fixationPoint.X += zoomer.Offset.X;
+                    //fixationPoint.Y += zoomer.Offset.Y;
 
                     fixationPoint = magnifier.GetLookPosition();
                     zoomer.ResetZoomLens();//hide the lens
@@ -261,8 +284,10 @@ namespace GazeToolBar
                                            //Set the magnification factor back to initial value
                                            // This is done so that a "dynamic zoom in" feature can be
                                            // implemented in the future
-                    magnifier.ResetZoomValue();
                     magnifier.Stop();
+                    RefreshZoom();
+                    magnifier.ResetZoomValue();
+                    
 
 
                     //execute the appropriate action
@@ -283,6 +308,7 @@ namespace GazeToolBar
                         SystemFlags.currentState = SystemState.ScrollWait;
                         SystemFlags.scrolling = true;
                         VirtualMouse.SetCursorPos(fixationPoint.X, fixationPoint.Y);
+                        //VirtualMouse.Scroll(20,   //MiddleMouseButton(fixationPoint.X, fixationPoint.Y);
                         scrollWorker.StartScroll();
                     }
                     else if (SystemFlags.actionToBePerformed == ActionToBePerformed.MicInput)
@@ -304,14 +330,24 @@ namespace GazeToolBar
                             }
                         }
                     }
+
                     //fixationWorker = new FixationDetection();
+
+                    //
+                    //Not sure why a new fixation worker is recreated here
+                    //It does not seem to change anything...
+
+                    fixationWorker = new FixationDetection();
+
                     break;
             }
         }
 
         private ZoomMagnifier CreateMagnifier()
         {
+
             return new ZoomMagnifier(zoomer, fixationWorker);
+
         }
 
         public void RefreshZoom()
