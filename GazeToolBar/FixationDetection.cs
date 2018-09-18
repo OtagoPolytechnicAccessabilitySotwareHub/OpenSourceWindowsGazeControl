@@ -65,6 +65,7 @@ namespace GazeToolBar
         //Fixation data stream.
         CustomFixationDataStream customfixStream;
 
+        /*
         public FixationDetection() : this(new FormsEyeXHost())
         {
 
@@ -74,6 +75,7 @@ namespace GazeToolBar
         {
             pointSmootherBufferSize = bufferSize;
         }
+        */
 
         public FixationDetection(FormsEyeXHost EyeXHost)
         {
@@ -208,6 +210,16 @@ namespace GazeToolBar
             fixationState = EFixationState.WaitingForFixationRequest;
         }
 
+        public void UpdateTimeLength(int timeLength, int interval)
+        {
+            FixationTimeOutLength = timeLength;
+            fixationTimer.Interval = interval;
+        }
+        public void UpdateTimeOut(int timeOut, int interval)
+        {
+            FixationDetectionTimeLength = FixationTimeOutLength;
+            timeOutTimer.Interval = interval;
+        }
 
 
         /// <summary>

@@ -40,9 +40,9 @@ namespace GazeToolBar
 
             SystemFlags.currentState = SystemState.Wait;
 
-            fixationWorker = new FixationDetection(eyeXHost, 25);
+            fixationWorker = new FixationDetection(eyeXHost);//, 25);
 
-            scrollWorker = new ScrollControl(200, 5, 50, 20, eyeXHost);
+            scrollWorker = new ScrollControl(eyeXHost, 200, 5, 50, 20);
 
             SystemFlags.currentState = SystemState.Wait;
 
@@ -84,7 +84,7 @@ namespace GazeToolBar
             SystemFlags.currentState = SystemState.Wait;
             zoomer.Refresh();
 
-            fixationWorker = new FixationDetection();
+            //fixationWorker = new FixationDetection();
         }
 
 
@@ -125,6 +125,9 @@ namespace GazeToolBar
                     }
                     break;
                 case SystemState.Zooming:
+                    MessageBox.Show(fixationPoint.ToString());
+                    magnifier.sourceRect.left = fixationPoint.X;
+                    magnifier.sourceRect.top = fixationPoint.Y;
                     if (SystemFlags.actionToBePerformed == ActionToBePerformed.Scroll)
                     {
                         currentState = SystemState.ApplyAction;
@@ -221,12 +224,12 @@ namespace GazeToolBar
                     // magnifier.UpdatePosition(fixationPoint);
                     // Give the magnifier the point on screen to magnify
                     magnifier.FixationPoint = fixationPoint;
-                    Point p1 = Utils.DividePoint(magnifier.Offset, magnifier.MagnifierDivAmount());
+                    /*Point p1 = Utils.DividePoint(magnifier.Offset, magnifier.MagnifierDivAmount());
                     Point p2 = Utils.DividePoint(magnifier.SecondaryOffset, magnifier.MagnifierDivAmount());
 
                     Point o = Utils.SubtractPoints(p1, p2);
 
-                    zoomer.Offset = o;                    // This initiate's the timer for drawing of the user feedback image
+                    zoomer.Offset = o;   */               // This initiate's the timer for drawing of the user feedback image
                     zoomer.Start();
                     zoomer.Show();
                     zoomer.CrossHairPos = magnifier.GetLookPosition();
@@ -301,14 +304,14 @@ namespace GazeToolBar
                             }
                         }
                     }
-                    fixationWorker = new FixationDetection();
+                    //fixationWorker = new FixationDetection();
                     break;
             }
         }
 
         private ZoomMagnifier CreateMagnifier()
         {
-            return new ZoomMagnifierCentered(zoomer, fixationPoint);
+            return new ZoomMagnifier(zoomer, fixationWorker);
         }
 
         public void RefreshZoom()

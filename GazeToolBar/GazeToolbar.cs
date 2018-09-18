@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace GazeToolBar
         {
             actionHandler = new ActionHandler();
             keyboardHook = new KeyboardHook();
-            manager = new StateManager_new();
+            //manager = new StateManager_new();
 
             //TODO: move FKeyMapDictionary to  ShortcutKeyWorker class and see if eyeXHost is needed
             //shortcutKeyWorker = new ShortcutKeyWorker(keyboardHook, FKeyMapDictionary, eyeXHost);
@@ -52,3 +53,4 @@ namespace GazeToolBar
         }
     }
 }
+*/

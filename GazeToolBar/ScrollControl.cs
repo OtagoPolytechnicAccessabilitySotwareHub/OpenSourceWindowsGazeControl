@@ -63,13 +63,17 @@ namespace GazeToolBar
 
 
        //Constructor
-        public ScrollControl(int scrollStepTimerDuration, int InitialScrollScalarValue, int deadZoneHorizontalPercent, int deadZoneVerticalPercent, FormsEyeXHost EyeXHost)
+        public ScrollControl(FormsEyeXHost eyeXHost,
+            int scrollStepTimerDuration = 200,
+            int InitialScrollScalarValue = 5,
+            int deadZoneHorizontalPercent = 50,
+            int deadZoneVerticalPercent = 20)
         {
             //set scroll step timer duration.
             ScrollStepTimerDuration = scrollStepTimerDuration;
 
             //Connect to eyeX engine gaze stream. 
-            gazeStream = EyeXHost.CreateGazePointDataStream(GazePointDataMode.LightlyFiltered);
+            gazeStream = eyeXHost.CreateGazePointDataStream(GazePointDataMode.LightlyFiltered);
 
             //Create gate points event handler delegate
             EventHandler<GazePointEventArgs> gazeDel = new EventHandler<GazePointEventArgs>(updateGazeCoodinates);

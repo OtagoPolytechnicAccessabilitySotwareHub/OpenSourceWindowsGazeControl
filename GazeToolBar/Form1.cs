@@ -25,7 +25,7 @@ namespace GazeToolBar
         private MenuItem menuItemExit;
         private MenuItem menuItemStartOnOff;
         private MenuItem settingsItem;
-        public StateManager stateManager;
+        public StateManager_new stateManager;
         private static FormsEyeXHost eyeXHost; 
 
         //Allocate memory location for KeyboardHook and worker.
@@ -186,12 +186,29 @@ namespace GazeToolBar
             LowLevelKeyBoardHook.HookKeyboard();
             Edge = AppBarEdges.Right;
 
-            stateManager = new StateManager(this, shortCutKeyWorker, eyeXHost);
+            stateManager = new StateManager_new(eyeXHost, shortCutKeyWorker);// this, shortCutKeyWorker, eyeXHost);
+
+            /* 
             stateManager.fixationWorker.FixationDetectionTimeLength = Program.readSettings.fixationTimeLength;
             stateManager.fixationWorker.FixationTimeOutLength = Program.readSettings.fixationTimeOut;
             stateManager.fixationWorker.fixationTimer.Interval = Program.readSettings.fixationTimeLength;
             stateManager.fixationWorker.timeOutTimer.Interval = Program.readSettings.fixationTimeOut;
-            stateManager.magnifier.MaxZoom = Program.readSettings.maxZoom;
+
+                  
+            stateManager.SetFixationDetectionSettings(
+                Program.readSettings.fixationTimeLength,
+                Program.readSettings.fixationTimeOut,
+                Program.readSettings.fixationTimeLength,
+                Program.readSettings.fixationTimeOut
+                );
+            */
+
+            //stateManager.SetFixationDetectionTimeOut();
+
+            trackBarFixTimeLength(Program.readSettings.fixationTimeLength, Program.readSettings.fixationTimeOut);
+            trackBarFixTimeOut(Program.readSettings.fixationTimeLength, Program.readSettings.fixationTimeOut);
+
+            stateManager.SetMagnifierMaxZoom(Program.readSettings.maxZoom);
             shortCutKeyWorker.keyAssignments[ActionToBePerformed.LeftClick] = Program.readSettings.leftClick;
             shortCutKeyWorker.keyAssignments[ActionToBePerformed.DoubleClick] = Program.readSettings.doubleClick;
             shortCutKeyWorker.keyAssignments[ActionToBePerformed.RightClick] = Program.readSettings.rightClick;
@@ -203,6 +220,15 @@ namespace GazeToolBar
 
             String[] sidebarArrangement = Program.readSettings.sidebar;
             ArrangeSidebar(sidebarArrangement);
+        }
+
+        public void trackBarFixTimeOut(int FixationTimeOutLength, int timeOutTimerInterval)
+        {
+            stateManager.trackBarFixTimeOut(FixationTimeOutLength, timeOutTimerInterval);
+        }
+        public void trackBarFixTimeLength(int fixationDetectionTimeLength, int fixationTimerInterval)
+        {
+            stateManager.trackBarFixTimeLength(fixationDetectionTimeLength, fixationTimerInterval);
         }
 
         private bool checkOpenForm(Type formToCheck)
@@ -241,7 +267,12 @@ namespace GazeToolBar
                     //special scrolling case
                     if(isScroll)
                     {
+<<<<<<< HEAD
                         stopScroll();
+=======
+                        SystemFlags.scrolling = false;
+                        //stateManager.scrollWorker.stopScroll();
+>>>>>>> merging-dynamic-zoom
                     }
                     return true;
                 }
@@ -335,7 +366,7 @@ namespace GazeToolBar
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            stateManager.Run();
+            stateManager.RunCycle(sender, e);
         }
 
 
