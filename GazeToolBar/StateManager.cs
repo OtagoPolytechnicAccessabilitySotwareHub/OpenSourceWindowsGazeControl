@@ -337,7 +337,7 @@ namespace GazeToolBar
                     //Not sure why a new fixation worker is recreated here
                     //It does not seem to change anything...
 
-                    fixationWorker = new FixationDetection();
+                    //fixationWorker = new FixationDetection();
 
                     break;
             }

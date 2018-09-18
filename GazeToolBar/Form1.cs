@@ -281,7 +281,7 @@ namespace GazeToolBar
         private void stopScroll()
         {
             SystemFlags.scrolling = false;
-            stateManager.scrollWorker.stopScroll();
+            //stateManager.scrollWorker.stopScroll();
         }
 
         private void btnRightClick_Click(object sender, EventArgs e)
