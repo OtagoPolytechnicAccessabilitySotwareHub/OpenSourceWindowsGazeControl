@@ -160,7 +160,7 @@ namespace GazeToolBar
             Point fixationPoint = GetZoomPosition();
             Point zoomPosition =  fixationPoint;// Utils.SubtractPoints(GetZoomPosition(), Offset);
 
-            sourceRect = new RECT();
+            //sourceRect = new RECT();
 
             Rectangle screenBounds = Screen.FromControl(form).Bounds;
             form.Width = 800;
@@ -183,11 +183,11 @@ namespace GazeToolBar
             //int inTop = sourceRect.top;
 
             //Zoom rectangle position
-            sourceRect.left = zoomPosition.X - (width / 2);
-            sourceRect.top = zoomPosition.Y - (height / 2);
+            //sourceRect.left = zoomPosition.X - (width / 2);
+            //sourceRect.top = zoomPosition.Y - (height / 2);
 
-            int inLeft = sourceRect.left;
-            int inTop = sourceRect.top;
+            //int inLeft = sourceRect.left;
+            //int inTop = sourceRect.top;
 
             sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - width);
             sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - height);
