@@ -129,7 +129,7 @@ namespace EyeXFramework
                 if (behavior.TryGetFixationDataEventParams(out parameters) &&
                     parameters.FixationDataMode == Mode)
                 {
-                    yield return new FixationEventArgs(parameters.EventType, parameters.X, parameters.Y, parameters.Timestamp);
+                    yield return new FixationEventArgs(parameters.EventType, resX, resY, time_val);
                 }
             }
         }
