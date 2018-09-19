@@ -93,16 +93,7 @@ namespace GazeToolBar
 
             fixationState = EFixationStreamEventType.Waiting;
             ZoomerFixation = false;
-        }
 
-
-        /// <summary>
-        /// Method get subscribed to eye tracker gaze event data stream, then runs methods that convert users current gaze into fixation events.
-        /// </summary>
-        /// <param name="o"></param>
-        /// <param name="currentGaze"></param>
-        private void updateGazeCoodinates(object o, GazePointEventArgs currentGaze)
-        {           
             // Try to create client object, return if no server found
             try
             {
@@ -114,6 +105,7 @@ namespace GazeToolBar
                 return;
             }
 
+            //Gazepoint Initialization Start==============================
             // Load the read and write streams
             data_feed = gp3_client.GetStream();
             data_write = new StreamWriter(data_feed);
@@ -126,7 +118,18 @@ namespace GazeToolBar
 
             // Flush the buffer out the socket
             data_write.Flush();
+            //Gazepoint Initialization End================================
+        }
 
+
+        /// <summary>
+        /// Method get subscribed to eye tracker gaze event data stream, then runs methods that convert users current gaze into fixation events.
+        /// </summary>
+        /// <param name="o"></param>
+        /// <param name="currentGaze"></param>
+        private void updateGazeCoodinates(object o, GazePointEventArgs currentGaze)
+        {                      
+            fpogx = 0;
             do
             {
                 int ch = data_feed.ReadByte();

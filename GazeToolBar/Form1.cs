@@ -411,6 +411,7 @@ namespace GazeToolBar
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            fpogx = 0;
             do
             {
                 int ch = data_feed.ReadByte();
