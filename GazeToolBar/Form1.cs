@@ -31,6 +31,8 @@ namespace GazeToolBar
         //Allocate memory location for KeyboardHook and worker.
         public KeyboardHook LowLevelKeyBoardHook;
         public ShortcutKeyWorker shortCutKeyWorker;
+        private ScrollControl scrollWorker;
+        private FixationDetection fixationWorker;
 
         OptiKey.GazeKeyboard keyboardInitializer;
         MainWindow keyboard;
@@ -181,12 +183,14 @@ namespace GazeToolBar
             LowLevelKeyBoardHook = new KeyboardHook();
 
             shortCutKeyWorker = new ShortcutKeyWorker(LowLevelKeyBoardHook, FKeyMapDictionary, eyeXHost);
+            scrollWorker = new ScrollControl(eyeXHost);
+            fixationWorker = new FixationDetection(eyeXHost);
 
             //Start monitoring key presses.
             LowLevelKeyBoardHook.HookKeyboard();
             Edge = AppBarEdges.Right;
 
-            stateManager = new StateManager_new(eyeXHost, shortCutKeyWorker);// this, shortCutKeyWorker, eyeXHost);
+            stateManager = new StateManager_new(shortCutKeyWorker, scrollWorker, fixationWorker);// this, shortCutKeyWorker, eyeXHost);
 
             /* 
             stateManager.fixationWorker.FixationDetectionTimeLength = Program.readSettings.fixationTimeLength;

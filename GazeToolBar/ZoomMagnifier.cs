@@ -172,10 +172,12 @@ namespace GazeToolBar
             int height = (int)(form.Height / Magnification);
 
 
+            int x = fixationWorker.getXY().X - (width / 2);
+            int y = fixationWorker.getXY().Y - (width / 2);
             //if (Magnification < ZOOM_MAX + .1)
             //{
-                sourceRect.left = fixationWorker.getXY().X - (width / 2);
-                sourceRect.top = fixationWorker.getXY().Y - (width / 2);
+            sourceRect.left = x;
+            sourceRect.top = y;
             //}
             
 

@@ -42,7 +42,8 @@ namespace GazeToolBar
         private ShortcutKeyWorker shortcutKeyWorker;
 
 
-        public StateManager_new(FormsEyeXHost eyeXHost, ShortcutKeyWorker shortcutKeyWorker)
+        public StateManager_new(ShortcutKeyWorker shortcutKeyWorker, ScrollControl scrollWorker,
+            FixationDetection fixationWorker)
         {
             /*
              * Set up the timer.
@@ -57,10 +58,11 @@ namespace GazeToolBar
             //Setup the zoom form
             zoomForm = new ZoomLens();
             
-            fixationWorker = new FixationDetection(eyeXHost);
-            magnifier = CreateMagnifier();
-            scrollWorker = new ScrollControl(eyeXHost);
+
+            this.scrollWorker = scrollWorker;
+            this.fixationWorker = fixationWorker;
             this.shortcutKeyWorker = shortcutKeyWorker;
+            magnifier = CreateMagnifier();
         }
 
 
@@ -136,7 +138,7 @@ namespace GazeToolBar
                     break;
             }
         }
-
+        
 /*---------Do action methods-----------*/
 
         public void DoActionWait()
