@@ -157,8 +157,8 @@ namespace GazeToolBar
 
         public void PlaceZoomWindow()
         {
-            Point fixationPoint = getZoomPositionSmoothed();
-            Point zoomPosition =  fixationPoint;// Utils.SubtractPoints(GetZoomPosition(), Offset);
+            Point fixationPoint = GetZoomPosition(FixationPoint);
+            //Point zoomPosition =  fixationPoint;// Utils.SubtractPoints(GetZoomPosition(), Offset);
 
             //sourceRect = new RECT();
 
@@ -174,15 +174,12 @@ namespace GazeToolBar
 
             int x = fixationWorker.getXY().X - (width / 2);
             int y = fixationWorker.getXY().Y - (width / 2);
-            //if (Magnification < ZOOM_MAX + .1)
-            //{
+
             sourceRect.left = x;
             sourceRect.top = y;
-            //}
-            
 
-            //int inLeft = sourceRect.left;
-            //int inTop = sourceRect.top;
+
+
 
             //Zoom rectangle position
             //sourceRect.left = zoomPosition.X - (width / 2);
@@ -252,10 +249,10 @@ namespace GazeToolBar
         }
 
         //Gets the position that the zoom will be centered on
-        public Point GetZoomPosition()
+        public Point GetZoomPosition(Point fixationPoint)
         {
             //GazePoint smoothePosition = Smoother(Utils.AddPoints(FixationPoint, Offset));
-            return Utils.AddPoints(FixationPoint, Offset);
+            return Utils.AddPoints(fixationPoint, Offset);
         }
 
         //attempt to smooth the postion zoom is centered on
@@ -263,10 +260,17 @@ namespace GazeToolBar
         public Point getZoomPositionSmoothed()
         {
             Point position = Utils.AddPoints(FixationPoint, Offset);
-            GazePoint smoothePosition = positionSmoother.UpdateAndGetSmoothPoint(position.X, position.Y);
-            return new Point((int) smoothePosition.X, (int) smoothePosition.Y);
+            GazePoint smoothPosition = positionSmoother.UpdateAndGetSmoothPoint(position.X, position.Y);
+            return new Point((int) smoothPosition.X, (int) smoothPosition.Y);
         }
-        
+
+        public Point GetPointSmoothed(Point fixPoint)
+        {
+            Point position = Utils.AddPoints(fixPoint, Offset);
+            GazePoint smoothPosition = positionSmoother.UpdateAndGetSmoothPoint(position.X, position.Y);
+            return new Point((int)smoothPosition.X, (int)smoothPosition.Y);
+        }
+
         //TODO: move to utility class
         //Forces an int to be between two integers
         public int Clamp(int current, int min, int max)
@@ -354,7 +358,7 @@ namespace GazeToolBar
             Point actualLook = CurrentLook;
             Point formPos = new Point(form.Left, form.Top);
             Point adjustedPoint = Utils.SubtractPoints(actualLook, formPos);
-            Point magAdjust = new Point((int)(adjustedPoint.X / ZOOM_MAX), (int)(adjustedPoint.Y / ZOOM_MAX));
+            Point magAdjust = new Point((int)(adjustedPoint.X / Magnification), (int)(adjustedPoint.Y / Magnification));
 
             Point finalPoint = Utils.AddPoints(magAdjust, startPoint);
 
@@ -366,6 +370,7 @@ namespace GazeToolBar
             //MessageBox.Show(startPoint.ToString());
             //MessageBox.Show(finalPoint.ToString());
 
+            //return adjustedPoint;
             return finalPoint;
         }
     }
