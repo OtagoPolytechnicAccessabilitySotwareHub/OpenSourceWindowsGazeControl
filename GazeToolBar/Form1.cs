@@ -261,10 +261,13 @@ namespace GazeToolBar
         {
             bool isScroll = (SystemFlags.currentState == SystemState.ApplyAction || SystemFlags.currentState == SystemState.ScrollWait) && (action == ActionToBePerformed.Scroll);
 
-            if(SystemFlags.currentState == SystemState.ActionButtonSelected || SystemFlags.currentState == SystemState.ZoomWait || isScroll)
+            if(SystemFlags.currentState == SystemState.ActionButtonSelected ||
+                SystemFlags.currentState == SystemState.ZoomWait || 
+                isScroll)
+                //SystemFlags.currentState == SystemState.Zooming)
             {
-                if (SystemFlags.actionToBePerformed == action)
-                {
+                //if (SystemFlags.actionToBePerformed == action)
+                //{
                     resetButtonsColor();
                     stateManager.EnterWaitState();
 
@@ -276,7 +279,7 @@ namespace GazeToolBar
 
                     }
                     return true;
-                }
+                //}
             }
             return false;
         }
