@@ -9,6 +9,8 @@ using Tobii.EyeX.Client;
 using System.Windows.Input;
 using System.Drawing;
 using EyeXFramework.Forms;
+using System.Net.Sockets;
+using System.IO;
 
 namespace GazeToolBar
 {/*
@@ -20,7 +22,22 @@ namespace GazeToolBar
 
     public class ShortcutKeyWorker
     {
-        
+        //Gazepoint variables
+        const int ServerPort = 4242;
+        const string ServerAddr = "127.0.0.1";
+
+        int startindex, endindex;
+        TcpClient gp3_client;
+        NetworkStream data_feed;
+        StreamWriter data_write;
+        String incoming_data = "";
+        double time_val = 0;
+        double fpogx = 0;
+        double fpogy = 0;
+        double resX = 0;
+        double resY = 0;
+        int fpog_valid;
+
         //Fields
         GazePointDataStream gazeStream;
         EventHandler<GazePointEventArgs> gazeDel;
@@ -44,6 +61,33 @@ namespace GazeToolBar
             gazeDel = new EventHandler<GazePointEventArgs>(updateGazeCoodinates);
             //register delegate with gaze data stream next event.
             gazeStream.Next += gazeDel;
+
+            //Gazepoint Initialization Start==============================
+
+            // Try to create client object, return if no server found
+            try
+            {
+                gp3_client = new TcpClient(ServerAddr, ServerPort);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Failed to connect with error: {0}", e);
+                return;
+            }
+
+            // Load the read and write streams
+            data_feed = gp3_client.GetStream();
+            data_write = new StreamWriter(data_feed);
+
+            // Setup the data records
+            data_write.Write("<SET ID=\"ENABLE_SEND_TIME\" STATE=\"1\" />\r\n");
+            data_write.Write("<SET ID=\"ENABLE_SEND_POG_FIX\" STATE=\"1\" />\r\n");
+            data_write.Write("<SET ID=\"ENABLE_SEND_CURSOR\" STATE=\"1\" />\r\n");
+            data_write.Write("<SET ID=\"ENABLE_SEND_DATA\" STATE=\"1\" />\r\n");
+
+            // Flush the buffer out the socket
+            data_write.Flush();
+            //Gazepoint Initialization End================================
 
         }
 
@@ -91,10 +135,54 @@ namespace GazeToolBar
 
 
         private void updateGazeCoodinates(object o, GazePointEventArgs currentGaze)
-        {
+        {           
             //Save the users current gaze location.
-            currentGazeLocationX = currentGaze.X;
-            currentGazeLocationY = currentGaze.Y;
+            currentGazeLocationX = resX;
+            currentGazeLocationY = resY;
+        }
+
+        private void tester()
+        {
+            do
+            {
+                fpogx = 0;
+                int ch = data_feed.ReadByte();
+                if (ch != -1)
+                {
+                    incoming_data += (char)ch;
+
+                    // find string terminator ("\r\n") 
+                    if (incoming_data.IndexOf("\r\n") != -1)
+                    {
+                        // only process DATA RECORDS, ie <REC .... />
+                        if (incoming_data.IndexOf("<REC") != -1)
+                        {
+
+                            // Process incoming_data string to extract FPOGX, FPOGY, etc...
+                            startindex = incoming_data.IndexOf("TIME=\"") + "TIME=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            time_val = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                            startindex = incoming_data.IndexOf("FPOGX=\"") + "FPOGX=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            fpogx = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                            startindex = incoming_data.IndexOf("FPOGY=\"") + "FPOGY=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            fpogy = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                            startindex = incoming_data.IndexOf("FPOGV=\"") + "FPOGV=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            fpog_valid = Int32.Parse(incoming_data.Substring(startindex, endindex - startindex));
+                        }
+                        incoming_data = "";
+                    }
+                }
+                resX = fpogx * 1920;
+                resY = fpogy * 1080;
+                double perX = fpogx * 100;
+                double perY = fpogy * 100;
+            } while (0 == 0);
 
         }
 
@@ -104,5 +192,6 @@ namespace GazeToolBar
             return new Point((int)currentGazeLocationX, (int)currentGazeLocationY);
            
         }
+
     }
 }

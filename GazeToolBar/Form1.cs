@@ -11,6 +11,7 @@ using OptiKey;
 using OptiKey.UI.Windows;
 using GazeToolBar;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace GazeToolBar
 {
@@ -54,10 +55,10 @@ namespace GazeToolBar
         double fpogx = 0;
         double fpogy = 0;
         int fpog_valid;
+        double resX;
 
         public Form1()
-        {
-            
+        {            
             InitializeComponent();
             contextMenu = new ContextMenu();
             menuItemExit = new MenuItem();
@@ -112,6 +113,10 @@ namespace GazeToolBar
 
             // Flush the buffer out the socket
             data_write.Flush();
+
+            ThreadStart test = new ThreadStart(tester);
+            Thread testThread = new Thread(test);
+            testThread.Start();
         }
 
         public void ArrangeSidebar(string[] sidebarArrangement)
@@ -411,9 +416,16 @@ namespace GazeToolBar
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            fpogx = 0;
+            btnDoubleClick.Text = resX.ToString();
+            btnDoubleClick.ForeColor = Color.Red;
+            btnDoubleClick.TextAlign = ContentAlignment.BottomCenter;
+        }
+
+        private void tester()
+        {         
             do
             {
+                fpogx = 0;
                 int ch = data_feed.ReadByte();
                 if (ch != -1)
                 {
@@ -443,18 +455,15 @@ namespace GazeToolBar
                             endindex = incoming_data.IndexOf("\"", startindex);
                             fpog_valid = Int32.Parse(incoming_data.Substring(startindex, endindex - startindex));
                         }
-
                         incoming_data = "";
                     }
                 }
-            } while (fpogx == 0);
-            double resX = fpogx * 1920;
-            double resY = fpogy * 1080;
-            double perX = fpogx * 100;
-            double perY = fpogy * 100;
-            btnDoubleClick.Text = resX.ToString();
-            btnDoubleClick.ForeColor = Color.Red;
-            btnDoubleClick.TextAlign = ContentAlignment.BottomCenter;
+                resX = fpogx * 1920;
+                double resY = fpogy * 1080;
+                double perX = fpogx * 100;
+                double perY = fpogy * 100;
+            } while (0 == 0);
+                    
         }
     }
 }

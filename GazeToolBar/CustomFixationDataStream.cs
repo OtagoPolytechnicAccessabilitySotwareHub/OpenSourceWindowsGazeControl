@@ -63,6 +63,8 @@ namespace GazeToolBar
         double time_val = 0;
         double fpogx = 0;
         double fpogy = 0;
+        double resX = 0;
+        double resY = 0;
         int fpog_valid;
 
         EFixationStreamEventType fixationState;
@@ -119,6 +121,10 @@ namespace GazeToolBar
             // Flush the buffer out the socket
             data_write.Flush();
             //Gazepoint Initialization End================================
+
+            ThreadStart test = new ThreadStart(tester);
+            Thread testThread = new Thread(test);
+            testThread.Start();
         }
 
 
@@ -129,48 +135,6 @@ namespace GazeToolBar
         /// <param name="currentGaze"></param>
         private void updateGazeCoodinates(object o, GazePointEventArgs currentGaze)
         {                      
-            fpogx = 0;
-            do
-            {
-                int ch = data_feed.ReadByte();
-                if (ch != -1)
-                {
-                    incoming_data += (char)ch;
-
-                    // find string terminator ("\r\n") 
-                    if (incoming_data.IndexOf("\r\n") != -1)
-                    {
-                        // only process DATA RECORDS, ie <REC .... />
-                        if (incoming_data.IndexOf("<REC") != -1)
-                        {
-
-                            // Process incoming_data string to extract FPOGX, FPOGY, etc...
-                            startindex = incoming_data.IndexOf("TIME=\"") + "TIME=\"".Length;
-                            endindex = incoming_data.IndexOf("\"", startindex);
-                            time_val = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
-
-                            startindex = incoming_data.IndexOf("FPOGX=\"") + "FPOGX=\"".Length;
-                            endindex = incoming_data.IndexOf("\"", startindex);
-                            fpogx = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
-
-                            startindex = incoming_data.IndexOf("FPOGY=\"") + "FPOGY=\"".Length;
-                            endindex = incoming_data.IndexOf("\"", startindex);
-                            fpogy = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
-
-                            startindex = incoming_data.IndexOf("FPOGV=\"") + "FPOGV=\"".Length;
-                            endindex = incoming_data.IndexOf("\"", startindex);
-                            fpog_valid = Int32.Parse(incoming_data.Substring(startindex, endindex - startindex));
-                        }
-
-                        incoming_data = "";
-                    }
-                }
-            } while (fpogx == 0);
-            double resX = fpogx * 1920;
-            double resY = fpogy * 1080;
-            double perX = fpogx * 100;
-            double perY = fpogy * 100;
-
             addCoordinateToBuffer(resX, resY);
             
             gPAverage = average();
@@ -234,7 +198,6 @@ namespace GazeToolBar
         //add coordinates to ring buffer, check and reset array index when at end of array, increment bufferfullindex to indicate when buffer has been full for the first time, then overwrite previous data.
         private void addCoordinateToBuffer(double x, double y)
         {
-
             if (bufferCurrentIndex == bufferSize)
             {
                 bufferCurrentIndex = 0;
@@ -245,8 +208,8 @@ namespace GazeToolBar
                 bufferFullIndex++;
             }
 
-            xBuffer[bufferCurrentIndex] = x;
-            yBuffer[bufferCurrentIndex] = y;
+            xBuffer[bufferCurrentIndex] = resX;
+            yBuffer[bufferCurrentIndex] = resY;
 
             bufferCurrentIndex++;
         }
@@ -314,6 +277,51 @@ namespace GazeToolBar
             returnSmoothPoint.Y = yTotal / bufferFullIndex;
 
             return returnSmoothPoint;
+        }
+
+        private void tester()
+        {
+            do
+            {
+                fpogx = 0;
+                int ch = data_feed.ReadByte();
+                if (ch != -1)
+                {
+                    incoming_data += (char)ch;
+
+                    // find string terminator ("\r\n") 
+                    if (incoming_data.IndexOf("\r\n") != -1)
+                    {
+                        // only process DATA RECORDS, ie <REC .... />
+                        if (incoming_data.IndexOf("<REC") != -1)
+                        {
+
+                            // Process incoming_data string to extract FPOGX, FPOGY, etc...
+                            startindex = incoming_data.IndexOf("TIME=\"") + "TIME=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            time_val = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                            startindex = incoming_data.IndexOf("FPOGX=\"") + "FPOGX=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            fpogx = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                            startindex = incoming_data.IndexOf("FPOGY=\"") + "FPOGY=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            fpogy = Double.Parse(incoming_data.Substring(startindex, endindex - startindex));
+
+                            startindex = incoming_data.IndexOf("FPOGV=\"") + "FPOGV=\"".Length;
+                            endindex = incoming_data.IndexOf("\"", startindex);
+                            fpog_valid = Int32.Parse(incoming_data.Substring(startindex, endindex - startindex));
+                        }
+                        incoming_data = "";
+                    }
+                }
+                resX = fpogx * 1920;
+                resY = fpogy * 1080;
+                double perX = fpogx * 100;
+                double perY = fpogy * 100;
+            } while (fpogx == 0);
+
         }
 
     }
