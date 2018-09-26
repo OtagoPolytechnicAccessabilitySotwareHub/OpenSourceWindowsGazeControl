@@ -167,6 +167,7 @@ namespace GazeToolBar
             //MessageBox.Show(fixationWorker.getXY().ToString());
             magnifier.sourceRect.left = fixationWorker.getXY().X;
             magnifier.sourceRect.top = fixationWorker.getXY().Y;
+            
             if (SystemFlags.shortCutKeyPressed)//if a user defined click key is pressed
             {
                 magnifier.FixationPoint = shortcutKeyWorker.GetXY();
@@ -175,7 +176,7 @@ namespace GazeToolBar
             {
                 magnifier.FixationPoint = fixationWorker.getXY();
             }
-            
+            //magnifier.PlaceZoomWindow();
             magnifier.Timer.Enabled = true;
 
             SystemFlags.shortCutKeyPressed = false;

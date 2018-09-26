@@ -228,7 +228,7 @@ namespace GazeToolBar
 
                     magnifier.FixationPoint = fixationPoint;
 
-                    magnifier.UpdateMagnifier();
+                    magnifier.PlaceZoomWindow();
                     //magnifier.PlaceZoomWindow(fixationPoint);
 
                     magnifier.Timer.Enabled = true;
