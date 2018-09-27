@@ -5,6 +5,7 @@ using System.Drawing;
 using EyeXFramework.Forms;
 using EyeXFramework;
 using Tobii.EyeX.Framework;
+using System.Threading;
 
 namespace GazeToolBar
 {
@@ -15,7 +16,7 @@ namespace GazeToolBar
         //TODO: Move these to settings json
         public static bool DO_ZOOM = true;         //Zoom enabled
 
-        public static float ZOOM_SPEED = 0.03F;//005F;    //Amount zoom will increment
+        public static float ZOOM_SPEED = 0.02F;//005F;    //Amount zoom will increment
 
         public static float ZOOM_MAX = Program.readSettings.maxZoom;          //Max zoom amount
         public static int SMOOTHER_BUFFER = 5;
@@ -24,7 +25,7 @@ namespace GazeToolBar
         public Point Offset { get; set; }  //Offset is the amount of pixels moved when repositioning the form if it is offscreen. It's used to reposition the Fixation point.
         //public Point SecondaryOffset { get; set; }  //Used for the Centered zoom offset from the sides..
         protected Form form;
-        protected Timer updateTimer;
+        protected System.Windows.Forms.Timer updateTimer;
         protected RECT magWindowRect = new RECT();
         protected IntPtr hwndMag;
         public RECT sourceRect;
@@ -40,12 +41,14 @@ namespace GazeToolBar
         public Point CurrentLook { get; set; }
         public float MaxZoom { get; set; } //Max zoom amount
 
-        public Timer Timer { get { return updateTimer; } }
+        //public Timer Timer { get { return updateTimer; } }
 
         protected bool hasInitialized;
         protected float magnification;
 
         protected FixationDetection fixationWorker;
+
+        protected Rectangle screenBounds;
 
         public ZoomMagnifier(Form displayform, FixationDetection fixationWorker)//, Point fixationPoint)
         {
@@ -53,7 +56,7 @@ namespace GazeToolBar
             Magnification = DO_ZOOM ? 1 : ZOOM_MAX;// Program.readSettings.maxZoom; //Set magnification to the max if not zooming
             form = displayform;
             form.TopMost = true;
-            updateTimer = new Timer();
+            updateTimer = new System.Windows.Forms.Timer();
             //fixationWorker = new FixationDetection();
             //fixationSmoother = (FixationSmootherExponential)fixationWorker.CreateSmoother(SMOOTHER_BUFFER);//new FixationSmootherExponential(SMOOTHER_BUFFER);
             positionSmoother = new FixationSmootherExponential(SMOOTHER_BUFFER);
@@ -113,46 +116,53 @@ namespace GazeToolBar
             }
 
         }
-        public void PlaceZoomWindow()
+        //initialises the zoom window. called from statemanager
+        public void PlaceZoomWindow(Point fixationPoint)
+        {
+
+            sourceRect.left = fixationPoint.X;
+            sourceRect.top = fixationPoint.Y;
+
+            FixationPoint = fixationPoint;
+
+            updateTimer.Enabled = true;
+            form.Width = 400;
+            form.Height = 400;
+
+            screenBounds = Screen.FromControl(form).Bounds;
+
+            form.Left = Clamp((FixationPoint.X - (form.Width / 2)), 0, screenBounds.Width - form.Width);
+            form.Top = Clamp((FixationPoint.Y - (form.Width / 2)), 0, screenBounds.Height - form.Height);
+
+        }
+
+        //updates the portion of the screen the zoom window is looking at.
+        private void UpdateZoomPosition()
         {
             if ((!hasInitialized) || (hwndMag == IntPtr.Zero) || !updateTimer.Enabled)
             {
                 return;
             }
 
-            Rectangle screenBounds = Screen.FromControl(form).Bounds;
+            Point zoomPoint = new Point(
+                (int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
+                (int)(fixationWorker.getXY().Y - ((form.Height / Magnification) / 2))
+                );
 
-            form.Width = 400;
-            form.Height = 400;
+            Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
 
-            Point zoomPosition = FixationPoint;
+            sourceRect.left = zoomPointSmoothed.X;
+            sourceRect.top = zoomPointSmoothed.Y;
 
-            int zx = zoomPosition.X - (form.Width / 2);
-            int zy = zoomPosition.Y - (form.Height / 2);
+            sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - (int)(form.Width / Magnification));
+            sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - (int)(form.Height / Magnification));
 
-            form.Left = Clamp(zx, 0, screenBounds.Width - form.Width);
-            form.Top = Clamp(zy, 0, screenBounds.Height - form.Height);
+            Console.WriteLine("sourceRect: left: " + sourceRect.left + " top: " + sourceRect.top);
 
-        }
-
-        public void UpdateZoomPosition()
-        {
-            PlaceZoomWindow();
-
-            int width = (int)(form.Width / Magnification);
-            int height = (int)(form.Height / Magnification);
-
-            int x = fixationWorker.getXY().X - (width / 2);
-            int y = fixationWorker.getXY().Y - (width / 2);
-
-            sourceRect.left = x;
-            sourceRect.top = y;
-
-            Rectangle screenBounds = Screen.FromControl(form).Bounds;
-            sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - width);
-            sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - height);
-
+            
+            
             NativeMethods.MagSetWindowSource(hwndMag, sourceRect);  //Sets the source of the zoom
+            Thread.Sleep(50);
             NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
         }
         
@@ -166,10 +176,6 @@ namespace GazeToolBar
                 }
             }
 
-            //if(Magnification < 3)
-            //{
-            //   Magnification += ZOOM_SPEED;
-            //}
         }
 
         //Gets the position that the zoom will be centered on
@@ -212,7 +218,7 @@ namespace GazeToolBar
 
             MaxZoom = Program.readSettings.maxZoom; //magnification;
 
-            Timer.Enabled = false;
+            updateTimer.Enabled = false;
         }
 
         private void timer_Tick(object sender, EventArgs e)
@@ -296,7 +302,7 @@ namespace GazeToolBar
 
             //MessageBox.Show(startPoint.ToString());
             //MessageBox.Show(finalPoint.ToString());
-            //Console.WriteLine(finalPoint.X + " " + finalPoint.Y);
+            Console.WriteLine("GetLookPosition: X: " +finalPoint.X + " Y: " + finalPoint.Y);
             //return adjustedPoint;
             return finalPoint;
         }

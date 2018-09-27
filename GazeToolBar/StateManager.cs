@@ -1,4 +1,4 @@
-﻿using EyeXFramework;
+﻿/*using EyeXFramework;
 using EyeXFramework.Forms;
 using System;
 using System.Collections.Generic;
@@ -228,10 +228,10 @@ namespace GazeToolBar
 
                     magnifier.FixationPoint = fixationPoint;
 
-                    magnifier.PlaceZoomWindow();
+                    //magnifier.PlaceZoomWindow();
                     //magnifier.PlaceZoomWindow(fixationPoint);
 
-                    magnifier.Timer.Enabled = true;
+                    //magnifier.Timer.Enabled = true;
                     // magnifier.UpdatePosition(fixationPoint);
                     // Give the magnifier the point on screen to magnify
                     magnifier.FixationPoint = fixationPoint;
@@ -246,6 +246,9 @@ namespace GazeToolBar
                     Point o = Utils.SubtractPoints(p1, p2);
 
                     zoomer.Offset = o;   */               // This initiate's the timer for drawing of the user feedback image
+
+
+                    /*
                     zoomer.Start();
                     zoomer.Show();
                     zoomer.CrossHairPos = magnifier.GetLookPosition();
@@ -362,3 +365,4 @@ namespace GazeToolBar
         }
     }
 }
+*/

@@ -13,10 +13,10 @@ namespace GazeToolBar
 
 
     //The program states
-    public enum SystemState_new { Wait, ActionButtonSelected, Zooming, ZoomWait, ApplyAction, ScrollWait }
+    public enum SystemState { Wait, ActionButtonSelected, Zooming, ZoomWait, ApplyAction, ScrollWait }
 
     //The actions that can be performed by the program
-    public enum ActionToBePerformed_new { RightClick, LeftClick, DoubleClick, Scroll }
+    public enum ActionToBePerformed { RightClick, LeftClick, DoubleClick, Scroll }
 
     /*
         * The State manager is the main control for the program
@@ -164,20 +164,15 @@ namespace GazeToolBar
         */
         public void DoActionZooming()
         {
-            //MessageBox.Show(fixationWorker.getXY().ToString());
-            magnifier.sourceRect.left = fixationWorker.getXY().X;
-            magnifier.sourceRect.top = fixationWorker.getXY().Y;
             
             if (SystemFlags.shortCutKeyPressed)//if a user defined click key is pressed
             {
-                magnifier.FixationPoint = shortcutKeyWorker.GetXY();
+                magnifier.PlaceZoomWindow(shortcutKeyWorker.GetXY());
             }
             else
             {
-                magnifier.FixationPoint = fixationWorker.getXY();
+                magnifier.PlaceZoomWindow(fixationWorker.getXY());
             }
-            //magnifier.PlaceZoomWindow();
-            magnifier.Timer.Enabled = true;
 
             SystemFlags.shortCutKeyPressed = false;
             SystemFlags.hasGaze = false;
@@ -191,7 +186,7 @@ namespace GazeToolBar
                 fixationWorker.StartDetectingFixation();
                 SystemFlags.fixationRunning = true;
             }
-            runZoomForm(magnifier.GetLookPosition());
+            runZoomForm(fixationWorker.getXY());// magnifier.GetLookPosition());
         }
 
         public void DoActionScrollWait()
@@ -212,7 +207,7 @@ namespace GazeToolBar
             magnifier.ResetZoomValue();
             magnifier.Stop();
 
-            performAction(SystemFlags.actionToBePerformed, lookPosition);
+            performAction(SystemFlags.actionToBePerformed, fixationWorker.getXY());// lookPosition);
         }
 
 /*

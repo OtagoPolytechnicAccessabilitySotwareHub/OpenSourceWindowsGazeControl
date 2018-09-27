@@ -14,7 +14,7 @@ namespace GazeToolBar
 
         int buttonClickDelay = 500;
         String notAssigned = "N/A";
-        SettingState currentSelection = SettingState.General;
+        //SettingState currentSelection = SettingState.General;
 
         private void connectBehaveMap()
         {
@@ -24,7 +24,7 @@ namespace GazeToolBar
             setupMap();
             setupGeneralMap();
         }
-
+        /*
         private void removeCurrentMap()
         {
             switch (currentSelection)
@@ -51,7 +51,8 @@ namespace GazeToolBar
                     break;
             }
         }
-
+        */
+        /*
         public void UseMap(SettingState mapToAdd)
         {
             removeCurrentMap();
@@ -91,6 +92,7 @@ namespace GazeToolBar
                     break;
             }
         }
+        */
 
         public void RemoveAndAddMainBhavMap(string removeOrAdd)
         {
@@ -147,9 +149,9 @@ namespace GazeToolBar
             bhavShortcutMap.Add(btClearFKeyRightClick, new GazeAwareBehavior(btClearFKeyRightClick_Click) { DelayMilliseconds = buttonClickDelay });
             bhavShortcutMap.Add(btClearFKeyDoubleClick, new GazeAwareBehavior(btClearFKeyDoubleClick_Click) { DelayMilliseconds = buttonClickDelay });
             bhavShortcutMap.Add(btClearFKeyScroll, new GazeAwareBehavior(btClearFKeyScroll_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavShortcutMap.Add(btnSetMic, new GazeAwareBehavior(btnSetMic_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavShortcutMap.Add(btnClearMic, new GazeAwareBehavior(btnClearMic_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavShortcutMap.Add(btnSetMicOff, new GazeAwareBehavior(btnSetMicOff_Click) { DelayMilliseconds = buttonClickDelay });
+            //bhavShortcutMap.Add(btnSetMic, new GazeAwareBehavior(btnSetMic_Click) { DelayMilliseconds = buttonClickDelay });
+            //bhavShortcutMap.Add(btnClearMic, new GazeAwareBehavior(btnClearMic_Click) { DelayMilliseconds = buttonClickDelay });
+            //bhavShortcutMap.Add(btnSetMicOff, new GazeAwareBehavior(btnSetMicOff_Click) { DelayMilliseconds = buttonClickDelay });
 
             bhavShortcutMap.Add(pnlFKeyHighlight1, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavShortcutMap.Add(pnlFKeyHighlight2, new GazeAwareBehavior(OnGazeChangeBTColour));
@@ -439,19 +441,22 @@ namespace GazeToolBar
             lbFKeyFeedback.Text = "please press a key";
         }
 
+        /*
         private void btnSetMic_Click(object sender, EventArgs e)
         {
             WaitForUserKeyPress = true;
             actionToAssignKey = ActionToBePerformed.MicInput;
             lbFKeyFeedback.Text = "please press a key";
         }
-
+        */
+        /*
         private void btnSetMicOff_Click(object sender, EventArgs e)
         {
             WaitForUserKeyPress = true;
             actionToAssignKey = ActionToBePerformed.MicInputOff;
             lbFKeyFeedback.Text = "please press a key";
         }
+        */
         //private void btFKeyDrapAndDrop_Click(object sender, EventArgs e)
         //{
 
@@ -484,6 +489,7 @@ namespace GazeToolBar
             lbScroll.Text = notAssigned;
         }
 
+        /*
         private void btnClearMic_Click(object sender, EventArgs e)
         {
             form1.shortCutKeyWorker.keyAssignments[ActionToBePerformed.MicInput] = notAssigned;
@@ -491,6 +497,7 @@ namespace GazeToolBar
             form1.shortCutKeyWorker.keyAssignments[ActionToBePerformed.MicInputOff] = notAssigned;
             lbMicOff.Text = notAssigned;
         }
+        */
 
         //private void btClearFKeyDrapAndDrop_Click(object sender, EventArgs e)
         //{

@@ -66,8 +66,8 @@ namespace GazeToolBar
             lbRight.Text = form1.FKeyMapDictionary[ActionToBePerformed.RightClick];
             lbLeft.Text = form1.FKeyMapDictionary[ActionToBePerformed.LeftClick];
             lbScroll.Text = form1.FKeyMapDictionary[ActionToBePerformed.Scroll];
-            lbMicOn.Text = form1.FKeyMapDictionary[ActionToBePerformed.MicInput];
-            lbMicOff.Text = form1.FKeyMapDictionary[ActionToBePerformed.MicInputOff];
+            //lbMicOn.Text = form1.FKeyMapDictionary[ActionToBePerformed.MicInput];
+            //lbMicOff.Text = form1.FKeyMapDictionary[ActionToBePerformed.MicInputOff];
             WaitForUserKeyPress = false;
 
             stickyLeft = Program.readSettings.stickyLeftClick;
@@ -398,7 +398,7 @@ namespace GazeToolBar
             if (shownPanel != pnlGeneral)
             {
                 changePanel(pnlGeneral);
-                UseMap(SettingState.General);
+                //UseMap(SettingState.General);
 
                 ChangeButtonColor(btnShortCutKeySetting, false, true);
                 ChangeButtonColor(btnZoomSettings, false, true);
@@ -415,7 +415,7 @@ namespace GazeToolBar
             if (shownPanel != pnlPageKeyboard)
             {
                 changePanel(pnlPageKeyboard);
-                UseMap(SettingState.Shortcut);
+                //UseMap(SettingState.Shortcut);
 
                 ChangeButtonColor(btnGeneralSetting, false, true);
                 ChangeButtonColor(btnZoomSettings, false, true);
@@ -432,7 +432,7 @@ namespace GazeToolBar
             if (shownPanel != pnlZoomSettings)
             {
                 changePanel(pnlZoomSettings);
-                UseMap(SettingState.Zoom);
+                //UseMap(SettingState.Zoom);
 
                 ChangeButtonColor(btnGeneralSetting, false, true);
                 ChangeButtonColor(btnShortCutKeySetting, false, true);
@@ -447,7 +447,7 @@ namespace GazeToolBar
             if (shownPanel != pnlRearrange)
             {
                 changePanel(pnlRearrange);
-                UseMap(SettingState.Rearrange);
+                //UseMap(SettingState.Rearrange);
                 panelSaveAndCancel.BringToFront();
 
                 ChangeButtonColor(btnGeneralSetting, false, true);
@@ -462,7 +462,7 @@ namespace GazeToolBar
         private void buttonCrosshairSetting_Click(object sender, EventArgs e)
         {
             changePanel(pnlCrosshairPage);
-            UseMap(SettingState.Crosshair);
+            //UseMap(SettingState.Crosshair);
 
             ChangeButtonColor(btnGeneralSetting, false, true);
             ChangeButtonColor(btnShortCutKeySetting, false, true);
@@ -540,10 +540,12 @@ namespace GazeToolBar
 
             if (WaitForUserKeyPress)
             {
+                /*
                 if (actionToAssignKey == ActionToBePerformed.MicInput || actionToAssignKey == ActionToBePerformed.MicInputOff)
                 {
                     keyPressed = converter.Convert(pressedKey.KeyPressed);
                 }
+                */
                 if (checkIfKeyIsAssignedAlready(keyPressed, form1.shortCutKeyWorker.keyAssignments))
                 {
                     lbFKeyFeedback.Text = keyPressed + " already assigned.";
@@ -593,12 +595,12 @@ namespace GazeToolBar
                 case ActionToBePerformed.DoubleClick:
                     lbDouble.Text = newKey;
                     break;
-                case ActionToBePerformed.MicInput:
-                    lbMicOn.Text = newKey;
-                    break;
-                case ActionToBePerformed.MicInputOff:
-                    lbMicOff.Text = newKey;
-                    break;
+                //case ActionToBePerformed.MicInput:
+                //    lbMicOn.Text = newKey;
+                //    break;
+                //case ActionToBePerformed.MicInputOff:
+                //    lbMicOff.Text = newKey;
+                //    break;
             }
         }
 
@@ -945,7 +947,7 @@ namespace GazeToolBar
             }
 
             changePanel(pnlGeneral);
-            UseMap(SettingState.General);
+            //UseMap(SettingState.General);
             RemoveAndAddMainBhavMap("add");
             pnlDefaultConfirmYes.BackColor = Color.Black;
         }
@@ -953,7 +955,7 @@ namespace GazeToolBar
         private void btnDefaultConfirmNo_Click(object sender, EventArgs e)
         {
             changePanel(pnlGeneral);
-            UseMap(SettingState.General);
+            //UseMap(SettingState.General);
             RemoveAndAddMainBhavMap("add");
             pnlDefaultConfirmNo.BackColor = Color.Black;
         }
@@ -961,7 +963,7 @@ namespace GazeToolBar
         private void btnDefaults_Click(object sender, EventArgs e)
         {
             RemoveAndAddMainBhavMap("remove");
-            UseMap(SettingState.Confirm);
+            //UseMap(SettingState.Confirm);
             pnlDefaultConfirm.Show();
             pnlDefaultConfirm.BringToFront();
             shownPanel = pnlDefaultConfirm;
