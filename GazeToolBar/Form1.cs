@@ -49,6 +49,7 @@ namespace GazeToolBar
             menuItemStartOnOff = new MenuItem();
             settingsItem = new MenuItem();
             initMenuItem();
+            //form2 = new Form2(eyeXHost);
             
             highlightPannerList = new List<Panel>();
             highlightPannerList.Add(pnlHiLteRightClick);
@@ -291,24 +292,24 @@ namespace GazeToolBar
 
             if (!checkOpenForm(typeof(Form2)))
             {
-
                 form2 = new Form2(eyeXHost);
-                form2.Show();
+                //form2.Show();
                 AttemptToggle(SystemFlags.actionToBePerformed);
-                //stopScroll();
-                //if (keyboard.IsVisible)
-                //{
-                //    keyboard.Hide();
-                //    keyboard.IsEnabled = false;
-                //    keyboard.InputPause();
-                //}
-                //else
-                //{
-                //    keyboard.Show();
-                //    keyboard.IsEnabled = true;
-                //    keyboard.InputResume();
-                //
-            }                  
+                stopScroll();
+                if (form2.Visible)
+                {
+                    form2.Close();
+                    //form2.IsEnabled = false;
+                    //form2.InputPause();
+                }
+                else
+                {
+                    form2.Show();
+                    //keyboard.IsEnabled = true;
+                    //keyboard.InputResume();
+
+                }
+            }
         }
 
         private void btnScoll_Click(object sender, EventArgs e)
