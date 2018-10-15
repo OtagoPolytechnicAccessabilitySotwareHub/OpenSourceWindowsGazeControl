@@ -16,7 +16,7 @@ namespace GazeToolBar
         //TODO: Move these to settings json
         public static bool DO_ZOOM = true;         //Zoom enabled
 
-        public static float ZOOM_SPEED = 0.02F;//005F;    //Amount zoom will increment
+        public static float ZOOM_SPEED = 0.005F;//005F;    //Amount zoom will increment
 
         public static float ZOOM_MAX = Program.readSettings.maxZoom;          //Max zoom amount
         public static int SMOOTHER_BUFFER = 5;
@@ -36,7 +36,7 @@ namespace GazeToolBar
 
         //protected FixationDetection fixationWorker;
         protected FixationSmootherExponential fixationSmoother;
-        protected FixationSmootherExponential positionSmoother;
+        protected FixationSmootherAverage positionSmoother;
 
         public Point CurrentLook { get; set; }
         public float MaxZoom { get; set; } //Max zoom amount
@@ -59,7 +59,7 @@ namespace GazeToolBar
             updateTimer = new System.Windows.Forms.Timer();
             //fixationWorker = new FixationDetection();
             //fixationSmoother = (FixationSmootherExponential)fixationWorker.CreateSmoother(SMOOTHER_BUFFER);//new FixationSmootherExponential(SMOOTHER_BUFFER);
-            positionSmoother = new FixationSmootherExponential(SMOOTHER_BUFFER);
+            //positionSmoother = new FixationSmootherExponential(SMOOTHER_BUFFER);
 
             this.fixationWorker = fixationWorker;
 
@@ -121,7 +121,7 @@ namespace GazeToolBar
         {
 
             sourceRect.left = fixationPoint.X;
-            sourceRect.top = fixationPoint.Y;
+            sourceRect.top =  fixationPoint.Y;
 
             FixationPoint = fixationPoint;
 
@@ -134,6 +134,7 @@ namespace GazeToolBar
             form.Left = Clamp((FixationPoint.X - (form.Width / 2)), 0, screenBounds.Width - form.Width);
             form.Top = Clamp((FixationPoint.Y - (form.Width / 2)), 0, screenBounds.Height - form.Height);
 
+            positionSmoother = new FixationSmootherAverage(SMOOTHER_BUFFER);
         }
 
         //updates the portion of the screen the zoom window is looking at.
@@ -151,8 +152,8 @@ namespace GazeToolBar
 
             Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
 
-            sourceRect.left = zoomPointSmoothed.X;
-            sourceRect.top = zoomPointSmoothed.Y;
+            sourceRect.left = 500;// zoomPointSmoothed.X;
+            sourceRect.top = 500;// zoomPointSmoothed.Y;
 
             sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - (int)(form.Width / Magnification));
             sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - (int)(form.Height / Magnification));
