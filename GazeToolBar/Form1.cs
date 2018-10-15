@@ -298,7 +298,7 @@ namespace GazeToolBar
                 stopScroll();
                 if (form2.Visible)
                 {
-                    form2.Close();
+                    form2.Hide();
                     //form2.IsEnabled = false;
                     //form2.InputPause();
                 }

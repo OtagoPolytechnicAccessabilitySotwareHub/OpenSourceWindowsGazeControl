@@ -27,6 +27,7 @@ namespace GazeToolBar
 
             this.BackColor = Color.Fuchsia;
             TransparencyKey = Color.Fuchsia;
+            panel38.SendToBack();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -209,5 +210,6 @@ namespace GazeToolBar
         {
 
         }
+
     }
 }
