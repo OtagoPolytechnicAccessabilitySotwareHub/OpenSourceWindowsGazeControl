@@ -228,6 +228,7 @@ namespace GazeToolBar
             }
             else if (SystemFlags.shortCutKeyPressed)    //if a shortcut key was pressed
             {
+                magnifier.ResetZoomValue();
                 SetState(SystemState.Zooming);
             }
         }
@@ -410,6 +411,11 @@ namespace GazeToolBar
             //fixationWorker.FixationDetectionTimeLength = fixationDetectionTimeLength;
             //fixationWorker.fixationTimer.Interval = fixationTimerInterval;
             fixationWorker.UpdateTimeLength(fixationDetectionTimeLength, fixationTimerInterval);
+        }
+ 
+        public void resetZoomValue()
+        {
+            magnifier.ResetZoomValue();
         }
     }
 }

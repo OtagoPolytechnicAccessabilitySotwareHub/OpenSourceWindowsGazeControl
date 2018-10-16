@@ -270,7 +270,7 @@ namespace GazeToolBar
                 //{
                     resetButtonsColor();
                     stateManager.EnterWaitState();
-
+                    stateManager.resetZoomValue();
                     //special scrolling case
                     if(isScroll)
                     {

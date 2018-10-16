@@ -16,7 +16,7 @@ namespace GazeToolBar
         //TODO: Move these to settings json
         public static bool DO_ZOOM = true;         //Zoom enabled
 
-        public static float ZOOM_SPEED = 0.005F;//005F;    //Amount zoom will increment
+        public static float ZOOM_SPEED = 0.02F;//005F;    //Amount zoom will increment
 
         public static float ZOOM_MAX = Program.readSettings.maxZoom;          //Max zoom amount
         public static int SMOOTHER_BUFFER = 5;
@@ -152,18 +152,21 @@ namespace GazeToolBar
 
             Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
 
-            sourceRect.left = 500;// zoomPointSmoothed.X;
-            sourceRect.top = 500;// zoomPointSmoothed.Y;
+            sourceRect.left = zoomPointSmoothed.X;
+            sourceRect.top = zoomPointSmoothed.Y;
 
             sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - (int)(form.Width / Magnification));
             sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - (int)(form.Height / Magnification));
 
+            sourceRect.right = 20;// form.Width - 20;
+            sourceRect.bottom = 20;// form.Height - 20;
             Console.WriteLine("sourceRect: left: " + sourceRect.left + " top: " + sourceRect.top);
 
-            
-            
+            //Thread.Sleep(100);
+
+            //NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
             NativeMethods.MagSetWindowSource(hwndMag, sourceRect);  //Sets the source of the zoom
-            NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
+            
         }
         
         public void Zoom()
@@ -245,7 +248,7 @@ namespace GazeToolBar
         }
 
         //the magnification factor
-        protected float Magnification
+        public float Magnification
         {
             set
             {
