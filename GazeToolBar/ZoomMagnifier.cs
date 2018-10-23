@@ -158,13 +158,13 @@ namespace GazeToolBar
             sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - (int)(form.Width / Magnification));
             sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - (int)(form.Height / Magnification));
 
-            sourceRect.right = 20;// form.Width - 20;
-            sourceRect.bottom = 20;// form.Height - 20;
-            Console.WriteLine("sourceRect: left: " + sourceRect.left + " top: " + sourceRect.top);
+            sourceRect.right = form.Width;
+            sourceRect.bottom = form.Height;
+            Console.WriteLine("sourceRect: left: " + sourceRect.left + " top: " + sourceRect.top + " right: " + sourceRect.right);
 
             //Thread.Sleep(100);
 
-            //NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
+            NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
             NativeMethods.MagSetWindowSource(hwndMag, sourceRect);  //Sets the source of the zoom
             
         }
