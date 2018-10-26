@@ -12,6 +12,7 @@ using OptiKey.UI.Windows;
 using GazeToolBar;
 using System.Net.Sockets;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace GazeToolBar
 {
@@ -297,8 +298,9 @@ namespace GazeToolBar
             return false;
         }
 
-        private void btnRightClick_Click(object sender, EventArgs e)
+        private async void btnRightClick_ClickAsync(object sender, EventArgs e)
         {
+            
             if (AttemptToggle(ActionToBePerformed.RightClick))
                 return;
 
@@ -420,6 +422,11 @@ namespace GazeToolBar
             btnDoubleClick.Text = resX.ToString();
             btnDoubleClick.ForeColor = Color.Red;
             btnDoubleClick.TextAlign = ContentAlignment.BottomCenter;
+        }
+
+        async Task TaskDelay(int DelayTime)
+        {
+            await Task.Delay(DelayTime);
         }
 
         private void tester()
