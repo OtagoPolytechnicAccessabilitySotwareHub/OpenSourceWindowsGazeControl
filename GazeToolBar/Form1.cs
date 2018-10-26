@@ -117,6 +117,7 @@ namespace GazeToolBar
             ThreadStart test = new ThreadStart(tester);
             Thread testThread = new Thread(test);
             testThread.Start();
+            //============================================================
         }
 
         public void ArrangeSidebar(string[] sidebarArrangement)
@@ -465,5 +466,7 @@ namespace GazeToolBar
             } while (0 == 0);
                     
         }
+
+
     }
 }

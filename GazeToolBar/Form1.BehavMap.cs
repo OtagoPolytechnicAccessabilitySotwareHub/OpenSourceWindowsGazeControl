@@ -44,7 +44,31 @@ namespace GazeToolBar
             bhavMap.Add(pnlHighLightKeyboard, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavMap.Add(pnlHighLightMic, new GazeAwareBehavior(OnGazeChangeBTColour));
 
+            //TESTING START===============================================================
+            btnDoubleClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btnKeyboard.MouseEnter += new EventHandler(common_MouseEnter);
+            btnMic.MouseEnter += new EventHandler(common_MouseEnter);
+            btnRightClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btnScoll.MouseEnter += new EventHandler(common_MouseEnter);
+            btnSingleLeftClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btnSettings.MouseEnter += new EventHandler(common_MouseEnter);
 
+            btnDoubleClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btnKeyboard.MouseLeave += new EventHandler(common_MouseLeave);
+            btnMic.MouseLeave += new EventHandler(common_MouseLeave);
+            btnRightClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btnScoll.MouseLeave += new EventHandler(common_MouseLeave);
+            btnSingleLeftClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btnSettings.MouseLeave += new EventHandler(common_MouseLeave);
+
+            btnDoubleClick.MouseHover += new EventHandler(common_MouseHover);
+            btnKeyboard.MouseHover += new EventHandler(common_MouseHover);
+            btnMic.MouseHover += new EventHandler(common_MouseHover);
+            btnRightClick.MouseHover += new EventHandler(common_MouseHover);
+            btnScoll.MouseHover += new EventHandler(common_MouseHover);
+            btnSingleLeftClick.MouseHover += new EventHandler(common_MouseHover);
+            btnSettings.MouseHover += new EventHandler(common_MouseHover);
+            //TESTING END=================================================================
         }
 
 
@@ -152,6 +176,24 @@ namespace GazeToolBar
             {
                 b.BackColor = Color.Black;
             }
+        }
+
+        void common_MouseEnter(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            button.BackColor = Color.Red;
+        }
+
+        void common_MouseLeave(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            button.BackColor = Color.Transparent;
+        }
+
+        void common_MouseHover(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            button.PerformClick();
         }
     }
 }

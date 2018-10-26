@@ -81,7 +81,7 @@ namespace EyeXFramework
         {
             foreach (var behavior in behaviors
                 .Where(b => b.BehaviorType == BehaviorType.GazeAware))
-            {
+            { 
                 GazeAwareEventParams parameters;
                 if (behavior.TryGetGazeAwareEventParams(out parameters))
                 {
