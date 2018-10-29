@@ -298,7 +298,7 @@ namespace GazeToolBar
                 stopScroll();
                 if (form2.Visible)
                 {
-                    form2.Hide();
+                    form2.Close();
                     //form2.IsEnabled = false;
                     //form2.InputPause();
                 }
@@ -379,6 +379,7 @@ namespace GazeToolBar
             get { return notifyIcon; }
             set { notifyIcon = value; }
         }
+
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {

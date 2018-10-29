@@ -14,12 +14,14 @@ namespace GazeToolBar
     
     public partial class Form2 : Form
     {
+        private bool bottom;
         private static FormsEyeXHost eyeXHost;
         public Form2(FormsEyeXHost EyeXHost)
         {
             eyeXHost = EyeXHost;
             InitializeComponent();
             connectBehaveMap();
+            bottom = true;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -33,6 +35,7 @@ namespace GazeToolBar
         private void button1_Click(object sender, EventArgs e)
         {
             SendKeys.Send("z");
+            this.Close();
             //this.Hide();
         }
 
@@ -178,7 +181,98 @@ namespace GazeToolBar
 
         private void button10_Click(object sender, EventArgs e)
         {
-
+            if (bottom == true)
+            {
+                bottom = false;
+                //background panel
+                panel38.Location = new Point(0, 0);
+                /*top row
+                panel32.Location = new Point(12, 12);
+                panel33.Location = new Point(122, 12);
+                panel36.Location = new Point(232, 12);
+                panel35.Location = new Point(342, 12);
+                panel34.Location = new Point(452, 12);
+                panel31.Location = new Point(562, 12);
+                panel30.Location = new Point(672, 12);
+                panel29.Location = new Point(782, 12);
+                panel28.Location = new Point(892, 12);
+                panel27.Location = new Point(1002, 12);
+                panel26.Location = new Point(1112, 12);
+                panel25.Location = new Point(1222, 12);
+                //middle row
+                panel20.Location = new Point(12, 121);
+                panel21.Location = new Point(122, 121);
+                panel24.Location = new Point(232, 121);
+                panel23.Location = new Point(342, 121);
+                panel22.Location = new Point(452, 121);
+                panel19.Location = new Point(562, 121);
+                panel18.Location = new Point(672, 121);
+                panel17.Location = new Point(782, 121);
+                panel16.Location = new Point(892, 121);
+                panel15.Location = new Point(1002, 121);
+                panel12.Location = new Point(1112, 121);
+                panel11.Location = new Point(1222, 121);
+                //bottom row
+                panel13.Location = new Point(12, 230);
+                panel14.Location = new Point(122, 230);
+                panel1.Location = new Point(232, 230);
+                panel2.Location = new Point(342, 230);
+                panel3.Location = new Point(452, 230);
+                panel4.Location = new Point(562, 230);
+                panel5.Location = new Point(672, 230);
+                panel6.Location = new Point(782, 230);
+                panel7.Location = new Point(892, 230);
+                panel8.Location = new Point(1002, 230);
+                panel9.Location = new Point(1112, 230);
+                panel10.Location = new Point(1222, 230);
+                */
+            }
+            else
+            {
+                bottom = true;
+                //background panel
+                panel38.Location = new Point(0, 650);
+                /*top row
+                panel32.Location = new Point(12, 727);
+                panel33.Location = new Point(122, 727);
+                panel36.Location = new Point(232, 727);
+                panel35.Location = new Point(342, 727);
+                panel34.Location = new Point(452, 727);
+                panel31.Location = new Point(562, 727);
+                panel30.Location = new Point(672, 727);
+                panel29.Location = new Point(782, 727);
+                panel28.Location = new Point(892, 727);
+                panel27.Location = new Point(1002, 727);
+                panel26.Location = new Point(1112, 727);
+                panel25.Location = new Point(1222, 727);
+                //middle row
+                panel20.Location = new Point(12, 836);
+                panel21.Location = new Point(122, 836);
+                panel24.Location = new Point(232, 836);
+                panel23.Location = new Point(342, 836);
+                panel22.Location = new Point(452, 836);
+                panel19.Location = new Point(562, 836);
+                panel18.Location = new Point(672, 836);
+                panel17.Location = new Point(782, 836);
+                panel16.Location = new Point(892, 836);
+                panel15.Location = new Point(1002, 836);
+                panel12.Location = new Point(1112, 836);
+                panel11.Location = new Point(1222, 836);
+                //bottom row
+                panel13.Location = new Point(12, 945);
+                panel14.Location = new Point(122, 945);
+                panel1.Location = new Point(232, 945);
+                panel2.Location = new Point(342, 945);
+                panel3.Location = new Point(452, 945);
+                panel4.Location = new Point(562, 945);
+                panel5.Location = new Point(672, 945);
+                panel6.Location = new Point(782, 945);
+                panel7.Location = new Point(892, 945);
+                panel8.Location = new Point(1002, 945);
+                panel9.Location = new Point(1112, 945);
+                panel10.Location = new Point(1222, 945);
+                */
+            }
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -211,5 +305,9 @@ namespace GazeToolBar
 
         }
 
+        private void panel38_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
