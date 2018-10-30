@@ -176,7 +176,7 @@
             this.btnRightClick.Size = new System.Drawing.Size(75, 75);
             this.btnRightClick.TabIndex = 3;
             this.btnRightClick.UseVisualStyleBackColor = false;
-            this.btnRightClick.Click += new System.EventHandler(this.btnRightClick_ClickAsync);
+            this.btnRightClick.Click += new System.EventHandler(this.btnRightClick_Click);
             // 
             // timer2
             // 

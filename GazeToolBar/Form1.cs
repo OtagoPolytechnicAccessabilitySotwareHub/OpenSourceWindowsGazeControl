@@ -298,7 +298,7 @@ namespace GazeToolBar
             return false;
         }
 
-        private async void btnRightClick_ClickAsync(object sender, EventArgs e)
+        private void btnRightClick_Click(object sender, EventArgs e)
         {
             
             if (AttemptToggle(ActionToBePerformed.RightClick))

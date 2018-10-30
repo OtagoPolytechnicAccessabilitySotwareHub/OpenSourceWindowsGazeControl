@@ -44,7 +44,7 @@ namespace GazeToolBar
             bhavMap.Add(pnlHighLightKeyboard, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavMap.Add(pnlHighLightMic, new GazeAwareBehavior(OnGazeChangeBTColour));
 
-            //TESTING START===============================================================
+
             btnDoubleClick.MouseEnter += new EventHandler(common_MouseEnter);
             btnKeyboard.MouseEnter += new EventHandler(common_MouseEnter);
             btnMic.MouseEnter += new EventHandler(common_MouseEnter);
@@ -68,7 +68,7 @@ namespace GazeToolBar
             btnScoll.MouseHover += new EventHandler(common_MouseHover);
             btnSingleLeftClick.MouseHover += new EventHandler(common_MouseHover);
             btnSettings.MouseHover += new EventHandler(common_MouseHover);
-            //TESTING END=================================================================
+
         }
 
 
@@ -181,13 +181,13 @@ namespace GazeToolBar
         void common_MouseEnter(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            button.BackColor = Color.Red;
+            button.BackColor = Color.Gray;
         }
 
         void common_MouseLeave(object sender, EventArgs e)
         {
             Button button = sender as Button;
-            button.BackColor = Color.Transparent;
+            button.BackColor = (button.BackColor == Color.Gray) ? Color.Transparent : button.BackColor = button.BackColor;
         }
 
         void common_MouseHover(object sender, EventArgs e)

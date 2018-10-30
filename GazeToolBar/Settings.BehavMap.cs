@@ -122,6 +122,30 @@ namespace GazeToolBar
             bhavGeneralMap.Add(pnlOtherAuto, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavGeneralMap.Add(pnlStickyLeft, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavGeneralMap.Add(pnlDefaults, new GazeAwareBehavior(OnGazeChangeBTColour));
+
+            btnFixTimeLengthMins.MouseEnter += new EventHandler(common_MouseEnter);
+            btnFixTimeLengthPlus.MouseEnter += new EventHandler(common_MouseEnter);
+            btnFixTimeOutMins.MouseEnter += new EventHandler(common_MouseEnter);
+            btnFixTimeOutPlus.MouseEnter += new EventHandler(common_MouseEnter);
+            btnAutoStart.MouseEnter += new EventHandler(common_MouseEnter);
+            buttonStickyLeftClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btnDefaults.MouseEnter += new EventHandler(common_MouseEnter);
+
+            btnFixTimeLengthMins.MouseLeave += new EventHandler(common_MouseLeave);
+            btnFixTimeLengthPlus.MouseLeave += new EventHandler(common_MouseLeave);
+            btnFixTimeOutMins.MouseLeave += new EventHandler(common_MouseLeave);
+            btnFixTimeOutPlus.MouseLeave += new EventHandler(common_MouseLeave);
+            btnAutoStart.MouseLeave += new EventHandler(common_MouseLeave);
+            buttonStickyLeftClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btnDefaults.MouseLeave += new EventHandler(common_MouseLeave);
+
+            btnFixTimeLengthMins.MouseHover += new EventHandler(common_MouseHover);
+            btnFixTimeLengthPlus.MouseHover += new EventHandler(common_MouseHover);
+            btnFixTimeOutMins.MouseHover += new EventHandler(common_MouseHover);
+            btnFixTimeOutPlus.MouseHover += new EventHandler(common_MouseHover);
+            btnAutoStart.MouseHover += new EventHandler(common_MouseHover);
+            buttonStickyLeftClick.MouseHover += new EventHandler(common_MouseHover);
+            btnDefaults.MouseHover += new EventHandler(common_MouseHover);
         }
 
         private void setupZoomMap()
@@ -135,6 +159,21 @@ namespace GazeToolBar
             bhavZoomMap.Add(pnlZWSPlus, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavZoomMap.Add(pnlZIAMinus, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavZoomMap.Add(pnlZIAPlus, new GazeAwareBehavior(OnGazeChangeBTColour));
+
+            btnZoomSizeMinus.MouseEnter += new EventHandler(common_MouseEnter);
+            btnZoomSizePlus.MouseEnter += new EventHandler(common_MouseEnter);
+            btnZoomAmountMinus.MouseEnter += new EventHandler(common_MouseEnter);
+            btnZoomAmountPlus.MouseEnter += new EventHandler(common_MouseEnter);
+
+            btnZoomSizeMinus.MouseLeave += new EventHandler(common_MouseLeave);
+            btnZoomSizePlus.MouseLeave += new EventHandler(common_MouseLeave);
+            btnZoomAmountMinus.MouseLeave += new EventHandler(common_MouseLeave);
+            btnZoomAmountPlus.MouseLeave += new EventHandler(common_MouseLeave);
+
+            btnZoomSizeMinus.MouseHover += new EventHandler(common_MouseHover);
+            btnZoomSizePlus.MouseHover += new EventHandler(common_MouseHover);
+            btnZoomAmountMinus.MouseHover += new EventHandler(common_MouseHover);
+            btnZoomAmountPlus.MouseHover += new EventHandler(common_MouseHover);
         }
 
         private void setupShortcutMap()
@@ -162,6 +201,42 @@ namespace GazeToolBar
             bhavShortcutMap.Add(pnlSetMic, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavShortcutMap.Add(pnlClearMic, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavShortcutMap.Add(pnlSetMicOff, new GazeAwareBehavior(OnGazeChangeBTColour));
+
+            btFKeyLeftClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btFKeyRightClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btFKeyDoubleClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btFKeyScroll.MouseEnter += new EventHandler(common_MouseEnter);
+            btClearFKeyLeftClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btClearFKeyRightClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btClearFKeyDoubleClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btClearFKeyScroll.MouseEnter += new EventHandler(common_MouseEnter);
+            btnSetMic.MouseEnter += new EventHandler(common_MouseEnter);
+            btnClearMic.MouseEnter += new EventHandler(common_MouseEnter);
+            btnSetMicOff.MouseEnter += new EventHandler(common_MouseEnter);
+
+            btFKeyLeftClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btFKeyRightClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btFKeyDoubleClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btFKeyScroll.MouseLeave += new EventHandler(common_MouseLeave);
+            btClearFKeyLeftClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btClearFKeyRightClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btClearFKeyDoubleClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btClearFKeyScroll.MouseLeave += new EventHandler(common_MouseLeave);
+            btnSetMic.MouseLeave += new EventHandler(common_MouseLeave);
+            btnClearMic.MouseLeave += new EventHandler(common_MouseLeave);
+            btnSetMicOff.MouseLeave += new EventHandler(common_MouseLeave);
+
+            btFKeyLeftClick.MouseHover += new EventHandler(common_MouseHover);
+            btFKeyRightClick.MouseHover += new EventHandler(common_MouseHover);
+            btFKeyDoubleClick.MouseHover += new EventHandler(common_MouseHover);
+            btFKeyScroll.MouseHover += new EventHandler(common_MouseHover);
+            btClearFKeyLeftClick.MouseHover += new EventHandler(common_MouseHover);
+            btClearFKeyRightClick.MouseHover += new EventHandler(common_MouseHover);
+            btClearFKeyDoubleClick.MouseHover += new EventHandler(common_MouseHover);
+            btClearFKeyScroll.MouseHover += new EventHandler(common_MouseHover);
+            btnSetMic.MouseHover += new EventHandler(common_MouseHover);
+            btnClearMic.MouseHover += new EventHandler(common_MouseHover);
+            btnSetMicOff.MouseHover += new EventHandler(common_MouseHover);
         }
 
         private void setupRearrangeMap()
@@ -187,6 +262,39 @@ namespace GazeToolBar
             bhavRearrangeMap.Add(pnlScrollClickButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavRearrangeMap.Add(pnlSettingsButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavRearrangeMap.Add(pnlMicButton, new GazeAwareBehavior(OnGazeChangeBTColour));
+
+            btnMoveUp.MouseEnter += new EventHandler(common_MouseEnter);
+            btnMoveDown.MouseEnter += new EventHandler(common_MouseEnter);
+            btnRemove.MouseEnter += new EventHandler(common_MouseEnter);
+            btnActionDoubleLeftClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btnActionKeyboard.MouseEnter += new EventHandler(common_MouseEnter);
+            btnActionLeftClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btnActionRightClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btnActionScrollClick.MouseEnter += new EventHandler(common_MouseEnter);
+            btnActionSettings.MouseEnter += new EventHandler(common_MouseEnter);
+            btnActionMic.MouseEnter += new EventHandler(common_MouseEnter);
+
+            btnMoveUp.MouseLeave += new EventHandler(common_MouseLeave);
+            btnMoveDown.MouseLeave += new EventHandler(common_MouseLeave);
+            btnRemove.MouseLeave += new EventHandler(common_MouseLeave);
+            btnActionDoubleLeftClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btnActionKeyboard.MouseLeave += new EventHandler(common_MouseLeave);
+            btnActionLeftClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btnActionRightClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btnActionScrollClick.MouseLeave += new EventHandler(common_MouseLeave);
+            btnActionSettings.MouseLeave += new EventHandler(common_MouseLeave);
+            btnActionMic.MouseLeave += new EventHandler(common_MouseLeave);
+
+            btnMoveUp.MouseHover += new EventHandler(common_MouseHover);
+            btnMoveDown.MouseHover += new EventHandler(common_MouseHover);
+            btnRemove.MouseHover += new EventHandler(common_MouseHover);
+            btnActionDoubleLeftClick.MouseHover += new EventHandler(common_MouseHover);
+            btnActionKeyboard.MouseHover += new EventHandler(common_MouseHover);
+            btnActionLeftClick.MouseHover += new EventHandler(common_MouseHover);
+            btnActionRightClick.MouseHover += new EventHandler(common_MouseHover);
+            btnActionScrollClick.MouseHover += new EventHandler(common_MouseHover);
+            btnActionSettings.MouseHover += new EventHandler(common_MouseHover);
+            btnActionMic.MouseHover += new EventHandler(common_MouseHover);
         }
 
         private void setupCrosshairMap()
@@ -198,6 +306,18 @@ namespace GazeToolBar
             bhavCrosshairMap.Add(pnlCrosshairDownButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavCrosshairMap.Add(pnlCrosshairUpButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavCrosshairMap.Add(pnlFeedbackContent, new GazeAwareBehavior(OnGazeChangeBTColour));
+
+            buttonCrosshairDown.MouseEnter += new EventHandler(common_MouseEnter);
+            buttonCrosshairUp.MouseEnter += new EventHandler(common_MouseEnter);
+            btnFeedback.MouseEnter += new EventHandler(common_MouseEnter);
+
+            buttonCrosshairDown.MouseLeave += new EventHandler(common_MouseLeave);
+            buttonCrosshairUp.MouseLeave += new EventHandler(common_MouseLeave);
+            //btnFeedback.MouseLeave += new EventHandler(common_MouseLeave);
+
+            buttonCrosshairDown.MouseHover += new EventHandler(common_MouseHover);
+            buttonCrosshairUp.MouseHover += new EventHandler(common_MouseHover);
+            btnFeedback.MouseHover += new EventHandler(common_MouseHover);
         }
 
         private void setupConfirmMap()
@@ -207,6 +327,15 @@ namespace GazeToolBar
 
             bhavConfirmMap.Add(pnlDefaultConfirmYes, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavConfirmMap.Add(pnlDefaultConfirmNo, new GazeAwareBehavior(OnGazeChangeBTColour));
+
+            btnDefaultConfirmYes.MouseEnter += new EventHandler(common_MouseEnter);
+            btnDefaultConfirmNo.MouseEnter += new EventHandler(common_MouseEnter);
+
+            btnDefaultConfirmYes.MouseLeave += new EventHandler(common_MouseLeave);
+            btnDefaultConfirmNo.MouseLeave += new EventHandler(common_MouseLeave);
+
+            btnDefaultConfirmYes.MouseHover += new EventHandler(common_MouseHover);
+            btnDefaultConfirmNo.MouseHover += new EventHandler(common_MouseHover);
         }
         private void setupMap()
         {
@@ -225,6 +354,32 @@ namespace GazeToolBar
             bhavSettingMap.Add(panelCrosshairButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavSettingMap.Add(pnlSave, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavSettingMap.Add(pnlCancel, new GazeAwareBehavior(OnGazeChangeBTColour));
+
+            btnSave.MouseEnter += new EventHandler(common_MouseEnter);
+            btnCancel.MouseEnter += new EventHandler(common_MouseEnter);
+            btnZoomSettings.MouseEnter += new EventHandler(common_MouseEnter);
+            btnShortCutKeySetting.MouseEnter += new EventHandler(common_MouseEnter);
+            btnGeneralSetting.MouseEnter += new EventHandler(common_MouseEnter);
+
+
+            btnRearrangeSetting.MouseEnter += new EventHandler(common_MouseEnter);
+            buttonCrosshairSetting.MouseEnter += new EventHandler(common_MouseEnter);
+
+            btnSave.MouseLeave += new EventHandler(common_MouseLeave);
+            btnCancel.MouseLeave += new EventHandler(common_MouseLeave);
+            btnZoomSettings.MouseLeave += new EventHandler(common_MouseLeave);
+            btnShortCutKeySetting.MouseLeave += new EventHandler(common_MouseLeave);
+            btnGeneralSetting.MouseLeave += new EventHandler(common_MouseLeave);
+            btnRearrangeSetting.MouseLeave += new EventHandler(common_MouseLeave);
+            buttonCrosshairSetting.MouseLeave += new EventHandler(common_MouseLeave);
+
+            btnSave.MouseHover += new EventHandler(common_MouseHover);
+            btnCancel.MouseHover += new EventHandler(common_MouseHover);
+            btnZoomSettings.MouseHover += new EventHandler(common_MouseHover);
+            btnShortCutKeySetting.MouseHover += new EventHandler(common_MouseHover);
+            btnGeneralSetting.MouseHover += new EventHandler(common_MouseHover);
+            btnRearrangeSetting.MouseHover += new EventHandler(common_MouseHover);
+            buttonCrosshairSetting.MouseHover += new EventHandler(common_MouseHover);
         }
 
         //toggle border on and off on gaze to gaze to give feed back.
@@ -491,6 +646,26 @@ namespace GazeToolBar
             form1.shortCutKeyWorker.keyAssignments[ActionToBePerformed.MicInputOff] = notAssigned;
             lbMicOff.Text = notAssigned;
         }
+
+        void common_MouseEnter(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            button.BackColor = Color.Gray;
+        }
+
+        void common_MouseLeave(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            button.BackColor = (button.BackColor == Color.Gray) ? Color.Transparent : button.BackColor=button.BackColor;           
+        }
+
+        void common_MouseHover(object sender, EventArgs e)
+        {
+            Button button = sender as Button;
+            button.PerformClick();
+        }
+
+
 
         //private void btClearFKeyDrapAndDrop_Click(object sender, EventArgs e)
         //{

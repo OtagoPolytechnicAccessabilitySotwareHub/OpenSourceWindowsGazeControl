@@ -266,6 +266,7 @@ namespace GazeToolBar
                     if (SystemFlags.actionToBePerformed == ActionToBePerformed.LeftClick)
                     {
                         VirtualMouse.LeftMouseClick(fixationPoint.X, fixationPoint.Y);
+                        MessageBox.Show(fixationPoint.X.ToString() + fixationPoint.Y.ToString());
                     }
                     else if (SystemFlags.actionToBePerformed == ActionToBePerformed.RightClick)
                     {
