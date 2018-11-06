@@ -188,12 +188,14 @@ namespace GazeToolBar
         {
             Button button = sender as Button;
             button.BackColor = (button.BackColor == Color.Gray) ? Color.Transparent : button.BackColor = button.BackColor;
+            SystemFlags.hasGaze = false;
         }
 
         void common_MouseHover(object sender, EventArgs e)
         {
             Button button = sender as Button;
             button.PerformClick();
+            SystemFlags.hasGaze = true;
         }
     }
 }

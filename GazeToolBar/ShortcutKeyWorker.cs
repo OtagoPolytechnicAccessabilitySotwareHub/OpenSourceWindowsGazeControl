@@ -137,8 +137,8 @@ namespace GazeToolBar
         private void updateGazeCoodinates(object o, GazePointEventArgs currentGaze)
         {           
             //Save the users current gaze location.
-            currentGazeLocationX = resX;
-            currentGazeLocationY = resY;
+            currentGazeLocationX = fpogx;
+            currentGazeLocationY = fpogy;
         }
 
         private void tester()
