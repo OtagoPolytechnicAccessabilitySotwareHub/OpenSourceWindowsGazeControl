@@ -253,10 +253,11 @@ namespace GazeToolBar
             {
                 settings = new Settings(this, eyeXHost);
                 settings.Show();
-                AttemptToggle(SystemFlags.actionToBePerformed);
+                //AttemptToggle(SystemFlags.actionToBePerformed);
             }
         }
 
+        /*
         public bool AttemptToggle(ActionToBePerformed action)
         {
             bool isScroll = (SystemFlags.currentState == SystemState.ApplyAction || SystemFlags.currentState == SystemState.ScrollWait) && (action == ActionToBePerformed.Scroll);
@@ -283,18 +284,19 @@ namespace GazeToolBar
             }
             return false;
         }
+        */
 
         //stop ScrollControll from scrolling when another button is selected
         private void stopScroll()
         {
-            SystemFlags.scrolling = false;
-            //scrollWorker.stopScroll();
+            //SystemFlags.scrolling = false;
+            scrollWorker.stopScroll();
         }
 
         private void btnRightClick_Click(object sender, EventArgs e)
         {
-            if (AttemptToggle(ActionToBePerformed.RightClick))
-                return;
+            //if (AttemptToggle(ActionToBePerformed.RightClick))
+            //    return;
             stopScroll();
             SystemFlags.actionButtonSelected = true;//raise action button flag
             SystemFlags.actionToBePerformed = ActionToBePerformed.RightClick;   
@@ -302,8 +304,8 @@ namespace GazeToolBar
 
         private void btnSingleLeftClick_Click(object sender, EventArgs e)
         {
-            if (AttemptToggle(ActionToBePerformed.LeftClick))
-                return;
+            //if (AttemptToggle(ActionToBePerformed.LeftClick))
+            //    return;
             stopScroll();
             SystemFlags.actionButtonSelected = true;//raise action button flag
             SystemFlags.actionToBePerformed = ActionToBePerformed.LeftClick;
@@ -311,8 +313,8 @@ namespace GazeToolBar
 
         private void btnDoubleClick_Click(object sender, EventArgs e)
         {
-            if (AttemptToggle(ActionToBePerformed.DoubleClick))
-                return;
+            //if (AttemptToggle(ActionToBePerformed.DoubleClick))
+            //    return;
             stopScroll();
             SystemFlags.actionButtonSelected = true;//raise action button flag
             SystemFlags.actionToBePerformed = ActionToBePerformed.DoubleClick;
@@ -337,8 +339,8 @@ namespace GazeToolBar
 
         private void btnScoll_Click(object sender, EventArgs e)
         {
-            if (AttemptToggle(ActionToBePerformed.Scroll))
-                return;
+            //if (AttemptToggle(ActionToBePerformed.Scroll))
+            //    return;
 
             SystemFlags.actionButtonSelected = true;
             SystemFlags.actionToBePerformed = ActionToBePerformed.Scroll;

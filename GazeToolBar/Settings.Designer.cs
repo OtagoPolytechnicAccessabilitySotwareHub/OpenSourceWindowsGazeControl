@@ -405,7 +405,6 @@ namespace GazeToolBar
             this.btnClearMic.TabIndex = 2;
             this.btnClearMic.Text = "Clear";
             this.btnClearMic.UseVisualStyleBackColor = false;
-            //this.btnClearMic.Click += new System.EventHandler(this.btnClearMic_Click);
             // 
             // pnlSetMicOff
             // 
@@ -430,7 +429,6 @@ namespace GazeToolBar
             this.btnSetMicOff.TabIndex = 2;
             this.btnSetMicOff.Text = "Set Off";
             this.btnSetMicOff.UseVisualStyleBackColor = false;
-            //this.btnSetMicOff.Click += new System.EventHandler(this.btnSetMicOff_Click);
             // 
             // lbMicOn
             // 
@@ -467,7 +465,6 @@ namespace GazeToolBar
             this.btnSetMic.TabIndex = 1;
             this.btnSetMic.Text = "Set";
             this.btnSetMic.UseVisualStyleBackColor = false;
-            //this.btnSetMic.Click += new System.EventHandler(this.btnSetMic_Click);
             // 
             // pictureBox6
             // 
@@ -2044,7 +2041,7 @@ namespace GazeToolBar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1596, 753);
+            this.ClientSize = new System.Drawing.Size(1632, 783);
             this.Controls.Add(this.pnlPageKeyboard);
             this.Controls.Add(this.pnlGeneral);
             this.Controls.Add(this.pnlCrosshairPage);
