@@ -10,6 +10,7 @@ using System.Linq;
 
 namespace GazeToolBar
 {
+    public enum SettingState { General, Zoom, Shortcut, Rearrange, Crosshair, Confirm }
     public partial class Settings : Form
     {
         private Form1 form1;
@@ -398,7 +399,7 @@ namespace GazeToolBar
             if (shownPanel != pnlGeneral)
             {
                 changePanel(pnlGeneral);
-                //UseMap(SettingState.General);
+                UseMap(SettingState.General);
 
                 ChangeButtonColor(btnShortCutKeySetting, false, true);
                 ChangeButtonColor(btnZoomSettings, false, true);
@@ -415,7 +416,7 @@ namespace GazeToolBar
             if (shownPanel != pnlPageKeyboard)
             {
                 changePanel(pnlPageKeyboard);
-                //UseMap(SettingState.Shortcut);
+                UseMap(SettingState.Shortcut);
 
                 ChangeButtonColor(btnGeneralSetting, false, true);
                 ChangeButtonColor(btnZoomSettings, false, true);
@@ -432,7 +433,7 @@ namespace GazeToolBar
             if (shownPanel != pnlZoomSettings)
             {
                 changePanel(pnlZoomSettings);
-                //UseMap(SettingState.Zoom);
+                UseMap(SettingState.Zoom);
 
                 ChangeButtonColor(btnGeneralSetting, false, true);
                 ChangeButtonColor(btnShortCutKeySetting, false, true);
@@ -447,7 +448,7 @@ namespace GazeToolBar
             if (shownPanel != pnlRearrange)
             {
                 changePanel(pnlRearrange);
-                //UseMap(SettingState.Rearrange);
+                UseMap(SettingState.Rearrange);
                 panelSaveAndCancel.BringToFront();
 
                 ChangeButtonColor(btnGeneralSetting, false, true);
@@ -462,7 +463,7 @@ namespace GazeToolBar
         private void buttonCrosshairSetting_Click(object sender, EventArgs e)
         {
             changePanel(pnlCrosshairPage);
-            //UseMap(SettingState.Crosshair);
+            UseMap(SettingState.Crosshair);
 
             ChangeButtonColor(btnGeneralSetting, false, true);
             ChangeButtonColor(btnShortCutKeySetting, false, true);
