@@ -14,7 +14,7 @@ namespace GazeToolBar
 
         int buttonClickDelay = 500;
         String notAssigned = "N/A";
-        //SettingState currentSelection = SettingState.General;
+        SettingState currentSelection = SettingState.General;
 
         private void connectBehaveMap()
         {
@@ -24,7 +24,7 @@ namespace GazeToolBar
             setupMap();
             setupGeneralMap();
         }
-        /*
+        
         private void removeCurrentMap()
         {
             switch (currentSelection)
@@ -51,8 +51,8 @@ namespace GazeToolBar
                     break;
             }
         }
-        */
-        /*
+        
+        
         public void UseMap(SettingState mapToAdd)
         {
             removeCurrentMap();
@@ -92,7 +92,7 @@ namespace GazeToolBar
                     break;
             }
         }
-        */
+        
 
         public void RemoveAndAddMainBhavMap(string removeOrAdd)
         {
