@@ -212,11 +212,11 @@ namespace GazeToolBar
             trackBarFixTimeLength(Program.readSettings.fixationTimeLength, Program.readSettings.fixationTimeOut);
             trackBarFixTimeOut(Program.readSettings.fixationTimeLength, Program.readSettings.fixationTimeOut);
 
-            stateManager.SetMagnifierMaxZoom(Program.readSettings.maxZoom);
+            //stateManager.SetMagnifierMaxZoom(Program.readSettings.maxZoom);
             shortCutKeyWorker.keyAssignments[ActionToBePerformed.LeftClick] = Program.readSettings.leftClick;
             shortCutKeyWorker.keyAssignments[ActionToBePerformed.DoubleClick] = Program.readSettings.doubleClick;
             shortCutKeyWorker.keyAssignments[ActionToBePerformed.RightClick] = Program.readSettings.rightClick;
-            shortCutKeyWorker.keyAssignments[ActionToBePerformed.Scroll] = Program.readSettings.scoll;
+            shortCutKeyWorker.keyAssignments[ActionToBePerformed.Scroll] = Program.readSettings.scroll;
             //shortCutKeyWorker.keyAssignments[ActionToBePerformed.MicInput] = Program.readSettings.micInput;
             timer2.Enabled = true;
 

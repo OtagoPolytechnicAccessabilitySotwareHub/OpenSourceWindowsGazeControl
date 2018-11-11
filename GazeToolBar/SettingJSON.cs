@@ -13,7 +13,7 @@ namespace GazeToolBar
         public string leftClick { get; set; }
         public string doubleClick { get; set; }
         public string rightClick { get; set; }
-        public string scoll { get; set; }
+        public string scroll { get; set; }
         public string micInput { get; set; }
         public string micInputOff { get; set; }
         public string[] sidebar { get; set; }

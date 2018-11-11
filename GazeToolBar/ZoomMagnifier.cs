@@ -16,9 +16,9 @@ namespace GazeToolBar
         //TODO: Move these to settings json
         public static bool DO_ZOOM = true;         //Zoom enabled
 
-        public static float ZOOM_SPEED = 0.02F;//005F;    //Amount zoom will increment
+        public static float ZOOM_SPEED = 0.06F;//005F;    //Amount zoom will increment
 
-        public static float ZOOM_MAX = Program.readSettings.maxZoom;          //Max zoom amount
+        public static float ZOOM_MAX; // = Program.readSettings.maxZoom;          //Max zoom amount
         public static int SMOOTHER_BUFFER = 5;
 
         public Point FixationPoint { get; set; }
@@ -39,7 +39,7 @@ namespace GazeToolBar
         protected FixationSmootherAverage positionSmoother;
 
         public Point CurrentLook { get; set; }
-        public float MaxZoom { get; set; } //Max zoom amount
+        //public float MaxZoom { get; set; } //Max zoom amount
 
         //public Timer Timer { get { return updateTimer; } }
 
@@ -126,8 +126,8 @@ namespace GazeToolBar
             FixationPoint = fixationPoint;
 
             updateTimer.Enabled = true;
-            form.Width = 400;
-            form.Height = 400;
+            form.Width = Program.readSettings.zoomWindowSize * 50; //400;
+            form.Height = Program.readSettings.zoomWindowSize * 40; ; //400;
 
             screenBounds = Screen.FromControl(form).Bounds;
 
@@ -135,6 +135,8 @@ namespace GazeToolBar
             form.Top = Clamp((FixationPoint.Y - (form.Width / 2)), 0, screenBounds.Height - form.Height);
 
             positionSmoother = new FixationSmootherAverage(SMOOTHER_BUFFER);
+
+            ZOOM_MAX = Program.readSettings.maxZoom;
         }
 
         //updates the portion of the screen the zoom window is looking at.
@@ -211,18 +213,20 @@ namespace GazeToolBar
             return (current < min) ? min : (current > max) ? max : current;
         }
 
+        
         public void ResetZoomValue()
         {
             Offset = new Point(0, 0);
 
             //SecondaryOffset = new Point(0, 0);
             Magnification = 1;// Program.readSettings.maxZoom;
-            MaxZoom = magnification;
+            //MaxZoom = magnification;
 
-            MaxZoom = Program.readSettings.maxZoom; //magnification;
+            //MaxZoom = Program.readSettings.maxZoom; //magnification;
 
             updateTimer.Enabled = false;
         }
+        
 
         private void timer_Tick(object sender, EventArgs e)
         {

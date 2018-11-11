@@ -299,7 +299,7 @@ namespace GazeToolBar
                 setting.leftClick = lbLeft.Text;
                 setting.doubleClick = lbDouble.Text;
                 setting.rightClick = lbRight.Text;
-                setting.scoll = lbScroll.Text;
+                setting.scroll = lbScroll.Text;
                 setting.micInput = lbMicOn.Text;
                 setting.micInputOff = lbMicOff.Text;
                 setting.sidebar = selectedActions.ToArray<string>();
@@ -321,6 +321,7 @@ namespace GazeToolBar
                 form1.NotifyIcon.BalloonTipTitle = "Saving success";
                 form1.NotifyIcon.BalloonTipText = "Your settings are successfuly saved";
                 this.Close();
+                form1.stateManager.ResetMagnifier();
                 form1.NotifyIcon.ShowBalloonTip(2000);
             }
             catch (Exception exception)
@@ -377,7 +378,7 @@ namespace GazeToolBar
             lbLeft.Text = Program.readSettings.leftClick;
             lbDouble.Text = Program.readSettings.doubleClick;
             lbRight.Text = Program.readSettings.rightClick;
-            lbScroll.Text = Program.readSettings.scoll;
+            lbScroll.Text = Program.readSettings.scroll;
             lbMicOn.Text = Program.readSettings.micInput;
             lbMicOff.Text = Program.readSettings.micInputOff;
 
@@ -681,7 +682,7 @@ namespace GazeToolBar
         
         private void trackBarZoomAmount_ValueChanged(object sender, EventArgs e)
         {
-            form1.stateManager.SetMagnifierMaxZoom(trackBarZoomAmount.Value * Constants.GAPTST + Constants.MINTST);
+            //form1.stateManager.SetMagnifierMaxZoom(trackBarZoomAmount.Value * Constants.GAPTST + Constants.MINTST);
         }
         
 

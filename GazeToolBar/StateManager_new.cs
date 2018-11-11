@@ -383,12 +383,17 @@ namespace GazeToolBar
 
     /*
         *Allows the settings to update the max zoom
-    */
+
     public void SetMagnifierMaxZoom(int maxZoom)
         {
-            magnifier.MaxZoom = maxZoom;
+            //magnifier.MaxZoom = maxZoom;
+            magnifier.ResetZoomValue();
         }
-
+    */
+    public void ResetMagnifier()
+        {
+            magnifier.ResetZoomValue();
+        }
         /*
             *Allows the settings to update fixationDetection fixationDetectionTimeOutLength
             * and timeOutTimer intterval
@@ -413,9 +418,10 @@ namespace GazeToolBar
             fixationWorker.UpdateTimeLength(fixationDetectionTimeLength, fixationTimerInterval);
         }
  
+        /*
         public void resetZoomValue()
         {
             magnifier.ResetZoomValue();
-        }
+        }*/
     }
 }
