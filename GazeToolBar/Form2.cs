@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EyeXFramework.Forms;
@@ -30,6 +31,13 @@ namespace GazeToolBar
             this.BackColor = Color.Fuchsia;
             TransparencyKey = Color.Fuchsia;
             panel38.SendToBack();
+            double panelWidth = Convert.ToDouble(this.Width);
+            double newPanelWidth = panelWidth * 0.93;
+            int intNewPanelWidth = Convert.ToInt32(newPanelWidth);
+            panel38.Width = intNewPanelWidth;
+            panel38.Left = 0;
+            panel38.Top = this.Height - 465;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -41,7 +49,9 @@ namespace GazeToolBar
 
         private void button2_Click(object sender, EventArgs e)
         {
+            button2.BackColor = Color.Red;
             SendKeys.Send("x");
+            button2.BackColor = Color.Black;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -231,7 +241,7 @@ namespace GazeToolBar
             {
                 bottom = true;
                 //background panel
-                panel38.Location = new Point(0, 650);
+                panel38.Location = new Point(0, this.Height - 465);
                 /*top row
                 panel32.Location = new Point(12, 727);
                 panel33.Location = new Point(122, 727);
@@ -308,6 +318,11 @@ namespace GazeToolBar
         private void panel38_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button37_Click(object sender, EventArgs e)
+        {
+            SendKeys.Send("q");
         }
     }
 }
