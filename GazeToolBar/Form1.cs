@@ -303,6 +303,10 @@ namespace GazeToolBar
 
                 }
             }
+            else
+            {
+                form2.Close();
+            }
         }
 
         private void btnScoll_Click(object sender, EventArgs e)

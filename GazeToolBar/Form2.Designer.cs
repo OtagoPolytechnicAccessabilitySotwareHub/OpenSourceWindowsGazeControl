@@ -238,7 +238,7 @@
             this.button12.TabIndex = 13;
             this.button12.Text = "Ctrl";
             this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.button12.Click += new System.EventHandler(this.button12_ClickAsync);
             // 
             // panel14
             // 
@@ -1048,7 +1048,7 @@
             this.panel38.Controls.Add(this.panel4);
             this.panel38.Location = new System.Drawing.Point(12, 553);
             this.panel38.Name = "panel38";
-            this.panel38.Size = new System.Drawing.Size(1804, 455);
+            this.panel38.Size = new System.Drawing.Size(1810, 461);
             this.panel38.TabIndex = 38;
             this.panel38.Paint += new System.Windows.Forms.PaintEventHandler(this.panel38_Paint);
             // 
