@@ -136,11 +136,13 @@ namespace GazeToolBar
 
         private void updateGazeCoodinates(object o, GazePointEventArgs currentGaze)
         {           
+            //#####currently being tested with gazepoint
             //Save the users current gaze location.
-            currentGazeLocationX = fpogx;
-            currentGazeLocationY = fpogy;
+            currentGazeLocationX = currentGaze.X;
+            currentGazeLocationY = currentGaze.Y;
         }
-
+        
+        //method to use for thread that will contiously transmit gazepoint data stream
         private void tester()
         {
             do
