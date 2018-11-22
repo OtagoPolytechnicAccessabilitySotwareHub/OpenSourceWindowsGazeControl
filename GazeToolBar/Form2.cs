@@ -15,8 +15,9 @@ namespace GazeToolBar
     
     public partial class Form2 : Form
     {
-        bool alpha = true;
-        private bool bottom;
+        int FlashDelay = 500; //delay on making button flash
+        bool alpha = true; //is onscreen keyboard letters or numbers
+        private bool bottom; //for location of keyboard. top or bottom
         private static FormsEyeXHost eyeXHost;
         public Form2(FormsEyeXHost EyeXHost)
         {
@@ -30,14 +31,14 @@ namespace GazeToolBar
         {
             timer1.Enabled = true;
             this.BackColor = Color.Fuchsia;
-            TransparencyKey = Color.Fuchsia;
+            TransparencyKey = Color.Fuchsia; //form is maximised and transparent
             panel38.SendToBack();
-            double panelWidth = Convert.ToDouble(Screen.PrimaryScreen.WorkingArea.Width);
+            double panelWidth = Convert.ToDouble(Screen.PrimaryScreen.WorkingArea.Width); 
             double newPanelWidth = panelWidth * 0.93;
             int intNewPanelWidth = Convert.ToInt32(newPanelWidth);
             panel38.Width = intNewPanelWidth;
             panel38.Left = 0;
-            panel38.Top = (this.Height - panel38.Height - 50);
+            panel38.Top = (this.Height - panel38.Height - 50); //for changing position of keyboard, -50 is a rough equivilent of taskbar height
             /*foreach (Control control in panel38.Controls)
             {
                 control.Size = new Size(Screen.PrimaryScreen.WorkingArea.Width / 13, Screen.PrimaryScreen.WorkingArea.Width / 13);
@@ -46,10 +47,10 @@ namespace GazeToolBar
         }
 
 
-        private async void button1_Click(object sender, EventArgs e)
+        private async void button1_Click(object sender, EventArgs e) 
         {
-            button1.BackColor = Color.Red;
-            if(alpha == true)
+            button1.BackColor = Color.Red; //set background color when clicked
+            if(alpha == true) //sends key based on what keyboard is currently active
             {
                 SendKeys.Send("z");
             }
@@ -58,8 +59,8 @@ namespace GazeToolBar
                 SendKeys.Send(":");
             }
 
-            await Task.Delay(500);
-            button1.BackColor = Color.Black;
+            await Task.Delay(FlashDelay); //delay before deactivting button flash
+            button1.BackColor = Color.Black; //revert back to original color
         }
 
         private async void button2_ClickAsync(object sender, EventArgs e)
@@ -74,7 +75,7 @@ namespace GazeToolBar
                 SendKeys.Send(";");
             }
 
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button2.BackColor = Color.Black;
 
         }
@@ -90,7 +91,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("\"");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button3.BackColor = Color.Black;
         }
 
@@ -105,7 +106,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("\\");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button4.BackColor = Color.Black;
         }
 
@@ -120,7 +121,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("/");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button5.BackColor = Color.Black;
         }
 
@@ -135,7 +136,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send(">");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button6.BackColor = Color.Black;
         }
 
@@ -150,7 +151,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("<");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button7.BackColor = Color.Black;
         }
 
@@ -165,7 +166,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("+");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button13.BackColor = Color.Black;
         }
 
@@ -180,7 +181,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("@");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button21.BackColor = Color.Black;
         }
 
@@ -195,7 +196,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("#");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button24.BackColor = Color.Black;
         }
 
@@ -210,7 +211,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("$");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button23.BackColor = Color.Black;
         }
 
@@ -225,7 +226,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("%");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button22.BackColor = Color.Black;
         }
 
@@ -240,7 +241,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("^");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button19.BackColor = Color.Black;
         }
 
@@ -255,7 +256,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("&");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button18.BackColor = Color.Black;
         }
 
@@ -270,7 +271,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("*");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button17.BackColor = Color.Black;
         }
 
@@ -285,7 +286,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("{(}");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button16.BackColor = Color.Black;
         }
 
@@ -300,7 +301,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("{)}");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button15.BackColor = Color.Black;
         }
 
@@ -315,7 +316,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("1");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button33.BackColor = Color.Black;
         }
 
@@ -330,7 +331,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("2");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button36.BackColor = Color.Black;
         }
 
@@ -345,7 +346,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("3");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button35.BackColor = Color.Black;
         }
 
@@ -360,7 +361,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("4");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button34.BackColor = Color.Black;
         }
 
@@ -375,7 +376,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("5");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button31.BackColor = Color.Black;
         }
 
@@ -390,7 +391,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("6");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button30.BackColor = Color.Black;
         }
 
@@ -405,7 +406,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("7");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button29.BackColor = Color.Black;
         }
 
@@ -420,7 +421,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("8");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button28.BackColor = Color.Black;
         }
 
@@ -435,7 +436,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("9");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button27.BackColor = Color.Black;
         }
 
@@ -450,7 +451,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("?");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button26.BackColor = Color.Black;
         }
 
@@ -465,7 +466,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("~");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button8.BackColor = Color.Black;
         }
 
@@ -480,7 +481,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("|");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button9.BackColor = Color.Black;
         }
 
@@ -513,7 +514,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("_");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button11.BackColor = Color.Black;
         }
 
@@ -528,7 +529,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("_");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button12.BackColor = Color.Black;
         }
 
@@ -543,7 +544,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("!");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button20.BackColor = Color.Black;
         }
 
@@ -563,7 +564,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("-");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button14.BackColor = Color.Black;
         }
 
@@ -578,7 +579,7 @@ namespace GazeToolBar
             {
                 SendKeys.Send("{BACKSPACE}");
             }
-            await Task.Delay(500);
+            await Task.Delay(FlashDelay);
             button25.BackColor = Color.Black;
         }
 
@@ -590,7 +591,7 @@ namespace GazeToolBar
         private void button37_ClickAsync(object sender, EventArgs e)
         {
 
-            if(alpha == false)
+            if(alpha == false) //if letter keyboard is not onscreen
             {
                 button37.Text = "123";
                 button33.Text = "q";
@@ -634,7 +635,7 @@ namespace GazeToolBar
                 alpha = true;
 
             }
-            else
+            else 
             {
                 button37.Text = "abc";
                 button33.Text = "1";

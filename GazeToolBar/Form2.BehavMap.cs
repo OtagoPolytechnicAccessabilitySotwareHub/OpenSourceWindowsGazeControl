@@ -14,8 +14,8 @@ namespace GazeToolBar
 {
     public partial class Form2 : Form
     {
-        int buttonClickDelay = 500;
-        private void connectBehaveMap()
+        int buttonClickDelay = 500; //How long (ms) you need to look at button before it sends click event
+        private void connectBehaveMap() //connecting the behaviour map with the form
         {
             eyeXHost.Connect(Form2Map);
 
@@ -30,8 +30,8 @@ namespace GazeToolBar
 
         private void setupForm2Map()
         {
-            Form2Map.Add(button1, new GazeAwareBehavior(button1_Click) { DelayMilliseconds = buttonClickDelay });
-            Form2Map.Add(panel1, new GazeAwareBehavior(OnGazeChangeBTColour));
+            Form2Map.Add(button1, new GazeAwareBehavior(button1_Click) { DelayMilliseconds = buttonClickDelay }); //look at button to activate it
+            Form2Map.Add(panel1, new GazeAwareBehavior(OnGazeChangeBTColour));                                    //look at the panel to light up the area behind the button so you know where you are looking on the keyboard
 
             Form2Map.Add(button2, new GazeAwareBehavior(button2_Click) { DelayMilliseconds = buttonClickDelay });
             Form2Map.Add(panel2, new GazeAwareBehavior(OnGazeChangeBTColour));
@@ -145,7 +145,7 @@ namespace GazeToolBar
         }
 
         //toggle border on and off on gaze to gaze to give feed back.
-        private void OnGazeChangeBTColour(object s, GazeAwareEventArgs e)
+        private void OnGazeChangeBTColour(object s, GazeAwareEventArgs e) 
         {
             var sentButton = s as Panel;
             if (sentButton != null)
@@ -154,7 +154,7 @@ namespace GazeToolBar
             }
         }
 
-        private void button1_Click(object sender, GazeAwareEventArgs e)
+        private void button1_Click(object sender, GazeAwareEventArgs e) //preform button click if button is looked at for long enough 
         {
             if (e.HasGaze) button1.PerformClick();
         }
