@@ -14,7 +14,7 @@ namespace GazeToolBar
         protected const int UPDATE_SPEED = 1; //how fast the lens will update
 
         //TODO: Move these to settings json
-        public static bool DO_ZOOM = true;         //Zoom enabled
+        public static bool DO_ZOOM = false;         //Zoom disabled
 
         public static float ZOOM_SPEED = 0.06F;//005F;    //Amount zoom will increment
 
@@ -117,7 +117,7 @@ namespace GazeToolBar
 
         }
         //initialises the zoom window. called from statemanager
-        public void PlaceZoomWindow(Point fixationPoint)
+        public virtual void PlaceZoomWindow(Point fixationPoint)
         {
 
             sourceRect.left = fixationPoint.X;
@@ -140,7 +140,7 @@ namespace GazeToolBar
         }
 
         //updates the portion of the screen the zoom window is looking at.
-        private void UpdateZoomPosition()
+        protected virtual void UpdateZoomPosition()
         {
             if ((!hasInitialized) || (hwndMag == IntPtr.Zero) || !updateTimer.Enabled)
             {
@@ -165,9 +165,11 @@ namespace GazeToolBar
             Console.WriteLine("sourceRect: left: " + sourceRect.left + " top: " + sourceRect.top + " right: " + sourceRect.right);
 
             //Thread.Sleep(100);
-
+            
+            
+            //NativeMethods.MagSetWindowSource(hwndMag, sourceRect); //Sets the source of the zoom
+                
             NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
-            NativeMethods.MagSetWindowSource(hwndMag, sourceRect);  //Sets the source of the zoom
             
         }
         
@@ -214,7 +216,7 @@ namespace GazeToolBar
         }
 
         
-        public void ResetZoomValue()
+        public virtual void ResetZoomValue()
         {
             Offset = new Point(0, 0);
 

@@ -30,7 +30,12 @@ namespace GazeToolBar
         private ZoomLens zoomForm;
 
         //This controls the magnification on the ZoomLens
-        private ZoomMagnifier magnifier;
+        //private ZoomMagnifier magnifier;
+
+        /*
+         * Testing ZoomMagnifierCentered
+         */
+        private ZoomMagnifierCentered magnifier;
 
         //Monitor Gaze fixation data and raise systems flag when this occurs.
         private FixationDetection fixationWorker;
@@ -62,7 +67,17 @@ namespace GazeToolBar
             this.scrollWorker = scrollWorker;
             this.fixationWorker = fixationWorker;
             this.shortcutKeyWorker = shortcutKeyWorker;
+
+            /*
+             * for testing centered
+            
             magnifier = CreateMagnifier();
+
+            *
+            */
+
+            magnifier = new ZoomMagnifierCentered(zoomForm, fixationWorker);
+
         }
 
 

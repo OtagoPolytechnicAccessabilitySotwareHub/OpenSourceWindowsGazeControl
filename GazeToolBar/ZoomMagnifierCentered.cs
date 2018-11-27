@@ -1,4 +1,4 @@
-﻿/*using Karna.Magnification;
+﻿using Karna.Magnification;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,6 +7,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*
+ * note: I think polymorhism - having both ZoomMagnifier and ZoomMagniferCentered inheriting
+ * from a base class - would be better than inheritance here. -R.G.
+ */
+
 namespace GazeToolBar
 {
     public class ZoomMagnifierCentered : ZoomMagnifier
@@ -14,19 +19,25 @@ namespace GazeToolBar
         private int FORM_WIDTH { get; set; }
         private int FORM_HEIGHT { get; set;}
 
-        public ZoomMagnifierCentered(Form displayform, Point fixationPoint) : base(displayform)
+        private Point SecondaryOffset;
+
+        public ZoomMagnifierCentered(Form displayform, FixationDetection fixationWorker)
+            : base(displayform, fixationWorker)
         {
+            ZOOM_MAX = Program.readSettings.maxZoom;
             FORM_WIDTH = Program.readSettings.zoomWindowSize * 100;
             FORM_HEIGHT = FORM_WIDTH / 2;
+            SecondaryOffset = new Point(0, 0);
         }
 
-        public override void UpdatePosition(Point fixationPoint)
+        public override void PlaceZoomWindow(Point fixationPoint)
         {
             this.FixationPoint = fixationPoint;
             Rectangle screenBounds = Screen.FromControl(form).Bounds;
             int offsetX = 0;
             offsetX = screenBounds.Left;
-            MessageBox.Show(offsetX.ToString());
+
+            updateTimer.Enabled = true;
             form.Width = FORM_WIDTH;
             form.Height = FORM_HEIGHT;
 
@@ -39,7 +50,7 @@ namespace GazeToolBar
             Offset = new Point(dX, dY);
         }
 
-        public override void UpdateMagnifier()
+        protected override void UpdateZoomPosition()
         {
             //If the magnifier is not setup correctly (will crash otherwise)
             if ((!hasInitialized) || (hwndMag == IntPtr.Zero))
@@ -48,7 +59,7 @@ namespace GazeToolBar
             }
 
             sourceRect = new RECT();
-            Point zoomPosition = Utils.SubtractPoints(GetZoomPosition(), Offset);
+            Point zoomPosition = Utils.SubtractPoints(GetZoomPosition(FixationPoint), Offset);
             Rectangle screenBounds = Screen.FromControl(form).Bounds;
 
             //difference
@@ -101,6 +112,14 @@ namespace GazeToolBar
         {
             return 1;
         }
+
+        public override void ResetZoomValue()
+        {
+            //base.ResetZoomValue();
+
+            SecondaryOffset = new Point(0, 0);
+            Magnification = ZOOM_MAX;
+
+        }
     }
 }
-*/
