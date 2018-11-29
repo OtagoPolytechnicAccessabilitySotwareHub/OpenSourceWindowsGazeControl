@@ -190,6 +190,7 @@ namespace GazeToolBar
             this.bhavRearrangeMap = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.bhavCrosshairMap = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.bhavConfirmMap = new EyeXFramework.Forms.BehaviorMap(this.components);
+            this.testButton = new System.Windows.Forms.Button();
             this.panelSaveAndCancel.SuspendLayout();
             this.pnlCancel.SuspendLayout();
             this.pnlSave.SuspendLayout();
@@ -342,6 +343,7 @@ namespace GazeToolBar
             // pnlPageKeyboard
             // 
             this.pnlPageKeyboard.BackColor = System.Drawing.Color.Black;
+            this.pnlPageKeyboard.Controls.Add(this.testButton);
             this.pnlPageKeyboard.Controls.Add(this.pnlMic);
             this.pnlPageKeyboard.Controls.Add(this.pnlLeftClick);
             this.pnlPageKeyboard.Controls.Add(this.lbFKeyFeedback);
@@ -682,7 +684,7 @@ namespace GazeToolBar
             // pictureBox3
             // 
             this.pictureBox3.Image = global::GazeToolBar.Properties.Resources.Double_Click_icon;
-            this.pictureBox3.Location = new System.Drawing.Point(19, 22);
+            this.pictureBox3.Location = new System.Drawing.Point(21, 22);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(155, 91);
@@ -2036,16 +2038,32 @@ namespace GazeToolBar
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             // 
+            // testButton
+            // 
+            this.testButton.BackColor = System.Drawing.Color.Transparent;
+            this.testButton.FlatAppearance.BorderSize = 5;
+            this.testButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.testButton.Font = new System.Drawing.Font("Arial", 15.75F);
+            this.testButton.ForeColor = System.Drawing.Color.White;
+            this.testButton.Location = new System.Drawing.Point(166, 418);
+            this.testButton.Margin = new System.Windows.Forms.Padding(2);
+            this.testButton.Name = "testButton";
+            this.testButton.Size = new System.Drawing.Size(150, 100);
+            this.testButton.TabIndex = 34;
+            this.testButton.Text = "Test Button";
+            this.testButton.UseVisualStyleBackColor = false;
+            this.testButton.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1632, 783);
+            this.Controls.Add(this.pnlRearrange);
             this.Controls.Add(this.pnlPageKeyboard);
             this.Controls.Add(this.pnlGeneral);
             this.Controls.Add(this.pnlCrosshairPage);
-            this.Controls.Add(this.pnlRearrange);
             this.Controls.Add(this.pnlZoomSettings);
             this.Controls.Add(this.panelSaveAndCancel);
             this.Controls.Add(this.pnlSwitchSetting);
@@ -2331,5 +2349,6 @@ namespace GazeToolBar
         private Button btnDefaultConfirmYes;
         private Label label4;
         private EyeXFramework.Forms.BehaviorMap bhavConfirmMap;
+        private Button testButton;
     }
 }

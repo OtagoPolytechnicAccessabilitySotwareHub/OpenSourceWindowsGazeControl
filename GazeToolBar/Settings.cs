@@ -962,6 +962,11 @@ namespace GazeToolBar
             pnlDefaultConfirmNo.BackColor = Color.Black;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnDefaults_Click(object sender, EventArgs e)
         {
             RemoveAndAddMainBhavMap("remove");
