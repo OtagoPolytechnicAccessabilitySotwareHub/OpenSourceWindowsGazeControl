@@ -967,6 +967,11 @@ namespace GazeToolBar
 
         }
 
+        private void btnZoomMethod_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("ZoomMethod");
+        }
+
         private void btnDefaults_Click(object sender, EventArgs e)
         {
             RemoveAndAddMainBhavMap("remove");
