@@ -39,6 +39,7 @@ namespace GazeToolBar
             this.pnlCancel = new System.Windows.Forms.Panel();
             this.pnlSave = new System.Windows.Forms.Panel();
             this.pnlPageKeyboard = new System.Windows.Forms.Panel();
+            this.testButton = new System.Windows.Forms.Button();
             this.pnlMic = new System.Windows.Forms.Panel();
             this.lbMicOff = new System.Windows.Forms.Label();
             this.pnlClearMic = new System.Windows.Forms.Panel();
@@ -190,7 +191,7 @@ namespace GazeToolBar
             this.bhavRearrangeMap = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.bhavCrosshairMap = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.bhavConfirmMap = new EyeXFramework.Forms.BehaviorMap(this.components);
-            this.testButton = new System.Windows.Forms.Button();
+            this.testPanel = new System.Windows.Forms.Panel();
             this.panelSaveAndCancel.SuspendLayout();
             this.pnlCancel.SuspendLayout();
             this.pnlSave.SuspendLayout();
@@ -343,7 +344,6 @@ namespace GazeToolBar
             // pnlPageKeyboard
             // 
             this.pnlPageKeyboard.BackColor = System.Drawing.Color.Black;
-            this.pnlPageKeyboard.Controls.Add(this.testButton);
             this.pnlPageKeyboard.Controls.Add(this.pnlMic);
             this.pnlPageKeyboard.Controls.Add(this.pnlLeftClick);
             this.pnlPageKeyboard.Controls.Add(this.lbFKeyFeedback);
@@ -356,6 +356,22 @@ namespace GazeToolBar
             this.pnlPageKeyboard.Size = new System.Drawing.Size(929, 465);
             this.pnlPageKeyboard.TabIndex = 26;
             this.pnlPageKeyboard.Visible = false;
+            // 
+            // testButton
+            // 
+            this.testButton.BackColor = System.Drawing.Color.Transparent;
+            this.testButton.FlatAppearance.BorderSize = 5;
+            this.testButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.testButton.Font = new System.Drawing.Font("Arial", 15.75F);
+            this.testButton.ForeColor = System.Drawing.Color.White;
+            this.testButton.Location = new System.Drawing.Point(2, 2);
+            this.testButton.Margin = new System.Windows.Forms.Padding(2);
+            this.testButton.Name = "testButton";
+            this.testButton.Size = new System.Drawing.Size(150, 100);
+            this.testButton.TabIndex = 34;
+            this.testButton.Text = "Test Button";
+            this.testButton.UseVisualStyleBackColor = false;
+            this.testButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // pnlMic
             // 
@@ -481,10 +497,10 @@ namespace GazeToolBar
             // 
             // pnlLeftClick
             // 
+            this.pnlLeftClick.Controls.Add(this.pictureBox1);
             this.pnlLeftClick.Controls.Add(this.pnlFKeyHighlight2);
             this.pnlLeftClick.Controls.Add(this.pnlFKeyHighlight1);
             this.pnlLeftClick.Controls.Add(this.lbLeft);
-            this.pnlLeftClick.Controls.Add(this.pictureBox1);
             this.pnlLeftClick.Location = new System.Drawing.Point(38, 12);
             this.pnlLeftClick.Margin = new System.Windows.Forms.Padding(2);
             this.pnlLeftClick.Name = "pnlLeftClick";
@@ -890,7 +906,7 @@ namespace GazeToolBar
             this.btnShortCutKeySetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShortCutKeySetting.Font = new System.Drawing.Font("Arial", 15.75F);
             this.btnShortCutKeySetting.ForeColor = System.Drawing.Color.White;
-            this.btnShortCutKeySetting.Location = new System.Drawing.Point(2, 2);
+            this.btnShortCutKeySetting.Location = new System.Drawing.Point(4, 3);
             this.btnShortCutKeySetting.Margin = new System.Windows.Forms.Padding(2);
             this.btnShortCutKeySetting.Name = "btnShortCutKeySetting";
             this.btnShortCutKeySetting.Size = new System.Drawing.Size(150, 100);
@@ -969,7 +985,7 @@ namespace GazeToolBar
             this.btnRearrangeSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRearrangeSetting.Font = new System.Drawing.Font("Arial", 15.75F);
             this.btnRearrangeSetting.ForeColor = System.Drawing.Color.White;
-            this.btnRearrangeSetting.Location = new System.Drawing.Point(2, 2);
+            this.btnRearrangeSetting.Location = new System.Drawing.Point(4, 2);
             this.btnRearrangeSetting.Margin = new System.Windows.Forms.Padding(2);
             this.btnRearrangeSetting.Name = "btnRearrangeSetting";
             this.btnRearrangeSetting.Size = new System.Drawing.Size(150, 100);
@@ -993,7 +1009,7 @@ namespace GazeToolBar
             this.btnZoomSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZoomSettings.Font = new System.Drawing.Font("Arial", 15.75F);
             this.btnZoomSettings.ForeColor = System.Drawing.Color.White;
-            this.btnZoomSettings.Location = new System.Drawing.Point(2, 2);
+            this.btnZoomSettings.Location = new System.Drawing.Point(2, 3);
             this.btnZoomSettings.Margin = new System.Windows.Forms.Padding(2);
             this.btnZoomSettings.Name = "btnZoomSettings";
             this.btnZoomSettings.Size = new System.Drawing.Size(150, 100);
@@ -1015,6 +1031,7 @@ namespace GazeToolBar
             // pnlZoomSizeContent
             // 
             this.pnlZoomSizeContent.BackColor = System.Drawing.Color.Black;
+            //this.pnlZoomSizeContent.Controls.Add(this.testPanel);
             this.pnlZoomSizeContent.Controls.Add(this.pnlZWSPlus);
             this.pnlZoomSizeContent.Controls.Add(this.trackBarZoomWindowSize);
             this.pnlZoomSizeContent.Controls.Add(this.pnlZWSMinus);
@@ -1193,6 +1210,7 @@ namespace GazeToolBar
             // 
             // pnlZoomSettings
             // 
+            this.pnlZoomSettings.Controls.Add(this.testPanel);
             this.pnlZoomSettings.Controls.Add(this.pnlZoomAmount);
             this.pnlZoomSettings.Controls.Add(this.pnlZoomSize);
             this.pnlZoomSettings.Location = new System.Drawing.Point(449, 123);
@@ -2038,28 +2056,20 @@ namespace GazeToolBar
             this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             // 
-            // testButton
-            // 
-            this.testButton.BackColor = System.Drawing.Color.Transparent;
-            this.testButton.FlatAppearance.BorderSize = 5;
-            this.testButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.testButton.Font = new System.Drawing.Font("Arial", 15.75F);
-            this.testButton.ForeColor = System.Drawing.Color.White;
-            this.testButton.Location = new System.Drawing.Point(166, 418);
-            this.testButton.Margin = new System.Windows.Forms.Padding(2);
-            this.testButton.Name = "testButton";
-            this.testButton.Size = new System.Drawing.Size(150, 100);
-            this.testButton.TabIndex = 34;
-            this.testButton.Text = "Test Button";
-            this.testButton.UseVisualStyleBackColor = false;
-            this.testButton.Click += new System.EventHandler(this.button1_Click);
+            // testPanel
+            //
+            this.testPanel.Controls.Add(this.testButton);
+            this.testPanel.Location = new System.Drawing.Point(600, 500);
+            this.testPanel.Name = "testPanel";
+            this.testPanel.Size = new System.Drawing.Size(150, 100);
+            this.testPanel.TabIndex = 31;
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1632, 783);
+            this.ClientSize = new System.Drawing.Size(1825, 787);
             this.Controls.Add(this.pnlRearrange);
             this.Controls.Add(this.pnlPageKeyboard);
             this.Controls.Add(this.pnlGeneral);
@@ -2350,5 +2360,6 @@ namespace GazeToolBar
         private Label label4;
         private EyeXFramework.Forms.BehaviorMap bhavConfirmMap;
         private Button testButton;
+        private Panel testPanel;
     }
 }
