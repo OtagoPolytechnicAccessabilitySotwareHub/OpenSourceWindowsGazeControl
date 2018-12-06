@@ -962,9 +962,9 @@ namespace GazeToolBar
             pnlDefaultConfirmNo.BackColor = Color.Black;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnStaticZoomModeClick(object sender, EventArgs e)
         {
-
+            MessageBox.Show("click");
         }
 
         private void btnDefaults_Click(object sender, EventArgs e)
