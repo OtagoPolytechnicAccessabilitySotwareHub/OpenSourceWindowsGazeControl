@@ -167,7 +167,7 @@ namespace GazeToolBar
             //Thread.Sleep(100);
             
             
-            //NativeMethods.MagSetWindowSource(hwndMag, sourceRect); //Sets the source of the zoom
+            NativeMethods.MagSetWindowSource(hwndMag, sourceRect); //Sets the source of the zoom
                 
             NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
             
