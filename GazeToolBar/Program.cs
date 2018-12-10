@@ -63,6 +63,7 @@ namespace GazeToolBar
                 defaultSetting.zoomWindowSize = 10;
                 defaultSetting.stickyLeftClick = false;
                 defaultSetting.selectionFeedback = true;
+                defaultSetting.dynamicZoom = false;
                 string JSONstr = JsonConvert.SerializeObject(defaultSetting);
                 File.AppendAllText(path, JSONstr);
 

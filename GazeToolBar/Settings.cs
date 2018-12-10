@@ -27,7 +27,7 @@ namespace GazeToolBar
         private List<Panel> actionPanels = new List<Panel>();
         private String selectionButton = "";
         private Dictionary<String, Button> buttonMap = new Dictionary<string, Button>();
-        private bool stickyLeft, selectionFeedback;
+        private bool stickyLeft, selectionFeedback, dynamicZoom;
 
         private List<Panel> fKeyPannels;
 
@@ -78,6 +78,18 @@ namespace GazeToolBar
             selectionFeedback = Program.readSettings.selectionFeedback;
             if (selectionFeedback)
                 btnFeedback.BackColor = Color.White;
+
+            dynamicZoom = Program.readSettings.dynamicZoom;
+            if (dynamicZoom)
+            {
+                btnDynamicZoomMode.BackColor = Color.White;
+                btnDynamicZoomMode.ForeColor = Color.Black;
+            }
+            else
+            {
+                btnStaticZoomMode.BackColor = Color.White;
+                btnStaticZoomMode.ForeColor = Color.Black;
+            }
 
             form1.LowLevelKeyBoardHook.OnKeyPressed += GetKeyPress;
 
@@ -308,6 +320,7 @@ namespace GazeToolBar
                 setting.zoomWindowSize = trackBarZoomWindowSize.Value;
                 setting.stickyLeftClick = stickyLeft;
                 setting.selectionFeedback = selectionFeedback;
+                setting.dynamicZoom = dynamicZoom;
 
                 Program.readSettings.sidebar = selectedActions.ToArray<string>();
                 Program.readSettings.maxZoom = setting.maxZoom;
@@ -348,7 +361,7 @@ namespace GazeToolBar
             buttonStickyLeftClick.BackColor = Color.Black;
             selectionFeedback = Program.readSettings.selectionFeedback;
             btnFeedback.BackColor = Color.White;
-
+            dynamicZoom = false;
         }
 
         void NotifyIcon_BalloonTipClicked(object sender, EventArgs e)
@@ -964,12 +977,20 @@ namespace GazeToolBar
 
         private void btnStaticZoomModeClick(object sender, EventArgs e)
         {
-            MessageBox.Show("click");
+            dynamicZoom = false;
+            btnStaticZoomMode.BackColor = Color.White;
+            btnStaticZoomMode.ForeColor = Color.Black;
+            btnDynamicZoomMode.BackColor = Color.Black;
+            btnDynamicZoomMode.ForeColor = Color.White;
         }
 
         private void btnDynamicZoomMode_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("dynamic zoom click");
+            dynamicZoom = true;
+            btnDynamicZoomMode.BackColor = Color.White;
+            btnDynamicZoomMode.ForeColor = Color.Black;
+            btnStaticZoomMode.BackColor = Color.Black;
+            btnStaticZoomMode.ForeColor = Color.White;
         }
 
         private void btnDefaults_Click(object sender, EventArgs e)

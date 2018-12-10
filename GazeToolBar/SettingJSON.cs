@@ -22,6 +22,6 @@ namespace GazeToolBar
         public int zoomWindowSize { get; set; }
         public bool stickyLeftClick { get; set; }
         public bool selectionFeedback { get; set; }
-
+        public bool dynamicZoom { get; set; }
     }
 }

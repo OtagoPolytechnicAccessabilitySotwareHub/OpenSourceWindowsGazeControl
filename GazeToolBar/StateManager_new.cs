@@ -35,7 +35,7 @@ namespace GazeToolBar
         /*
          * Testing ZoomMagnifierCentered
          */
-        private ZoomMagnifierCentered magnifier;
+        private ZoomMagnifier magnifier;
 
         //Monitor Gaze fixation data and raise systems flag when this occurs.
         private FixationDetection fixationWorker;
@@ -75,8 +75,14 @@ namespace GazeToolBar
 
             *
             */
-
-            magnifier = new ZoomMagnifierCentered(zoomForm, fixationWorker);
+            if (Program.readSettings.dynamicZoom)
+            {
+                magnifier = new ZoomMagnifier(zoomForm, fixationWorker);
+            }
+            else
+            {
+                magnifier = new ZoomMagnifierCentered(zoomForm, fixationWorker);
+            }
 
         }
 
@@ -407,7 +413,16 @@ namespace GazeToolBar
     */
     public void ResetMagnifier()
         {
-            magnifier.ResetZoomValue();
+            if(Program.readSettings.dynamicZoom)
+            {
+                magnifier = new ZoomMagnifier(zoomForm, fixationWorker);
+            }
+            else
+            {
+                magnifier = new ZoomMagnifierCentered(zoomForm, fixationWorker);
+            }
+            //magnifier.ResetZoomValue();
+            //magnifier.DO_ZOOM = Program.readSettings.dynamicZoom;
         }
         /*
             *Allows the settings to update fixationDetection fixationDetectionTimeOutLength

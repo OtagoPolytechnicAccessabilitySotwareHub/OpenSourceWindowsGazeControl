@@ -840,7 +840,7 @@ namespace GazeToolBar
             this.btnStaticZoomMode.Name = "btnStaticZoomMode";
             this.btnStaticZoomMode.Size = new System.Drawing.Size(150, 100);
             this.btnStaticZoomMode.TabIndex = 34;
-            this.btnStaticZoomMode.Text = "Test Button";
+            this.btnStaticZoomMode.Text = "Static Zoom";
             this.btnStaticZoomMode.UseVisualStyleBackColor = false;
             this.btnStaticZoomMode.Click += new System.EventHandler(this.btnStaticZoomModeClick);
             // 
@@ -2100,7 +2100,6 @@ namespace GazeToolBar
             this.btnDynamicZoomMode.Text = "Dynamic Zoom";
             this.btnDynamicZoomMode.UseVisualStyleBackColor = false;
             this.btnDynamicZoomMode.Click += new System.EventHandler(this.btnDynamicZoomMode_Click);
-            this.btnStaticZoomMode.Click += new System.EventHandler(this.btnStaticZoomModeClick);
             // 
             // Settings
             // 

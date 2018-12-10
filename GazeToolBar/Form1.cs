@@ -337,7 +337,7 @@ namespace GazeToolBar
             }                  
         }
 
-        private void btnScoll_Click(object sender, EventArgs e)
+        private void btnScroll_Click(object sender, EventArgs e)
         {
             //if (AttemptToggle(ActionToBePerformed.Scroll))
             //    return;

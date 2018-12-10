@@ -14,7 +14,7 @@ namespace GazeToolBar
         protected const int UPDATE_SPEED = 1; //how fast the lens will update
 
         //TODO: Move these to settings json
-        public static bool DO_ZOOM = false;         //Zoom disabled
+        public bool DO_ZOOM = Program.readSettings.dynamicZoom;//false;         //Zoom disabled
 
         public static float ZOOM_SPEED = 0.06F;//005F;    //Amount zoom will increment
 
