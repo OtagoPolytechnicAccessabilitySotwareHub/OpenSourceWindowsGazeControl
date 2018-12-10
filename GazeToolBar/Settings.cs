@@ -967,6 +967,11 @@ namespace GazeToolBar
             MessageBox.Show("click");
         }
 
+        private void btnDynamicZoomMode_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("dynamic zoom click");
+        }
+
         private void btnDefaults_Click(object sender, EventArgs e)
         {
             RemoveAndAddMainBhavMap("remove");
