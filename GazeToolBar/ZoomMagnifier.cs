@@ -32,7 +32,7 @@ namespace GazeToolBar
         FormsEyeXHost eyeXHost;
         GazePointDataStream gazeStream;
 
-        protected bool zooming;
+        //protected bool zooming;
 
         //protected FixationDetection fixationWorker;
         protected FixationSmootherExponential fixationSmoother;
@@ -53,7 +53,7 @@ namespace GazeToolBar
         public ZoomMagnifier(Form displayform, FixationDetection fixationWorker)//, Point fixationPoint)
         {
             ZOOM_MAX = Program.readSettings.maxZoom;          //Max zoom amount
-            Magnification = DO_ZOOM ? 1 : ZOOM_MAX;// Program.readSettings.maxZoom; //Set magnification to the max if not zooming
+            Magnification = DO_ZOOM ? 1 : ZOOM_MAX; //Set magnification to the max if not zooming
             form = displayform;
             form.TopMost = true;
             updateTimer = new System.Windows.Forms.Timer();
@@ -63,7 +63,7 @@ namespace GazeToolBar
 
             this.fixationWorker = fixationWorker;
 
-            FixationPoint = new System.Drawing.Point();//fixationPoint;
+            FixationPoint = fixationWorker.getXY(); //new System.Drawing.Point();//fixationPoint;
             InitLens();
             sourceRect = new RECT();
 
@@ -86,7 +86,7 @@ namespace GazeToolBar
             form.Top = -5000;
             form.Width = 1;
             form.Height = 1;
-            zooming = true;
+            //zooming = true;
 
         }
 

@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 /*
- * note: I think polymorhism - having both ZoomMagnifier and ZoomMagniferCentered inheriting
- * from a base class - would be better than inheritance here. -R.G.
+ * I think it would be better to have a base class from which ZoomMagnifier and ZoomMagnifierCentered
+ * Inherit, rather than having ZoomMagnifierCentered inherit from ZoomMagnifier.
  */
 
 namespace GazeToolBar
@@ -82,7 +82,7 @@ namespace GazeToolBar
             int width = (int)(form.Width / Magnification);
             int height = (int)(form.Height / Magnification);
 
-            //Zoom rectangle positionpop
+            //Zoom rectangle position
             sourceRect.left = zoomPosition.X - (width / 2);
             sourceRect.top = zoomPosition.Y - (height / 2);
 
