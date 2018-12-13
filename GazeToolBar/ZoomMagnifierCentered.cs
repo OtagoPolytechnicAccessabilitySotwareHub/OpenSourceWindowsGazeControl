@@ -121,5 +121,20 @@ namespace GazeToolBar
             Magnification = ZOOM_MAX;
 
         }
+        public override Point GetLookPosition()
+        {
+            Point startPoint = new Point(sourceRect.left, sourceRect.top);
+            Point actualLook = CurrentLook;
+            Point formPos = new Point(form.Left, form.Top);
+            Point adjustedPoint = Utils.SubtractPoints(actualLook, formPos);
+            Point magAdjust = new Point((int)(adjustedPoint.X / ZOOM_MAX), (int)(adjustedPoint.Y / ZOOM_MAX));
+
+            Point finalPoint = Utils.AddPoints(magAdjust, startPoint);
+
+            //  Point finalPoint = adjustedPoint;//Utils.SubtractPoints(Utils.AddPoints(startPoint, adjustedPoint), 1);
+            //  MessageBox.Show(adjustedPoint.X + " " + adjustedPoint.Y + " " + finalPoint.X + " " + finalPoint.Y);
+
+            return finalPoint;
+        }
     }
 }

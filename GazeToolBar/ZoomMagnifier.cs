@@ -290,7 +290,7 @@ namespace GazeToolBar
         }
 
 
-        public Point GetLookPosition()
+        public virtual Point GetLookPosition()
         {
 
             Point startPoint = new Point(sourceRect.left, sourceRect.top);
