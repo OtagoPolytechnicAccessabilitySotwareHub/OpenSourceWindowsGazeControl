@@ -198,6 +198,24 @@ namespace GazeToolBar
             SystemFlags.shortCutKeyPressed = false;
             SystemFlags.hasGaze = false;
             SystemFlags.fixationRunning = false;
+
+            if(!Program.readSettings.dynamicZoom)
+            {
+                //magnifier.Timer.Enabled = true;
+                //magnifier.UpdatePosition(fixationPoint);
+                // Give the magnifier the point on screen to magnify
+                //magnifier.FixationPoint = fixationPoint;
+                Point p1 = Utils.DividePoint(magnifier.Offset, magnifier.MagnifierDivAmount());
+                Point p2 = Utils.DividePoint(magnifier.SecondaryOffset, magnifier.MagnifierDivAmount());
+
+                Point o = Utils.SubtractPoints(p1, p2);
+
+                zoomForm.Offset = o;                    // This initiate's the timer for drawing of the user feedback image
+                zoomForm.Start();
+                zoomForm.Show();
+                zoomForm.CrossHairPos = magnifier.GetLookPosition();
+            }
+
         }
 
         public void DoActionZoomWait()

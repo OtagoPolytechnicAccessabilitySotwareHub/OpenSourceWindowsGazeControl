@@ -23,7 +23,7 @@ namespace GazeToolBar
 
         public Point FixationPoint { get; set; }
         public Point Offset { get; set; }  //Offset is the amount of pixels moved when repositioning the form if it is offscreen. It's used to reposition the Fixation point.
-        //public Point SecondaryOffset { get; set; }  //Used for the Centered zoom offset from the sides..
+        public Point SecondaryOffset { get; set; }  //Used for the Centered zoom offset from the sides..
         protected Form form;
         protected System.Windows.Forms.Timer updateTimer;
         protected RECT magWindowRect = new RECT();
@@ -75,7 +75,7 @@ namespace GazeToolBar
             updateTimer.Interval = UPDATE_SPEED;
             updateTimer.Enabled = false;
             Offset = new Point(0, 0);
-            //SecondaryOffset = new Point(0, 0);
+            SecondaryOffset = new Point(0, 0);
 
             eyeXHost = new FormsEyeXHost();
             eyeXHost.Start();
