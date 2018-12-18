@@ -225,7 +225,8 @@ namespace GazeToolBar
                 fixationWorker.StartDetectingFixation();
                 SystemFlags.fixationRunning = true;
             }
-            runZoomForm(fixationWorker.getXY());// magnifier.GetLookPosition());
+            //runZoomForm(fixationWorker.getXY());// magnifier.GetLookPosition());
+            runZoomForm(magnifier.GetLookPosition());
         }
 
         public void DoActionScrollWait()
@@ -246,7 +247,7 @@ namespace GazeToolBar
             magnifier.ResetZoomValue();
             magnifier.Stop();
 
-            performAction(SystemFlags.actionToBePerformed, fixationWorker.getXY());// lookPosition);
+            performAction(SystemFlags.actionToBePerformed, lookPosition); // fixationWorker.getXY());
         }
 
 /*

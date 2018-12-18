@@ -7,7 +7,7 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="GazeToolBar.exe.manifest" size="35452">
+    <dependentAssembly dependencyType="install" codebase="Application Files\GazeToolBar_1_0_2_11\GazeToolBar.exe.manifest" size="35452">
       <assemblyIdentity name="GazeToolBar.exe" version="1.0.2.11" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>

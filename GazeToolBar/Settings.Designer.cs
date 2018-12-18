@@ -1230,7 +1230,7 @@ namespace GazeToolBar
             this.pnlZoomMode.Controls.Add(this.pnlDynamicZoomMode);
             this.pnlZoomMode.Location = new System.Drawing.Point(600, 500);
             this.pnlZoomMode.Name = "pnlZoomMode";
-            this.pnlZoomMode.Size = new System.Drawing.Size(456, 100);
+            this.pnlZoomMode.Size = new System.Drawing.Size(608, 100);
             this.pnlZoomMode.TabIndex = 31;
             // 
             // pnlStaticZoomMode
@@ -1244,7 +1244,7 @@ namespace GazeToolBar
             // pnlDynamicZoomMode
             // 
             this.pnlDynamicZoomMode.Controls.Add(this.btnDynamicZoomMode);
-            this.pnlDynamicZoomMode.Location = new System.Drawing.Point(304, 2);
+            this.pnlDynamicZoomMode.Location = new System.Drawing.Point(456, 2);
             this.pnlDynamicZoomMode.Name = "pnlDynamicZoomMode";
             this.pnlDynamicZoomMode.Size = new System.Drawing.Size(200, 100);
             this.pnlDynamicZoomMode.TabIndex = 31;

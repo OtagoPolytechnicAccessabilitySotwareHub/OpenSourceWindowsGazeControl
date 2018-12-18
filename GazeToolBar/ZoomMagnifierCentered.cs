@@ -131,8 +131,9 @@ namespace GazeToolBar
 
             Point finalPoint = Utils.AddPoints(magAdjust, startPoint);
 
+            //Console.WriteLine("X: " + finalPoint.X + "\nY: " + finalPoint.Y);
             //  Point finalPoint = adjustedPoint;//Utils.SubtractPoints(Utils.AddPoints(startPoint, adjustedPoint), 1);
-            //  MessageBox.Show(adjustedPoint.X + " " + adjustedPoint.Y + " " + finalPoint.X + " " + finalPoint.Y);
+            
 
             return finalPoint;
         }
