@@ -45,7 +45,7 @@ namespace GazeToolBar
 
         public bool ZoomerFixation {get; set;}
 
-        //ring buffer arrays.
+        //ring buffer array
         double[] xBuffer;
         double[] yBuffer;
 
