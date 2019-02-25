@@ -33,16 +33,42 @@ namespace GazeToolBar
             this.BackColor = Color.Fuchsia;
             TransparencyKey = Color.Fuchsia; //form is maximised and transparent
             panel38.SendToBack();
-            double panelWidth = Convert.ToDouble(Screen.PrimaryScreen.WorkingArea.Width); 
+            //double panelWidth = Convert.ToDouble(Screen.PrimaryScreen.WorkingArea.Width); 
+            double panelWidth = Convert.ToDouble(ClientSize.Width); 
             double newPanelWidth = panelWidth * 0.93;
             int intNewPanelWidth = Convert.ToInt32(newPanelWidth);
             panel38.Width = intNewPanelWidth;
             panel38.Left = 0;
+            panel38.Height = Convert.ToInt32(ClientSize.Height * 0.3147) + 75;
             panel38.Top = (this.Height - panel38.Height - 50); //for changing position of keyboard, -50 is a rough equivilent of taskbar height
-            /*foreach (Control control in panel38.Controls)
+
+            int count = 0;
+            int count2 = 0;
+
+            foreach (Control control in panel38.Controls)
             {
-                control.Size = new Size(Screen.PrimaryScreen.WorkingArea.Width / 13, Screen.PrimaryScreen.WorkingArea.Width / 13);
-            }*/
+                control.AutoSize = false;
+                control.Size = new Size(intNewPanelWidth / 12, intNewPanelWidth / 12);
+                //control.Location = (new Point(1, 1));
+                Console.WriteLine(control.Name + " " + control.Width + " " + control.Height +" "+ control.Location);
+                control.Location = (new Point(count, count2));
+                count= count + intNewPanelWidth / 12;
+                if(count > intNewPanelWidth-(intNewPanelWidth / 12))
+                    {
+                    count2= count2+ intNewPanelWidth / 12;
+                    count = 0;
+                }
+                
+
+
+                foreach (Button button  in control.Controls.OfType<Button>())
+                {
+                    button.Size = new Size(intNewPanelWidth / 12, intNewPanelWidth / 12);
+                    Console.WriteLine(button.Name + " " + button.Width + " " + button.Height + " " + button.Location);
+                }
+             
+
+            }
 
         }
 
@@ -588,7 +614,7 @@ namespace GazeToolBar
 
         }
 
-        private void button37_ClickAsync(object sender, EventArgs e)
+        private async void button37_ClickAsync(object sender, EventArgs e)
         {
 
             if(alpha == false) //if letter keyboard is not onscreen
@@ -630,7 +656,7 @@ namespace GazeToolBar
                 button7.Text = "m";
                 button8.Text = ",";
                 button9.Text = ".";
-                button10.Text = "Change Places";
+                button10.Text = "DOWN";
 
                 alpha = true;
 
@@ -674,12 +700,14 @@ namespace GazeToolBar
                 button7.Text = "<";
                 button8.Text = "~";
                 button9.Text = "|";
-                button10.Text = "Change Places";
+                button10.Text = "DOWN";
 
                 alpha = false;
             }
 
-            
+            await Task.Delay(FlashDelay);
+            button37.BackColor = Color.Black;
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

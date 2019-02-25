@@ -419,7 +419,7 @@
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(146, 146);
             this.button10.TabIndex = 30;
-            this.button10.Text = "Change Places";
+            this.button10.Text = "UP";
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
@@ -519,7 +519,6 @@
             // 
             // panel17
             // 
-            this.panel17.AutoSize = true;
             this.panel17.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel17.Controls.Add(this.button17);
             this.panel17.Location = new System.Drawing.Point(1050, 150);
@@ -542,7 +541,6 @@
             // 
             // panel18
             // 
-            this.panel18.AutoSize = true;
             this.panel18.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel18.Controls.Add(this.button18);
             this.panel18.Location = new System.Drawing.Point(900, 150);
@@ -568,7 +566,6 @@
             this.panel19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel19.AutoSize = true;
             this.panel19.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel19.Controls.Add(this.button19);
             this.panel19.Location = new System.Drawing.Point(750, 150);
@@ -619,7 +616,6 @@
             // panel21
             // 
             this.panel21.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel21.AutoSize = true;
             this.panel21.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel21.Controls.Add(this.button21);
             this.panel21.Location = new System.Drawing.Point(151, 152);
@@ -642,7 +638,6 @@
             // 
             // panel22
             // 
-            this.panel22.AutoSize = true;
             this.panel22.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel22.Controls.Add(this.button22);
             this.panel22.Location = new System.Drawing.Point(600, 150);
@@ -828,8 +823,6 @@
             // 
             // panel30
             // 
-            this.panel30.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel30.AutoSize = true;
             this.panel30.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel30.Controls.Add(this.button30);
             this.panel30.Location = new System.Drawing.Point(900, 0);
@@ -853,7 +846,6 @@
             // 
             // panel31
             // 
-            this.panel31.AutoSize = true;
             this.panel31.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel31.Controls.Add(this.button31);
             this.panel31.Location = new System.Drawing.Point(750, 0);
@@ -866,7 +858,7 @@
             this.button31.BackColor = System.Drawing.Color.Black;
             this.button31.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button31.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button31.Location = new System.Drawing.Point(2, 2);
+            this.button31.Location = new System.Drawing.Point(0, 0);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(146, 146);
             this.button31.TabIndex = 30;
@@ -891,7 +883,7 @@
             this.button37.BackColor = System.Drawing.Color.Black;
             this.button37.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button37.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button37.Location = new System.Drawing.Point(2, 2);
+            this.button37.Location = new System.Drawing.Point(2, 3);
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(146, 146);
             this.button37.TabIndex = 14;
@@ -914,12 +906,11 @@
             // 
             // panel33
             // 
-            this.panel33.AutoSize = true;
             this.panel33.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel33.Controls.Add(this.button33);
             this.panel33.Location = new System.Drawing.Point(150, 0);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(151, 151);
+            this.panel33.Size = new System.Drawing.Size(151, 154);
             this.panel33.TabIndex = 29;
             // 
             // button33
@@ -927,7 +918,7 @@
             this.button33.BackColor = System.Drawing.Color.Black;
             this.button33.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button33.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button33.Location = new System.Drawing.Point(2, 2);
+            this.button33.Location = new System.Drawing.Point(-2, 5);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(146, 146);
             this.button33.TabIndex = 13;
@@ -937,7 +928,6 @@
             // 
             // panel34
             // 
-            this.panel34.AutoSize = true;
             this.panel34.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel34.Controls.Add(this.button34);
             this.panel34.Location = new System.Drawing.Point(600, 0);
@@ -960,7 +950,6 @@
             // 
             // panel35
             // 
-            this.panel35.AutoSize = true;
             this.panel35.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel35.Controls.Add(this.button35);
             this.panel35.Location = new System.Drawing.Point(450, 0);
@@ -983,7 +972,6 @@
             // 
             // panel36
             // 
-            this.panel36.AutoSize = true;
             this.panel36.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel36.Controls.Add(this.button36);
             this.panel36.Location = new System.Drawing.Point(300, 0);
@@ -1007,7 +995,6 @@
             // panel38
             // 
             this.panel38.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel38.AutoSize = true;
             this.panel38.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel38.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel38.Controls.Add(this.panel10);
@@ -1046,7 +1033,7 @@
             this.panel38.Controls.Add(this.panel22);
             this.panel38.Controls.Add(this.panel3);
             this.panel38.Controls.Add(this.panel4);
-            this.panel38.Location = new System.Drawing.Point(12, 553);
+            this.panel38.Location = new System.Drawing.Point(163, 377);
             this.panel38.Name = "panel38";
             this.panel38.Size = new System.Drawing.Size(1810, 461);
             this.panel38.TabIndex = 38;
@@ -1061,7 +1048,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1084);
+            this.ClientSize = new System.Drawing.Size(1924, 1028);
             this.ControlBox = false;
             this.Controls.Add(this.panel38);
             this.Name = "Form2";
@@ -1107,7 +1094,6 @@
             this.panel38.ResumeLayout(false);
             this.panel38.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

@@ -286,7 +286,7 @@ namespace GazeToolBar
             if (!checkOpenForm(typeof(Form2))) //Checks if keyboard is onscreen
             {
                 form2 = new Form2(eyeXHost); //if not, create keyboard and show it
-                AttemptToggle(SystemFlags.actionToBePerformed);
+                //AttemptToggle(SystemFlags.actionToBePerformed);
                 stopScroll();
                 if (form2.Visible)
                 {
