@@ -12,7 +12,7 @@ using EyeXFramework.Forms;
 
 namespace GazeToolBar
 {
-    
+     
     public partial class Form2 : Form
     {
         int FlashDelay = 500; //delay on making button flash
@@ -34,28 +34,37 @@ namespace GazeToolBar
             TransparencyKey = Color.Fuchsia; //form is maximised and transparent
             panel38.SendToBack();
             //double panelWidth = Convert.ToDouble(Screen.PrimaryScreen.WorkingArea.Width); 
-            double panelWidth = Convert.ToDouble(ClientSize.Width); 
-            double newPanelWidth = panelWidth * 0.93;
+            double panelWidth = Convert.ToDouble(System.Windows.SystemParameters.WorkArea.Width); 
+            double newPanelWidth = panelWidth;
             int intNewPanelWidth = Convert.ToInt32(newPanelWidth);
-            panel38.Width = intNewPanelWidth;
-            panel38.Left = 0;
-            panel38.Height = Convert.ToInt32(ClientSize.Height * 0.3147) + 75;
-            panel38.Top = (this.Height - panel38.Height - 50); //for changing position of keyboard, -50 is a rough equivilent of taskbar height
+            panel38.Width = (intNewPanelWidth);
+            panel38.Left = Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Left);//(intNewPanelWidth / 24);
+
+            panel38.Height = panel38.Width / 4 + 4;
+            panel38.Top = (ClientSize.Height - panel38.Height); //for changing position of keyboard, -50 is a rough equivilent of taskbar height
+
+
+            if (IsTaskbarVisible())
+            {
+                int taskBHeight = Convert.ToInt32(Math.Abs(System.Windows.SystemParameters.PrimaryScreenHeight - System.Windows.SystemParameters.WorkArea.Height));
+                panel38.Top = (ClientSize.Height - panel38.Height - taskBHeight);
+            }
 
             int count = 0;
             int count2 = 0;
 
+            Console.WriteLine();
             foreach (Control control in panel38.Controls)
             {
                 control.AutoSize = false;
-                control.Size = new Size(intNewPanelWidth / 12, intNewPanelWidth / 12);
+                control.Size = new Size(panel38.Width / 12, panel38.Width / 12);
                 //control.Location = (new Point(1, 1));
                 Console.WriteLine(control.Name + " " + control.Width + " " + control.Height +" "+ control.Location);
-                control.Location = (new Point(count, count2));
-                count= count + intNewPanelWidth / 12;
-                if(count > intNewPanelWidth-(intNewPanelWidth / 12))
+                control.Location = (new Point(count, count2 + 4));
+                count= count + panel38.Width / 12;
+                if(count > panel38.Width - (panel38.Width / 12))
                     {
-                    count2= count2+ intNewPanelWidth / 12;
+                    count2= count2+ panel38.Width / 12;
                     count = 0;
                 }
                 
@@ -63,13 +72,21 @@ namespace GazeToolBar
 
                 foreach (Button button  in control.Controls.OfType<Button>())
                 {
-                    button.Size = new Size(intNewPanelWidth / 12, intNewPanelWidth / 12);
+                    button.FlatStyle = FlatStyle.Flat;
+                    button.FlatAppearance.BorderSize = 0;
+                    button.Size = new Size(panel38.Width / 12 - 4, panel38.Width / 12 - 4);
+                    button.Location = new Point(2,2);
                     Console.WriteLine(button.Name + " " + button.Width + " " + button.Height + " " + button.Location);
                 }
              
 
             }
 
+        }
+
+        public static bool IsTaskbarVisible()
+        {
+            return (Math.Abs(System.Windows.SystemParameters.PrimaryScreenHeight - System.Windows.SystemParameters.WorkArea.Height) > 0);
         }
 
 
@@ -549,7 +566,7 @@ namespace GazeToolBar
             button12.BackColor = Color.Red;
             if (alpha == true)
             {
-                SendKeys.Send("{CTRL}");
+                //SendKeys.Send("{CTRL}");
             }
             else
             {
@@ -712,7 +729,7 @@ namespace GazeToolBar
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

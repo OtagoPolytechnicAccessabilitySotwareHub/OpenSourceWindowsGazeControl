@@ -150,9 +150,11 @@ namespace GazeToolBar
             var sentButton = s as Panel;
             if (sentButton != null)
             {
-                sentButton.BackColor = (e.HasGaze) ? Color.Red : Color.Black;
+                sentButton.BackColor = (e.HasGaze) ? Color.FromArgb(115,220,255) : Color.Black;
             }
         }
+
+
 
         private void button1_Click(object sender, GazeAwareEventArgs e) //preform button click if button is looked at for long enough 
         {
