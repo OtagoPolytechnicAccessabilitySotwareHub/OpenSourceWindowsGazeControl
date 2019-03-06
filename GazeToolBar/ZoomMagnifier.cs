@@ -14,11 +14,11 @@ namespace GazeToolBar
         protected const int UPDATE_SPEED = 1; //how fast the lens will update
 
         //TODO: Move these to settings json
-        public bool DO_ZOOM = Program.readSettings.dynamicZoom;//false;         //Zoom disabled
+        public bool DO_ZOOM = Program.readSettings.dynamicZoom;
 
-        public static float ZOOM_SPEED = 0.06F;//005F;    //Amount zoom will increment
+        public static float ZOOM_SPEED = 0.06F;    //Amount zoom will increment
 
-        public static float ZOOM_MAX; // = Program.readSettings.maxZoom;          //Max zoom amount
+        public static float ZOOM_MAX;           //Max zoom amount
         public static int SMOOTHER_BUFFER = 5;
 
         public Point FixationPoint { get; set; }
@@ -31,17 +31,11 @@ namespace GazeToolBar
         public RECT sourceRect;
         FormsEyeXHost eyeXHost;
         GazePointDataStream gazeStream;
-
-        //protected bool zooming;
-
-        //protected FixationDetection fixationWorker;
+        
         protected FixationSmootherExponential fixationSmoother;
         protected FixationSmootherAverage positionSmoother;
 
         public Point CurrentLook { get; set; }
-        //public float MaxZoom { get; set; } //Max zoom amount
-
-        //public Timer Timer { get { return updateTimer; } }
 
         protected bool hasInitialized;
         protected float magnification;
@@ -50,20 +44,17 @@ namespace GazeToolBar
 
         protected Rectangle screenBounds;
 
-        public ZoomMagnifier(Form displayform, FixationDetection fixationWorker)//, Point fixationPoint)
+        public ZoomMagnifier(Form displayform, FixationDetection fixationWorker)
         {
             ZOOM_MAX = Program.readSettings.maxZoom;          //Max zoom amount
             Magnification = DO_ZOOM ? 1 : ZOOM_MAX; //Set magnification to the max if not zooming
             form = displayform;
             form.TopMost = true;
             updateTimer = new System.Windows.Forms.Timer();
-            //fixationWorker = new FixationDetection();
-            //fixationSmoother = (FixationSmootherExponential)fixationWorker.CreateSmoother(SMOOTHER_BUFFER);//new FixationSmootherExponential(SMOOTHER_BUFFER);
-            //positionSmoother = new FixationSmootherExponential(SMOOTHER_BUFFER);
 
             this.fixationWorker = fixationWorker;
 
-            FixationPoint = fixationWorker.getXY(); //new System.Drawing.Point();//fixationPoint;
+            FixationPoint = fixationWorker.getXY();
             InitLens();
             sourceRect = new RECT();
 
@@ -86,7 +77,6 @@ namespace GazeToolBar
             form.Top = -5000;
             form.Width = 1;
             form.Height = 1;
-            //zooming = true;
 
         }
 
@@ -126,8 +116,8 @@ namespace GazeToolBar
             FixationPoint = fixationPoint;
 
             updateTimer.Enabled = true;
-            form.Width = Program.readSettings.zoomWindowSize * 50; //400;
-            form.Height = Program.readSettings.zoomWindowSize * 40; ; //400;
+            form.Width = Program.readSettings.zoomWindowSize * 100;
+            form.Height = Program.readSettings.zoomWindowSize * 80;
 
             screenBounds = Screen.FromControl(form).Bounds;
 
@@ -220,11 +210,7 @@ namespace GazeToolBar
         {
             Offset = new Point(0, 0);
 
-            //SecondaryOffset = new Point(0, 0);
-            Magnification = 1;// Program.readSettings.maxZoom;
-            //MaxZoom = magnification;
-
-            //MaxZoom = Program.readSettings.maxZoom; //magnification;
+            Magnification = 1;
 
             updateTimer.Enabled = false;
         }
@@ -234,7 +220,6 @@ namespace GazeToolBar
         {
             Zoom();
             UpdateZoomPosition();
-            //UpdatePosition(FixationPoint);
         }
 
         private void form_FormClosing(object sender, FormClosingEventArgs e)
@@ -258,17 +243,11 @@ namespace GazeToolBar
         {
             set
             {
-                //if (magnification != value)
-                //{
-                    magnification = value;
-                    //if (magnification > ZOOM_MAX)
-                    //{
-                    //    magnification = ZOOM_MAX;
-                    //}
-                    // Set the magnification factor.
-                    Transformation matrix = new Transformation(magnification);
-                    NativeMethods.MagSetWindowTransform(hwndMag, ref matrix);
-                //}
+                magnification = value;
+
+                // Set the magnification factor.
+                Transformation matrix = new Transformation(magnification);
+                NativeMethods.MagSetWindowTransform(hwndMag, ref matrix);
             }
             get { return magnification; }
         }
@@ -297,22 +276,12 @@ namespace GazeToolBar
             Point actualLook = CurrentLook;
             Point formPos = new Point(form.Left, form.Top);
             Point adjustedPoint = Utils.SubtractPoints(actualLook, formPos);
-            //Point magAdjust = new Point((int)(adjustedPoint.X / Magnification), (int)(adjustedPoint.Y / Magnification));
+
             float magAdjustX = adjustedPoint.X / Magnification;
             float magAdjustY = adjustedPoint.Y / Magnification;
 
-            //Point finalPoint = Utils.AddPoints(magAdjust, startPoint);
             Point finalPoint = new Point((int)magAdjustX + startPoint.X, (int)magAdjustY + startPoint.Y);
 
-            //Point finalPoint = adjustedPoint;//Utils.SubtractPoints(Utils.AddPoints(startPoint, adjustedPoint), 1);
-            //  MessageBox.Show(adjustedPoint.X + " " + adjustedPoint.Y + " " + finalPoint.X + " " + finalPoint.Y);
-
-            //Point finalPoint = actualLook;
-
-            //MessageBox.Show(startPoint.ToString());
-            //MessageBox.Show(finalPoint.ToString());
-            Console.WriteLine("GetLookPosition: X: " +finalPoint.X + " Y: " + finalPoint.Y);
-            //return adjustedPoint;
             return finalPoint;
         }
     }

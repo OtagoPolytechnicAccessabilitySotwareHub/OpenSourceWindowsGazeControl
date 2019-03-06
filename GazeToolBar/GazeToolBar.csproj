@@ -165,7 +165,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GazePoint.cs" />
-    <Compile Include="GazeToolbar.cs" />
     <Compile Include="HookedKeyboardEventArgs.cs" />
     <Compile Include="IFixationSmoother.cs" />
     <Compile Include="KeyboardHook.cs" />
@@ -186,7 +185,6 @@
     </Compile>
     <Compile Include="ShortcutKeyWorker.cs" />
     <Compile Include="StateManager.cs" />
-    <Compile Include="StateManager_new.cs" />
     <Compile Include="SystemFlags.cs" />
     <Compile Include="TrayMenu.cs" />
     <Compile Include="Utils.cs" />

@@ -42,10 +42,6 @@ namespace GazeToolBar
         public Timer fixationTimer;
         public Timer timeOutTimer;
 
-        //Fixation data stream, used to attached to fixation events.
-        //public static FixationDataStream fixationPointDataStream;
-        //EventHandler<FixationEventArgs> FixationEventStreamDelegate;
-
         public int FixationDetectionTimeLength { get; set; }
         int FixationExtensionBuffer;
         public int FixationTimeOutLength { get; set; }
@@ -65,17 +61,6 @@ namespace GazeToolBar
         //Fixation data stream.
         CustomFixationDataStream customfixStream;
 
-        /*
-        public FixationDetection() : this(new FormsEyeXHost())
-        {
-
-        }
-
-        public FixationDetection(FormsEyeXHost EyeXHost, int bufferSize) : this(EyeXHost)
-        {
-            pointSmootherBufferSize = bufferSize;
-        }
-        */
 
         public FixationDetection(FormsEyeXHost EyeXHost)
         {
@@ -133,14 +118,12 @@ namespace GazeToolBar
                     //increment timeout interval so a fixation doesn't get cut off.
                     timeOutTimer.Interval += FixationDetectionTimeLength + FixationExtensionBuffer; ;
 
-                    //           Console.WriteLine(timeOutTimer.Interval);
                     fixationProgressStartTimeStamp = fixationDataBucket.TimeStamp;
 
 
                     //Instantiate new point smoother, this clears out and previous in the ring buffer.
                     pointSmootherWorker = CreateSmoother(pointSmootherBufferSize);
 
-                    //Console.WriteLine("Fixation Begin X" + fixationDataBucket.X + " Y" + fixationDataBucket.Y);
                 }
                 //if fixation data is in the middle of a fixation, use the data returned to highlight progress and draw users current gaze location to the screen.
                 if (fixationDataBucket.Status == EFixationStreamEventType.Middle)
@@ -168,9 +151,6 @@ namespace GazeToolBar
                 if (fixationDataBucket.Status == EFixationStreamEventType.End)
                 {
                     fixationTimer.Stop();
-                    //customfixStream.ResetFixationDetectionState();
-                    //Debug
-                    //Console.WriteLine("Fixation Stopped due to end datatype");
                 }
             }
         }
@@ -188,8 +168,6 @@ namespace GazeToolBar
             //Once the fixation has run, set the state of fixation detection back to waiting.
             fixationState = EFixationState.WaitingForFixationRequest;
             SystemFlags.hasGaze = true;
-            //Debug
-            // Console.WriteLine("Timer reached event, running required action");
         }
 
         /// <summary>
@@ -231,8 +209,7 @@ namespace GazeToolBar
             customfixStream.ResetFixationDetectionState();
 
             pointSmootherWorker = CreateSmoother(pointSmootherBufferSize);
-
-            //Console.WriteLine("Start detection call");
+            
             fixationState = EFixationState.DetectingFixation;
             timeOutTimer.Start();
         }
@@ -270,8 +247,6 @@ namespace GazeToolBar
             int progress = calculateFixationProgressPercent(timeStamp);
 
             FixationProgressEventArgs FPEA = new FixationProgressEventArgs(progress, x, y);
-
-            //Console.WriteLine("Fixation percentage " + progress);
 
             if (currentProgress != null)
             {
