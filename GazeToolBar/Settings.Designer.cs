@@ -1619,7 +1619,7 @@ namespace GazeToolBar
             this.trackBarFixTimeLength.Size = new System.Drawing.Size(896, 45);
             this.trackBarFixTimeLength.TabIndex = 12;
             this.trackBarFixTimeLength.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackBarFixTimeLength.Value = 5;
+            this.trackBarFixTimeLength.Value = 4;
             this.trackBarFixTimeLength.ValueChanged += new System.EventHandler(this.trackBarFixTimeLength_ValueChanged);
             // 
             // pnlFTLMins
