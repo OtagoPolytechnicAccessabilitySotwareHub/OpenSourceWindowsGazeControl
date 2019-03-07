@@ -20,7 +20,7 @@ namespace GazeToolBar
         private bool bottom; //for location of keyboard. top or bottom
         private static FormsEyeXHost eyeXHost;
 
-        private const int KeyboardAmount = 2;
+        private const int KeyboardAmount = 3;
         private int KeyboardView;
         private string[] button1x;
         private string[] button2x;
@@ -99,42 +99,42 @@ namespace GazeToolBar
             Console.WriteLine();
             
 
-            button1x = new String[] { "123", "abc"}; // ~~~~Variable changer
-            button2x = new String[] {"q","1" }; //Panel 13
-            button3x = new String[] {"w","2" };
-            button4x = new String[] { "e", "3" };
-            button5x = new String[] { "r", "4" };
-            button6x = new String[] { "t", "5" };
-            button7x = new String[] { "y", "6" };
-            button8x = new String[] { "u", "7" };
-            button9x = new String[] { "i", "8" };
-            button10x = new String[] { "o", "9" };
-            button11x = new String[] { "p", "0" };
-            button12x = new String[] { "{BACKSPACE}", "{BACKSPACE}" };//Backspace ~~~~~~~Different Maybe
-            button13x = new String[] { "{SHIFT}", "{SHIFT}" };// button SHIFT ATM leave
-            button14x = new String[] { "a", "@" };
-            button15x = new String[] { "s", "#" };
-            button16x = new String[] { "d", "$" };
-            button17x = new String[] { "f", "%" };
-            button18x = new String[] { "g", "^" };
-            button19x = new String[] { "h", "&" };
-            button20x = new String[] { "i", "*" };
-            button21x = new String[] { "j", "{(}" };
-            button22x = new String[] { "k", "{)}" };
-            button23x = new String[] { "l", "<" };
-            button24x = new String[] { "{TAB}", "{TAB}" };//Tab
-            button25x = new String[] { "{ENTER}", "{ENTER}" };//enter
-            button26x = new String[] { "{CTRL}", "{CTRL}" };//ctrl
-            button27x = new String[] { " ", " " };//underscore
-            button28x = new String[] { "z", "-" };
-            button29x = new String[] { "x", "+" };
-            button30x = new String[] { "c", "=" };
-            button31x = new String[] { "v", "<" };
-            button32x = new String[] { "b", ">" };
-            button33x = new String[] { "n", ";" };
-            button34x = new String[] { "m", ":" };
-            button35x = new String[] { ",", "," };//comma
-            button36x = new String[] { ".", "." };//dot
+            button1x = new String[] { "ABC", "123", "abc"}; // ~~~~Variable changer
+            button2x = new String[] {"q","Q", "1" }; //Panel 13
+            button3x = new String[] {"w", "W", "2" };
+            button4x = new String[] { "e", "E", "3" };
+            button5x = new String[] { "r", "R", "4" };
+            button6x = new String[] { "t", "T", "5" };
+            button7x = new String[] { "y", "Y", "6" };
+            button8x = new String[] { "u", "U", "7" };
+            button9x = new String[] { "i", "I", "8" };
+            button10x = new String[] { "o", "O", "9" };
+            button11x = new String[] { "p", "P", "0" };
+            button12x = new String[] { "{BACKSPACE}", "{BACKSPACE}", "{BACKSPACE}" };//Backspace ~~~~~~~Different Maybe
+            button13x = new String[] { "{SHIFT}", "{SHIFT}", "{SHIFT}" };// button SHIFT ATM leave
+            button14x = new String[] { "a", "A", "@" };
+            button15x = new String[] { "s", "S", "#" };
+            button16x = new String[] { "d", "D", "$" };
+            button17x = new String[] { "f", "F", "%" };
+            button18x = new String[] { "g", "G", "^" };
+            button19x = new String[] { "h", "H", "&" };
+            button20x = new String[] { "i", "J", "*" };
+            button21x = new String[] { "j", "J", "{(}" };
+            button22x = new String[] { "k", "K", "{)}" };
+            button23x = new String[] { "l", "L", "<" };
+            button24x = new String[] { "{TAB}", "{TAB}", "{TAB}" };//Tab
+            button25x = new String[] { "{ENTER}", "{ENTER}", "{ENTER}" };//enter
+            button26x = new String[] { "{CTRL}", "{CTRL}", "{CTRL}" };//ctrl
+            button27x = new String[] { " ", " ", " " };//underscore
+            button28x = new String[] { "z", "Z", "-" };
+            button29x = new String[] { "x", "X", "+" };
+            button30x = new String[] { "c", "C", "=" };
+            button31x = new String[] { "v", "V", "<" };
+            button32x = new String[] { "b", "B", ">" };
+            button33x = new String[] { "n", "N", ";" };
+            button34x = new String[] { "m", "M", ":" };
+            button35x = new String[] { ",", ",", "," };//comma
+            button36x = new String[] { ".", ".", "." };//dot
             button37x = new String[] { "up", "down" };//movekeyboard
 
 
@@ -219,7 +219,7 @@ namespace GazeToolBar
             button2.Text = button34x[KeyboardView];
             button22.Text = ".";
             button3.Text = ",";
-            button4.Text = button37x[KeyboardView];
+            //button4.Text = button37x[KeyboardView];
         }
 
         public static bool IsTaskbarVisible()
@@ -514,7 +514,7 @@ namespace GazeToolBar
             rename_buttons();
 
             await Task.Delay(FlashDelay);
-            button37.BackColor = Color.Black;
+            button10.BackColor = Color.Black;
 
 
         }
