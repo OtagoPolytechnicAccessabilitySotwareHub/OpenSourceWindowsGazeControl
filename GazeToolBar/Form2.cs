@@ -135,7 +135,7 @@ namespace GazeToolBar
             button34x = new String[] { "m", "M", ":" };
             button35x = new String[] { ",", ",", "," };//comma
             button36x = new String[] { ".", ".", "." };//dot
-            button37x = new String[] { "up", "down" };//movekeyboard
+            //button37x = new String[] { "up", "down" };//movekeyboard
 
 
             
