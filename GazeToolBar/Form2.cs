@@ -112,22 +112,22 @@ namespace GazeToolBar
             button9x = new String[] { "i", "I", "8", "l" };
             button10x = new String[] { "o", "O", "9", "a" };
             button11x = new String[] { "p", "P", "0", "i" };
-            button12x = new String[] { "{BACKSPACE}", "{BACKSPACE}", "{BACKSPACE}", "{BACKSPACE}" };//Backspace ~~~~~~~Different Maybe
-            button13x = new String[] { "{SHIFT}", "{SHIFT}", "{SHIFT}", "{SHIFT}" };// button SHIFT ATM leave
+            //button12x = new String[] { "{BACKSPACE}", "{BACKSPACE}", "{BACKSPACE}", "{BACKSPACE}" };//Backspace ~~~~~~~Different Maybe
+            //button13x = new String[] { "{SHIFT}", "{SHIFT}", "{SHIFT}", "{SHIFT}" };// button SHIFT ATM leave
             button14x = new String[] { "a", "A", "@", "r" };
             button15x = new String[] { "s", "S", "#", "e" };
             button16x = new String[] { "d", "D", "$", "C" };
             button17x = new String[] { "f", "F", "%", "l" };
             button18x = new String[] { "g", "G", "^", "a" };
             button19x = new String[] { "h", "H", "&", "i" };
-            button20x = new String[] { "i", "J", "*", "r" };
+            //button20x = new String[] { "i", "J", "*", "r" };
             button21x = new String[] { "j", "J", "{(}", "e" };
             button22x = new String[] { "k", "K", "{)}", "C" };
             button23x = new String[] { "l", "L", "<", "l" };
-            button24x = new String[] { "{TAB}", "{TAB}", "{TAB}", "{TAB}" };//Tab
-            button25x = new String[] { "{ENTER}", "{ENTER}", "{ENTER}", "{ENTER}" };//enter
-            button26x = new String[] { "{CTRL}", "{CTRL}", "{CTRL}", "{CTRL}" };//ctrl
-            button27x = new String[] { " ", " ", " ", " " };//underscore
+            //button24x = new String[] { "{TAB}", "{TAB}", "{TAB}", "{TAB}" };//Tab
+            //button25x = new String[] { "{ENTER}", "{ENTER}", "{ENTER}", "{ENTER}" };//enter
+            //button26x = new String[] { "{CTRL}", "{CTRL}", "{CTRL}", "{CTRL}" };//ctrl
+            //button27x = new String[] { " ", " ", " ", " " };
             button28x = new String[] { "z", "Z", "-", "a" };
             button29x = new String[] { "x", "X", "+", "i" };
             button30x = new String[] { "c", "C", "=", "r" };
@@ -135,8 +135,8 @@ namespace GazeToolBar
             button32x = new String[] { "b", "B", ">", "C" };
             button33x = new String[] { "n", "N", ";", "l" };
             button34x = new String[] { "m", "M", ":", "a" };
-            button35x = new String[] { ",", ",", ",", "," };//comma
-            button36x = new String[] { ".", ".", ".", "." };//dot
+            //button35x = new String[] { ",", ",", ",", "," };//comma
+            //button36x = new String[] { ".", ".", ".", "." };//dot
             //button37x = new String[] { "up", "down" };//movekeyboard
 
 
@@ -175,6 +175,14 @@ namespace GazeToolBar
                         }
 
             rename_buttons();
+            button28.Text = "⌫";
+            button8.Text = "⇧";
+            button36.Text = "Tab";
+            button34.Text = "Enter";
+            button6.Text = "Ctrl";
+            button18.Text = "⎵";
+            button22.Text = ".";
+            button3.Text = ",";
 
 
         }
@@ -197,21 +205,22 @@ namespace GazeToolBar
             button27.Text = button9x[KeyboardView];
             button12.Text = button10x[KeyboardView];
             button15.Text = button11x[KeyboardView];
-            button28.Text = "⌫";
-            button8.Text = "⇧";
+            //button28.Text = "⌫";
+            //button8.Text = "⇧";
             button11.Text = button14x[KeyboardView];
             button29.Text = button15x[KeyboardView];
-            button16.Text = button17x[KeyboardView];
-            button33.Text = button18x[KeyboardView];
-            button30.Text = button19x[KeyboardView];
-            button7.Text = button20x[KeyboardView];
+            button16.Text = button16x[KeyboardView];
+            button33.Text = button17x[KeyboardView];
+            button30.Text = button18x[KeyboardView];
+            button7.Text = button19x[KeyboardView];
+            //button7.Text = button20x[KeyboardView];
             button21.Text = k;
             button17.Text = j;
             button31.Text = button23x[KeyboardView];
-            button36.Text = "Tab";      
-            button34.Text = "Enter";               
-            button6.Text = "Ctrl";                  
-            button18.Text = "⎵";                    
+            //button36.Text = "Tab";      
+            //button34.Text = "Enter";               
+            //button6.Text = "Ctrl";                  
+            //button18.Text = "⎵";  
             button24.Text = button28x[KeyboardView];
             button35.Text = button29x[KeyboardView];
             button1.Text = button30x[KeyboardView];
@@ -219,8 +228,8 @@ namespace GazeToolBar
             button5.Text = button32x[KeyboardView];
             button23.Text = button33x[KeyboardView];
             button2.Text = button34x[KeyboardView];
-            button22.Text = ".";
-            button3.Text = ",";
+            //button22.Text = ".";
+            //button3.Text = ",";
             //button4.Text = button37x[KeyboardView];
         }
 
@@ -259,7 +268,7 @@ namespace GazeToolBar
         private async void button3_Click(object sender, EventArgs e)
         {
             button3.BackColor = Color.Cyan;
-            SendKeys.Send(button36x[KeyboardView]);
+            SendKeys.Send(".");
             await Task.Delay(FlashDelay);
             button3.BackColor = Color.Black;
         }
@@ -310,7 +319,7 @@ namespace GazeToolBar
         private async void button6_Click(object sender, EventArgs e)
         {
             button6.BackColor = Color.Cyan;
-            //SendKeys.Send(button26x[KeyboardView]); //ctrl still crashing application
+            //SendKeys.Send("{CTRL}"); //ctrl still crashing application
             await Task.Delay(FlashDelay);
             button6.BackColor = Color.Black;
         }
@@ -366,7 +375,7 @@ namespace GazeToolBar
         private async void button22_Click(object sender, EventArgs e)
         {
             button22.BackColor = Color.Cyan;
-            SendKeys.Send(button35x[KeyboardView]);
+            SendKeys.Send(",");
             await Task.Delay(FlashDelay);
             button22.BackColor = Color.Black;
         }
@@ -382,7 +391,7 @@ namespace GazeToolBar
         private async void button18_Click(object sender, EventArgs e)
         {
             button18.BackColor = Color.Cyan;
-            SendKeys.Send(button27x[KeyboardView]);
+            SendKeys.Send(" ");
             await Task.Delay(FlashDelay);
             button18.BackColor = Color.Black;
         }
@@ -438,7 +447,7 @@ namespace GazeToolBar
         private async void button34_Click(object sender, EventArgs e)
         {
             button34.BackColor = Color.Cyan;
-            SendKeys.Send(button25x[KeyboardView]);
+            SendKeys.Send("{ENTER}");
             await Task.Delay(FlashDelay);
             button34.BackColor = Color.Black;
         }
@@ -470,7 +479,7 @@ namespace GazeToolBar
         private async void button28_Click(object sender, EventArgs e)
         {
             button28.BackColor = Color.Cyan;
-            SendKeys.Send(button12x[KeyboardView]);
+            SendKeys.Send("{BACKSPACE}");
             await Task.Delay(FlashDelay);
             button28.BackColor = Color.Black;
         }
@@ -585,98 +594,8 @@ namespace GazeToolBar
 
         private async void button37_ClickAsync(object sender, EventArgs e)
         {
-
-            //if(alpha == false) //if letter keyboard is not onscreen
-            //{
-            //    button37.Text = "123";
-            //    button33.Text = "q";
-            //    button36.Text = "w";
-            //    button35.Text = "e";
-            //    button34.Text = "r";
-            //    button31.Text = "t";
-            //    button30.Text = "y";
-            //    button29.Text = "u";
-            //    button28.Text = "i";
-            //    button27.Text = "o";
-            //    button26.Text = "p";
-            //    button25.Text = "⌫";
-            //    //line 2
-            //    button20.Text = "⇧";
-            //    button21.Text = "a";
-            //    button24.Text = "s";
-            //    button23.Text = "d";
-            //    button22.Text = "f";
-            //    button19.Text = "g";
-            //    button18.Text = "h";
-            //    button17.Text = "j";
-            //    button16.Text = "k";
-            //    button15.Text = "l";
-            //    button14.Text = "Tab";
-            //    button13.Text = "Enter";
-            //    //line3
-            //    button12.Text = "Ctrl";
-            //    button11.Text = "⎵";
-            //    button1.Text = "z";
-            //    button2.Text = "x";
-            //    button3.Text = "c";
-            //    button4.Text = "v";
-            //    button5.Text = "b";
-            //    button6.Text = "n";
-            //    button7.Text = "m";
-            //    button8.Text = ",";
-            //    button9.Text = ".";
-            //    button10.Text = "DOWN";
-
-            //    alpha = true;
-
-            //}
-            //else 
-            //{
-            //    button37.Text = "abc";
-            //    button33.Text = "1";
-            //    button36.Text = "2";
-            //    button35.Text = "3";
-            //    button34.Text = "4";
-            //    button31.Text = "5";
-            //    button30.Text = "6";
-            //    button29.Text = "7";
-            //    button28.Text = "8";
-            //    button27.Text = "9";
-            //    button26.Text = "?";
-            //    button25.Text = "⌫";
-            //    //line 2
-            //    button20.Text = "!";
-            //    button21.Text = "@";
-            //    button24.Text = "#";
-            //    button23.Text = "$";
-            //    button22.Text = "%";
-            //    button19.Text = "^";
-            //    button18.Text = "&&";
-            //    button17.Text = "*";
-            //    button16.Text = "(";
-            //    button15.Text = ")";
-            //    button14.Text = "-";
-            //    button13.Text = "+";
-            //    //line3
-            //    button12.Text = "=";
-            //    button11.Text = "_";
-            //    button1.Text = ":";
-            //    button2.Text = ";";
-            //    button3.Text = "\"";
-            //    button4.Text = "\\";
-            //    button5.Text = "/";
-            //    button6.Text = ">";
-            //    button7.Text = "<";
-            //    button8.Text = "~";
-            //    button9.Text = "|";
-            //    button10.Text = "DOWN";
-
-            //    alpha = false;
-            //}
-
             button37.BackColor = Color.Cyan;
             SendKeys.Send(button4x[KeyboardView]);
-
             await Task.Delay(FlashDelay);
             button37.BackColor = Color.Black;
 

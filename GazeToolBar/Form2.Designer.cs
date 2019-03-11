@@ -880,7 +880,6 @@
             // 
             // button37
             // 
-            this.button37.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button37.BackColor = System.Drawing.Color.Black;
             this.button37.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button37.ForeColor = System.Drawing.SystemColors.ButtonHighlight;

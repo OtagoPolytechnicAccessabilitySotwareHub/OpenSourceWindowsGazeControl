@@ -123,8 +123,8 @@ namespace GazeToolBar
             Form2Map.Add(button31, new GazeAwareBehavior(button31_Click) { DelayMilliseconds = buttonClickDelay });
             Form2Map.Add(panel31, new GazeAwareBehavior(OnGazeChangeBTColour));
 
-            Form2Map.Add(button32, new GazeAwareBehavior(button32_Click) { DelayMilliseconds = buttonClickDelay });
-            Form2Map.Add(panel32, new GazeAwareBehavior(OnGazeChangeBTColour));
+            //Form2Map.Add(button32, new GazeAwareBehavior(button32_Click) { DelayMilliseconds = buttonClickDelay });
+            //Form2Map.Add(panel32, new GazeAwareBehavior(OnGazeChangeBTColour));
 
             Form2Map.Add(button33, new GazeAwareBehavior(button33_Click) { DelayMilliseconds = buttonClickDelay });
             Form2Map.Add(panel33, new GazeAwareBehavior(OnGazeChangeBTColour));
@@ -139,7 +139,7 @@ namespace GazeToolBar
             Form2Map.Add(panel36, new GazeAwareBehavior(OnGazeChangeBTColour));
 
             Form2Map.Add(button37, new GazeAwareBehavior(button37_Click) { DelayMilliseconds = buttonClickDelay });
-
+            Form2Map.Add(panel32, new GazeAwareBehavior(OnGazeChangeBTColour));
 
 
         }
