@@ -148,6 +148,7 @@ namespace GazeToolBar
                                 button.Size = new Size(panel38.Width / 12 - 4, panel38.Width / 12 - 4);
                                 button.Location = new Point(2,2);
                                 Console.WriteLine(button.Name + " " + button.Width + " " + button.Height + " " + button.Location);
+                                button.TabStop = false;
                                 countbutton++;
                             }
                         }
