@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,22 +35,15 @@ namespace GazeToolBar
         private string[] button9x;
         private string[] button10x;
         private string[] button11x;
-        private string[] button12x;
-        private string[] button13x;
         private string[] button14x;
         private string[] button15x;
         private string[] button16x;
         private string[] button17x;
         private string[] button18x;
         private string[] button19x;
-        private string[] button20x;
         private string[] button21x;
         private string[] button22x;
         private string[] button23x;
-        private string[] button24x;
-        private string[] button25x;
-        private string[] button26x;
-        private string[] button27x;
         private string[] button28x;
         private string[] button29x;
         private string[] button30x;
@@ -57,9 +51,7 @@ namespace GazeToolBar
         private string[] button32x;
         private string[] button33x;
         private string[] button34x;
-        private string[] button35x;
-        private string[] button36x;
-        private string[] button37x;
+
 
 
         public Form2(FormsEyeXHost EyeXHost)
@@ -99,48 +91,38 @@ namespace GazeToolBar
             int count2 = 0;
 
             Console.WriteLine();
-            
 
-            button1x = new String[] { "123", "123", "abc", "abc" }; // ~~~~Variable changer
-            button2x = new String[] {"q","Q", "1" ,"C"}; //Panel 13
-            button3x = new String[] {"w", "W", "2", "l" };
-            button4x = new String[] { "e", "E", "3", "a" };
-            button5x = new String[] { "r", "R", "4", "i" };
-            button6x = new String[] { "t", "T", "5", "r" };
-            button7x = new String[] { "y", "Y", "6", "e" };
-            button8x = new String[] { "u", "U", "7", "C" };
-            button9x = new String[] { "i", "I", "8", "l" };
-            button10x = new String[] { "o", "O", "9", "a" };
-            button11x = new String[] { "p", "P", "0", "i" };
-            //button12x = new String[] { "{BACKSPACE}", "{BACKSPACE}", "{BACKSPACE}", "{BACKSPACE}" };//Backspace ~~~~~~~Different Maybe
-            //button13x = new String[] { "{SHIFT}", "{SHIFT}", "{SHIFT}", "{SHIFT}" };// button SHIFT ATM leave
-            button14x = new String[] { "a", "A", "@", "r" };
-            button15x = new String[] { "s", "S", "#", "e" };
-            button16x = new String[] { "d", "D", "$", "C" };
-            button17x = new String[] { "f", "F", "%", "l" };
-            button18x = new String[] { "g", "G", "^", "a" };
-            button19x = new String[] { "h", "H", "&", "i" };
-            //button20x = new String[] { "i", "J", "*", "r" };
-            button21x = new String[] { "j", "J", "{(}", "e" };
-            button22x = new String[] { "k", "K", "{)}", "C" };
-            button23x = new String[] { "l", "L", "<", "l" };
-            //button24x = new String[] { "{TAB}", "{TAB}", "{TAB}", "{TAB}" };//Tab
-            //button25x = new String[] { "{ENTER}", "{ENTER}", "{ENTER}", "{ENTER}" };//enter
-            //button26x = new String[] { "{CTRL}", "{CTRL}", "{CTRL}", "{CTRL}" };//ctrl
-            //button27x = new String[] { " ", " ", " ", " " };
-            button28x = new String[] { "z", "Z", "-", "a" };
-            button29x = new String[] { "x", "X", "+", "i" };
-            button30x = new String[] { "c", "C", "=", "r" };
-            button31x = new String[] { "v", "V", "<", "e" };
-            button32x = new String[] { "b", "B", ">", "C" };
-            button33x = new String[] { "n", "N", ";", "l" };
-            button34x = new String[] { "m", "M", ":", "a" };
-            //button35x = new String[] { ",", ",", ",", "," };//comma
-            //button36x = new String[] { ".", ".", ".", "." };//dot
-            //button37x = new String[] { "up", "down" };//movekeyboard
+            button1x = new String[] { "123", "123", "abc", "abc" };
+            //Row One
+            button2x = new String[] {"q","Q", "1" , "{F1}" };
+            button3x = new String[] {"w", "W", "2", "{F2}" };
+            button4x = new String[] { "e", "E", "3", "{F3}" };
+            button5x = new String[] { "r", "R", "4", "{F4}" };
+            button6x = new String[] { "t", "T", "5", "{F5}" };
+            button7x = new String[] { "y", "Y", "6", "{F6}" };
+            button8x = new String[] { "u", "U", "7", "{F7}" };
+            button9x = new String[] { "i", "I", "8", "{F8}" };
+            button10x = new String[] { "o", "O", "9", "{F9}" };
+            button11x = new String[] { "p", "P", "0", "{F10}" };
+            //Row 2
+            button14x = new String[] { "a", "A", "@", "{F11}" };
+            button15x = new String[] { "s", "S", "#", "{F12}" };
+            button16x = new String[] { "d", "D", "$", "{HOME}" };
+            button17x = new String[] { "f", "F", "?", "{END}" };
+            button18x = new String[] { "g", "G", "{(}", "{PRTSC}" };
+            button19x = new String[] { "h", "H", "{)}", "{UP}" };
+            button21x = new String[] { "j", "J", "'", "{%}" };
+            button22x = new String[] { "k", "K", "\"", "{{}" };
+            button23x = new String[] { "l", "L", "!", "{}}" };
+            //Row 3
+            button28x = new String[] { "z", "Z", "-", "/" };
+            button29x = new String[] { "x", "X", "+", "[" };
+            button30x = new String[] { "c", "C", "=", "]" };
+            button31x = new String[] { "v", "V", "<", "{LEFT}" };
+            button32x = new String[] { "b", "B", ">", "{DOWN}" };
+            button33x = new String[] { "n", "N", ";", "{RIGHT}" };
+            button34x = new String[] { "m", "M", ":", "&" };
 
-
-            
             button13.Text = button2x[KeyboardView];
 
             int countbutton = 0;
@@ -149,8 +131,6 @@ namespace GazeToolBar
                         {
                             control.AutoSize = false;
                             control.Size = new Size(panel38.Width / 12, panel38.Width / 12);
-                            //control.Location = (new Point(1, 1));
-                            //Console.WriteLine(control.Name + " " + control.Width + " " + control.Height +" "+ control.Location);
                             control.Location = (new Point(count, count2 + 4));
                             count= count + panel38.Width / 12;
                             if(count > panel38.Width - (panel38.Width / 12))
@@ -170,10 +150,7 @@ namespace GazeToolBar
                                 Console.WriteLine(button.Name + " " + button.Width + " " + button.Height + " " + button.Location);
                                 countbutton++;
                             }
-             
-
                         }
-
             rename_buttons();
             button28.Text = "⌫";
             button8.Text = "⇧";
@@ -189,50 +166,60 @@ namespace GazeToolBar
 
         private void rename_buttons()
         {
-            string k = button21x[KeyboardView].Replace("{","");
-             k = k.Replace("}", "");
-            string j =  button22x[KeyboardView].Replace("{", "");
-             j =j.Replace("}", "");
-            string nnn = button19x[KeyboardView].Replace("&", "&&");
-
-            button10.Text = button1x[KeyboardView];
-            button13.Text = button2x[KeyboardView];
-            button25.Text = button3x[KeyboardView];
-            button37.Text = button4x[KeyboardView];
-            button26.Text = button5x[KeyboardView];
-            button14.Text = button6x[KeyboardView];
-            button9.Text = button7x[KeyboardView];
-            button20.Text = button8x[KeyboardView];
-            button27.Text = button9x[KeyboardView];
-            button12.Text = button10x[KeyboardView];
-            button15.Text = button11x[KeyboardView];
-            //button28.Text = "⌫";
-            //button8.Text = "⇧";
-            button11.Text = button14x[KeyboardView];
-            button29.Text = button15x[KeyboardView];
-            button16.Text = button16x[KeyboardView];
-            button33.Text = button17x[KeyboardView];
-            button30.Text = button18x[KeyboardView];
-            button7.Text = nnn; //button19x[KeyboardView];
-            //button7.Text = button20x[KeyboardView];
-            button21.Text = k;
-            button17.Text = j;
-            button31.Text = button23x[KeyboardView];
-            //button36.Text = "Tab";      
-            //button34.Text = "Enter";               
-            //button6.Text = "Ctrl";                  
-            //button18.Text = "⎵";  
-            button24.Text = button28x[KeyboardView];
-            button35.Text = button29x[KeyboardView];
-            button1.Text = button30x[KeyboardView];
-            button19.Text = button31x[KeyboardView];
-            button5.Text = button32x[KeyboardView];
-            button23.Text = button33x[KeyboardView];
-            button2.Text = button34x[KeyboardView];
-            //button22.Text = ".";
-            //button3.Text = ",";
-            //button4.Text = button37x[KeyboardView];
+            int newSize = 45;
+            button10.Text = strip_Keys(button1x[KeyboardView]);
+            button13.Text = strip_Keys(button2x[KeyboardView]);
+            button25.Text = strip_Keys(button3x[KeyboardView]);
+            button37.Text = strip_Keys(button4x[KeyboardView]);
+            button26.Text = strip_Keys(button5x[KeyboardView]);
+            button14.Text = strip_Keys(button6x[KeyboardView]);
+            button9.Text = strip_Keys(button7x[KeyboardView]);
+            button20.Text = strip_Keys(button8x[KeyboardView]);
+            button27.Text = strip_Keys(button9x[KeyboardView]);
+            button12.Text = strip_Keys(button10x[KeyboardView]);
+            button15.Text = strip_Keys(button11x[KeyboardView]);
+            button11.Text = strip_Keys(button14x[KeyboardView]);
+            button29.Text = strip_Keys(button15x[KeyboardView]);
+            button16.Text = strip_Keys(button16x[KeyboardView]);
+            button33.Text = strip_Keys(button17x[KeyboardView]);
+            button30.Text = strip_Keys(button18x[KeyboardView]);
+            button7.Text = strip_Keys(button19x[KeyboardView]);
+            button21.Text = strip_Keys(button21x[KeyboardView]);
+            button17.Text = strip_Keys(button22x[KeyboardView]);
+            button31.Text = strip_Keys(button23x[KeyboardView]);
+            button24.Text = strip_Keys(button28x[KeyboardView]);
+            button35.Text = strip_Keys(button29x[KeyboardView]);
+            button1.Text = strip_Keys(button30x[KeyboardView]);
+            button19.Text = strip_Keys(button31x[KeyboardView]);
+            button5.Text = strip_Keys(button32x[KeyboardView]);
+            button23.Text = strip_Keys(button33x[KeyboardView]);
+            button2.Text = strip_Keys(button34x[KeyboardView]);
+            if(KeyboardView==3)
+            {
+                newSize = 25;
+            }
+            foreach (Control control in panel38.Controls)
+            {
+                foreach (Button button in control.Controls.OfType<Button>())
+                {
+                    button.Font = new Font(button.Font.FontFamily, newSize);
+                }
+            }
+            button34.Font = new Font(button34.Font.FontFamily, 27);
         }
+
+
+        private String strip_Keys(String key)
+        {
+            Regex regex = new Regex(Regex.Escape("{"));
+            string k = regex.Replace(key, "", 1);
+            regex = new Regex(Regex.Escape("}"));
+            k = regex.Replace(k, "", 1);
+            k = k.Replace("&", "&&");
+            return k;
+        }
+
+
 
         public static bool IsTaskbarVisible()
         {
@@ -279,7 +266,6 @@ namespace GazeToolBar
             button4.BackColor = Color.Cyan;
             if (bottom == true)
             {
-                //background panel
                 button4.Text = "Down";
                 panel38.Location = new Point(Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Left), Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Top));
 
@@ -287,12 +273,11 @@ namespace GazeToolBar
             else
             {
                 button4.Text = "Up";
-                //background panel
                 double panelWidth = Convert.ToDouble(System.Windows.SystemParameters.WorkArea.Width);
                 double newPanelWidth = panelWidth;
                 int intNewPanelWidth = Convert.ToInt32(newPanelWidth);
                 panel38.Width = (intNewPanelWidth);
-                panel38.Left = Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Left);//(intNewPanelWidth / 24);
+                panel38.Left = Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Left);
 
                 panel38.Height = panel38.Width / 4 + 4;
                 panel38.Top = (ClientSize.Height - panel38.Height);
@@ -320,7 +305,7 @@ namespace GazeToolBar
         private async void button6_Click(object sender, EventArgs e)
         {
             button6.BackColor = Color.Cyan;
-            //SendKeys.Send("{CTRL}"); //ctrl still crashing application
+            SendKeys.Send("^");
             await Task.Delay(FlashDelay);
             button6.BackColor = Color.Black;
         }
@@ -336,14 +321,6 @@ namespace GazeToolBar
         private async void button13_Click(object sender, EventArgs e)
         {
             button13.BackColor = Color.Cyan;
-            //if (alpha == true)
-            //{
-            //    SendKeys.Send("{ENTER}");
-            //}
-            //else
-            //{
-            //    SendKeys.Send("+");
-            //}
             SendKeys.Send(button2x[KeyboardView]);
             await Task.Delay(FlashDelay);
             button13.BackColor = Color.Black;
@@ -504,9 +481,6 @@ namespace GazeToolBar
         private async void button8_Click(object sender, EventArgs e)
         {
             button8.BackColor = Color.Cyan;
-            //SendKeys.Send(button13x[KeyboardView]);
-            
-
             if (cap)
             {
                 KeyboardView -= 1;
@@ -531,16 +505,10 @@ namespace GazeToolBar
 
         private async void button10_Click(object sender, EventArgs e)
         {
-            
-
             KeyboardView = (KeyboardView + 2) % KeyboardAmount;
-
             rename_buttons();
-
             await Task.Delay(FlashDelay);
             button10.BackColor = Color.Black;
-
-
         }
 
         private async void button11_ClickAsync(object sender, EventArgs e)
