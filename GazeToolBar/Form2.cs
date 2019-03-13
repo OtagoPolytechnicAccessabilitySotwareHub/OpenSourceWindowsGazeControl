@@ -10,20 +10,27 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EyeXFramework.Forms;
-
+/*
+ *  Class: Form2 aka Keyboard
+ *  Name: 
+ *  Date: 14/03/2019
+ *  Description: 
+ *  Purpose: 
+ */
 namespace GazeToolBar
 {
      
     public partial class Form2 : Form
     {
         int FlashDelay = 500; //delay on making button flash
-        bool alpha = true; //is onscreen keyboard letters or numbers
         private bool bottom; //for location of keyboard. top or bottom
         private static FormsEyeXHost eyeXHost;
 
-        private const int KeyboardAmount = 4;
-        private bool cap;
-        private int KeyboardView;
+        private const int KeyboardAmount = 4; //How many keyboard.
+        private bool cap; //If shift has been pressed
+        private int KeyboardView; //Which keyboard is being displayed
+
+        //Lists for each key on the keyboard. Enter, Tab, Space, ,, ., shift not included.
         private string[] button1x;
         private string[] button2x;
         private string[] button3x;
@@ -59,40 +66,70 @@ namespace GazeToolBar
             eyeXHost = EyeXHost;
             InitializeComponent();
             connectBehaveMap();
+            //Default to bottom of screen and shift off
             bottom = true;
             cap = false;
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            //keyboard set to first set of keys
             KeyboardView = 0;
             timer1.Enabled = true;
+            //Setting up keyboard design
             this.BackColor = Color.Fuchsia;
             TransparencyKey = Color.Fuchsia; //form is maximised and transparent
             panel38.SendToBack();
-            //double panelWidth = Convert.ToDouble(Screen.PrimaryScreen.WorkingArea.Width); 
+            //double panelWidth = Convert.ToDouble(Screen.PrimaryScreen.WorkingArea.Width);                    DELETE?????
+
+            //Resizing keyboard by the size of the screen
             double panelWidth = Convert.ToDouble(System.Windows.SystemParameters.WorkArea.Width); 
             double newPanelWidth = panelWidth;
             int intNewPanelWidth = Convert.ToInt32(newPanelWidth);
             panel38.Width = (intNewPanelWidth);
             panel38.Left = Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Left);//(intNewPanelWidth / 24);
-
             panel38.Height = panel38.Width / 4 + 4;
             panel38.Top = (ClientSize.Height - panel38.Height); //for changing position of keyboard, -50 is a rough equivilent of taskbar height
 
-
+            //Moves keyboard location to allow for taskbar when visible
             if (IsTaskbarVisible())
             {
                 int taskBHeight = Convert.ToInt32(Math.Abs(System.Windows.SystemParameters.PrimaryScreenHeight - System.Windows.SystemParameters.WorkArea.Height));
                 panel38.Top = (ClientSize.Height - panel38.Height - taskBHeight);
             }
 
+
+            //Dynamically resizing and ordering keys onto keyboard
             int count = 0;
             int count2 = 0;
+            int countbutton = 0;
+            foreach (Control control in panel38.Controls)
+            {
+                control.AutoSize = false;
+                control.Size = new Size(panel38.Width / 12, panel38.Width / 12);
+                control.Location = (new Point(count, count2 + 4));
+                count = count + panel38.Width / 12;
+                if (count > panel38.Width - (panel38.Width / 12))
+                {
+                    count2 = count2 + panel38.Width / 12;
+                    count = 0;
+                }
+                foreach (Button button in control.Controls.OfType<Button>())
+                {
+                    button.FlatStyle = FlatStyle.Flat;
+                    button.FlatAppearance.BorderSize = 0;
+                    button.Size = new Size(panel38.Width / 12 - 4, panel38.Width / 12 - 4);
+                    button.Location = new Point(2, 2);
+                    //Console.WriteLine(button.Name + " " + button.Width + " " + button.Height + " " + button.Location);                   DELETE?????
+                    button.TabStop = false;
+                    countbutton++;
+                }
+            }
+            //Console.WriteLine();                   DELETE?????
 
-            Console.WriteLine();
-
-            button1x = new String[] { "123", "123", "abc", "abc" };
+            //Lists for each key on keyboard.
+            //When adding new keyboards, add two at a time to allow for shift key.
+            button1x = new String[] { "123", "123", "abc", "abc" };//Entries repeated to allow for shift button
             //Row One
             button2x = new String[] {"q","Q", "1" , "{F1}" };
             button3x = new String[] {"w", "W", "2", "{F2}" };
@@ -122,37 +159,11 @@ namespace GazeToolBar
             button32x = new String[] { "b", "B", ">", "{DOWN}" };
             button33x = new String[] { "n", "N", ";", "{RIGHT}" };
             button34x = new String[] { "m", "M", ":", "&" };
+            //button13.Text = button2x[KeyboardView];                   DELETE?????
 
-            button13.Text = button2x[KeyboardView];
-
-            int countbutton = 0;
-
-            foreach (Control control in panel38.Controls)
-                        {
-                            control.AutoSize = false;
-                            control.Size = new Size(panel38.Width / 12, panel38.Width / 12);
-                            control.Location = (new Point(count, count2 + 4));
-                            count= count + panel38.Width / 12;
-                            if(count > panel38.Width - (panel38.Width / 12))
-                                {
-                                count2= count2+ panel38.Width / 12;
-                                count = 0;
-                            }
-                
-
-
-                            foreach (Button button in control.Controls.OfType<Button>())
-                            {
-                                button.FlatStyle = FlatStyle.Flat;
-                                button.FlatAppearance.BorderSize = 0;
-                                button.Size = new Size(panel38.Width / 12 - 4, panel38.Width / 12 - 4);
-                                button.Location = new Point(2,2);
-                                Console.WriteLine(button.Name + " " + button.Width + " " + button.Height + " " + button.Location);
-                                button.TabStop = false;
-                                countbutton++;
-                            }
-                        }
+            //puts correct text on keys
             rename_buttons();
+            //Keys that are never renamed
             button28.Text = "⌫";
             button8.Text = "⇧";
             button36.Text = "Tab";
@@ -165,8 +176,10 @@ namespace GazeToolBar
 
         }
 
+        //Changes text on keyboard when 'abc' and shift are pressed
         private void rename_buttons()
         {
+            //Strips keys of {} before reseting text on each button
             button10.Text = strip_Keys(button1x[KeyboardView]);
             button13.Text = strip_Keys(button2x[KeyboardView]);
             button25.Text = strip_Keys(button3x[KeyboardView]);
@@ -197,8 +210,9 @@ namespace GazeToolBar
 
             //------------------------------------------------------//
 
+            //Resizes text on keys
             int newSize = panel38.Width / 40;
-
+            //Different size for keyboards that have more characters on each button
             if (KeyboardView==3)
             {
                 newSize = panel38.Width / 70;
@@ -210,22 +224,24 @@ namespace GazeToolBar
                     button.Font = new Font(button.Font.FontFamily, newSize);
                 }
             }
+            //Setting Enter to it's own font size so it stays consistent
             button34.Font = new Font(button34.Font.FontFamily, panel38.Width/55);
         }
 
-
+        //Strips {} off sendkeys to be displayed on buttons.
         private String strip_Keys(String key)
         {
+            //Regex used so { and } can be used on keyboard
             Regex regex = new Regex(Regex.Escape("{"));
             string k = regex.Replace(key, "", 1);
             regex = new Regex(Regex.Escape("}"));
             k = regex.Replace(k, "", 1);
-            k = k.Replace("&", "&&");
+            k = k.Replace("&", "&&"); //Single & does not display as it is a hotkey
             return k;
         }
 
 
-
+        //Returns if taskbar is visible on screen.
         public static bool IsTaskbarVisible()
         {
             return (Math.Abs(System.Windows.SystemParameters.PrimaryScreenHeight - System.Windows.SystemParameters.WorkArea.Height) > 0);
@@ -234,15 +250,6 @@ namespace GazeToolBar
 
         private async void button1_Click(object sender, EventArgs e) 
         {
-
-            //if(alpha == true) //sends key based on what keyboard is currently active
-            //{
-            //    SendKeys.Send("z");
-            //}
-            //else
-            //{
-            //    SendKeys.Send(":");
-            //}
             SendKeys.Send(button30x[KeyboardView]);
             button1.BackColor = Color.Cyan; //set background color when clicked
             await Task.Delay(FlashDelay); //delay before deactivting button flash
@@ -255,7 +262,6 @@ namespace GazeToolBar
             SendKeys.Send(button34x[KeyboardView]);
             await Task.Delay(FlashDelay);
             button2.BackColor = Color.Black;
-
         }
 
         private async void button3_Click(object sender, EventArgs e)
@@ -266,14 +272,14 @@ namespace GazeToolBar
             button3.BackColor = Color.Black;
         }
 
+        //Button for switching keyboard location from bottom and top of screen.
         private async void button4_Click(object sender, EventArgs e)
         {
             button4.BackColor = Color.Cyan;
-            if (bottom == true)
+            if (bottom)
             {
                 button4.Text = "Down";
                 panel38.Location = new Point(Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Left), Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Top));
-
             }
             else
             {
@@ -483,9 +489,11 @@ namespace GazeToolBar
             button26.BackColor = Color.Black;
         }
 
+        //Shift key.
         private async void button8_Click(object sender, EventArgs e)
         {
             button8.BackColor = Color.Cyan;
+            //If shift key is currently active
             if (cap)
             {
                 KeyboardView -= 1;
@@ -508,8 +516,10 @@ namespace GazeToolBar
             button9.BackColor = Color.Black;
         }
 
+        //'abc' button.
         private async void button10_Click(object sender, EventArgs e)
         {
+            //Increase by two to allow for shift key.
             KeyboardView = (KeyboardView + 2) % KeyboardAmount;
             rename_buttons();
             await Task.Delay(FlashDelay);
@@ -540,6 +550,7 @@ namespace GazeToolBar
             button20.BackColor = Color.Black;
         }
 
+        //To Delete
         private void button32_Click(object sender, EventArgs e)
         {
 
@@ -561,6 +572,7 @@ namespace GazeToolBar
             button25.BackColor = Color.Black;
         }
 
+        //To Delete
         private void panel38_Paint(object sender, PaintEventArgs e)
         {
 
@@ -575,6 +587,7 @@ namespace GazeToolBar
 
         }
 
+        //To Delete
         private void timer1_Tick(object sender, EventArgs e)
         {
             
