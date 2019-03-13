@@ -7,6 +7,8 @@ using System.IO;
 using System.Diagnostics;
 using System.Collections.Generic;
 using EyeXFramework.Forms;
+using OptiKey;
+using OptiKey.UI.Windows;
 using GazeToolBar;
 
 namespace GazeToolBar
@@ -25,13 +27,16 @@ namespace GazeToolBar
         private MenuItem settingsItem;
         public StateManager stateManager;
         private static FormsEyeXHost eyeXHost;
-        private Form2 form2;
+        private Form Form2;
 
         //Allocate memory location for KeyboardHook and worker.
         public KeyboardHook LowLevelKeyBoardHook;
         public ShortcutKeyWorker shortCutKeyWorker;
+        private ScrollControl scrollWorker;
+        private FixationDetection fixationWorker;
 
-
+        OptiKey.GazeKeyboard keyboardInitializer;
+        MainWindow keyboard;
 
         public Dictionary<ActionToBePerformed, String> FKeyMapDictionary;
 
@@ -46,7 +51,6 @@ namespace GazeToolBar
             menuItemStartOnOff = new MenuItem();
             settingsItem = new MenuItem();
             initMenuItem();
-            //form2 = new Form2(eyeXHost);
             
             highlightPannerList = new List<Panel>();
             highlightPannerList.Add(pnlHiLteRightClick);
@@ -62,6 +66,9 @@ namespace GazeToolBar
             eyeXHost = new FormsEyeXHost();
             eyeXHost.Start();
 
+            keyboardInitializer = new OptiKey.GazeKeyboard();
+            keyboard = keyboardInitializer.CreateKeyboard();
+            keyboard.ShowInTaskbar = false;
 
             connectBehaveMap();
 
@@ -78,7 +85,6 @@ namespace GazeToolBar
 
             const int BUTTON_HEIGHT = 75;
             int gapSize = ((int)(Height / 1.5) / sidebarArrangement.Length) - (BUTTON_HEIGHT / 2);
-            //   MessageBox.Show(gapSize + " " + sidebarArrangement.Length + " " + 740 + " " + BUTTON_HEIGHT);
             int yPos = gapSize;
             foreach (String s in sidebarArrangement)
             {
@@ -110,8 +116,8 @@ namespace GazeToolBar
                     return pnlHighLightKeyboard;
                 case "settings":
                     return pnlHighLightSettings;
-                case "mic":
-                    return pnlHighLightMic;
+                //case "mic":
+                //    return pnlHighLightMic;
                 default:
                     return null;
             }
@@ -154,6 +160,7 @@ namespace GazeToolBar
 
         private void menuItemExit_Click(object sender, EventArgs e)
         {
+            keyboard.Close();
             Close();
         }
 
@@ -168,36 +175,47 @@ namespace GazeToolBar
             FKeyMapDictionary.Add(ActionToBePerformed.LeftClick, Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE);
             FKeyMapDictionary.Add(ActionToBePerformed.Scroll, Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE);
             FKeyMapDictionary.Add(ActionToBePerformed.RightClick, Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE);
-            FKeyMapDictionary.Add(ActionToBePerformed.MicInput, Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE);
-            FKeyMapDictionary.Add(ActionToBePerformed.MicInputOff, Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE);
+            //FKeyMapDictionary.Add(ActionToBePerformed.MicInput, Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE);
+            //FKeyMapDictionary.Add(ActionToBePerformed.MicInputOff, Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE);
 
 
             //Instantiate keyboard hook and pass into worker class.
             LowLevelKeyBoardHook = new KeyboardHook();
 
             shortCutKeyWorker = new ShortcutKeyWorker(LowLevelKeyBoardHook, FKeyMapDictionary, eyeXHost);
+            scrollWorker = new ScrollControl(eyeXHost);
+            fixationWorker = new FixationDetection(eyeXHost);
 
             //Start monitoring key presses.
             LowLevelKeyBoardHook.HookKeyboard();
             Edge = AppBarEdges.Right;
 
-            stateManager = new StateManager(this, shortCutKeyWorker, eyeXHost);
-            stateManager.fixationWorker.FixationDetectionTimeLength = Program.readSettings.fixationTimeLength;
-            stateManager.fixationWorker.FixationTimeOutLength = Program.readSettings.fixationTimeOut;
-            stateManager.fixationWorker.fixationTimer.Interval = Program.readSettings.fixationTimeLength;
-            stateManager.fixationWorker.timeOutTimer.Interval = Program.readSettings.fixationTimeOut;
-            stateManager.magnifier.MaxZoom = Program.readSettings.maxZoom;
+            stateManager = new StateManager(shortCutKeyWorker, scrollWorker, fixationWorker);
+
+
+            trackBarFixTimeLength(Program.readSettings.fixationTimeLength, Program.readSettings.fixationTimeOut);
+            trackBarFixTimeOut(Program.readSettings.fixationTimeLength, Program.readSettings.fixationTimeOut);
+
             shortCutKeyWorker.keyAssignments[ActionToBePerformed.LeftClick] = Program.readSettings.leftClick;
             shortCutKeyWorker.keyAssignments[ActionToBePerformed.DoubleClick] = Program.readSettings.doubleClick;
             shortCutKeyWorker.keyAssignments[ActionToBePerformed.RightClick] = Program.readSettings.rightClick;
-            shortCutKeyWorker.keyAssignments[ActionToBePerformed.Scroll] = Program.readSettings.scoll;
-            shortCutKeyWorker.keyAssignments[ActionToBePerformed.MicInput] = Program.readSettings.micInput;
+            shortCutKeyWorker.keyAssignments[ActionToBePerformed.Scroll] = Program.readSettings.scroll;
+            //shortCutKeyWorker.keyAssignments[ActionToBePerformed.MicInput] = Program.readSettings.micInput;
             timer2.Enabled = true;
 
             Height = (int)System.Windows.SystemParameters.PrimaryScreenHeight;
 
             String[] sidebarArrangement = Program.readSettings.sidebar;
             ArrangeSidebar(sidebarArrangement);
+        }
+
+        public void trackBarFixTimeOut(int FixationTimeOutLength, int timeOutTimerInterval)
+        {
+            stateManager.trackBarFixTimeOut(FixationTimeOutLength, timeOutTimerInterval);
+        }
+        public void trackBarFixTimeLength(int fixationDetectionTimeLength, int fixationTimerInterval)
+        {
+            stateManager.trackBarFixTimeLength(fixationDetectionTimeLength, fixationTimerInterval);
         }
 
         private bool checkOpenForm(Type formToCheck)
@@ -214,49 +232,22 @@ namespace GazeToolBar
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            
             if (!checkOpenForm(typeof(Settings)))
             {
-                
                 settings = new Settings(this, eyeXHost);
                 settings.Show();
-                AttemptToggle(SystemFlags.actionToBePerformed);
             }
-        }
-
-        public bool AttemptToggle(ActionToBePerformed action)
-        {
-            bool isScroll = (SystemFlags.currentState == SystemState.ApplyAction || SystemFlags.currentState == SystemState.ScrollWait) && (action == ActionToBePerformed.Scroll);
-
-            if(SystemFlags.currentState == SystemState.ActionButtonSelected || SystemFlags.currentState == SystemState.ZoomWait || isScroll)
-            {
-                if (SystemFlags.actionToBePerformed == action)
-                {
-                    resetButtonsColor();
-                    stateManager.EnterWaitState();
-
-                    //special scrolling case
-                    if(isScroll)
-                    {
-                        stopScroll();
-                    }
-                    return true;
-                }
-            }
-            return false;
         }
 
         //stop ScrollControll from scrolling when another button is selected
         private void stopScroll()
         {
-            SystemFlags.scrolling = false;
-            stateManager.scrollWorker.stopScroll();
+            scrollWorker.stopScroll();
         }
 
         private void btnRightClick_Click(object sender, EventArgs e)
         {
-            if (AttemptToggle(ActionToBePerformed.RightClick))
-                return;
+
             stopScroll();
             SystemFlags.actionButtonSelected = true;//raise action button flag
             SystemFlags.actionToBePerformed = ActionToBePerformed.RightClick;   
@@ -264,8 +255,6 @@ namespace GazeToolBar
 
         private void btnSingleLeftClick_Click(object sender, EventArgs e)
         {
-            if (AttemptToggle(ActionToBePerformed.LeftClick))
-                return;
             stopScroll();
             SystemFlags.actionButtonSelected = true;//raise action button flag
             SystemFlags.actionToBePerformed = ActionToBePerformed.LeftClick;
@@ -273,8 +262,6 @@ namespace GazeToolBar
 
         private void btnDoubleClick_Click(object sender, EventArgs e)
         {
-            if (AttemptToggle(ActionToBePerformed.DoubleClick))
-                return;
             stopScroll();
             SystemFlags.actionButtonSelected = true;//raise action button flag
             SystemFlags.actionToBePerformed = ActionToBePerformed.DoubleClick;
@@ -282,45 +269,41 @@ namespace GazeToolBar
 
         private void btnKeyboard_Click(object sender, EventArgs e)
         {
-
             if (!checkOpenForm(typeof(Form2))) //Checks if keyboard is onscreen
             {
-                form2 = new Form2(eyeXHost); //if not, create keyboard and show it
+                Form2 = new Form2(eyeXHost); //if not, create keyboard and show it
                 //AttemptToggle(SystemFlags.actionToBePerformed);
                 stopScroll();
-                if (form2.Visible)
+                if (Form2.Visible)
                 {
-                    form2.Close();
+                    Form2.Close();
                 }
                 else
                 {
-                    form2.Show();
+                    Form2.Show();
                 }
             }
             else
             {
-                form2.Close();
+                Form2.Close();
             }
         }
 
-        private void btnScoll_Click(object sender, EventArgs e)
+        private void btnScroll_Click(object sender, EventArgs e)
         {
-            if (AttemptToggle(ActionToBePerformed.Scroll))
-                return;
-
-            SystemFlags.actionButtonSelected = true;
-            SystemFlags.actionToBePerformed = ActionToBePerformed.Scroll;
+            if (SystemFlags.actionToBePerformed == ActionToBePerformed.Scroll)
+            {
+                stopScroll();
+            }
+            else
+            {
+                SystemFlags.actionButtonSelected = true;
+                SystemFlags.actionToBePerformed = ActionToBePerformed.Scroll;
+            }
+            
 
         }
 
-        private void btnMic_Click(object sender, EventArgs e)
-        {
-            if (AttemptToggle(ActionToBePerformed.MicInput))
-                return;
-
-            SystemFlags.actionButtonSelected = true;//raise action button flag
-            SystemFlags.actionToBePerformed = ActionToBePerformed.MicInput;
-        }
 
         public void OnStartTextChange()
         {
@@ -338,7 +321,7 @@ namespace GazeToolBar
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            stateManager.Run();
+            stateManager.RunCycle(sender, e);
         }
 
 
@@ -370,7 +353,6 @@ namespace GazeToolBar
             get { return notifyIcon; }
             set { notifyIcon = value; }
         }
-
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {

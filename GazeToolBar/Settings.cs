@@ -10,6 +10,7 @@ using System.Linq;
 
 namespace GazeToolBar
 {
+    public enum SettingState { General, Zoom, Shortcut, Rearrange, Crosshair, Confirm }
     public partial class Settings : Form
     {
         private Form1 form1;
@@ -26,7 +27,7 @@ namespace GazeToolBar
         private List<Panel> actionPanels = new List<Panel>();
         private String selectionButton = "";
         private Dictionary<String, Button> buttonMap = new Dictionary<string, Button>();
-        private bool stickyLeft, selectionFeedback;
+        private bool stickyLeft, selectionFeedback, dynamicZoom;
 
         private List<Panel> fKeyPannels;
 
@@ -66,8 +67,8 @@ namespace GazeToolBar
             lbRight.Text = form1.FKeyMapDictionary[ActionToBePerformed.RightClick];
             lbLeft.Text = form1.FKeyMapDictionary[ActionToBePerformed.LeftClick];
             lbScroll.Text = form1.FKeyMapDictionary[ActionToBePerformed.Scroll];
-            lbMicOn.Text = form1.FKeyMapDictionary[ActionToBePerformed.MicInput];
-            lbMicOff.Text = form1.FKeyMapDictionary[ActionToBePerformed.MicInputOff];
+            //lbMicOn.Text = form1.FKeyMapDictionary[ActionToBePerformed.MicInput];
+            //lbMicOff.Text = form1.FKeyMapDictionary[ActionToBePerformed.MicInputOff];
             WaitForUserKeyPress = false;
 
             stickyLeft = Program.readSettings.stickyLeftClick;
@@ -77,6 +78,18 @@ namespace GazeToolBar
             selectionFeedback = Program.readSettings.selectionFeedback;
             if (selectionFeedback)
                 btnFeedback.BackColor = Color.White;
+
+            dynamicZoom = Program.readSettings.dynamicZoom;
+            if (dynamicZoom)
+            {
+                btnDynamicZoomMode.BackColor = Color.White;
+                btnDynamicZoomMode.ForeColor = Color.Black;
+            }
+            else
+            {
+                btnStaticZoomMode.BackColor = Color.White;
+                btnStaticZoomMode.ForeColor = Color.Black;
+            }
 
             form1.LowLevelKeyBoardHook.OnKeyPressed += GetKeyPress;
 
@@ -298,7 +311,7 @@ namespace GazeToolBar
                 setting.leftClick = lbLeft.Text;
                 setting.doubleClick = lbDouble.Text;
                 setting.rightClick = lbRight.Text;
-                setting.scoll = lbScroll.Text;
+                setting.scroll = lbScroll.Text;
                 setting.micInput = lbMicOn.Text;
                 setting.micInputOff = lbMicOff.Text;
                 setting.sidebar = selectedActions.ToArray<string>();
@@ -307,6 +320,7 @@ namespace GazeToolBar
                 setting.zoomWindowSize = trackBarZoomWindowSize.Value;
                 setting.stickyLeftClick = stickyLeft;
                 setting.selectionFeedback = selectionFeedback;
+                setting.dynamicZoom = dynamicZoom;
 
                 Program.readSettings.sidebar = selectedActions.ToArray<string>();
                 Program.readSettings.maxZoom = setting.maxZoom;
@@ -315,11 +329,12 @@ namespace GazeToolBar
                 File.WriteAllText(Program.path, settings);
 
                 Program.readSettings = setting;
-                form1.stateManager.RefreshZoom();
+                //form1.stateManager.RefreshZoom();
 
                 form1.NotifyIcon.BalloonTipTitle = "Saving success";
                 form1.NotifyIcon.BalloonTipText = "Your settings are successfuly saved";
                 this.Close();
+                form1.stateManager.ResetMagnifier();
                 form1.NotifyIcon.ShowBalloonTip(2000);
             }
             catch (Exception exception)
@@ -346,7 +361,7 @@ namespace GazeToolBar
             buttonStickyLeftClick.BackColor = Color.Black;
             selectionFeedback = Program.readSettings.selectionFeedback;
             btnFeedback.BackColor = Color.White;
-
+            dynamicZoom = false;
         }
 
         void NotifyIcon_BalloonTipClicked(object sender, EventArgs e)
@@ -376,7 +391,7 @@ namespace GazeToolBar
             lbLeft.Text = Program.readSettings.leftClick;
             lbDouble.Text = Program.readSettings.doubleClick;
             lbRight.Text = Program.readSettings.rightClick;
-            lbScroll.Text = Program.readSettings.scoll;
+            lbScroll.Text = Program.readSettings.scroll;
             lbMicOn.Text = Program.readSettings.micInput;
             lbMicOff.Text = Program.readSettings.micInputOff;
 
@@ -540,10 +555,12 @@ namespace GazeToolBar
 
             if (WaitForUserKeyPress)
             {
+                /*
                 if (actionToAssignKey == ActionToBePerformed.MicInput || actionToAssignKey == ActionToBePerformed.MicInputOff)
                 {
                     keyPressed = converter.Convert(pressedKey.KeyPressed);
                 }
+                */
                 if (checkIfKeyIsAssignedAlready(keyPressed, form1.shortCutKeyWorker.keyAssignments))
                 {
                     lbFKeyFeedback.Text = keyPressed + " already assigned.";
@@ -593,12 +610,12 @@ namespace GazeToolBar
                 case ActionToBePerformed.DoubleClick:
                     lbDouble.Text = newKey;
                     break;
-                case ActionToBePerformed.MicInput:
-                    lbMicOn.Text = newKey;
-                    break;
-                case ActionToBePerformed.MicInputOff:
-                    lbMicOff.Text = newKey;
-                    break;
+                //case ActionToBePerformed.MicInput:
+                //    lbMicOn.Text = newKey;
+                //    break;
+                //case ActionToBePerformed.MicInputOff:
+                //    lbMicOff.Text = newKey;
+                //    break;
             }
         }
 
@@ -675,20 +692,27 @@ namespace GazeToolBar
 
         }
 
+        
         private void trackBarZoomAmount_ValueChanged(object sender, EventArgs e)
         {
-            form1.stateManager.magnifier.MaxZoom = trackBarZoomAmount.Value * Constants.GAPTST + Constants.MINTST;
+            //form1.stateManager.SetMagnifierMaxZoom(trackBarZoomAmount.Value * Constants.GAPTST + Constants.MINTST);
         }
+        
+
         private void trackBarFixTimeLength_ValueChanged(object sender, EventArgs e)
         {
-            form1.stateManager.fixationWorker.FixationDetectionTimeLength = trackBarFixTimeLength.Value * Constants.GAP_TIME_LENGTH + Constants.MIN_TIME_LENGTH;
-            form1.stateManager.fixationWorker.fixationTimer.Interval = trackBarFixTimeLength.Value * Constants.GAP_TIME_LENGTH + Constants.MIN_TIME_LENGTH;
+            //form1.stateManager.fixationWorker.FixationDetectionTimeLength = trackBarFixTimeLength.Value * Constants.GAP_TIME_LENGTH + Constants.MIN_TIME_LENGTH;
+            //form1.stateManager.fixationWorker.fixationTimer.Interval = trackBarFixTimeLength.Value * Constants.GAP_TIME_LENGTH + Constants.MIN_TIME_LENGTH;
+            form1.trackBarFixTimeLength(trackBarFixTimeLength.Value * Constants.GAP_TIME_LENGTH + Constants.MIN_TIME_LENGTH,
+                trackBarFixTimeLength.Value * Constants.GAP_TIME_LENGTH + Constants.MIN_TIME_LENGTH);
         }
 
         private void trackBarFixTimeOut_ValueChanged(object sender, EventArgs e)
         {
-            form1.stateManager.fixationWorker.FixationTimeOutLength = trackBarFixTimeOut.Value * Constants.GAP_TIME_OUT + Constants.MIN_TIME_OUT;
-            form1.stateManager.fixationWorker.timeOutTimer.Interval = trackBarFixTimeOut.Value * Constants.GAP_TIME_OUT + Constants.MIN_TIME_OUT;
+            //form1.stateManager.fixationWorker.FixationTimeOutLength = trackBarFixTimeOut.Value * Constants.GAP_TIME_OUT + Constants.MIN_TIME_OUT;
+            //form1.stateManager.fixationWorker.timeOutTimer.Interval = trackBarFixTimeOut.Value * Constants.GAP_TIME_OUT + Constants.MIN_TIME_OUT;
+            form1.trackBarFixTimeOut(trackBarFixTimeOut.Value * Constants.GAP_TIME_OUT + Constants.MIN_TIME_OUT,
+                trackBarFixTimeOut.Value * Constants.GAP_TIME_OUT + Constants.MIN_TIME_OUT);
         }
 
         //Methods to rearrange sidebar
@@ -938,7 +962,7 @@ namespace GazeToolBar
             }
 
             changePanel(pnlGeneral);
-            UseMap(SettingState.General);
+            //UseMap(SettingState.General);
             RemoveAndAddMainBhavMap("add");
             pnlDefaultConfirmYes.BackColor = Color.Black;
         }
@@ -946,15 +970,33 @@ namespace GazeToolBar
         private void btnDefaultConfirmNo_Click(object sender, EventArgs e)
         {
             changePanel(pnlGeneral);
-            UseMap(SettingState.General);
+            //UseMap(SettingState.General);
             RemoveAndAddMainBhavMap("add");
             pnlDefaultConfirmNo.BackColor = Color.Black;
+        }
+
+        private void btnStaticZoomModeClick(object sender, EventArgs e)
+        {
+            dynamicZoom = false;
+            btnStaticZoomMode.BackColor = Color.White;
+            btnStaticZoomMode.ForeColor = Color.Black;
+            btnDynamicZoomMode.BackColor = Color.Black;
+            btnDynamicZoomMode.ForeColor = Color.White;
+        }
+
+        private void btnDynamicZoomMode_Click(object sender, EventArgs e)
+        {
+            dynamicZoom = true;
+            btnDynamicZoomMode.BackColor = Color.White;
+            btnDynamicZoomMode.ForeColor = Color.Black;
+            btnStaticZoomMode.BackColor = Color.Black;
+            btnStaticZoomMode.ForeColor = Color.White;
         }
 
         private void btnDefaults_Click(object sender, EventArgs e)
         {
             RemoveAndAddMainBhavMap("remove");
-            UseMap(SettingState.Confirm);
+            //UseMap(SettingState.Confirm);
             pnlDefaultConfirm.Show();
             pnlDefaultConfirm.BringToFront();
             shownPanel = pnlDefaultConfirm;

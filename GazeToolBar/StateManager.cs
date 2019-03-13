@@ -1,325 +1,450 @@
-﻿using EyeXFramework;
-using EyeXFramework.Forms;
+﻿using EyeXFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Karna.Magnification;
 
 namespace GazeToolBar
 {
 
-
+    //The program states
     public enum SystemState { Wait, ActionButtonSelected, Zooming, ZoomWait, ApplyAction, ScrollWait }
-    public enum ActionToBePerformed { RightClick, LeftClick, DoubleClick, Scroll, MicInput, MicInputOff }
-    public enum SettingState { General, Zoom, Shortcut, Rearrange, Crosshair, Confirm }
 
+    //The actions that can be performed by the program
+    public enum ActionToBePerformed { RightClick, LeftClick, DoubleClick, Scroll }
+
+    /*
+        * The State manager is the main control for the program
+     */
     public class StateManager
     {
-        public FixationDetection fixationWorker;
-        public ScrollControl scrollWorker;
-        Form1 toolbar;
-        ZoomLens zoomer;
-        Point fixationPoint;
-        SystemState currentState;
-        FormsEyeXHost eyeXHost;
-        ShortcutKeyWorker shortCutKeyWorker;
-        public ZoomMagnifier magnifier;
-        bool micIsOn = false;
-        bool resetFlag = false;
+        //The timer that runs the program, this is run every ms
+        private Timer ControlTimer;
+
+        //This is the form that appears when clicking on an area of the screen
+        private ZoomLens zoomForm;
+
+        //This controls the magnification on the ZoomLens
+        //private ZoomMagnifier magnifier;
+
+        /*
+         * Testing ZoomMagnifierCentered
+         */
+        private ZoomMagnifier magnifier;
+
+        //Monitor Gaze fixation data and raise systems flag when this occurs.
+        private FixationDetection fixationWorker;
+
+        //Controls the scrolling functionality
+        private ScrollControl scrollWorker;
+
+        //Controls the shortcut keys
+        private ShortcutKeyWorker shortcutKeyWorker;
 
 
-        public StateManager(Form1 Toolbar, ShortcutKeyWorker shortCutKeyWorker, FormsEyeXHost EyeXHost)
+        public StateManager(ShortcutKeyWorker shortcutKeyWorker, ScrollControl scrollWorker,
+            FixationDetection fixationWorker)
         {
-            eyeXHost = EyeXHost;
-            toolbar = Toolbar;
+            /*
+             * Set up the timer.
+             *      - The timer will run every milisecond it can
+             *      - The timer will call the RunCycle method every time it ticks
+             */
+            ControlTimer = new Timer();
+            ControlTimer.Interval = 1;
+            ControlTimer.Enabled = true;
+            ControlTimer.Tick += RunCycle;
 
-            SystemFlags.currentState = SystemState.Wait;
+            //Setup the zoom form
+            zoomForm = new ZoomLens();
+            
 
-            fixationWorker = new FixationDetection(eyeXHost, 25);
+            this.scrollWorker = scrollWorker;
+            this.fixationWorker = fixationWorker;
+            this.shortcutKeyWorker = shortcutKeyWorker;
 
-            scrollWorker = new ScrollControl(200, 5, 50, 20, eyeXHost);
-
-            SystemFlags.currentState = SystemState.Wait;
-
-            SystemFlags.hasSelectedButtonColourBeenReset = true;
-
-            // Instantiate the ZoomLens, this is the form that is given to magnifier
-            zoomer = new ZoomLens();
-            // Instantiate the magnifier, this is Sam Medlocks refactored magnifier
-            // This calls the low-level API
+            /*
+             * for testing centered
+            
             magnifier = CreateMagnifier();
 
-            //Console.WriteLine(scrollWorker.deadZoneRect.LeftBound + "," + scrollWorker.deadZoneRect.RightBound + "," + scrollWorker.deadZoneRect.TopBound + "," + scrollWorker.deadZoneRect.BottomBound);
+            *
+            */
+            if (Program.readSettings.dynamicZoom)
+            {
+                magnifier = new ZoomMagnifier(zoomForm, fixationWorker);
+            }
+            else
+            {
+                magnifier = new ZoomMagnifierCentered(zoomForm, fixationWorker);
+            }
 
-            this.shortCutKeyWorker = shortCutKeyWorker;
-
-            Run();
         }
 
 
-        public void Run()
+        /*
+            * Runs evey timer tick, updates the state then applies the action
+         */
+        public void RunCycle(Object sender, EventArgs e)
         {
             UpdateState();
-            Action();
+            DoAction();
         }
 
+        /*
+            * Creates the zoom magnifier 
+         */
+        private ZoomMagnifier CreateMagnifier()
+        {
+            return new ZoomMagnifier(zoomForm, fixationWorker); //TODO: remove the need for the point here
+        }
+
+        /*
+             * Applies the current state's action, called at each timer tick
+        */
+        public void DoAction()
+        {
+            switch (SystemFlags.currentState)
+            {
+                case SystemState.Wait:
+                    DoActionWait();
+                    break;
+                case SystemState.ActionButtonSelected:
+                    DoActionButtonSelected();
+                    break;
+                case SystemState.Zooming:
+                    DoActionZooming();
+                    break;
+                case SystemState.ZoomWait:
+                    DoActionZoomWait();
+                    break;
+                case SystemState.ScrollWait:
+                    DoActionScrollWait();
+                    break;
+                case SystemState.ApplyAction:
+                    DoActionApply();
+                    break;
+            }
+        }
+
+        /*
+            * Will switch the current state and see if it needs to change
+        */
+        public void UpdateState()
+        {
+            switch (SystemFlags.currentState)
+            {
+                case SystemState.Wait:
+                    UpdateWaitState();
+                    break;
+                case SystemState.ActionButtonSelected:
+                    UpdateActionButtonSelectedState();
+                    break;
+                case SystemState.Zooming:
+                    UpdateZoomingState();
+                    break;
+                case SystemState.ZoomWait:
+                    UpdateZoomWaitState();
+                    break;
+                case SystemState.ScrollWait:
+                    UpdateScrollWaitState();
+                    break;
+                case SystemState.ApplyAction:
+                    UpdateApplyActionState();
+                    break;
+            }
+        }
+        
+/*---------Do action methods-----------*/
+
+        public void DoActionWait()
+        {
+            resetColorButton();
+        }
+
+        public void DoActionButtonSelected()
+        {
+            if (!SystemFlags.fixationRunning)
+            {
+                fixationWorker.StartDetectingFixation();
+                SystemFlags.fixationRunning = true;
+            }
+
+            //draws the crosshairs at point of gaze
+            runZoomForm(fixationWorker.getXY());
+        }
+
+        /*
+            *   DoActionZooming happens when the fixationTimer in fixationWorker reaches it's limit
+            *   and SystemFlags.hasGaze is set to true Happens just once.
+        */
+        public void DoActionZooming()
+        {
+            
+            if (SystemFlags.shortCutKeyPressed)//if a user defined click key is pressed
+            {
+                magnifier.PlaceZoomWindow(shortcutKeyWorker.GetXY());
+            }
+            else
+            {
+                magnifier.PlaceZoomWindow(fixationWorker.getXY());
+            }
+
+            SystemFlags.shortCutKeyPressed = false;
+            SystemFlags.hasGaze = false;
+            SystemFlags.fixationRunning = false;
+
+            if(!Program.readSettings.dynamicZoom)
+            {
+
+                Point p1 = Utils.DividePoint(magnifier.Offset, magnifier.MagnifierDivAmount());
+                Point p2 = Utils.DividePoint(magnifier.SecondaryOffset, magnifier.MagnifierDivAmount());
+
+                Point o = Utils.SubtractPoints(p1, p2);
+
+                zoomForm.Offset = o;                    // This initiate's the timer for drawing of the user feedback image
+                zoomForm.Start();
+                zoomForm.Show();
+                zoomForm.CrossHairPos = magnifier.GetLookPosition();
+            }
+
+        }
+
+        public void DoActionZoomWait()
+        {
+            if (!SystemFlags.fixationRunning)
+            {
+                fixationWorker.StartDetectingFixation();
+                SystemFlags.fixationRunning = true;
+            }
+            //runZoomForm(fixationWorker.getXY());// magnifier.GetLookPosition());
+            runZoomForm(magnifier.GetLookPosition());
+        }
+
+        public void DoActionScrollWait()
+        {
+            //nofu
+        }
+
+        /*
+             * Calls PerformAction to do the action the user has selected
+             * And resets the Zoomlens and ZoomMagnifier
+        */ 
+        public void DoActionApply()
+        {
+
+            Point lookPosition = magnifier.GetLookPosition();
+
+            zoomForm.ResetZoomLens();
+            magnifier.ResetZoomValue();
+            magnifier.Stop();
+
+            performAction(SystemFlags.actionToBePerformed, lookPosition); // fixationWorker.getXY());
+        }
+
+/*
+ *------^^-Do action methods end-^^------------------
+ *------vv-Update state methods--vv------------------
+ */
+
+        /*
+             *  Called from UpdateState() when the system state is in the Wait phase
+        */
+        public void UpdateWaitState()
+        {
+
+            if (SystemFlags.actionButtonSelected) //If a button has been selected in the toolbar
+            {
+                SetState(SystemState.ActionButtonSelected);
+                SystemFlags.actionButtonSelected = false;
+            }
+            else if (SystemFlags.shortCutKeyPressed)    //if a shortcut key was pressed
+            {
+                magnifier.ResetZoomValue();
+                SetState(SystemState.Zooming);
+            }
+        }
+
+        /*
+             *  Called from UpdateState() when the system state is in the ActionButtonSelected phase
+        */
+        public void UpdateActionButtonSelectedState()
+        {
+            SystemFlags.hasSelectedButtonColourBeenReset = false;
+            if (SystemFlags.hasGaze)
+            {
+                SetState(SystemState.Zooming);
+            }
+            else if (SystemFlags.timeOut)
+            {
+                EnterWaitState();
+                SystemFlags.timeOut = false;
+            }
+        }
+
+        /*
+             *  Called from UpdateState() when the system state is in the Zooming phase
+        */
+        public void UpdateZoomingState()
+        {
+            if (SystemFlags.actionToBePerformed == ActionToBePerformed.Scroll)
+            {
+                SetState(SystemState.ApplyAction);
+            }
+            else
+            {
+                SetState(SystemState.ZoomWait);
+            }
+        }
+
+        /*
+             *  Called from UpdateState() when the system state is in the ZoomWait phase
+        */
+        public void UpdateZoomWaitState()
+        {
+            
+            if (SystemFlags.hasGaze)   //if the second zoomGaze has happed an action needs to be performed
+            {
+                SetState(SystemState.ApplyAction);
+            }
+            else if (SystemFlags.timeOut)
+            {
+                EnterWaitState();
+                zoomForm.ResetZoomLens();
+            }
+        }
+
+        /*
+            *  Called from UpdateState() when the system state is in the ApplyAction phase
+        */
+        public void UpdateApplyActionState()
+        {
+            resetColorButton();
+
+
+            if (SystemFlags.scrolling)
+            {
+                SetState(SystemState.ScrollWait);
+            }
+            else
+            {
+                EnterWaitState();
+            }
+        }
+
+        /*
+             *  Called from UpdateState() when the system state is in the ScrollWait phase
+        */
+        public void UpdateScrollWaitState()
+        {
+            if (!SystemFlags.scrolling)
+            {
+                EnterWaitState();
+            }
+        }
+
+
+        /*---------End of update state methods--------------*/
+
+
+        /*
+            * Method to do the selected action on DoActionApply
+        */
+
+        private void performAction(ActionToBePerformed action, Point fixationPoint)
+        {
+            switch(action)
+            {
+                case ActionToBePerformed.LeftClick:
+                    VirtualMouse.LeftMouseClick(fixationPoint.X, fixationPoint.Y);
+                    break;
+                case ActionToBePerformed.RightClick:
+                    VirtualMouse.RightMouseClick(fixationPoint.X, fixationPoint.Y);
+                    break;
+                case ActionToBePerformed.DoubleClick:
+                    VirtualMouse.LeftDoubleClick(fixationPoint.X, fixationPoint.Y);
+                    break;
+                case ActionToBePerformed.Scroll:
+                    SystemFlags.currentState = SystemState.ScrollWait;
+                    SystemFlags.scrolling = true;
+                    VirtualMouse.SetCursorPos(fixationPoint.X, fixationPoint.Y);
+                    scrollWorker.StartScroll();
+                    break;
+            }
+        }
+
+        /*
+             * Sets the current system state
+             * Generally this is only called from within the UpdateState methods
+         */
+        public void SetState(SystemState newState)
+        {
+            SystemFlags.currentState = newState;
+        }
+
+        /*
+             * The work that needs to be done when entering the wait state
+        */
         public void EnterWaitState()
         {
-            //these flags are here so that they get reset before anything else happens in the SM
-            //these were previously in the action method but that causes issues because the update state is run again before all of the flags are reset.
-            zoomer.ResetZoomLens();
-            magnifier.Stop();
             SystemFlags.fixationRunning = false;
             SystemFlags.actionButtonSelected = false;
             SystemFlags.fixationRunning = false;
             SystemFlags.hasGaze = false;
             SystemFlags.timeOut = false;
             fixationWorker.IsZoomerFixation(false);
-            currentState = SystemState.Wait;
-            SystemFlags.currentState = SystemState.Wait;
-            zoomer.Refresh();
-
-            fixationWorker = new FixationDetection();
-        }
-
-
-        //The update method is responsible for transitioning from state to state. Once a state is changed the action() method is run
-        public void UpdateState()
-        {
-            currentState = SystemFlags.currentState;
-            switch (currentState)
-            {
-                case SystemState.Wait:
-                    if (SystemFlags.actionButtonSelected) //if a button has been selected from the toolbar
-                    {
-                        if (SystemFlags.actionToBePerformed == ActionToBePerformed.MicInput && micIsOn)
-                        {
-                            currentState = SystemState.ApplyAction;
-                        }
-                        else
-                        {
-                            currentState = SystemState.ActionButtonSelected;
-                            SystemFlags.actionButtonSelected = false;
-                        }
-                    }
-                    else if (SystemFlags.shortCutKeyPressed)
-                    {
-                        currentState = SystemState.Zooming;
-                    }
-                    break;
-                case SystemState.ActionButtonSelected:
-                    SystemFlags.hasSelectedButtonColourBeenReset = false;
-                    if (SystemFlags.hasGaze)
-                    {
-                        currentState = SystemState.Zooming;
-                    }
-                    else if (SystemFlags.timeOut)
-                    {
-                        EnterWaitState();
-                        SystemFlags.timeOut = false;
-                    }
-                    break;
-                case SystemState.Zooming:
-                    if (SystemFlags.actionToBePerformed == ActionToBePerformed.Scroll)
-                    {
-                        currentState = SystemState.ApplyAction;
-                    }
-                    else
-                    {
-                        currentState = SystemState.ZoomWait;
-                    }
-                    break;
-                case SystemState.ZoomWait:
-                    if (SystemFlags.hasGaze)//if the second zoomGaze has happed an action needs to be performed
-                    {
-                        currentState = SystemState.ApplyAction;
-                    }
-                    else if (SystemFlags.timeOut)
-                    {
-                        EnterWaitState();
-                        zoomer.ResetZoomLens();
-                    }
-                    break;
-                case SystemState.ScrollWait:
-                    if (!SystemFlags.scrolling)
-                    {
-                        EnterWaitState();
-                    }
-                    break;
-                case SystemState.ApplyAction:
-                    if (SystemFlags.scrolling)
-                    {
-                        currentState = SystemState.ScrollWait;
-                    }
-                    else
-                    {
-                        if (Program.readSettings.stickyLeftClick && SystemFlags.actionToBePerformed == ActionToBePerformed.LeftClick) //if stick left && left click
-                        {
-                            EnterWaitState();
-
-                            SystemFlags.actionButtonSelected = true;
-                            SystemFlags.actionToBePerformed = ActionToBePerformed.LeftClick;
-                            SystemFlags.currentState = SystemState.ActionButtonSelected;
-                            SystemFlags.hasSelectedButtonColourBeenReset = true;
-                        }
-                        else
-                        {
-                            EnterWaitState();
-                        }
-                    }
-                    break;
-            }
-            SystemFlags.currentState = currentState;
-        }
-
-
-        //The action state is responsible for completing each action that must take place during each state
-        public void Action()
-        {
-            switch (SystemFlags.currentState)
-            {
-                case SystemState.Wait:
-                    scrollWorker.stopScroll();
-                    if (SystemFlags.hasSelectedButtonColourBeenReset == false)
-                    {
-                        toolbar.resetButtonsColor();
-                        SystemFlags.hasSelectedButtonColourBeenReset = true;
-                    }
-                    break;
-                case SystemState.ActionButtonSelected:
-                    scrollWorker.stopScroll();
-                    if (!SystemFlags.fixationRunning)
-                    {
-                        fixationWorker.StartDetectingFixation();
-                        SystemFlags.fixationRunning = true;
-                    }
-                    if (Program.readSettings.selectionFeedback) //don't show the crosshair if selection feedback is off
-                    {
-                        zoomer.Start();
-                        zoomer.Show();
-                        zoomer.CrossHairPos = fixationWorker.getXY();
-                    }
-                    break;
-                case SystemState.Zooming:
-                    scrollWorker.stopScroll();
-                    fixationWorker.IsZoomerFixation(true);
-                    if (SystemFlags.shortCutKeyPressed)//if a user defined click key is pressed
-                    {
-                        fixationPoint = shortCutKeyWorker.GetXY();
-                        SystemFlags.shortCutKeyPressed = false;
-                    }
-                    else
-                    {
-                        fixationPoint = fixationWorker.getXY();//get the location the user looked
-                    }
-                    magnifier.Timer.Enabled = true;
-                    // magnifier.UpdatePosition(fixationPoint);
-                    // Give the magnifier the point on screen to magnify
-                    magnifier.FixationPoint = fixationPoint;
-                    Point p1 = Utils.DividePoint(magnifier.Offset, magnifier.MagnifierDivAmount());
-                    Point p2 = Utils.DividePoint(magnifier.SecondaryOffset, magnifier.MagnifierDivAmount());
-
-                    Point o = Utils.SubtractPoints(p1, p2);
-
-                    zoomer.Offset = o;                    // This initiate's the timer for drawing of the user feedback image
-                    zoomer.Start();
-                    zoomer.Show();
-                    zoomer.CrossHairPos = magnifier.GetLookPosition();
-
-                    //disable neccesary flags 
-                    SystemFlags.hasGaze = false;
-                    SystemFlags.fixationRunning = false;
-                    break;
-                case SystemState.ZoomWait://waiting for user to fixate
-                    if (!SystemFlags.fixationRunning)
-                    {
-                        fixationWorker.StartDetectingFixation();
-                        SystemFlags.fixationRunning = true;
-                    }
-                    zoomer.CrossHairPos = magnifier.GetLookPosition();
-                    //SetZoomerOffset();
-                    break;
-                case SystemState.ApplyAction: //the fixation on the zoom lens has been detected
-                    fixationPoint = fixationWorker.getXY();
-
-                    //SetZoomerOffset();
-
-                    fixationPoint.X += zoomer.Offset.X;
-                    fixationPoint.Y += zoomer.Offset.Y;
-
-                    fixationPoint = magnifier.GetLookPosition();
-                    zoomer.ResetZoomLens();//hide the lens
-                                           //  MessageBox.Show(magnifier.SecondaryOffset.X + " " + magnifier.SecondaryOffset.Y);
-                                           //Set the magnification factor back to initial value
-                                           // This is done so that a "dynamic zoom in" feature can be
-                                           // implemented in the future
-                    magnifier.ResetZoomValue();
-                    magnifier.Stop();
-
-
-                    //execute the appropriate action
-                    if (SystemFlags.actionToBePerformed == ActionToBePerformed.LeftClick)
-                    {
-                        VirtualMouse.LeftMouseClick(fixationPoint.X, fixationPoint.Y);
-                    }
-                    else if (SystemFlags.actionToBePerformed == ActionToBePerformed.RightClick)
-                    {
-                        VirtualMouse.RightMouseClick(fixationPoint.X, fixationPoint.Y);
-                    }
-                    else if (SystemFlags.actionToBePerformed == ActionToBePerformed.DoubleClick)
-                    {
-                        VirtualMouse.LeftDoubleClick(fixationPoint.X, fixationPoint.Y);
-                    }
-                    else if (SystemFlags.actionToBePerformed == ActionToBePerformed.Scroll)
-                    {
-                        SystemFlags.currentState = SystemState.ScrollWait;
-                        SystemFlags.scrolling = true;
-                        VirtualMouse.SetCursorPos(fixationPoint.X, fixationPoint.Y);
-                        scrollWorker.StartScroll();
-                    }
-                    else if (SystemFlags.actionToBePerformed == ActionToBePerformed.MicInput)
-                    {
-                        if (Program.readSettings.micInput != Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE)
-                        {
-                            if (!micIsOn)
-                            {
-                                VirtualMouse.LeftMouseClick(fixationPoint.X, fixationPoint.Y);
-                                SendKeys.Send(Program.readSettings.micInput);
-                                SystemFlags.hasSelectedButtonColourBeenReset = true;
-                                micIsOn = true;
-                            }
-                            else
-                            {
-                                SendKeys.Send(Program.readSettings.micInputOff);
-                                SystemFlags.hasSelectedButtonColourBeenReset = false;
-                                micIsOn = false;
-                            }
-                        }
-                    }
-                    fixationWorker = new FixationDetection();
-                    break;
-            }
-        }
-
-        private ZoomMagnifier CreateMagnifier()
-        {
-            return new ZoomMagnifierCentered(zoomer, fixationPoint);
-        }
-
-        public void RefreshZoom()
-        {
+            SetState(SystemState.Wait);
             magnifier.Stop();
-
-            zoomer = new ZoomLens();
-            magnifier = CreateMagnifier();
-            zoomer.ResetZoomLens();
-            magnifier.ResetZoomValue();
-            EnterWaitState();
         }
+
+        private void runZoomForm(Point fixationPoint)
+        {
+            zoomForm.Start();
+            zoomForm.Show();
+            zoomForm.CrossHairPos = fixationPoint;
+        }
+
+        private void resetColorButton()
+        {
+            if (SystemFlags.hasSelectedButtonColourBeenReset == false)
+            {
+                SystemFlags.hasSelectedButtonColourBeenReset = true;
+            }
+        }
+
+    public void ResetMagnifier()
+        {
+            if(Program.readSettings.dynamicZoom)
+            {
+                magnifier = new ZoomMagnifier(zoomForm, fixationWorker);
+            }
+            else
+            {
+                magnifier = new ZoomMagnifierCentered(zoomForm, fixationWorker);
+            }
+        }
+        /*
+            *Allows the settings to update fixationDetection fixationDetectionTimeOutLength
+            * and timeOutTimer intterval
+        */
+        public void trackBarFixTimeOut(int FixationTimeOutLength, int timeOutTimerInterval)
+        {
+            fixationWorker.UpdateTimeOut(FixationTimeOutLength, timeOutTimerInterval);
+
+        }
+
+        /*
+            *Allows the settings to update fixationDetection fixationDetectionTimeLength
+            * and timer interval
+        */
+
+        public void trackBarFixTimeLength(int fixationDetectionTimeLength, int fixationTimerInterval)
+        {
+            fixationWorker.UpdateTimeLength(fixationDetectionTimeLength, fixationTimerInterval);
+        }
+
     }
 }

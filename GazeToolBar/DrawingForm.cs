@@ -119,21 +119,7 @@ namespace GazeToolBar
             graphics.DrawImage(image, Dimensions);
 
             history.Add(currentGaze);
-/*
-            //Get rid of ghost crosshairs
-            if (history.Count >= 5)
-            {
-                Point ogPoint = history[0];
-                bool all = true;
-                for (int i = history.Count - 5; i < history.Count; i++)
-                {
-                    if (ogPoint.X != history[i].X && ogPoint.Y != history[i].Y)
-                        all = false;
-                }
 
-                if (all)
-                    this.Close();
-            }*/
         }
 
         public void ClearForm()

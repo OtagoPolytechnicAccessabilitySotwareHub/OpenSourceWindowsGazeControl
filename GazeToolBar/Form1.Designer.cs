@@ -95,7 +95,7 @@
             this.btnScoll.Size = new System.Drawing.Size(75, 75);
             this.btnScoll.TabIndex = 5;
             this.btnScoll.UseVisualStyleBackColor = false;
-            this.btnScoll.Click += new System.EventHandler(this.btnScoll_Click);
+            this.btnScoll.Click += new System.EventHandler(this.btnScroll_Click);
             // 
             // pnlHighLightSettings
             // 
@@ -206,7 +206,7 @@
             this.btnMic.Size = new System.Drawing.Size(75, 75);
             this.btnMic.TabIndex = 4;
             this.btnMic.UseVisualStyleBackColor = false;
-            this.btnMic.Click += new System.EventHandler(this.btnMic_Click);
+            //this.btnMic.Click += new System.EventHandler(this.btnMic_Click);
             // 
             // Form1
             // 
