@@ -94,7 +94,6 @@
             this.button31 = new System.Windows.Forms.Button();
             this.panel32 = new System.Windows.Forms.Panel();
             this.button37 = new System.Windows.Forms.Button();
-            this.button32 = new System.Windows.Forms.Button();
             this.panel33 = new System.Windows.Forms.Panel();
             this.button33 = new System.Windows.Forms.Button();
             this.panel34 = new System.Windows.Forms.Panel();
@@ -872,7 +871,6 @@
             this.panel32.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel32.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel32.Controls.Add(this.button37);
-            this.panel32.Controls.Add(this.button32);
             this.panel32.Location = new System.Drawing.Point(0, 0);
             this.panel32.Name = "panel32";
             this.panel32.Size = new System.Drawing.Size(150, 150);
@@ -893,16 +891,6 @@
             // 
             // button32
             // 
-            this.button32.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button32.BackColor = System.Drawing.Color.Black;
-            this.button32.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button32.Location = new System.Drawing.Point(-603, -465);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(100, 100);
-            this.button32.TabIndex = 13;
-            this.button32.Text = "PLACEHOLDER";
-            this.button32.UseVisualStyleBackColor = false;
-            this.button32.Click += new System.EventHandler(this.button32_Click);
             // 
             // panel33
             // 
@@ -1037,7 +1025,7 @@
             this.panel38.Controls.Add(this.panel22);
             this.panel38.Controls.Add(this.panel3);
             this.panel38.Controls.Add(this.panel4);
-            this.panel38.Location = new System.Drawing.Point(163, 377);
+            this.panel38.Location = new System.Drawing.Point(-77, 315);
             this.panel38.Name = "panel38";
             this.panel38.Size = new System.Drawing.Size(1810, 461);
             this.panel38.TabIndex = 38;
@@ -1052,7 +1040,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 1028);
+            this.ClientSize = new System.Drawing.Size(1444, 904);
             this.ControlBox = false;
             this.Controls.Add(this.panel38);
             this.Name = "Form2";
@@ -1167,7 +1155,6 @@
         private System.Windows.Forms.Panel panel31;
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.Panel panel32;
-        private System.Windows.Forms.Button button32;
         private System.Windows.Forms.Panel panel33;
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Panel panel34;

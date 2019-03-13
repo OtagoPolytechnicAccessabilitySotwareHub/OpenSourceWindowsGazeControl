@@ -292,10 +292,6 @@ namespace GazeToolBar
         {
             if (e.HasGaze) button31.PerformClick();
         }
-        private void button32_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) button32.PerformClick();
-        }
         private void button33_Click(object sender, GazeAwareEventArgs e)
         {
             if (e.HasGaze) button33.PerformClick();

@@ -167,7 +167,6 @@ namespace GazeToolBar
 
         private void rename_buttons()
         {
-            int newSize = 45;
             button10.Text = strip_Keys(button1x[KeyboardView]);
             button13.Text = strip_Keys(button2x[KeyboardView]);
             button25.Text = strip_Keys(button3x[KeyboardView]);
@@ -195,9 +194,14 @@ namespace GazeToolBar
             button5.Text = strip_Keys(button32x[KeyboardView]);
             button23.Text = strip_Keys(button33x[KeyboardView]);
             button2.Text = strip_Keys(button34x[KeyboardView]);
-            if(KeyboardView==3)
+
+            //------------------------------------------------------//
+
+            int newSize = panel38.Width / 40;
+
+            if (KeyboardView==3)
             {
-                newSize = 25;
+                newSize = panel38.Width / 70;
             }
             foreach (Control control in panel38.Controls)
             {
@@ -206,7 +210,7 @@ namespace GazeToolBar
                     button.Font = new Font(button.Font.FontFamily, newSize);
                 }
             }
-            button34.Font = new Font(button34.Font.FontFamily, 27);
+            button34.Font = new Font(button34.Font.FontFamily, panel38.Width/55);
         }
 
 
