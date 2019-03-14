@@ -294,13 +294,14 @@ namespace GazeToolBar
             if (SystemFlags.actionToBePerformed == ActionToBePerformed.Scroll)
             {
                 stopScroll();
+                SystemFlags.actionToBePerformed = ActionToBePerformed.none;
             }
             else
             {
                 SystemFlags.actionButtonSelected = true;
                 SystemFlags.actionToBePerformed = ActionToBePerformed.Scroll;
             }
-            
+
 
         }
 
@@ -322,6 +323,10 @@ namespace GazeToolBar
         private void timer2_Tick(object sender, EventArgs e)
         {
             stateManager.RunCycle(sender, e);
+            if(SystemFlags.actionToBePerformed == ActionToBePerformed.none)
+            {
+                resetButtonsColor();
+            }
         }
 
 

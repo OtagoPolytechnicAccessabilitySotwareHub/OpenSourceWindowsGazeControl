@@ -37,6 +37,7 @@ namespace GazeToolBar
             //Call left button click function at the cursor's current location.
             mouseSim.Mouse.LeftButtonClick();
             mouseSim.Keyboard.KeyPress(VirtualKeyCode.CONTROL);
+            SystemFlags.actionToBePerformed = ActionToBePerformed.none;
         }
 
 
@@ -49,6 +50,7 @@ namespace GazeToolBar
             SetCursorPos(xpos, ypos);
             //Call left button double click function at the cursor's current location.
             mouseSim.Mouse.LeftButtonDoubleClick();
+            SystemFlags.actionToBePerformed = ActionToBePerformed.none;
         }
 
         //Simulate a single right click at the XY position passed in.
@@ -60,6 +62,7 @@ namespace GazeToolBar
             SetCursorPos(xpos, ypos);
             //Call right button click function at the cursor's current location.
             mouseSim.Mouse.RightButtonClick();
+            SystemFlags.actionToBePerformed = ActionToBePerformed.none;
 
         }
 

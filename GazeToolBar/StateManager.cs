@@ -14,7 +14,7 @@ namespace GazeToolBar
     public enum SystemState { Wait, ActionButtonSelected, Zooming, ZoomWait, ApplyAction, ScrollWait }
 
     //The actions that can be performed by the program
-    public enum ActionToBePerformed { RightClick, LeftClick, DoubleClick, Scroll }
+    public enum ActionToBePerformed { RightClick, LeftClick, DoubleClick, Scroll, none }
 
     /*
         * The State manager is the main control for the program
