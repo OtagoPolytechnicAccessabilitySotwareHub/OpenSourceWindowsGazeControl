@@ -20,7 +20,7 @@ using EyeXFramework.Forms;
 namespace GazeToolBar
 {
      
-    public partial class Form2 : Form
+    public partial class Keyboard : Form
     {
         int FlashDelay = 500; //delay on making button flash
         private bool bottom; //for location of keyboard. top or bottom
@@ -61,7 +61,7 @@ namespace GazeToolBar
 
 
 
-        public Form2(FormsEyeXHost EyeXHost)
+        public Keyboard(FormsEyeXHost EyeXHost)
         {
             eyeXHost = EyeXHost;
             InitializeComponent();
@@ -166,8 +166,8 @@ namespace GazeToolBar
             //Keys that are never renamed
             button28.Text = "⌫";
             button8.Text = "⇧";
-            button36.Text = "Tab";
-            button34.Text = "Enter";
+            button36.Text = "⭾";    
+            button34.Text = "↵";
             button6.Text = "Ctrl";
             button18.Text = "⎵";
             button3.Text = ".";
@@ -224,8 +224,13 @@ namespace GazeToolBar
                     button.Font = new Font(button.Font.FontFamily, newSize);
                 }
             }
-            //Setting Enter to it's own font size so it stays consistent
-            button34.Font = new Font(button34.Font.FontFamily, panel38.Width/55);
+            //Setting Symbol keys to thier own font size so it stays consistent
+            button34.Font = new Font(button34.Font.FontFamily, panel38.Width/20);
+            button28.Font = new Font(button28.Font.FontFamily, panel38.Width / 40);
+            button8.Font = new Font(button8.Font.FontFamily, panel38.Width / 20);
+            button36.Font = new Font(button36.Font.FontFamily, panel38.Width / 30);
+            button18.Font = new Font(button18.Font.FontFamily, panel38.Width / 25);
+            button4.Font = new Font(button4.Font.FontFamily, panel38.Width / 30);
         }
 
         //Strips {} off sendkeys to be displayed on buttons.
@@ -278,12 +283,12 @@ namespace GazeToolBar
             button4.BackColor = Color.Cyan;
             if (bottom)
             {
-                button4.Text = "Down";
+                button4.Text = "⤓";
                 panel38.Location = new Point(Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Left), Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Top));
             }
             else
             {
-                button4.Text = "Up";
+                button4.Text = "⤒";
                 double panelWidth = Convert.ToDouble(System.Windows.SystemParameters.WorkArea.Width);
                 double newPanelWidth = panelWidth;
                 int intNewPanelWidth = Convert.ToInt32(newPanelWidth);

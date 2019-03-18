@@ -269,9 +269,9 @@ namespace GazeToolBar
 
         private void btnKeyboard_Click(object sender, EventArgs e)
         {
-            if (!checkOpenForm(typeof(Form2))) //Checks if keyboard is onscreen
+            if (!checkOpenForm(typeof(Keyboard))) //Checks if keyboard is onscreen
             {
-                Form2 = new Form2(eyeXHost); //if not, create keyboard and show it
+                Form2 = new Keyboard(eyeXHost); //if not, create keyboard and show it
                 //AttemptToggle(SystemFlags.actionToBePerformed);
                 stopScroll();
                 if (Form2.Visible)

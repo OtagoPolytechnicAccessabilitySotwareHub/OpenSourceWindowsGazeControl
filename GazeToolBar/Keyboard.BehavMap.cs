@@ -12,7 +12,7 @@ using EyeXFramework.Forms;
 
 namespace GazeToolBar
 {
-    public partial class Form2 : Form
+    public partial class Keyboard : Form
     {
         int buttonClickDelay = 500; //How long (ms) you need to look at button before it sends click event
         private void connectBehaveMap() //connecting the behaviour map with the form

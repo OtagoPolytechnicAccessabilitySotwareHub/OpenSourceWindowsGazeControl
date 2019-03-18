@@ -1,6 +1,6 @@
 ﻿namespace GazeToolBar
 {
-    partial class Form2
+    partial class Keyboard
     {
         /// <summary>
         /// Required designer variable.
@@ -280,7 +280,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(146, 146);
             this.button4.TabIndex = 30;
-            this.button4.Text = "UP";
+            this.button4.Text = "⤒";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -551,7 +551,7 @@
             // 
             this.button18.BackColor = System.Drawing.Color.Black;
             this.button18.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
-            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button18.Location = new System.Drawing.Point(2, 2);
             this.button18.Name = "button18";
@@ -889,9 +889,6 @@
             this.button37.UseVisualStyleBackColor = false;
             this.button37.Click += new System.EventHandler(this.button37_ClickAsync);
             // 
-            // button32
-            // 
-            // 
             // panel33
             // 
             this.panel33.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -929,7 +926,7 @@
             this.button34.BackColor = System.Drawing.Color.Black;
             this.button34.FlatAppearance.BorderSize = 0;
             this.button34.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button34.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button34.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button34.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button34.Location = new System.Drawing.Point(2, 2);
             this.button34.Name = "button34";
@@ -974,7 +971,7 @@
             // button36
             // 
             this.button36.BackColor = System.Drawing.Color.Black;
-            this.button36.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button36.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button36.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button36.Location = new System.Drawing.Point(2, 2);
             this.button36.Name = "button36";
@@ -1036,14 +1033,14 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Form2
+            // Keyboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1444, 904);
             this.ControlBox = false;
             this.Controls.Add(this.panel38);
-            this.Name = "Form2";
+            this.Name = "Keyboard";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form2_Load);
