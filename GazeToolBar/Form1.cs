@@ -7,8 +7,6 @@ using System.IO;
 using System.Diagnostics;
 using System.Collections.Generic;
 using EyeXFramework.Forms;
-using OptiKey;
-using OptiKey.UI.Windows;
 using GazeToolBar;
 
 namespace GazeToolBar
@@ -35,8 +33,6 @@ namespace GazeToolBar
         private ScrollControl scrollWorker;
         private FixationDetection fixationWorker;
 
-        OptiKey.GazeKeyboard keyboardInitializer;
-        MainWindow keyboard;
 
         public Dictionary<ActionToBePerformed, String> FKeyMapDictionary;
 
@@ -66,9 +62,6 @@ namespace GazeToolBar
             eyeXHost = new FormsEyeXHost();
             eyeXHost.Start();
 
-            keyboardInitializer = new OptiKey.GazeKeyboard();
-            keyboard = keyboardInitializer.CreateKeyboard();
-            keyboard.ShowInTaskbar = false;
 
             connectBehaveMap();
 
@@ -160,7 +153,6 @@ namespace GazeToolBar
 
         private void menuItemExit_Click(object sender, EventArgs e)
         {
-            keyboard.Close();
             Close();
         }
 

@@ -312,10 +312,6 @@
       <Project>{23e96e6a-2cc7-4514-a8db-e0605b4efde9}</Project>
       <Name>Karna.Magnification</Name>
     </ProjectReference>
-    <ProjectReference Include="..\OptiKey\OptiKey.csproj">
-      <Project>{6865c5af-c6f0-4bda-ba1c-7ae8bc225234}</Project>
-      <Name>OptiKey</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

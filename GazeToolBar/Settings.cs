@@ -975,7 +975,7 @@ namespace GazeToolBar
             pnlDefaultConfirmNo.BackColor = Color.Black;
         }
 
-        private void btnStaticZoomModeClick(object sender, EventArgs e)
+        private void btnStaticZoomModeClick(object sender, EventArgs e) //DYNMIC ZOON CLICK BIND HERE
         {
             dynamicZoom = false;
             btnStaticZoomMode.BackColor = Color.White;
@@ -984,14 +984,24 @@ namespace GazeToolBar
             btnDynamicZoomMode.ForeColor = Color.White;
         }
 
-        private void btnDynamicZoomMode_Click(object sender, EventArgs e)
+        private void pnlRightClick_Paint(object sender, PaintEventArgs e)
         {
-            dynamicZoom = true;
-            btnDynamicZoomMode.BackColor = Color.White;
-            btnDynamicZoomMode.ForeColor = Color.Black;
-            btnStaticZoomMode.BackColor = Color.Black;
-            btnStaticZoomMode.ForeColor = Color.White;
+
         }
+
+        private void pnlZoomSettings_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //private void btnDynamicZoomMode_Click(object sender, EventArgs e)
+        //{
+        //    dynamicZoom = true;
+        //    btnDynamicZoomMode.BackColor = Color.White;
+        //    btnDynamicZoomMode.ForeColor = Color.Black;
+        //    btnStaticZoomMode.BackColor = Color.Black;
+        //    btnStaticZoomMode.ForeColor = Color.White;
+        //}
 
         private void btnDefaults_Click(object sender, EventArgs e)
         {
