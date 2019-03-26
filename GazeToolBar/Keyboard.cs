@@ -153,7 +153,7 @@ namespace GazeToolBar
             button23x = new String[] { "l", "L", "!", "{}}" };
             //Row 3
             button28x = new String[] { "z", "Z", "-", "/" };
-            button29x = new String[] { "x", "X", "+", "[" };
+            button29x = new String[] { "x", "X", "{+}", "[" };
             button30x = new String[] { "c", "C", "=", "]" };
             button31x = new String[] { "v", "V", "<", "{LEFT}" };
             button32x = new String[] { "b", "B", ">", "{DOWN}" };
