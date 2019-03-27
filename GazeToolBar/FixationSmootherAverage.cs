@@ -19,7 +19,7 @@ namespace GazeToolBar
 
         public override void AddCoordinateToBuffer(double x, double y)
         {
-
+            double smoothingFactor = 0.6;
             if (bufferCurrentIndex == bufferSize)
             {
                 bufferCurrentIndex = 0;
@@ -30,8 +30,8 @@ namespace GazeToolBar
                 bufferFullIndex++;
             }
 
-            xBuffer[bufferCurrentIndex] = x;
-            yBuffer[bufferCurrentIndex] = y;
+            xBuffer[bufferCurrentIndex] = smoothingFactor * x + (1 - smoothingFactor) * xBuffer[bufferCurrentIndex - 1];
+            yBuffer[bufferCurrentIndex] = smoothingFactor * y + (1 - smoothingFactor) * yBuffer[bufferCurrentIndex - 1];
 
             bufferCurrentIndex++;
         }
