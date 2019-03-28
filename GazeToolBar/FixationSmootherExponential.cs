@@ -17,7 +17,9 @@ namespace GazeToolBar
 
         public override void AddCoordinateToBuffer(double x, double y)
         {
-            if(xBuffer[bufferSize - 1] == -1)
+            double smoothingFactor = 0.9;
+
+            if (xBuffer[bufferSize - 1] == -1)
             {
                 Utils.ArrayFill(xBuffer, x);
                 Utils.ArrayFill(yBuffer, y);
@@ -31,8 +33,9 @@ namespace GazeToolBar
             Array.Copy(xBuffer, 1, newXBuffer, 0, xBuffer.Length - 1);
             Array.Copy(yBuffer, 1, newYBuffer, 0, yBuffer.Length - 1);
 
-            newXBuffer[bufferSize - 1] = x;
-            newYBuffer[bufferSize - 1] = y;
+            newXBuffer[bufferSize - 1] = smoothingFactor * x + (1 - smoothingFactor) * xBuffer[bufferSize - 1];
+            newYBuffer[bufferSize - 1] = smoothingFactor * y + (1 - smoothingFactor) * yBuffer[bufferSize - 1];
+
 
             xBuffer = newXBuffer;
             yBuffer = newYBuffer;
