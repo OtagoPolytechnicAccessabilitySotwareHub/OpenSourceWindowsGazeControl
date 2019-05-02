@@ -51,6 +51,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_71E9B90D8E9F4B7BB1C95DB814A7715C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_76197BD04454D4D5C2F6009D2C6AFDBC"
         "OwnerKey" = "8:_4DCB34ACA2CC46418DD2A4DE02CEC508"
         "MsmSig" = "8:_UNDEFINED"
@@ -81,14 +87,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C8514983C79E4B4D8BB3E7443987D1F8"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_D98B29CC11D124A7B086626432B7316F"
+        "OwnerKey" = "8:_4DCB34ACA2CC46418DD2A4DE02CEC508"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D98B29CC11D124A7B086626432B7316F"
-        "OwnerKey" = "8:_4DCB34ACA2CC46418DD2A4DE02CEC508"
+        "MsmKey" = "8:_F811C4B412CF4802B166F53B204593D0"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -209,6 +215,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -361,6 +375,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_71E9B90D8E9F4B7BB1C95DB814A7715C"
+            {
+            "SourcePath" = "8:..\\..\\Tobii.EyeX.Client.dll"
+            "TargetName" = "8:Tobii.EyeX.Client.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_0D035A19CA9846A3B3300DD5A4D424C7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_76197BD04454D4D5C2F6009D2C6AFDBC"
@@ -518,26 +552,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C8514983C79E4B4D8BB3E7443987D1F8"
-            {
-            "SourcePath" = "8:C:\\Program Files (x86)\\Gaze Toolbar\\Tobii.EyeX.Client.dll"
-            "TargetName" = "8:Tobii.EyeX.Client.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_0D035A19CA9846A3B3300DD5A4D424C7"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D98B29CC11D124A7B086626432B7316F"
             {
             "AssemblyRegister" = "3:1"
@@ -567,6 +581,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F811C4B412CF4802B166F53B204593D0"
+            {
+            "SourcePath" = "8:..\\..\\HERE\\Gaze.ico"
+            "TargetName" = "8:Gaze.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_0D035A19CA9846A3B3300DD5A4D424C7"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -626,22 +660,22 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:GazeToolBar"
         "ProductCode" = "8:{2D79B3E3-CFEB-4564-80B8-08A8B380CBBB}"
-        "PackageCode" = "8:{77BCAC5F-DF33-43BD-8896-54E788F00CB0}"
+        "PackageCode" = "8:{FBCFA4A1-0F1A-45A7-A61D-608401B1986A}"
         "UpgradeCode" = "8:{7ED0BAFA-00D6-496E-AA98-6E9AA0530C70}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:GazeToolBar"
+        "Manufacturer" = "8:Otago Polytechnic"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:Installer"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Otago Polytechnic"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
+        "ARPCOMMENTS" = "8:Assistive Gaze Tracking Toolbar"
         "ARPURLINFOABOUT" = "8:"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
@@ -746,6 +780,34 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_39E564B5B8394CD4ADC71C6B937FBCA9"
+            {
+            "Name" = "8:GazeToolBar"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_4DCB34ACA2CC46418DD2A4DE02CEC508"
+            "Folder" = "8:_81A769B19ADF4EFCA0459095B4D0FD0C"
+            "WorkingFolder" = "8:_0D035A19CA9846A3B3300DD5A4D424C7"
+            "Icon" = "8:_F811C4B412CF4802B166F53B204593D0"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E8C727C9396745549ADE3C58E95D5626"
+            {
+            "Name" = "8:GazeToolBar"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_4DCB34ACA2CC46418DD2A4DE02CEC508"
+            "Folder" = "8:_19FE9C083C644BE8BC2234731497196E"
+            "WorkingFolder" = "8:_0D035A19CA9846A3B3300DD5A4D424C7"
+            "Icon" = "8:_F811C4B412CF4802B166F53B204593D0"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {

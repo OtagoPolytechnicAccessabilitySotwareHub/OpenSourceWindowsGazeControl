@@ -1230,10 +1230,11 @@ namespace GazeToolBar
             // 
             this.pnlZoomMode.Controls.Add(this.pnlStaticZoomMode);
             this.pnlZoomMode.Controls.Add(this.pnlDynamicZoomMode);
-            this.pnlZoomMode.Location = new System.Drawing.Point(600, 500);
+            this.pnlZoomMode.Location = new System.Drawing.Point(6000, 500); //Change this to 600,500
             this.pnlZoomMode.Name = "pnlZoomMode";
             this.pnlZoomMode.Size = new System.Drawing.Size(608, 100);
             this.pnlZoomMode.TabIndex = 31;
+            this.pnlZoomMode.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlZoomMode_Paint);
             // 
             // pnlStaticZoomMode
             // 
@@ -1265,6 +1266,7 @@ namespace GazeToolBar
             this.btnDynamicZoomMode.TabIndex = 31;
             this.btnDynamicZoomMode.Text = "Coming Soon";
             this.btnDynamicZoomMode.UseVisualStyleBackColor = false;
+            this.btnDynamicZoomMode.Click += new System.EventHandler(this.btnDynamicZoomMode_Click);
             // 
             // pnlGeneral
             // 

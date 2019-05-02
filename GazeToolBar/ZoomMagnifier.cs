@@ -31,7 +31,9 @@ namespace GazeToolBar
         public RECT sourceRect;
         FormsEyeXHost eyeXHost;
         GazePointDataStream gazeStream;
-        
+        private Point zoomPoint;
+
+
         protected FixationSmootherExponential fixationSmoother;
         protected FixationSmootherAverage positionSmoother;
 
@@ -137,10 +139,12 @@ namespace GazeToolBar
                 return;
             }
 
-            Point zoomPoint = new Point(
+                zoomPoint = new Point(
                 (int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
                 (int)(fixationWorker.getXY().Y - ((form.Height / Magnification) / 2))
                 );
+
+
 
             Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
 
@@ -220,6 +224,7 @@ namespace GazeToolBar
         {
             Zoom();
             UpdateZoomPosition();
+
         }
 
         private void form_FormClosing(object sender, FormClosingEventArgs e)

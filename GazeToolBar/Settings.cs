@@ -994,14 +994,19 @@ namespace GazeToolBar
 
         }
 
-        //private void btnDynamicZoomMode_Click(object sender, EventArgs e)
-        //{
-        //    dynamicZoom = true;
-        //    btnDynamicZoomMode.BackColor = Color.White;
-        //    btnDynamicZoomMode.ForeColor = Color.Black;
-        //    btnStaticZoomMode.BackColor = Color.Black;
-        //    btnStaticZoomMode.ForeColor = Color.White;
-        //}
+        private void pnlZoomMode_Paint(object sender, PaintEventArgs e)
+        {
+            //OFFSET 6000, change location in Settings.Designer.cs to bring back. Search for (ctrl + f) "Change this to 600"
+        }
+
+        private void btnDynamicZoomMode_Click(object sender, EventArgs e)
+        {
+            dynamicZoom = true;
+            btnDynamicZoomMode.BackColor = Color.White;
+            btnDynamicZoomMode.ForeColor = Color.Black;
+            btnStaticZoomMode.BackColor = Color.Black;
+            btnStaticZoomMode.ForeColor = Color.White;
+        }
 
         private void btnDefaults_Click(object sender, EventArgs e)
         {
