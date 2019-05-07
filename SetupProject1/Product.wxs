@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define EyeXFramework_TargetDir=$(var.EyeXFramework.TargetDir)?><?define GazeToolBar_TargetDir=$(var.GazeToolBar.TargetDir)?><?define Karna.Magnification_TargetDir=$(var.Karna.Magnification.TargetDir)?>
+	<Product Id="*" Name="GazeToolBar" Language="1033" Version="1.0.0.0" Manufacturer="OtagoPolytechnic" UpgradeCode="dc30ee9b-f761-4894-9e02-7672e545a356">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<Media Id="1" Cabinet="cab1.cab" EmbedCab="yes"/>
+
+		<Feature Id="ProductFeature" Title="GazeToolBar" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="GazeToolBar">
+				<Directory Id="Images" Name="Images" />
+				</Directory>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+				<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+			<Component Id="EyeXFramework.dll" Guid="41110a23-171c-4b15-adfb-4805462145bf">
+			  <File Id="EyeXFramework.dll" Name="EyeXFramework.dll" Source="$(var.EyeXFramework_TargetDir)EyeXFramework.dll" />
+			</Component>
+			<Component Id="Tobii.EyeX.Client.Net20.dll" Guid="de8e9801-f88f-47f6-98dd-ff8d6307e3cd">
+			  <File Id="Tobii.EyeX.Client.Net20.dll" Name="Tobii.EyeX.Client.Net20.dll" Source="$(var.EyeXFramework_TargetDir)Tobii.EyeX.Client.Net20.dll" />
+			</Component>
+			<Component Id="programIcon.ico" Guid="3174afc9-a4ca-4fc5-884b-1694c0dbba08">
+			  <File Id="programIcon.ico" Name="programIcon.ico" Source="$(var.GazeToolBar_TargetDir)programIcon.ico" />
+			</Component>
+			<Component Id="Gaze.ico" Guid="2fe0949d-dabc-406b-a975-64c38b31c4e6">
+			  <File Id="Gaze.ico" Name="Gaze.ico" Source="$(var.GazeToolBar_TargetDir)Gaze.ico" />
+			</Component>
+			<Component Id="Tobii.EyeX.Client.dll" Guid="b8af62f1-a7e1-4d03-b5c5-2598881ffc32">
+			  <File Id="Tobii.EyeX.Client.dll" Name="Tobii.EyeX.Client.dll" Source="$(var.GazeToolBar_TargetDir)Tobii.EyeX.Client.dll" />
+			</Component>
+			<Component Id="GazeToolBar.exe" Guid="db2c7c3b-a110-41ec-bee0-f39df5594c07">
+			  <File Id="GazeToolBar.exe" Name="GazeToolBar.exe" Source="$(var.GazeToolBar_TargetDir)GazeToolBar.exe" />
+			</Component>
+			<Component Id="GazeToolBar.exe.config" Guid="50ec0d19-a47b-412c-80ab-54d377cd779a">
+			  <File Id="GazeToolBar.exe.config" Name="GazeToolBar.exe.config" Source="$(var.GazeToolBar_TargetDir)GazeToolBar.exe.config" />
+			</Component>
+			<Component Id="ShellBasics.dll" Guid="14151fb6-3c30-4043-9b1d-5bf1738cbb56">
+			  <File Id="ShellBasics.dll" Name="ShellBasics.dll" Source="$(var.GazeToolBar_TargetDir)ShellBasics.dll" />
+			</Component>
+			<Component Id="WindowsInput.dll" Guid="a33d24df-7afe-4329-8402-eeac4df21699">
+			  <File Id="WindowsInput.dll" Name="WindowsInput.dll" Source="$(var.GazeToolBar_TargetDir)WindowsInput.dll" />
+			</Component>
+			<Component Id="Karna.Magnification.dll" Guid="d20a0227-fd47-460d-957b-ab918dcc764d">
+			  <File Id="Karna.Magnification.dll" Name="Karna.Magnification.dll" Source="$(var.Karna.Magnification_TargetDir)Karna.Magnification.dll" />
+			</Component>
+			<Component Id="Newtonsoft.Json.dll" Guid="41cb5ef8-22bd-4e59-b6a4-b084e0f1b860">
+			  <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="$(var.GazeToolBar_TargetDir)Newtonsoft.Json.dll" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="Images_files" Directory="Images">
+      <Component Id="Images_Double_Click_icon_Selected.fw.png" Guid="83054b36-ed9c-4ce3-9f13-07786740f112">
+        <File Id="Images_Double_Click_icon_Selected.fw.png" Name="Double-Click-icon-Selected.fw.png" Source="$(var.GazeToolBar_TargetDir)Images\Double-Click-icon-Selected.fw.png" />
+      </Component>
+      <Component Id="Images_Double_Click_icon.png" Guid="1134bc6f-db31-4cda-a091-6fdac484cb24">
+        <File Id="Images_Double_Click_icon.png" Name="Double-Click-icon.png" Source="$(var.GazeToolBar_TargetDir)Images\Double-Click-icon.png" />
+      </Component>
+      <Component Id="Images_Drag_and_drop_icon_selected.fw.png" Guid="e1c6ff9a-401f-405b-adc4-df4e7f987077">
+        <File Id="Images_Drag_and_drop_icon_selected.fw.png" Name="Drag-and-drop-icon-selected.fw.png" Source="$(var.GazeToolBar_TargetDir)Images\Drag-and-drop-icon-selected.fw.png" />
+      </Component>
+      <Component Id="Images_Drag_and_drop_icon.png" Guid="633b750f-d689-4131-972b-a174b7573cce">
+        <File Id="Images_Drag_and_drop_icon.png" Name="Drag-and-drop-icon.png" Source="$(var.GazeToolBar_TargetDir)Images\Drag-and-drop-icon.png" />
+      </Component>
+      <Component Id="Images_Keyboard_icon_Selected.fw.png" Guid="4eac5c92-60ff-45b7-98ac-7398c95ddee3">
+        <File Id="Images_Keyboard_icon_Selected.fw.png" Name="Keyboard-icon-Selected.fw.png" Source="$(var.GazeToolBar_TargetDir)Images\Keyboard-icon-Selected.fw.png" />
+      </Component>
+      <Component Id="Images_Left_Click_ico_Selected.fw.png" Guid="99640a0a-b303-44b0-802a-7c4edf84bab0">
+        <File Id="Images_Left_Click_ico_Selected.fw.png" Name="Left-Click-ico-Selected.fw.png" Source="$(var.GazeToolBar_TargetDir)Images\Left-Click-ico-Selected.fw.png" />
+      </Component>
+      <Component Id="Images_Keyboard_icon.png" Guid="f31ccb7d-5d2c-4395-8c31-0a8487b411c3">
+        <File Id="Images_Keyboard_icon.png" Name="Keyboard-icon.png" Source="$(var.GazeToolBar_TargetDir)Images\Keyboard-icon.png" />
+      </Component>
+      <Component Id="Images_Left_Click_icon.png" Guid="b644aa19-06d9-453e-92e4-df9008d02191">
+        <File Id="Images_Left_Click_icon.png" Name="Left-Click-icon.png" Source="$(var.GazeToolBar_TargetDir)Images\Left-Click-icon.png" />
+      </Component>
+      <Component Id="Images_Right_Click_icon_Selected.png" Guid="6ada02b7-e801-4b74-90f6-e32008491bb9">
+        <File Id="Images_Right_Click_icon_Selected.png" Name="Right-Click-icon-Selected.png" Source="$(var.GazeToolBar_TargetDir)Images\Right-Click-icon-Selected.png" />
+      </Component>
+      <Component Id="Images_Right_Click_icon.png" Guid="fcd8b0f0-6bd6-4415-bb51-280516b95c05">
+        <File Id="Images_Right_Click_icon.png" Name="Right-Click-icon.png" Source="$(var.GazeToolBar_TargetDir)Images\Right-Click-icon.png" />
+      </Component>
+      <Component Id="Images_settings_icon_selected.fw.png" Guid="5224825b-08fa-46ec-8026-4b705678defc">
+        <File Id="Images_settings_icon_selected.fw.png" Name="settings-icon-selected.fw.png" Source="$(var.GazeToolBar_TargetDir)Images\settings-icon-selected.fw.png" />
+      </Component>
+      <Component Id="Images_settings_icon.png" Guid="cadaf736-4b68-4d90-bc04-6dafcc9c33da">
+        <File Id="Images_settings_icon.png" Name="settings-icon.png" Source="$(var.GazeToolBar_TargetDir)Images\settings-icon.png" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

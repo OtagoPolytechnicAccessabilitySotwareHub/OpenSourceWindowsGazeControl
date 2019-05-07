@@ -19,7 +19,7 @@ namespace GazeToolBar
         public static float ZOOM_SPEED = 0.06F;    //Amount zoom will increment
 
         public static float ZOOM_MAX;           //Max zoom amount
-        public static int SMOOTHER_BUFFER = 250;
+        public static int SMOOTHER_BUFFER = 10;
 
         public Point FixationPoint { get; set; }
         public Point Offset { get; set; }  //Offset is the amount of pixels moved when repositioning the form if it is offscreen. It's used to reposition the Fixation point.
@@ -139,7 +139,7 @@ namespace GazeToolBar
                 return;
             }
 
-                zoomPoint = new Point(
+            zoomPoint = new Point(
                 (int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
                 (int)(fixationWorker.getXY().Y - ((form.Height / Magnification) / 2))
                 );
