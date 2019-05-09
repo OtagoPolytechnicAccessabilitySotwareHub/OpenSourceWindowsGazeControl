@@ -34,14 +34,14 @@
   
   <Fragment>
   <DirectoryRef Id="ApplicationProgramsFolder">
-    <Component Id="ApplicationShortcut" Guid="23272848-1136-49ac-a318-7b29eafb74d9">
+    <Component Id="ApplicationShortcut" Guid="939940a1-ae21-4e6e-b34c-34bb9db11b89">
       <Shortcut Id="ApplicationStartMenuShortcut" Name="GazeToolBar" Icon ="Gaze" Description="GazeToolBar" Target="[INSTALLFOLDER]GazeToolBar.exe" WorkingDirectory="INSTALLFOLDER" />
       <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
       <RegistryValue Root="HKCU" Key="Software\MyWpfApplication" Name="installed" Type="integer" Value="1" KeyPath="yes" />
     </Component>
   </DirectoryRef>
   <DirectoryRef Id="DesktopFolder">
-   <Component Id="ApplicationShortcutDesktop" Guid="856603ff-3b81-41c9-878b-59a3714ef5e5">
+   <Component Id="ApplicationShortcutDesktop" Guid="0dae7bb7-07bb-4a01-b597-73668441bae5">
      <Shortcut Id="ApplicationDesktopShortcut" Name="GazeToolBar" Icon ="Gaze" Description="GazeToolBar" Target="[INSTALLFOLDER]GazeToolBar.exe" WorkingDirectory="INSTALLFOLDER" />
       <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
       <RegistryValue Root="HKCU" Key="Software\MyWpfApplication" Name="installed" Type="integer" Value="1" KeyPath="yes" />
