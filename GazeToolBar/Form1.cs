@@ -41,6 +41,7 @@ namespace GazeToolBar
         public Form1()
         {
             
+            
             InitializeComponent();
             contextMenu = new ContextMenu();
             menuItemExit = new MenuItem();
@@ -67,6 +68,8 @@ namespace GazeToolBar
 
             String[] sidebarArrangement = Program.readSettings.sidebar;
             ArrangeSidebar(sidebarArrangement);
+
+            
         }
 
         public void ArrangeSidebar(string[] sidebarArrangement)
@@ -199,6 +202,13 @@ namespace GazeToolBar
 
             String[] sidebarArrangement = Program.readSettings.sidebar;
             ArrangeSidebar(sidebarArrangement);
+
+            if (!checkOpenForm(typeof(Settings)))
+            {
+                settings = new Settings(this, eyeXHost);
+                settings.Show();
+                settings.Close();
+            }
         }
 
         public void trackBarFixTimeOut(int FixationTimeOutLength, int timeOutTimerInterval)
