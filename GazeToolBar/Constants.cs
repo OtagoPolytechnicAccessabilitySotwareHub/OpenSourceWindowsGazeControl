@@ -15,7 +15,7 @@ namespace GazeToolBar
     {
         public static readonly int MIN_TIME_LENGTH = 500;
         public static readonly int GAP_TIME_LENGTH = 200;
-        public static readonly int DEFAULT_TIME_LENGTH = 1500;
+        public static readonly int DEFAULT_TIME_LENGTH = 900;
         public static readonly int MIN_TIME_OUT = 4500;
         public static readonly int GAP_TIME_OUT = 500;
         public static readonly int MINTST = 1;
