@@ -232,6 +232,16 @@ namespace GazeToolBar
             return false;
         }
 
+        private void checkIfKeyboardIsOpen()
+        {
+            if (checkOpenForm(typeof(Keyboard)))
+            {
+                SystemFlags.isKeyboardWaiting = true;
+                Form2.Close();
+            }
+
+        }
+
         private void btnSettings_Click(object sender, EventArgs e)
         {
             if (!checkOpenForm(typeof(Settings)))
@@ -252,7 +262,8 @@ namespace GazeToolBar
 
             stopScroll();
             SystemFlags.actionButtonSelected = true;//raise action button flag
-            SystemFlags.actionToBePerformed = ActionToBePerformed.RightClick;   
+            SystemFlags.actionToBePerformed = ActionToBePerformed.RightClick;
+            checkIfKeyboardIsOpen();
         }
 
         private void btnSingleLeftClick_Click(object sender, EventArgs e)
@@ -260,6 +271,7 @@ namespace GazeToolBar
             stopScroll();
             SystemFlags.actionButtonSelected = true;//raise action button flag
             SystemFlags.actionToBePerformed = ActionToBePerformed.LeftClick;
+            checkIfKeyboardIsOpen();
         }
 
         private void btnDoubleClick_Click(object sender, EventArgs e)
@@ -267,9 +279,10 @@ namespace GazeToolBar
             stopScroll();
             SystemFlags.actionButtonSelected = true;//raise action button flag
             SystemFlags.actionToBePerformed = ActionToBePerformed.DoubleClick;
+            checkIfKeyboardIsOpen();
         }
 
-        private void btnKeyboard_Click(object sender, EventArgs e)
+        private void openKeyboard()
         {
             if (!checkOpenForm(typeof(Keyboard))) //Checks if keyboard is onscreen
             {
@@ -291,6 +304,11 @@ namespace GazeToolBar
             }
         }
 
+        private void btnKeyboard_Click(object sender, EventArgs e)
+        {
+            openKeyboard();
+        }
+
         private void btnScroll_Click(object sender, EventArgs e)
         {
             if (SystemFlags.actionToBePerformed == ActionToBePerformed.Scroll)
@@ -303,6 +321,7 @@ namespace GazeToolBar
                 SystemFlags.actionButtonSelected = true;
                 SystemFlags.actionToBePerformed = ActionToBePerformed.Scroll;
             }
+            checkIfKeyboardIsOpen();
 
 
         }
@@ -328,6 +347,11 @@ namespace GazeToolBar
             if(SystemFlags.actionToBePerformed == ActionToBePerformed.none)
             {
                 resetButtonsColor();
+            }
+            if(SystemFlags.isKeyboardWaiting == true && (SystemFlags.actionToBePerformed == ActionToBePerformed.none))
+            {
+                SystemFlags.isKeyboardWaiting = false;
+                openKeyboard();
             }
         }
 

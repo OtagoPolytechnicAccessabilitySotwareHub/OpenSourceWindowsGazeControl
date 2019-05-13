@@ -14,6 +14,9 @@ namespace GazeToolBar
         //If the keyboard is up
         public static bool isKeyBoardUp { get; set; }
 
+        //If the keyboard has been hidden for a button click
+        public static bool isKeyboardWaiting { get; set; }
+
         //If an action button has been selected
         public static bool actionButtonSelected { get; set; }
 
