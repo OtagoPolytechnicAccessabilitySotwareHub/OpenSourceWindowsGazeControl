@@ -344,10 +344,12 @@ namespace GazeToolBar
         private void timer2_Tick(object sender, EventArgs e)
         {
             stateManager.RunCycle(sender, e);
+            //resets color of buttons
             if(SystemFlags.actionToBePerformed == ActionToBePerformed.none)
             {
                 resetButtonsColor();
             }
+            //brings keyboard back up if its been dismissed for a button
             if(SystemFlags.isKeyboardWaiting == true && (SystemFlags.actionToBePerformed == ActionToBePerformed.none))
             {
                 SystemFlags.isKeyboardWaiting = false;
