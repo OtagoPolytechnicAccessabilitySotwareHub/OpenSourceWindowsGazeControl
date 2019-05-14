@@ -1026,12 +1026,10 @@
             this.panel38.Name = "panel38";
             this.panel38.Size = new System.Drawing.Size(1810, 461);
             this.panel38.TabIndex = 38;
-            this.panel38.Paint += new System.Windows.Forms.PaintEventHandler(this.panel38_Paint);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Keyboard
             // 

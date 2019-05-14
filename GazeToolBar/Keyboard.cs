@@ -252,29 +252,36 @@ namespace GazeToolBar
             return (Math.Abs(System.Windows.SystemParameters.PrimaryScreenHeight - System.Windows.SystemParameters.WorkArea.Height) > 0);
         }
 
-
-        private async void button1_Click(object sender, EventArgs e) 
+        private async void buttonClicker(String[] key, Button button)
         {
-            SendKeys.Send(button30x[KeyboardView]);
-            button1.BackColor = Color.Cyan; //set background color when clicked
-            await Task.Delay(FlashDelay); //delay before deactivting button flash
-            button1.BackColor = Color.Black; //revert back to original color
+            button.BackColor = Color.Cyan;
+            SendKeys.Send(key[KeyboardView]); //set background color when clicked
+            await Task.Delay(FlashDelay);     //delay before deactivting button flash
+            button.BackColor = Color.Black;   //revert back to original color
         }
 
-        private async void button2_ClickAsync(object sender, EventArgs e)
+        private async void buttonClicker(String key, Button button)  //for buttons that dont use keyboardview
         {
-            button2.BackColor = Color.Cyan;
-            SendKeys.Send(button34x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button2.BackColor = Color.Black;
+            button.BackColor = Color.Cyan;
+            SendKeys.Send(key);               //set background color when clicked
+            await Task.Delay(FlashDelay);     //delay before deactivting button flash
+            button.BackColor = Color.Black;   //revert back to original color
         }
 
-        private async void button3_Click(object sender, EventArgs e)
+
+        private void button1_Click(object sender, EventArgs e) 
         {
-            button3.BackColor = Color.Cyan;
-            SendKeys.Send(".");
-            await Task.Delay(FlashDelay);
-            button3.BackColor = Color.Black;
+            buttonClicker(button30x, button1);
+        }
+
+        private void button2_ClickAsync(object sender, EventArgs e)
+        {
+            buttonClicker(button34x, button2);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            buttonClicker(".", button3);
         }
 
         //Button for switching keyboard location from bottom and top of screen.
@@ -310,188 +317,119 @@ namespace GazeToolBar
             button4.BackColor = Color.Black;
         }
 
-        private async void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
-            button5.BackColor = Color.Cyan;
-            SendKeys.Send(button32x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button5.BackColor = Color.Black;
+            buttonClicker(button32x, button5);
         }
 
-        private async void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
-            button6.BackColor = Color.Cyan;
-            SendKeys.Send("^");
-            await Task.Delay(FlashDelay);
-            button6.BackColor = Color.Black;
+            buttonClicker("^", button6);
         }
 
-        private async void button7_Click(object sender, EventArgs e)
+        private void button7_Click(object sender, EventArgs e)
         {
-            button7.BackColor = Color.Cyan;
-            SendKeys.Send(button19x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button7.BackColor = Color.Black;
+            buttonClicker(button19x, button7);
         }
 
-        private async void button13_Click(object sender, EventArgs e)
+        private void button13_Click(object sender, EventArgs e)
         {
-            button13.BackColor = Color.Cyan;
-            SendKeys.Send(button2x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button13.BackColor = Color.Black;
+            buttonClicker(button2x, button13);
         }
 
-        private async void button21_Click(object sender, EventArgs e)
+        private void button21_Click(object sender, EventArgs e)
         {
-            button21.BackColor = Color.Cyan;
-            SendKeys.Send(button21x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button21.BackColor = Color.Black;
+            buttonClicker(button21x, button21);
         }
 
-        private async void button24_Click(object sender, EventArgs e)
+        private void button24_Click(object sender, EventArgs e)
         {
-            button24.BackColor = Color.Cyan;
-            SendKeys.Send(button28x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button24.BackColor = Color.Black;
+            buttonClicker(button28x, button24);
         }
 
-        private async void button23_Click(object sender, EventArgs e)
+        private void button23_Click(object sender, EventArgs e)
         {
-            button23.BackColor = Color.Cyan;
-            SendKeys.Send(button33x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button23.BackColor = Color.Black;
+            buttonClicker(button33x, button23);
         }
 
-        private async void button22_Click(object sender, EventArgs e)
+        private void button22_Click(object sender, EventArgs e)
         {
-            button22.BackColor = Color.Cyan;
-            SendKeys.Send(",");
-            await Task.Delay(FlashDelay);
-            button22.BackColor = Color.Black;
+            buttonClicker(",", button22);
         }
 
-        private async void button19_Click(object sender, EventArgs e)
+        private void button19_Click(object sender, EventArgs e)
         {
-            button19.BackColor = Color.Cyan;
-            SendKeys.Send(button31x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button19.BackColor = Color.Black;
+            buttonClicker(button31x, button19);
         }
 
-        private async void button18_Click(object sender, EventArgs e)
+        private void button18_Click(object sender, EventArgs e)
         {
-            button18.BackColor = Color.Cyan;
-            SendKeys.Send(" ");
-            await Task.Delay(FlashDelay);
-            button18.BackColor = Color.Black;
+            buttonClicker(" ", button18);
         }
 
-        private async void button17_Click(object sender, EventArgs e)
+        private void button17_Click(object sender, EventArgs e)
         {
-            button17.BackColor = Color.Cyan;
-            SendKeys.Send(button22x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button17.BackColor = Color.Black;
+            buttonClicker(button22x, button17);
         }
 
-        private async void button16_Click(object sender, EventArgs e)
+        private void button16_Click(object sender, EventArgs e)
         {
-            button16.BackColor = Color.Cyan;
-            SendKeys.Send(button16x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button16.BackColor = Color.Black;
+            buttonClicker(button16x, button16);
         }
 
-        private async void button15_Click(object sender, EventArgs e)
+        private void button15_Click(object sender, EventArgs e)
         {
-            button15.BackColor = Color.Cyan;
-            SendKeys.Send(button11x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button15.BackColor = Color.Black;
+            buttonClicker(button11x, button15);
         }
 
-        private async void button33_Click(object sender, EventArgs e)
+        private void button33_Click(object sender, EventArgs e)
         {
-            button33.BackColor = Color.Cyan;
-            SendKeys.Send(button17x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button33.BackColor = Color.Black;
+            buttonClicker(button17x, button33);
         }
 
-        private async void button36_Click(object sender, EventArgs e)
+        private void button36_Click(object sender, EventArgs e)
         {
-            button36.BackColor = Color.Cyan;
-            SendKeys.Send("{TAB}");
-            await Task.Delay(FlashDelay);
-            button36.BackColor = Color.Black;
+            buttonClicker("{TAB}", button36);
         }
 
-        private async void button35_Click(object sender, EventArgs e)
+        private void button35_Click(object sender, EventArgs e)
         {
-            button35.BackColor = Color.Cyan;
-            SendKeys.Send(button29x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button35.BackColor = Color.Black;
+            buttonClicker(button29x, button35);
         }
 
-        private async void button34_Click(object sender, EventArgs e)
+        private void button34_Click(object sender, EventArgs e)
         {
-            button34.BackColor = Color.Cyan;
-            SendKeys.Send("{ENTER}");
-            await Task.Delay(FlashDelay);
-            button34.BackColor = Color.Black;
+            buttonClicker("{ENTER}", button34);
         }
 
-        private async void button31_Click(object sender, EventArgs e)
+        private void button31_Click(object sender, EventArgs e)
         {
-            button31.BackColor = Color.Cyan;
-            SendKeys.Send(button23x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button31.BackColor = Color.Black;
+            buttonClicker(button23x, button31);
         }
 
-        private async void button30_Click(object sender, EventArgs e)
+        private void button30_Click(object sender, EventArgs e)
         {
-            button30.BackColor = Color.Cyan;
-            SendKeys.Send(button18x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button30.BackColor = Color.Black;
+            buttonClicker(button18x, button30);
         }
 
-        private async void button29_Click(object sender, EventArgs e)
+        private void button29_Click(object sender, EventArgs e)
         {
-            button29.BackColor = Color.Cyan;
-            SendKeys.Send(button15x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button29.BackColor = Color.Black;
+            buttonClicker(button15x, button29);
         }
 
-        private async void button28_Click(object sender, EventArgs e)
+        private void button28_Click(object sender, EventArgs e)
         {
-            button28.BackColor = Color.Cyan;
-            SendKeys.Send("{BACKSPACE}");
-            await Task.Delay(FlashDelay);
-            button28.BackColor = Color.Black;
+            buttonClicker("{BACKSPACE}", button28);
         }
 
-        private async void button27_Click(object sender, EventArgs e)
+        private void button27_Click(object sender, EventArgs e)
         {
-            button27.BackColor = Color.Cyan;
-            SendKeys.Send(button9x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button27.BackColor = Color.Black;
+            buttonClicker(button9x, button27);
         }
 
-        private async void button26_Click(object sender, EventArgs e)
+        private void button26_Click(object sender, EventArgs e)
         {
-            button26.BackColor = Color.Cyan;
-            SendKeys.Send(button5x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button26.BackColor = Color.Black;
+            buttonClicker(button5x, button26);
         }
 
         //Shift key.
@@ -513,12 +451,9 @@ namespace GazeToolBar
             rename_buttons();
         }
 
-        private async void button9_ClickAsync(object sender, EventArgs e)
+        private void button9_ClickAsync(object sender, EventArgs e)
         {
-            button9.BackColor = Color.Cyan;
-            SendKeys.Send(button7x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button9.BackColor = Color.Black;
+            buttonClicker(button7x, button9);
         }
 
         //'abc' button.
@@ -531,71 +466,35 @@ namespace GazeToolBar
             button10.BackColor = Color.Black;
         }
 
-        private async void button11_ClickAsync(object sender, EventArgs e)
+        private void button11_ClickAsync(object sender, EventArgs e)
         {
-            button11.BackColor = Color.Cyan;
-            SendKeys.Send(button14x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button11.BackColor = Color.Black;
+            buttonClicker(button14x, button11);
         }
 
-        private async void button12_ClickAsync(object sender, EventArgs e)
+        private void button12_ClickAsync(object sender, EventArgs e)
         {
-            button12.BackColor = Color.Cyan;
-            SendKeys.Send(button10x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button12.BackColor = Color.Black;
+            buttonClicker(button10x, button12);
         }
 
-        private async void button20_ClickAsync(object sender, EventArgs e)
+        private void button20_ClickAsync(object sender, EventArgs e)
         {
-            button20.BackColor = Color.Cyan;
-            SendKeys.Send(button8x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button20.BackColor = Color.Black;
+            buttonClicker(button8x, button20);
         }
 
-        //To Delete
-        private void button32_Click(object sender, EventArgs e)
+        private void button14_ClickAsync(object sender, EventArgs e)
         {
-
+            buttonClicker(button6x, button14);
         }
 
-        private async void button14_ClickAsync(object sender, EventArgs e)
+        private void button25_ClickAsync(object sender, EventArgs e)
         {
-            button14.BackColor = Color.Cyan;
-            SendKeys.Send(button6x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button14.BackColor = Color.Black;
+            buttonClicker(button3x, button25);
         }
 
-        private async void button25_ClickAsync(object sender, EventArgs e)
+        private void button37_ClickAsync(object sender, EventArgs e)
         {
-            button25.BackColor = Color.Cyan;
-            SendKeys.Send(button3x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button25.BackColor = Color.Black;
-        }
+            buttonClicker(button4x, button37);
 
-        //To Delete
-        private void panel38_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private async void button37_ClickAsync(object sender, EventArgs e)
-        {
-            button37.BackColor = Color.Cyan;
-            SendKeys.Send(button4x[KeyboardView]);
-            await Task.Delay(FlashDelay);
-            button37.BackColor = Color.Black;
-
-        }
-
-        //To Delete
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            
         }
     }
 }
