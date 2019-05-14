@@ -12,9 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EyeXFramework", "EyeXFramew
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Karna.Magnification", "Karna.Magnification\Karna.Magnification.csproj", "{23E96E6A-2CC7-4514-A8DB-E0605B4EFDE9}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{30D9EF15-53D5-4152-B5A4-6D1D7758254D}"
-EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "SetupProject1", "SetupProject1\SetupProject1.wixproj", "{B41FEABB-6EDD-4EE6-B50E-881299E0C13C}"
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "GazeToolBar Installer", "SetupProject1\GazeToolBar Installer.wixproj", "{B41FEABB-6EDD-4EE6-B50E-881299E0C13C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -62,12 +60,6 @@ Global
 		{23E96E6A-2CC7-4514-A8DB-E0605B4EFDE9}.Release|x64.Build.0 = Release|Any CPU
 		{23E96E6A-2CC7-4514-A8DB-E0605B4EFDE9}.Release|x86.ActiveCfg = Release|Any CPU
 		{23E96E6A-2CC7-4514-A8DB-E0605B4EFDE9}.Release|x86.Build.0 = Release|Any CPU
-		{30D9EF15-53D5-4152-B5A4-6D1D7758254D}.Debug|Any CPU.ActiveCfg = Debug
-		{30D9EF15-53D5-4152-B5A4-6D1D7758254D}.Debug|x64.ActiveCfg = Debug
-		{30D9EF15-53D5-4152-B5A4-6D1D7758254D}.Debug|x86.ActiveCfg = Debug
-		{30D9EF15-53D5-4152-B5A4-6D1D7758254D}.Release|Any CPU.ActiveCfg = Release
-		{30D9EF15-53D5-4152-B5A4-6D1D7758254D}.Release|x64.ActiveCfg = Release
-		{30D9EF15-53D5-4152-B5A4-6D1D7758254D}.Release|x86.ActiveCfg = Release
 		{B41FEABB-6EDD-4EE6-B50E-881299E0C13C}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{B41FEABB-6EDD-4EE6-B50E-881299E0C13C}.Debug|x64.ActiveCfg = Debug|x86
 		{B41FEABB-6EDD-4EE6-B50E-881299E0C13C}.Debug|x86.ActiveCfg = Debug|x86
