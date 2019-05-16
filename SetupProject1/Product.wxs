@@ -88,6 +88,9 @@
 			<Component Id="Newtonsoft.Json.dll" Guid="41cb5ef8-22bd-4e59-b6a4-b084e0f1b860">
 			  <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="$(var.GazeToolBar_TargetDir)Newtonsoft.Json.dll" />
 			</Component>
+      <Component Id="Settings.json" Guid="0d77a5ae-df19-4e37-8e9f-d1605fb4dc14">
+        <File Id="Settings.json" Name="Settings.json" Source="$(var.GazeToolBar_TargetDir)Settings.json" />
+      </Component>
 		</ComponentGroup>
 	</Fragment>
 
