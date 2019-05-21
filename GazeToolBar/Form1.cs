@@ -209,6 +209,8 @@ namespace GazeToolBar
                 settings.Show();
                 settings.Close();
             }
+
+            Form2 = new Keyboard(eyeXHost);
         }
 
         public void trackBarFixTimeOut(int FixationTimeOutLength, int timeOutTimerInterval)
@@ -237,7 +239,7 @@ namespace GazeToolBar
             if (checkOpenForm(typeof(Keyboard)))
             {
                 SystemFlags.isKeyboardWaiting = true;
-                Form2.Close();
+                Form2.Hide();
             }
 
         }
@@ -302,6 +304,15 @@ namespace GazeToolBar
             {
                 Form2.Close();
             }
+
+
+        }
+
+        private void openKeyboardAfterAction()
+        {
+
+             Form2.Show();
+            
         }
 
         private void btnKeyboard_Click(object sender, EventArgs e)
@@ -353,7 +364,7 @@ namespace GazeToolBar
             if(SystemFlags.isKeyboardWaiting == true && (SystemFlags.actionToBePerformed == ActionToBePerformed.none))
             {
                 SystemFlags.isKeyboardWaiting = false;
-                openKeyboard();
+                openKeyboardAfterAction();
             }
         }
 
