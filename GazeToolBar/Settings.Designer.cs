@@ -1578,11 +1578,12 @@ namespace GazeToolBar
             this.btnDefaults.Click += new System.EventHandler(this.btnDefaults_Click);
             // 
             // pnlStickyLeft
+
             // 
             this.pnlStickyLeft.BackColor = System.Drawing.Color.Black;
             this.pnlStickyLeft.Controls.Add(this.panel2);
             this.pnlStickyLeft.Controls.Add(this.label3);
-            this.pnlStickyLeft.Location = new System.Drawing.Point(1071, 10);
+            this.pnlStickyLeft.Location = new System.Drawing.Point(107100, 1000); //set to 1070,10 to put back on screen
             this.pnlStickyLeft.Margin = new System.Windows.Forms.Padding(2);
             this.pnlStickyLeft.Name = "pnlStickyLeft";
             this.pnlStickyLeft.Size = new System.Drawing.Size(139, 164);
