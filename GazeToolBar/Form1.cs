@@ -163,6 +163,7 @@ namespace GazeToolBar
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Form2 = new Keyboard(eyeXHost);
 
 
             FKeyMapDictionary = new Dictionary<ActionToBePerformed, string>();
@@ -210,7 +211,6 @@ namespace GazeToolBar
                 settings.Close();
             }
 
-            Form2 = new Keyboard(eyeXHost);
         }
 
         public void trackBarFixTimeOut(int FixationTimeOutLength, int timeOutTimerInterval)
@@ -304,6 +304,7 @@ namespace GazeToolBar
             {
                 Form2.Close();
             }
+            this.BringToFront();
 
 
         }
@@ -311,7 +312,8 @@ namespace GazeToolBar
         private void openKeyboardAfterAction()
         {
 
-             Form2.Show();
+            Form2.Show();
+            this.BringToFront();
             
         }
 

@@ -168,7 +168,7 @@ namespace GazeToolBar
             button8.Text = "⇧";
             button36.Text = "⭾";    
             button34.Text = "↵";
-            button6.Text = "Ctrl";
+            button6.Text = "Close";
             button18.Text = "⎵";
             button3.Text = ".";
             button22.Text = ",";
@@ -231,6 +231,7 @@ namespace GazeToolBar
             button36.Font = new Font(button36.Font.FontFamily, panel38.Width / 30);
             button18.Font = new Font(button18.Font.FontFamily, panel38.Width / 25);
             button4.Font = new Font(button4.Font.FontFamily, panel38.Width / 30);
+            button6.Font = new Font(button6.Font.FontFamily, panel38.Width / 80);
         }
 
         //Strips {} off sendkeys to be displayed on buttons.
@@ -324,7 +325,8 @@ namespace GazeToolBar
 
         private void button6_Click(object sender, EventArgs e)
         {
-            buttonClicker("^", button6);
+            this.Close();
+            //buttonClicker("^", button6);
         }
 
         private void button7_Click(object sender, EventArgs e)

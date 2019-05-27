@@ -206,7 +206,6 @@
             this.btnMic.Size = new System.Drawing.Size(75, 75);
             this.btnMic.TabIndex = 4;
             this.btnMic.UseVisualStyleBackColor = false;
-            //this.btnMic.Click += new System.EventHandler(this.btnMic_Click);
             // 
             // Form1
             // 
@@ -228,7 +227,7 @@
             this.Name = "Form1";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Gaze Toolbar";
+            this.Text = "y";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.pnlHighLightKeyboard.ResumeLayout(false);
