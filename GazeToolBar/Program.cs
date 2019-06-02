@@ -28,7 +28,13 @@ namespace GazeToolBar
             if (mutex.WaitOne(TimeSpan.Zero, true))
             {
 
-                path = Application.StartupPath + "\\" + "Settings.json";
+                var roamingDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+                path = Path.Combine(roamingDirectory, "GazeToolBar\\Settings.json");
+
+                System.IO.FileInfo file = new System.IO.FileInfo(path);
+                file.Directory.Create(); // If the directory already exists, this method does nothing.
+
+                //path = Application.StartupPath + "\\" + "Settings.json";
                 ReadWriteJson();
 
                 onStartUp = AutoStart.IsOn();
