@@ -1931,7 +1931,7 @@ namespace GazeToolBar
             this.pnlFeedback.BackColor = System.Drawing.Color.Black;
             this.pnlFeedback.Controls.Add(this.pnlFeedbackContent);
             this.pnlFeedback.Controls.Add(this.labFeedback);
-            this.pnlFeedback.Location = new System.Drawing.Point(45, 432);
+            this.pnlFeedback.Location = new System.Drawing.Point(45000, 432);
             this.pnlFeedback.Name = "pnlFeedback";
             this.pnlFeedback.Size = new System.Drawing.Size(1035, 174);
             this.pnlFeedback.TabIndex = 22;
