@@ -962,7 +962,7 @@ namespace GazeToolBar
             }
 
             changePanel(pnlGeneral);
-            //UseMap(SettingState.General);
+            UseMap(SettingState.General);
             RemoveAndAddMainBhavMap("add");
             pnlDefaultConfirmYes.BackColor = Color.Black;
         }
@@ -970,7 +970,7 @@ namespace GazeToolBar
         private void btnDefaultConfirmNo_Click(object sender, EventArgs e)
         {
             changePanel(pnlGeneral);
-            //UseMap(SettingState.General);
+            UseMap(SettingState.General);
             RemoveAndAddMainBhavMap("add");
             pnlDefaultConfirmNo.BackColor = Color.Black;
         }
@@ -1011,7 +1011,7 @@ namespace GazeToolBar
         private void btnDefaults_Click(object sender, EventArgs e)
         {
             RemoveAndAddMainBhavMap("remove");
-            //UseMap(SettingState.Confirm);
+            UseMap(SettingState.Confirm);
             pnlDefaultConfirm.Show();
             pnlDefaultConfirm.BringToFront();
             shownPanel = pnlDefaultConfirm;

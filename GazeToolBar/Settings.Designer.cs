@@ -1010,7 +1010,7 @@ namespace GazeToolBar
             // 
             // btnZoomSettings
             // 
-            this.btnZoomSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnZoomSettings.BackColor = System.Drawing.Color.Black;
             this.btnZoomSettings.FlatAppearance.BorderSize = 5;
             this.btnZoomSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnZoomSettings.Font = new System.Drawing.Font("Arial", 15.75F);
@@ -1578,12 +1578,11 @@ namespace GazeToolBar
             this.btnDefaults.Click += new System.EventHandler(this.btnDefaults_Click);
             // 
             // pnlStickyLeft
-
             // 
             this.pnlStickyLeft.BackColor = System.Drawing.Color.Black;
             this.pnlStickyLeft.Controls.Add(this.panel2);
             this.pnlStickyLeft.Controls.Add(this.label3);
-            this.pnlStickyLeft.Location = new System.Drawing.Point(107100, 1000); //set to 1070,10 to put back on screen
+            this.pnlStickyLeft.Location = new System.Drawing.Point(32639, 1000);
             this.pnlStickyLeft.Margin = new System.Windows.Forms.Padding(2);
             this.pnlStickyLeft.Name = "pnlStickyLeft";
             this.pnlStickyLeft.Size = new System.Drawing.Size(139, 164);
@@ -1592,7 +1591,7 @@ namespace GazeToolBar
             // panel2
             // 
             this.panel2.Controls.Add(this.buttonStickyLeftClick);
-            this.panel2.Location = new System.Drawing.Point(2, 26);
+            this.panel2.Location = new System.Drawing.Point(0, 26);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(134, 135);
@@ -1604,7 +1603,7 @@ namespace GazeToolBar
             this.buttonStickyLeftClick.FlatAppearance.BorderSize = 5;
             this.buttonStickyLeftClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonStickyLeftClick.ForeColor = System.Drawing.Color.White;
-            this.buttonStickyLeftClick.Location = new System.Drawing.Point(2, 2);
+            this.buttonStickyLeftClick.Location = new System.Drawing.Point(0, 2);
             this.buttonStickyLeftClick.Name = "buttonStickyLeftClick";
             this.buttonStickyLeftClick.Size = new System.Drawing.Size(130, 130);
             this.buttonStickyLeftClick.TabIndex = 4;
@@ -1616,7 +1615,7 @@ namespace GazeToolBar
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(3, 1);
+            this.label3.Location = new System.Drawing.Point(0, 1);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 19);
             this.label3.TabIndex = 19;
@@ -1931,7 +1930,7 @@ namespace GazeToolBar
             this.pnlFeedback.BackColor = System.Drawing.Color.Black;
             this.pnlFeedback.Controls.Add(this.pnlFeedbackContent);
             this.pnlFeedback.Controls.Add(this.labFeedback);
-            this.pnlFeedback.Location = new System.Drawing.Point(45000, 432); //change to 45,432 to bring back this panel
+            this.pnlFeedback.Location = new System.Drawing.Point(31223, 432);
             this.pnlFeedback.Name = "pnlFeedback";
             this.pnlFeedback.Size = new System.Drawing.Size(1035, 174);
             this.pnlFeedback.TabIndex = 22;
@@ -1941,7 +1940,7 @@ namespace GazeToolBar
             this.pnlFeedbackContent.BackColor = System.Drawing.Color.Black;
             this.pnlFeedbackContent.Controls.Add(this.pnlFeedbackButton);
             this.pnlFeedbackContent.Controls.Add(this.label1);
-            this.pnlFeedbackContent.Location = new System.Drawing.Point(765, 9);
+            this.pnlFeedbackContent.Location = new System.Drawing.Point(0, 9);
             this.pnlFeedbackContent.Margin = new System.Windows.Forms.Padding(2);
             this.pnlFeedbackContent.Name = "pnlFeedbackContent";
             this.pnlFeedbackContent.Size = new System.Drawing.Size(139, 164);
@@ -1950,7 +1949,7 @@ namespace GazeToolBar
             // pnlFeedbackButton
             // 
             this.pnlFeedbackButton.Controls.Add(this.btnFeedback);
-            this.pnlFeedbackButton.Location = new System.Drawing.Point(2, 26);
+            this.pnlFeedbackButton.Location = new System.Drawing.Point(0, 26);
             this.pnlFeedbackButton.Margin = new System.Windows.Forms.Padding(2);
             this.pnlFeedbackButton.Name = "pnlFeedbackButton";
             this.pnlFeedbackButton.Size = new System.Drawing.Size(134, 135);
@@ -1962,7 +1961,7 @@ namespace GazeToolBar
             this.btnFeedback.FlatAppearance.BorderSize = 5;
             this.btnFeedback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFeedback.ForeColor = System.Drawing.Color.White;
-            this.btnFeedback.Location = new System.Drawing.Point(2, 2);
+            this.btnFeedback.Location = new System.Drawing.Point(0, 2);
             this.btnFeedback.Name = "btnFeedback";
             this.btnFeedback.Size = new System.Drawing.Size(130, 130);
             this.btnFeedback.TabIndex = 4;
@@ -1974,7 +1973,7 @@ namespace GazeToolBar
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 1);
+            this.label1.Location = new System.Drawing.Point(0, 1);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 27);
             this.label1.TabIndex = 19;
@@ -1985,7 +1984,7 @@ namespace GazeToolBar
             this.labFeedback.AutoSize = true;
             this.labFeedback.Font = new System.Drawing.Font("Arial", 18F);
             this.labFeedback.ForeColor = System.Drawing.Color.White;
-            this.labFeedback.Location = new System.Drawing.Point(19, 78);
+            this.labFeedback.Location = new System.Drawing.Point(0, 78);
             this.labFeedback.Name = "labFeedback";
             this.labFeedback.Size = new System.Drawing.Size(118, 27);
             this.labFeedback.TabIndex = 17;

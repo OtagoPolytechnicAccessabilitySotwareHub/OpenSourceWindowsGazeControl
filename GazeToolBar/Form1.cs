@@ -238,6 +238,7 @@ namespace GazeToolBar
         {
             if (checkOpenForm(typeof(Keyboard)))
             {
+                btnKeyboard.Enabled = false;
                 SystemFlags.isKeyboardWaiting = true;
                 Form2.Hide();
             }
@@ -313,6 +314,7 @@ namespace GazeToolBar
         {
 
             Form2.Show();
+            btnKeyboard.Enabled = true;
             this.BringToFront();
             
         }
