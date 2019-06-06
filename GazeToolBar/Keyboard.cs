@@ -58,10 +58,11 @@ namespace GazeToolBar
         private string[] button32x;
         private string[] button33x;
         private string[] button34x;
+        private Panel F1keyboardPanel;
 
 
 
-        public Keyboard(FormsEyeXHost EyeXHost)
+        public Keyboard(FormsEyeXHost EyeXHost, Panel form1KB)
         {
             eyeXHost = EyeXHost;
             InitializeComponent();
@@ -69,6 +70,7 @@ namespace GazeToolBar
             //Default to bottom of screen and shift off
             bottom = true;
             cap = false;
+            F1keyboardPanel = form1KB;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -152,10 +154,10 @@ namespace GazeToolBar
             button22x = new String[] { "k", "K", "\"", "{{}" };
             button23x = new String[] { "l", "L", "!", "{}}" };
             //Row 3
-            button28x = new String[] { "z", "Z", "-", "/" };
-            button29x = new String[] { "x", "X", "{+}", "[" };
-            button30x = new String[] { "c", "C", "=", "]" };
-            button31x = new String[] { "v", "V", "<", "{LEFT}" };
+            button28x = new String[] { "z", "Z", "-", "/" }; //
+            button29x = new String[] { "x", "X", "{+}", "[" }; //
+            button30x = new String[] { "c", "C", "=", "]" }; //
+            button31x = new String[] { "v", "V", "<", "{LEFT}" }; //
             button32x = new String[] { "b", "B", ">", "{DOWN}" };
             button33x = new String[] { "n", "N", ";", "{RIGHT}" };
             button34x = new String[] { "m", "M", ":", "&" };
@@ -168,10 +170,16 @@ namespace GazeToolBar
             button8.Text = "⇧";
             button36.Text = "⭾";    
             button34.Text = "↵";
-            button6.Text = "Close";
-            button18.Text = "⎵";
+            button6.Text = "Ctrl";
+            button19.Text = "⎵";
             button3.Text = ".";
             button22.Text = ",";
+
+            //close button
+
+            pnlHighLightKeyboard.Location = F1keyboardPanel.Location;
+            pnlHighLightKeyboard.Left = Convert.ToInt32((pnlHighLightKeyboard.Left + System.Windows.SystemParameters.WorkArea.Width));
+            pnlHighLightKeyboard.Size = F1keyboardPanel.Size;
 
 
         }
@@ -200,13 +208,26 @@ namespace GazeToolBar
             button21.Text = strip_Keys(button21x[KeyboardView]);
             button17.Text = strip_Keys(button22x[KeyboardView]);
             button31.Text = strip_Keys(button23x[KeyboardView]);
+            button18.Text = strip_Keys(button28x[KeyboardView]); //z
+            button24.Text = strip_Keys(button29x[KeyboardView]); //x
+            button35.Text = strip_Keys(button30x[KeyboardView]);  //c
+            button1.Text = strip_Keys(button31x[KeyboardView]); //v
+            button5.Text = strip_Keys(button32x[KeyboardView]);
+            button23.Text = strip_Keys(button33x[KeyboardView]);
+            button2.Text = strip_Keys(button34x[KeyboardView]);
+
+            /*button30.Text = strip_Keys(button18x[KeyboardView]);
+            button7.Text = strip_Keys(button19x[KeyboardView]);
+            button21.Text = strip_Keys(button21x[KeyboardView]);
+            button17.Text = strip_Keys(button22x[KeyboardView]);
+            button31.Text = strip_Keys(button23x[KeyboardView]);
             button24.Text = strip_Keys(button28x[KeyboardView]);
             button35.Text = strip_Keys(button29x[KeyboardView]);
             button1.Text = strip_Keys(button30x[KeyboardView]);
             button19.Text = strip_Keys(button31x[KeyboardView]);
             button5.Text = strip_Keys(button32x[KeyboardView]);
             button23.Text = strip_Keys(button33x[KeyboardView]);
-            button2.Text = strip_Keys(button34x[KeyboardView]);
+            button2.Text = strip_Keys(button34x[KeyboardView]);*/
 
             //------------------------------------------------------//
 
@@ -229,9 +250,9 @@ namespace GazeToolBar
             button28.Font = new Font(button28.Font.FontFamily, panel38.Width / 40);
             button8.Font = new Font(button8.Font.FontFamily, panel38.Width / 20);
             button36.Font = new Font(button36.Font.FontFamily, panel38.Width / 30);
-            button18.Font = new Font(button18.Font.FontFamily, panel38.Width / 25);
+            button19.Font = new Font(button19.Font.FontFamily, panel38.Width / 25);
             button4.Font = new Font(button4.Font.FontFamily, panel38.Width / 30);
-            button6.Font = new Font(button6.Font.FontFamily, panel38.Width / 80);
+            button6.Font = new Font(button6.Font.FontFamily, panel38.Width / 50);
         }
 
         //Strips {} off sendkeys to be displayed on buttons.
@@ -272,7 +293,7 @@ namespace GazeToolBar
 
         private void button1_Click(object sender, EventArgs e) 
         {
-            buttonClicker(button30x, button1);
+            buttonClicker(button31x, button1);
         }
 
         private void button2_ClickAsync(object sender, EventArgs e)
@@ -325,8 +346,8 @@ namespace GazeToolBar
 
         private void button6_Click(object sender, EventArgs e)
         {
-            this.Close();
-            //buttonClicker("^", button6);
+            //this.Close();
+            buttonClicker("^", button6);
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -346,7 +367,7 @@ namespace GazeToolBar
 
         private void button24_Click(object sender, EventArgs e)
         {
-            buttonClicker(button28x, button24);
+            buttonClicker(button29x, button24);
         }
 
         private void button23_Click(object sender, EventArgs e)
@@ -361,12 +382,14 @@ namespace GazeToolBar
 
         private void button19_Click(object sender, EventArgs e)
         {
-            buttonClicker(button31x, button19);
+            buttonClicker(" ", button19);
+            //buttonClicker(button31x, button19);
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
-            buttonClicker(" ", button18);
+            //buttonClicker(" ", button18);
+            buttonClicker(button28x, button18);
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -396,7 +419,7 @@ namespace GazeToolBar
 
         private void button35_Click(object sender, EventArgs e)
         {
-            buttonClicker(button29x, button35);
+            buttonClicker(button30x, button35);
         }
 
         private void button34_Click(object sender, EventArgs e)
@@ -497,6 +520,16 @@ namespace GazeToolBar
         {
             buttonClicker(button4x, button37);
 
+        }
+
+        private void panel38_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnKeyboard_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

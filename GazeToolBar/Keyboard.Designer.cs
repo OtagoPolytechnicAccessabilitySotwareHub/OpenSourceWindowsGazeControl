@@ -104,6 +104,8 @@
             this.button36 = new System.Windows.Forms.Button();
             this.panel38 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pnlHighLightKeyboard = new System.Windows.Forms.Panel();
+            this.btnKeyboard = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -141,6 +143,7 @@
             this.panel35.SuspendLayout();
             this.panel36.SuspendLayout();
             this.panel38.SuspendLayout();
+            this.pnlHighLightKeyboard.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1026,10 +1029,31 @@
             this.panel38.Name = "panel38";
             this.panel38.Size = new System.Drawing.Size(1810, 461);
             this.panel38.TabIndex = 38;
+            this.panel38.Paint += new System.Windows.Forms.PaintEventHandler(this.panel38_Paint);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
+            // 
+            // pnlHighLightKeyboard
+            // 
+            this.pnlHighLightKeyboard.Controls.Add(this.btnKeyboard);
+            this.pnlHighLightKeyboard.Location = new System.Drawing.Point(1030, 172);
+            this.pnlHighLightKeyboard.Name = "pnlHighLightKeyboard";
+            this.pnlHighLightKeyboard.Size = new System.Drawing.Size(80, 80);
+            this.pnlHighLightKeyboard.TabIndex = 41;
+            // 
+            // btnKeyboard
+            // 
+            this.btnKeyboard.BackColor = System.Drawing.Color.Black;
+            this.btnKeyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKeyboard.Image = global::GazeToolBar.Properties.Resources.Keyboard_icon;
+            this.btnKeyboard.Location = new System.Drawing.Point(2, 2);
+            this.btnKeyboard.Name = "btnKeyboard";
+            this.btnKeyboard.Size = new System.Drawing.Size(75, 75);
+            this.btnKeyboard.TabIndex = 5;
+            this.btnKeyboard.UseVisualStyleBackColor = false;
+            this.btnKeyboard.Click += new System.EventHandler(this.btnKeyboard_Click);
             // 
             // Keyboard
             // 
@@ -1037,6 +1061,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1444, 904);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlHighLightKeyboard);
             this.Controls.Add(this.panel38);
             this.Name = "Keyboard";
             this.TopMost = true;
@@ -1080,6 +1105,7 @@
             this.panel36.ResumeLayout(false);
             this.panel38.ResumeLayout(false);
             this.panel38.PerformLayout();
+            this.pnlHighLightKeyboard.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1161,5 +1187,7 @@
         private System.Windows.Forms.Panel panel38;
         private System.Windows.Forms.Button button37;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel pnlHighLightKeyboard;
+        private System.Windows.Forms.Button btnKeyboard;
     }
 }

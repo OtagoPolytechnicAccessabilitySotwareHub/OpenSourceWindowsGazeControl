@@ -163,7 +163,7 @@ namespace GazeToolBar
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Form2 = new Keyboard(eyeXHost);
+            Form2 = new Keyboard(eyeXHost,pnlHighLightKeyboard);
 
 
             FKeyMapDictionary = new Dictionary<ActionToBePerformed, string>();
@@ -289,7 +289,7 @@ namespace GazeToolBar
         {
             if (!checkOpenForm(typeof(Keyboard))) //Checks if keyboard is onscreen
             {
-                Form2 = new Keyboard(eyeXHost); //if not, create keyboard and show it
+                Form2 = new Keyboard(eyeXHost, pnlHighLightKeyboard); //if not, create keyboard and show it
                 //AttemptToggle(SystemFlags.actionToBePerformed);
                 stopScroll();
                 if (Form2.Visible)

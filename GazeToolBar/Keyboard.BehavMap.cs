@@ -141,6 +141,9 @@ namespace GazeToolBar
             Form2Map.Add(button37, new GazeAwareBehavior(button37_Click) { DelayMilliseconds = buttonClickDelay });
             Form2Map.Add(panel32, new GazeAwareBehavior(OnGazeChangeBTColour));
 
+            Form2Map.Add(btnKeyboard, new GazeAwareBehavior(btnKeyboard_Click) { DelayMilliseconds = 1000 });
+            Form2Map.Add(pnlHighLightKeyboard, new GazeAwareBehavior(OnGazeChangeBTColour));
+
 
         }
 
