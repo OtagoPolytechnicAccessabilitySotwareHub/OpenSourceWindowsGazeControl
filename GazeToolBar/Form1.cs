@@ -112,8 +112,8 @@ namespace GazeToolBar
                     return pnlHighLightKeyboard;
                 case "settings":
                     return pnlHighLightSettings;
-                //case "mic":
-                //    return pnlHighLightMic;
+                case "mic":
+                    return pnlHighLightMic;
                 default:
                     return null;
             }

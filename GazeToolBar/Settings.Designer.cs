@@ -372,7 +372,7 @@ namespace GazeToolBar
             this.pnlMic.Controls.Add(this.lbMicOn);
             this.pnlMic.Controls.Add(this.pnlSetMic);
             this.pnlMic.Controls.Add(this.pictureBox6);
-            this.pnlMic.Location = new System.Drawing.Point(1204, 12);
+            this.pnlMic.Location = new System.Drawing.Point(12040, 12); //Change to this this.pnlMic.Location = new System.Drawing.Point(1204, 12);
             this.pnlMic.Margin = new System.Windows.Forms.Padding(2);
             this.pnlMic.Name = "pnlMic";
             this.pnlMic.Size = new System.Drawing.Size(195, 594);
@@ -1697,7 +1697,7 @@ namespace GazeToolBar
             // 
             this.pnlMicButton.BackColor = System.Drawing.Color.Transparent;
             this.pnlMicButton.Controls.Add(this.btnActionMic);
-            this.pnlMicButton.Location = new System.Drawing.Point(184, 353);
+            this.pnlMicButton.Location = new System.Drawing.Point(18400, 353); //Change To This this.pnlMicButton.Location = new System.Drawing.Point(184, 353);
             this.pnlMicButton.Name = "pnlMicButton";
             this.pnlMicButton.Size = new System.Drawing.Size(94, 95);
             this.pnlMicButton.TabIndex = 3;

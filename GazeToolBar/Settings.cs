@@ -58,7 +58,7 @@ namespace GazeToolBar
             shownPanel = pnlGeneral;
 
             //Store reference to short cut assignment panels in a list so they can be iterated over and set their on screen positions relative form size.
-            fKeyPannels = new List<Panel>() { pnlLeftClick, pnlRightClick, pnlDoubleClick, pnlScroll, pnlMic };// pnlDragAndDrop };
+            fKeyPannels = new List<Panel>() { pnlLeftClick, pnlRightClick, pnlDoubleClick, pnlScroll /*pnlMic*/ };// pnlDragAndDrop };
             //Set panel positions.
             setFkeyPanelWidth(fKeyPannels);
 
@@ -725,7 +725,7 @@ namespace GazeToolBar
             buttonMap.Add("double_left_click", btnActionDoubleLeftClick);
             buttonMap.Add("scroll", btnActionScrollClick);
             buttonMap.Add("settings", btnActionSettings);
-            buttonMap.Add("mic", btnActionMic);
+            //buttonMap.Add("mic", btnActionMic);
 
             actionButtons.Add(btnActionDoubleLeftClick);
             actionButtons.Add(btnActionLeftClick);
@@ -733,7 +733,7 @@ namespace GazeToolBar
             actionButtons.Add(btnActionScrollClick);
             actionButtons.Add(btnActionKeyboard);
             actionButtons.Add(btnActionSettings);
-            actionButtons.Add(btnActionMic);
+            //actionButtons.Add(btnActionMic);
 
             actionPanels.Add(pnlDoubleLeftClickButton);
             actionPanels.Add(pnlLeftClickButton);
@@ -741,7 +741,7 @@ namespace GazeToolBar
             actionPanels.Add(pnlScrollClickButton);
             actionPanels.Add(pnlKeyboardButton);
             actionPanels.Add(pnlSettingsButton);
-            actionPanels.Add(pnlMicButton);
+            //actionPanels.Add(pnlMicButton);
 
             foreach (Panel pnl in actionPanels)
             {
