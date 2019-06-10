@@ -142,7 +142,19 @@ namespace GazeToolBar
             Form2Map.Add(panel32, new GazeAwareBehavior(OnGazeChangeBTColour));
 
             Form2Map.Add(btnKeyboard, new GazeAwareBehavior(btnKeyboard_Click) { DelayMilliseconds = 1000 });
-            Form2Map.Add(pnlHighLightKeyboard, new GazeAwareBehavior(OnGazeChangeBTColour));
+            Form2Map.Add(pnlHighLightKeyboard, new GazeAwareBehavior(OnGazeChangeBTColour2));
+
+            Form2Map.Add(btnDoubleLeftClick, new GazeAwareBehavior(btnDoubleLeftClick_Click) { DelayMilliseconds = 1000 });
+            Form2Map.Add(panelDLeftClick, new GazeAwareBehavior(OnGazeChangeBTColour2));
+
+            Form2Map.Add(btnLeftClick, new GazeAwareBehavior(btnLeftClick_Click) { DelayMilliseconds = 1000 });
+            Form2Map.Add(panelLeftClick, new GazeAwareBehavior(OnGazeChangeBTColour2));
+
+            Form2Map.Add(btnRightClick, new GazeAwareBehavior(btnRightClick_Click) { DelayMilliseconds = 1000 });
+            Form2Map.Add(panelRightClick, new GazeAwareBehavior(OnGazeChangeBTColour2));
+
+            Form2Map.Add(btnScroll, new GazeAwareBehavior(btnScroll_Click) { DelayMilliseconds = 1000 });
+            Form2Map.Add(panelScroll, new GazeAwareBehavior(OnGazeChangeBTColour2));
 
 
         }
@@ -154,6 +166,15 @@ namespace GazeToolBar
             if (sentButton != null)
             {
                 sentButton.BackColor = (e.HasGaze) ? Color.FromArgb(115,220,255) : Color.Black;
+            }
+        }
+
+        private void OnGazeChangeBTColour2(object s, GazeAwareEventArgs e)
+        {
+            var sentButton = s as Panel;
+            if (sentButton != null)
+            {
+                sentButton.BackColor = (e.HasGaze) ? Color.Red : Color.Black;
             }
         }
 

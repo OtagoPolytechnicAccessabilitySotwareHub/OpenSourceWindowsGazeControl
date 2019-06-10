@@ -106,14 +106,14 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlHighLightKeyboard = new System.Windows.Forms.Panel();
             this.panelLeftClick = new System.Windows.Forms.Panel();
-            this.btnLeftClick = new System.Windows.Forms.Button();
-            this.btnKeyboard = new System.Windows.Forms.Button();
             this.panelRightClick = new System.Windows.Forms.Panel();
-            this.btnRightClick = new System.Windows.Forms.Button();
             this.panelScroll = new System.Windows.Forms.Panel();
-            this.btnScroll = new System.Windows.Forms.Button();
             this.panelDLeftClick = new System.Windows.Forms.Panel();
             this.btnDoubleLeftClick = new System.Windows.Forms.Button();
+            this.btnScroll = new System.Windows.Forms.Button();
+            this.btnRightClick = new System.Windows.Forms.Button();
+            this.btnLeftClick = new System.Windows.Forms.Button();
+            this.btnKeyboard = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -1063,29 +1063,6 @@
             this.panelLeftClick.Size = new System.Drawing.Size(80, 80);
             this.panelLeftClick.TabIndex = 42;
             // 
-            // btnLeftClick
-            // 
-            this.btnLeftClick.BackColor = System.Drawing.Color.Black;
-            this.btnLeftClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeftClick.Image = global::GazeToolBar.Properties.Resources.Left_Click_icon;
-            this.btnLeftClick.Location = new System.Drawing.Point(2, 2);
-            this.btnLeftClick.Name = "btnLeftClick";
-            this.btnLeftClick.Size = new System.Drawing.Size(75, 75);
-            this.btnLeftClick.TabIndex = 5;
-            this.btnLeftClick.UseVisualStyleBackColor = false;
-            // 
-            // btnKeyboard
-            // 
-            this.btnKeyboard.BackColor = System.Drawing.Color.Black;
-            this.btnKeyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnKeyboard.Image = global::GazeToolBar.Properties.Resources.Keyboard_icon;
-            this.btnKeyboard.Location = new System.Drawing.Point(2, 2);
-            this.btnKeyboard.Name = "btnKeyboard";
-            this.btnKeyboard.Size = new System.Drawing.Size(75, 75);
-            this.btnKeyboard.TabIndex = 5;
-            this.btnKeyboard.UseVisualStyleBackColor = false;
-            this.btnKeyboard.Click += new System.EventHandler(this.btnKeyboard_Click);
-            // 
             // panelRightClick
             // 
             this.panelRightClick.Controls.Add(this.btnRightClick);
@@ -1094,17 +1071,6 @@
             this.panelRightClick.Size = new System.Drawing.Size(80, 80);
             this.panelRightClick.TabIndex = 43;
             // 
-            // btnRightClick
-            // 
-            this.btnRightClick.BackColor = System.Drawing.Color.Black;
-            this.btnRightClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRightClick.Image = global::GazeToolBar.Properties.Resources.Right_Click_icon;
-            this.btnRightClick.Location = new System.Drawing.Point(2, 2);
-            this.btnRightClick.Name = "btnRightClick";
-            this.btnRightClick.Size = new System.Drawing.Size(75, 75);
-            this.btnRightClick.TabIndex = 5;
-            this.btnRightClick.UseVisualStyleBackColor = false;
-            // 
             // panelScroll
             // 
             this.panelScroll.Controls.Add(this.btnScroll);
@@ -1112,17 +1078,6 @@
             this.panelScroll.Name = "panelScroll";
             this.panelScroll.Size = new System.Drawing.Size(80, 80);
             this.panelScroll.TabIndex = 43;
-            // 
-            // btnScroll
-            // 
-            this.btnScroll.BackColor = System.Drawing.Color.Black;
-            this.btnScroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnScroll.Image = global::GazeToolBar.Properties.Resources.Scroll_icon;
-            this.btnScroll.Location = new System.Drawing.Point(2, 2);
-            this.btnScroll.Name = "btnScroll";
-            this.btnScroll.Size = new System.Drawing.Size(75, 75);
-            this.btnScroll.TabIndex = 5;
-            this.btnScroll.UseVisualStyleBackColor = false;
             // 
             // panelDLeftClick
             // 
@@ -1142,6 +1097,55 @@
             this.btnDoubleLeftClick.Size = new System.Drawing.Size(75, 75);
             this.btnDoubleLeftClick.TabIndex = 5;
             this.btnDoubleLeftClick.UseVisualStyleBackColor = false;
+            this.btnDoubleLeftClick.Click += new System.EventHandler(this.btnDoubleLeftClick_Click);
+            // 
+            // btnScroll
+            // 
+            this.btnScroll.BackColor = System.Drawing.Color.Black;
+            this.btnScroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScroll.Image = global::GazeToolBar.Properties.Resources.Scroll_icon;
+            this.btnScroll.Location = new System.Drawing.Point(2, 2);
+            this.btnScroll.Name = "btnScroll";
+            this.btnScroll.Size = new System.Drawing.Size(75, 75);
+            this.btnScroll.TabIndex = 5;
+            this.btnScroll.UseVisualStyleBackColor = false;
+            this.btnScroll.Click += new System.EventHandler(this.btnScroll_Click);
+            // 
+            // btnRightClick
+            // 
+            this.btnRightClick.BackColor = System.Drawing.Color.Black;
+            this.btnRightClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRightClick.Image = global::GazeToolBar.Properties.Resources.Right_Click_icon;
+            this.btnRightClick.Location = new System.Drawing.Point(2, 2);
+            this.btnRightClick.Name = "btnRightClick";
+            this.btnRightClick.Size = new System.Drawing.Size(75, 75);
+            this.btnRightClick.TabIndex = 5;
+            this.btnRightClick.UseVisualStyleBackColor = false;
+            this.btnRightClick.Click += new System.EventHandler(this.btnRightClick_Click);
+            // 
+            // btnLeftClick
+            // 
+            this.btnLeftClick.BackColor = System.Drawing.Color.Black;
+            this.btnLeftClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeftClick.Image = global::GazeToolBar.Properties.Resources.Left_Click_icon;
+            this.btnLeftClick.Location = new System.Drawing.Point(2, 2);
+            this.btnLeftClick.Name = "btnLeftClick";
+            this.btnLeftClick.Size = new System.Drawing.Size(75, 75);
+            this.btnLeftClick.TabIndex = 5;
+            this.btnLeftClick.UseVisualStyleBackColor = false;
+            this.btnLeftClick.Click += new System.EventHandler(this.btnLeftClick_Click);
+            // 
+            // btnKeyboard
+            // 
+            this.btnKeyboard.BackColor = System.Drawing.Color.Black;
+            this.btnKeyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKeyboard.Image = global::GazeToolBar.Properties.Resources.Keyboard_icon;
+            this.btnKeyboard.Location = new System.Drawing.Point(2, 2);
+            this.btnKeyboard.Name = "btnKeyboard";
+            this.btnKeyboard.Size = new System.Drawing.Size(75, 75);
+            this.btnKeyboard.TabIndex = 5;
+            this.btnKeyboard.UseVisualStyleBackColor = false;
+            this.btnKeyboard.Click += new System.EventHandler(this.btnKeyboard_Click);
             // 
             // Keyboard
             // 

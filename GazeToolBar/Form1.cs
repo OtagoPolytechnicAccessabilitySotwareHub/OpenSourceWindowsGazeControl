@@ -163,7 +163,7 @@ namespace GazeToolBar
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Form2 = new Keyboard(eyeXHost, this, pnlHighLightKeyboard, pnlHighLightSingleLeft, pnlHiLteRightClick, pnlHighLightDoubleClick);
+            Form2 = new Keyboard(eyeXHost, this, pnlHighLightKeyboard, pnlHighLightSingleLeft, pnlHiLteRightClick, pnlHighLightDoubleClick, pnlHighLightScrol);
 
 
             FKeyMapDictionary = new Dictionary<ActionToBePerformed, string>();
@@ -289,12 +289,12 @@ namespace GazeToolBar
         {
             if (!checkOpenForm(typeof(Keyboard))) //Checks if keyboard is onscreen
             {
-                Form2 = new Keyboard(eyeXHost, this, pnlHighLightKeyboard, pnlHighLightSingleLeft,pnlHiLteRightClick,pnlHighLightDoubleClick); //if not, create keyboard and show it
+                Form2 = new Keyboard(eyeXHost, this, pnlHighLightKeyboard, pnlHighLightSingleLeft,pnlHiLteRightClick, pnlHighLightDoubleClick,pnlHighLightScrol); //if not, create keyboard and show it
                 //AttemptToggle(SystemFlags.actionToBePerformed);
                 stopScroll();
                 if (Form2.Visible)
                 {
-                    Form2.Close();
+                    Form2.Hide();
                 }
                 else
                 {
@@ -303,7 +303,7 @@ namespace GazeToolBar
             }
             else
             {
-                Form2.Close();
+                Form2.Hide();
             }
             this.BringToFront();
 

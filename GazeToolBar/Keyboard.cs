@@ -62,11 +62,12 @@ namespace GazeToolBar
         private Panel F1LeftClickPanel;
         private Panel F1RightClickPanel;
         private Panel F1DoubleClickPanel;
+        private Panel F1ScrollPanel;
         private Form1 gazeSidePanel;
 
 
 
-        public Keyboard(FormsEyeXHost EyeXHost, Form1 gazeSidePanel, Panel form1KB, Panel form1LCP, Panel form1RCP, Panel form1DCP)
+        public Keyboard(FormsEyeXHost EyeXHost, Form1 gazeSidePanel, Panel form1KB, Panel form1LCP, Panel form1RCP, Panel form1DCP, Panel form1ScrollP)
         {
             eyeXHost = EyeXHost;
             InitializeComponent();
@@ -78,6 +79,7 @@ namespace GazeToolBar
             F1LeftClickPanel = form1LCP;
             F1RightClickPanel = form1RCP;
             F1DoubleClickPanel = form1DCP;
+            F1ScrollPanel = form1ScrollP;
             this.gazeSidePanel = gazeSidePanel;
         }
 
@@ -189,21 +191,21 @@ namespace GazeToolBar
             pnlHighLightKeyboard.Left = Convert.ToInt32((pnlHighLightKeyboard.Left + System.Windows.SystemParameters.WorkArea.Width));
             pnlHighLightKeyboard.Size = F1keyboardPanel.Size;
 
-            pnlHighLightKeyboard.Location = F1keyboardPanel.Location;
-            pnlHighLightKeyboard.Left = Convert.ToInt32((pnlHighLightKeyboard.Left + System.Windows.SystemParameters.WorkArea.Width));
-            pnlHighLightKeyboard.Size = F1keyboardPanel.Size;
+            panelLeftClick.Location = F1LeftClickPanel.Location;
+            panelLeftClick.Left = Convert.ToInt32((F1LeftClickPanel.Left + System.Windows.SystemParameters.WorkArea.Width));
+            panelLeftClick.Size = F1LeftClickPanel.Size;
 
-            pnlHighLightKeyboard.Location = F1keyboardPanel.Location;
-            pnlHighLightKeyboard.Left = Convert.ToInt32((pnlHighLightKeyboard.Left + System.Windows.SystemParameters.WorkArea.Width));
-            pnlHighLightKeyboard.Size = F1keyboardPanel.Size;
+            panelRightClick.Location = F1RightClickPanel.Location;
+            panelRightClick.Left = Convert.ToInt32((F1RightClickPanel.Left + System.Windows.SystemParameters.WorkArea.Width));
+            panelRightClick.Size = F1RightClickPanel.Size;
 
-            pnlHighLightKeyboard.Location = F1keyboardPanel.Location;
-            pnlHighLightKeyboard.Left = Convert.ToInt32((pnlHighLightKeyboard.Left + System.Windows.SystemParameters.WorkArea.Width));
-            pnlHighLightKeyboard.Size = F1keyboardPanel.Size;
+            panelScroll.Location = F1ScrollPanel.Location;
+            panelScroll.Left = Convert.ToInt32((F1ScrollPanel.Left + System.Windows.SystemParameters.WorkArea.Width));
+            panelScroll.Size = F1ScrollPanel.Size;
 
-            pnlHighLightKeyboard.Location = F1keyboardPanel.Location;
-            pnlHighLightKeyboard.Left = Convert.ToInt32((pnlHighLightKeyboard.Left + System.Windows.SystemParameters.WorkArea.Width));
-            pnlHighLightKeyboard.Size = F1keyboardPanel.Size;
+            panelDLeftClick.Location = F1DoubleClickPanel.Location;
+            panelDLeftClick.Left = Convert.ToInt32((F1DoubleClickPanel.Left + System.Windows.SystemParameters.WorkArea.Width));
+            panelDLeftClick.Size = F1DoubleClickPanel.Size;
 
 
 
@@ -556,6 +558,26 @@ namespace GazeToolBar
         private void btnKeyboard_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnLeftClick_Click(object sender, EventArgs e)
+        {
+            gazeSidePanel.btnSingleLeftClick.PerformClick();
+        }
+
+        private void btnRightClick_Click(object sender, EventArgs e)
+        {
+            gazeSidePanel.btnRightClick.PerformClick();
+        }
+
+        private void btnScroll_Click(object sender, EventArgs e)
+        {
+            gazeSidePanel.btnScoll.PerformClick();
+        }
+
+        private void btnDoubleLeftClick_Click(object sender, EventArgs e)
+        {
+            gazeSidePanel.btnDoubleClick.PerformClick();
         }
     }
 }
