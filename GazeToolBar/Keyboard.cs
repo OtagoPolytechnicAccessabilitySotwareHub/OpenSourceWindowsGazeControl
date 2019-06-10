@@ -59,10 +59,14 @@ namespace GazeToolBar
         private string[] button33x;
         private string[] button34x;
         private Panel F1keyboardPanel;
+        private Panel F1LeftClickPanel;
+        private Panel F1RightClickPanel;
+        private Panel F1DoubleClickPanel;
+        private Form1 gazeSidePanel;
 
 
 
-        public Keyboard(FormsEyeXHost EyeXHost, Panel form1KB)
+        public Keyboard(FormsEyeXHost EyeXHost, Form1 gazeSidePanel, Panel form1KB, Panel form1LCP, Panel form1RCP, Panel form1DCP)
         {
             eyeXHost = EyeXHost;
             InitializeComponent();
@@ -71,6 +75,10 @@ namespace GazeToolBar
             bottom = true;
             cap = false;
             F1keyboardPanel = form1KB;
+            F1LeftClickPanel = form1LCP;
+            F1RightClickPanel = form1RCP;
+            F1DoubleClickPanel = form1DCP;
+            this.gazeSidePanel = gazeSidePanel;
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -180,6 +188,24 @@ namespace GazeToolBar
             pnlHighLightKeyboard.Location = F1keyboardPanel.Location;
             pnlHighLightKeyboard.Left = Convert.ToInt32((pnlHighLightKeyboard.Left + System.Windows.SystemParameters.WorkArea.Width));
             pnlHighLightKeyboard.Size = F1keyboardPanel.Size;
+
+            pnlHighLightKeyboard.Location = F1keyboardPanel.Location;
+            pnlHighLightKeyboard.Left = Convert.ToInt32((pnlHighLightKeyboard.Left + System.Windows.SystemParameters.WorkArea.Width));
+            pnlHighLightKeyboard.Size = F1keyboardPanel.Size;
+
+            pnlHighLightKeyboard.Location = F1keyboardPanel.Location;
+            pnlHighLightKeyboard.Left = Convert.ToInt32((pnlHighLightKeyboard.Left + System.Windows.SystemParameters.WorkArea.Width));
+            pnlHighLightKeyboard.Size = F1keyboardPanel.Size;
+
+            pnlHighLightKeyboard.Location = F1keyboardPanel.Location;
+            pnlHighLightKeyboard.Left = Convert.ToInt32((pnlHighLightKeyboard.Left + System.Windows.SystemParameters.WorkArea.Width));
+            pnlHighLightKeyboard.Size = F1keyboardPanel.Size;
+
+            pnlHighLightKeyboard.Location = F1keyboardPanel.Location;
+            pnlHighLightKeyboard.Left = Convert.ToInt32((pnlHighLightKeyboard.Left + System.Windows.SystemParameters.WorkArea.Width));
+            pnlHighLightKeyboard.Size = F1keyboardPanel.Size;
+
+
 
 
         }

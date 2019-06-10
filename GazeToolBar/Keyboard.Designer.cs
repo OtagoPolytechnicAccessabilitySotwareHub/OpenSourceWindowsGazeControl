@@ -105,7 +105,15 @@
             this.panel38 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pnlHighLightKeyboard = new System.Windows.Forms.Panel();
+            this.panelLeftClick = new System.Windows.Forms.Panel();
+            this.btnLeftClick = new System.Windows.Forms.Button();
             this.btnKeyboard = new System.Windows.Forms.Button();
+            this.panelRightClick = new System.Windows.Forms.Panel();
+            this.btnRightClick = new System.Windows.Forms.Button();
+            this.panelScroll = new System.Windows.Forms.Panel();
+            this.btnScroll = new System.Windows.Forms.Button();
+            this.panelDLeftClick = new System.Windows.Forms.Panel();
+            this.btnDoubleLeftClick = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -144,6 +152,10 @@
             this.panel36.SuspendLayout();
             this.panel38.SuspendLayout();
             this.pnlHighLightKeyboard.SuspendLayout();
+            this.panelLeftClick.SuspendLayout();
+            this.panelRightClick.SuspendLayout();
+            this.panelScroll.SuspendLayout();
+            this.panelDLeftClick.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1043,6 +1055,25 @@
             this.pnlHighLightKeyboard.Size = new System.Drawing.Size(80, 80);
             this.pnlHighLightKeyboard.TabIndex = 41;
             // 
+            // panelLeftClick
+            // 
+            this.panelLeftClick.Controls.Add(this.btnLeftClick);
+            this.panelLeftClick.Location = new System.Drawing.Point(930, 172);
+            this.panelLeftClick.Name = "panelLeftClick";
+            this.panelLeftClick.Size = new System.Drawing.Size(80, 80);
+            this.panelLeftClick.TabIndex = 42;
+            // 
+            // btnLeftClick
+            // 
+            this.btnLeftClick.BackColor = System.Drawing.Color.Black;
+            this.btnLeftClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLeftClick.Image = global::GazeToolBar.Properties.Resources.Left_Click_icon;
+            this.btnLeftClick.Location = new System.Drawing.Point(2, 2);
+            this.btnLeftClick.Name = "btnLeftClick";
+            this.btnLeftClick.Size = new System.Drawing.Size(75, 75);
+            this.btnLeftClick.TabIndex = 5;
+            this.btnLeftClick.UseVisualStyleBackColor = false;
+            // 
             // btnKeyboard
             // 
             this.btnKeyboard.BackColor = System.Drawing.Color.Black;
@@ -1055,12 +1086,73 @@
             this.btnKeyboard.UseVisualStyleBackColor = false;
             this.btnKeyboard.Click += new System.EventHandler(this.btnKeyboard_Click);
             // 
+            // panelRightClick
+            // 
+            this.panelRightClick.Controls.Add(this.btnRightClick);
+            this.panelRightClick.Location = new System.Drawing.Point(823, 174);
+            this.panelRightClick.Name = "panelRightClick";
+            this.panelRightClick.Size = new System.Drawing.Size(80, 80);
+            this.panelRightClick.TabIndex = 43;
+            // 
+            // btnRightClick
+            // 
+            this.btnRightClick.BackColor = System.Drawing.Color.Black;
+            this.btnRightClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRightClick.Image = global::GazeToolBar.Properties.Resources.Right_Click_icon;
+            this.btnRightClick.Location = new System.Drawing.Point(2, 2);
+            this.btnRightClick.Name = "btnRightClick";
+            this.btnRightClick.Size = new System.Drawing.Size(75, 75);
+            this.btnRightClick.TabIndex = 5;
+            this.btnRightClick.UseVisualStyleBackColor = false;
+            // 
+            // panelScroll
+            // 
+            this.panelScroll.Controls.Add(this.btnScroll);
+            this.panelScroll.Location = new System.Drawing.Point(714, 172);
+            this.panelScroll.Name = "panelScroll";
+            this.panelScroll.Size = new System.Drawing.Size(80, 80);
+            this.panelScroll.TabIndex = 43;
+            // 
+            // btnScroll
+            // 
+            this.btnScroll.BackColor = System.Drawing.Color.Black;
+            this.btnScroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScroll.Image = global::GazeToolBar.Properties.Resources.Scroll_icon;
+            this.btnScroll.Location = new System.Drawing.Point(2, 2);
+            this.btnScroll.Name = "btnScroll";
+            this.btnScroll.Size = new System.Drawing.Size(75, 75);
+            this.btnScroll.TabIndex = 5;
+            this.btnScroll.UseVisualStyleBackColor = false;
+            // 
+            // panelDLeftClick
+            // 
+            this.panelDLeftClick.Controls.Add(this.btnDoubleLeftClick);
+            this.panelDLeftClick.Location = new System.Drawing.Point(594, 174);
+            this.panelDLeftClick.Name = "panelDLeftClick";
+            this.panelDLeftClick.Size = new System.Drawing.Size(80, 80);
+            this.panelDLeftClick.TabIndex = 44;
+            // 
+            // btnDoubleLeftClick
+            // 
+            this.btnDoubleLeftClick.BackColor = System.Drawing.Color.Black;
+            this.btnDoubleLeftClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDoubleLeftClick.Image = global::GazeToolBar.Properties.Resources.Double_Click_icon;
+            this.btnDoubleLeftClick.Location = new System.Drawing.Point(2, 2);
+            this.btnDoubleLeftClick.Name = "btnDoubleLeftClick";
+            this.btnDoubleLeftClick.Size = new System.Drawing.Size(75, 75);
+            this.btnDoubleLeftClick.TabIndex = 5;
+            this.btnDoubleLeftClick.UseVisualStyleBackColor = false;
+            // 
             // Keyboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1444, 904);
             this.ControlBox = false;
+            this.Controls.Add(this.panelDLeftClick);
+            this.Controls.Add(this.panelScroll);
+            this.Controls.Add(this.panelRightClick);
+            this.Controls.Add(this.panelLeftClick);
             this.Controls.Add(this.pnlHighLightKeyboard);
             this.Controls.Add(this.panel38);
             this.Name = "Keyboard";
@@ -1106,6 +1198,10 @@
             this.panel38.ResumeLayout(false);
             this.panel38.PerformLayout();
             this.pnlHighLightKeyboard.ResumeLayout(false);
+            this.panelLeftClick.ResumeLayout(false);
+            this.panelRightClick.ResumeLayout(false);
+            this.panelScroll.ResumeLayout(false);
+            this.panelDLeftClick.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1189,5 +1285,13 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel pnlHighLightKeyboard;
         private System.Windows.Forms.Button btnKeyboard;
+        private System.Windows.Forms.Panel panelLeftClick;
+        private System.Windows.Forms.Button btnLeftClick;
+        private System.Windows.Forms.Panel panelRightClick;
+        private System.Windows.Forms.Button btnRightClick;
+        private System.Windows.Forms.Panel panelScroll;
+        private System.Windows.Forms.Button btnScroll;
+        private System.Windows.Forms.Panel panelDLeftClick;
+        private System.Windows.Forms.Button btnDoubleLeftClick;
     }
 }

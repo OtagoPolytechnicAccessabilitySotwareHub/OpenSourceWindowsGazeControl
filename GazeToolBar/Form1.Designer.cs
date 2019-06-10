@@ -244,13 +244,8 @@
         #endregion
 
         private EyeXFramework.Forms.BehaviorMap bhavMap;
-        private System.Windows.Forms.Button btnRightClick;
-        private System.Windows.Forms.Button btnSingleLeftClick;
         private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.Button btnScoll;
         private System.Windows.Forms.Button btnKeyboard;
-        //private System.Windows.Forms.Button btnDragAndDrop;
-        private System.Windows.Forms.Button btnDoubleClick;
         private EyeXFramework.Forms.BehaviorMap bhavMapHLCurrentGazeOnBT;
         private System.Windows.Forms.Panel pnlHiLteRightClick;
         private System.Windows.Forms.Panel pnlHighLightDoubleClick;
@@ -263,6 +258,10 @@
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.Panel pnlHighLightMic;
         private System.Windows.Forms.Button btnMic;
+        public System.Windows.Forms.Button btnRightClick;
+        public System.Windows.Forms.Button btnSingleLeftClick;
+        public System.Windows.Forms.Button btnScoll;
+        public System.Windows.Forms.Button btnDoubleClick;
     }
 }
 

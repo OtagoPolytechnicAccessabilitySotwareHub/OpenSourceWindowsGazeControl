@@ -218,6 +218,9 @@
     <EmbeddedResource Include="Keyboard.BehavMap.resx">
       <DependentUpon>Keyboard.BehavMap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Keyboard.resx">
+      <DependentUpon>Keyboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
