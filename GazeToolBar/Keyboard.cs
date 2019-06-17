@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EyeXFramework.Forms;
 /*
- *  Class: Form2 aka Keyboard
+ *  Class: Keyboard
  *  Name: 
  *  Date: 14/03/2019
  *  Description: 
@@ -92,7 +92,6 @@ namespace GazeToolBar
             this.BackColor = Color.Fuchsia;
             TransparencyKey = Color.Fuchsia; //form is maximised and transparent
             panel38.SendToBack();
-            //double panelWidth = Convert.ToDouble(Screen.PrimaryScreen.WorkingArea.Width);                    DELETE?????
 
             //Resizing keyboard by the size of the screen
             double panelWidth = Convert.ToDouble(System.Windows.SystemParameters.WorkArea.Width); 
@@ -109,7 +108,6 @@ namespace GazeToolBar
                 int taskBHeight = Convert.ToInt32(Math.Abs(System.Windows.SystemParameters.PrimaryScreenHeight - System.Windows.SystemParameters.WorkArea.Height));
                 panel38.Top = (ClientSize.Height - panel38.Height - taskBHeight);
             }
-
 
             //Dynamically resizing and ordering keys onto keyboard
             int count = 0;
@@ -132,12 +130,10 @@ namespace GazeToolBar
                     button.FlatAppearance.BorderSize = 0;
                     button.Size = new Size(panel38.Width / 12 - 4, panel38.Width / 12 - 4);
                     button.Location = new Point(2, 2);
-                    //Console.WriteLine(button.Name + " " + button.Width + " " + button.Height + " " + button.Location);                   DELETE?????
                     button.TabStop = false;
                     countbutton++;
                 }
             }
-            //Console.WriteLine();                   DELETE?????
 
             //Lists for each key on keyboard.
             //When adding new keyboards, add two at a time to allow for shift key.
@@ -171,7 +167,6 @@ namespace GazeToolBar
             button32x = new String[] { "b", "B", ">", "{DOWN}" };
             button33x = new String[] { "n", "N", ";", "{RIGHT}" };
             button34x = new String[] { "m", "M", ":", "&" };
-            //button13.Text = button2x[KeyboardView];                   DELETE?????
 
             //puts correct text on keys
             rename_buttons();
@@ -186,7 +181,6 @@ namespace GazeToolBar
             button22.Text = ",";
 
             //close button
-
             pnlHighLightKeyboard.Location = F1keyboardPanel.Location;
             pnlHighLightKeyboard.Left = Convert.ToInt32((pnlHighLightKeyboard.Left + System.Windows.SystemParameters.WorkArea.Width));
             pnlHighLightKeyboard.Size = F1keyboardPanel.Size;
@@ -206,10 +200,6 @@ namespace GazeToolBar
             panelDLeftClick.Location = F1DoubleClickPanel.Location;
             panelDLeftClick.Left = Convert.ToInt32((F1DoubleClickPanel.Left + System.Windows.SystemParameters.WorkArea.Width));
             panelDLeftClick.Size = F1DoubleClickPanel.Size;
-
-
-
-
         }
 
         //Changes text on keyboard when 'abc' and shift are pressed
@@ -236,26 +226,13 @@ namespace GazeToolBar
             button21.Text = strip_Keys(button21x[KeyboardView]);
             button17.Text = strip_Keys(button22x[KeyboardView]);
             button31.Text = strip_Keys(button23x[KeyboardView]);
-            button18.Text = strip_Keys(button28x[KeyboardView]); //z
-            button24.Text = strip_Keys(button29x[KeyboardView]); //x
-            button35.Text = strip_Keys(button30x[KeyboardView]);  //c
-            button1.Text = strip_Keys(button31x[KeyboardView]); //v
+            button18.Text = strip_Keys(button28x[KeyboardView]);
+            button24.Text = strip_Keys(button29x[KeyboardView]);
+            button35.Text = strip_Keys(button30x[KeyboardView]);
+            button1.Text = strip_Keys(button31x[KeyboardView]);
             button5.Text = strip_Keys(button32x[KeyboardView]);
             button23.Text = strip_Keys(button33x[KeyboardView]);
             button2.Text = strip_Keys(button34x[KeyboardView]);
-
-            /*button30.Text = strip_Keys(button18x[KeyboardView]);
-            button7.Text = strip_Keys(button19x[KeyboardView]);
-            button21.Text = strip_Keys(button21x[KeyboardView]);
-            button17.Text = strip_Keys(button22x[KeyboardView]);
-            button31.Text = strip_Keys(button23x[KeyboardView]);
-            button24.Text = strip_Keys(button28x[KeyboardView]);
-            button35.Text = strip_Keys(button29x[KeyboardView]);
-            button1.Text = strip_Keys(button30x[KeyboardView]);
-            button19.Text = strip_Keys(button31x[KeyboardView]);
-            button5.Text = strip_Keys(button32x[KeyboardView]);
-            button23.Text = strip_Keys(button33x[KeyboardView]);
-            button2.Text = strip_Keys(button34x[KeyboardView]);*/
 
             //------------------------------------------------------//
 
