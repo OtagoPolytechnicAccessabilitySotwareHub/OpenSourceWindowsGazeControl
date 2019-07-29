@@ -167,9 +167,6 @@ namespace GazeToolBar
             bhavShortcutMap.Add(pnlFKeyHighlight6, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavShortcutMap.Add(pnlFKeyHighlight7, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavShortcutMap.Add(pnlFKeyHighlight8, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavShortcutMap.Add(pnlSetMic, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavShortcutMap.Add(pnlClearMic, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavShortcutMap.Add(pnlSetMicOff, new GazeAwareBehavior(OnGazeChangeBTColour));
         }
 
         private void setupRearrangeMap()
@@ -183,7 +180,6 @@ namespace GazeToolBar
             bhavRearrangeMap.Add(btnActionRightClick, new GazeAwareBehavior(OnBtnActionRightClick_Click) { DelayMilliseconds = buttonClickDelay });
             bhavRearrangeMap.Add(btnActionScrollClick, new GazeAwareBehavior(OnBtnActionScrollClick_Click) { DelayMilliseconds = buttonClickDelay });
             bhavRearrangeMap.Add(btnActionSettings, new GazeAwareBehavior(OnBtnActionSettings_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavRearrangeMap.Add(btnActionMic, new GazeAwareBehavior(OnBtnActionMic_Click) { DelayMilliseconds = buttonClickDelay });
 
             bhavRearrangeMap.Add(pnlMoveUpButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavRearrangeMap.Add(pnlMoveDownButton, new GazeAwareBehavior(OnGazeChangeBTColour));
@@ -194,7 +190,6 @@ namespace GazeToolBar
             bhavRearrangeMap.Add(pnlRightClickButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavRearrangeMap.Add(pnlScrollClickButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavRearrangeMap.Add(pnlSettingsButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavRearrangeMap.Add(pnlMicButton, new GazeAwareBehavior(OnGazeChangeBTColour));
         }
 
         private void setupCrosshairMap()
@@ -402,11 +397,6 @@ namespace GazeToolBar
         private void OnBtnDefaults_Click(object sender, GazeAwareEventArgs e)
         {
             if (e.HasGaze) btnDefaults.PerformClick();
-        }
-
-        private void OnBtnActionMic_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnActionMic.PerformClick();
         }
 
         private void OnBtnDefaultConfirmYes_Click(object sender, GazeAwareEventArgs e)

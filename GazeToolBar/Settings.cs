@@ -121,23 +121,25 @@ namespace GazeToolBar
             trackBarFixTimeOut.Size = trackBarFixTimeLength.Size;
             pnlFTOPlus.Location = new Point(pnlFTLPlus.Location.X, pnlFTOPlus.Location.Y);
             lblSpeed.Location = ReletiveSize.labelPosition(pnlFixationTimeOut, lblSpeed);
+            
             //Panel other
             panelOther.Location = ReletiveSize.distributeToBottom(pnlGeneral, panelOther.Location.X, panelOther.Height, 3, 3, "h", 0);
             panelOther.Size = new Size(pnlGeneral.Size.Width, panelOther.Size.Height);
-            pnlDefaults.Location = ReletiveSize.distribute(panelOther, pnlDefaults.Location.Y, 1, 3, "w", 0.15);
-            pnlOtherAuto.Location = ReletiveSize.distribute(panelOther, pnlOtherAuto.Location.Y, 2, 3, "w", 0.45);
-            pnlStickyLeft.Location = ReletiveSize.distribute(panelOther, pnlStickyLeft.Location.Y, 3, 3, "w", 0.75);
+            pnlDefaults.Location = ReletiveSize.distribute(panelOther, pnlDefaults.Location.Y, 1, 3, "w", 0.68);
+            pnlOtherAuto.Location = ReletiveSize.distribute(panelOther, pnlOtherAuto.Location.Y, 2, 3, "w", 0.25);
+                                                                                                                                //pnlStickyLeft.Location = ReletiveSize.distribute(panelOther, pnlStickyLeft.Location.Y, 3, 3, "w", 0.75);
             lblOther.Location = ReletiveSize.labelPosition(panelOther, lblOther);
+            
             //Panel confirm defaults
             pnlDefaultConfirm.Size = confirmSize;
             pnlDefaultConfirm.Location = ReletiveSize.centerLocation(pnlGeneral, pnlDefaultConfirm);
             //Shortcut settings panel
-            //pnlPageKeyboard.Width = Constants.SCREEN_SIZE.Width - 20;
+                                                                                                                                //pnlPageKeyboard.Width = Constants.SCREEN_SIZE.Width - 20;
             pnlPageKeyboard.Location = ReletiveSize.mainPanelLocation(pnlSwitchSetting.Location.Y, pnlSwitchSetting.Height);
             pnlPageKeyboard.Size = ReletiveSize.panelGeneralSize(panelSaveAndCancel.Location.Y, pnlPageKeyboard.Location.Y);
             //Set feed back label to the center of the screen.
-            lbFKeyFeedback.Location = new Point((pnlPageKeyboard.Width / 2) - (lbFKeyFeedback.Width / 2), lbFKeyFeedback.Location.Y);
-            //pnlPageKeyboard.Location = ReletiveSize.mainPanelLocation(pnlSwitchSetting.Location.Y, pnlSwitchSetting.Height);
+                                                                                                                                //lbFKeyFeedback.Location = new Point((pnlPageKeyboard.Width / 2) - (lbFKeyFeedback.Width / 2), lbFKeyFeedback.Location.Y);
+                                                                                                                                //pnlPageKeyboard.Location = ReletiveSize.mainPanelLocation(pnlSwitchSetting.Location.Y, pnlSwitchSetting.Height);
             //Zoom Settings size and location
             //Main Panel
             pnlZoomSettings.Location = ReletiveSize.mainPanelLocation(pnlSwitchSetting.Location.Y, pnlSwitchSetting.Height);
@@ -188,27 +190,6 @@ namespace GazeToolBar
             labFeedback.Location = ReletiveSize.labelPosition(pnlFeedback, labFeedback);
         }
 
-        //private void btnChangeSide_Click(object sender, EventArgs e)
-        //{
-        //    if (OnTheRight)
-        //    {
-        //        changeSide("On left", ApplicationDesktopToolbar.AppBarEdges.Left, false);
-        //        ChangeButtonColor(btnChangeSide, true, false);
-        //    }
-        //    else
-        //    {
-        //        changeSide("On Right", ApplicationDesktopToolbar.AppBarEdges.Right, true);
-        //        ChangeButtonColor(btnChangeSide, false, false);
-        //    }
-        //}
-
-        //private void changeSide(string text, ApplicationDesktopToolbar.AppBarEdges edge, bool flag)
-        //{
-        //    lblIndicationLeftOrRight.Text = text;
-        //    form1.Edge = edge;
-        //    OnTheRight = flag;
-        //}
-
         ///
         private void btnAutoStart_Click(object sender, EventArgs e)
         {
@@ -249,55 +230,12 @@ namespace GazeToolBar
             }
         }
 
-        //private void btnGaze_Click(object sender, EventArgs e)
-        //{
 
-        //    gazeOrSwitch = GazeOrSwitch.GAZE;
-        //    changeSitchGaze(gazeOrSwitch);
-
-        //}
-        //
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        //private void btnSwitch_Click(object sender, EventArgs e)
-        //{
-
-        //    gazeOrSwitch = GazeOrSwitch.SWITCH;
-        //    changeSitchGaze(gazeOrSwitch);
-        //}
-
-        //private void changeSitchGaze(GazeOrSwitch gs)
-        //{
-        //    switch (gs)
-        //    {
-        //        case GazeOrSwitch.GAZE:
-        //            ChangeButtonColor(btnGaze, !onOff[0], false);
-        //            ChangeButtonColor(btnSwitch, onOff[0], false);
-        //            break;
-        //        case GazeOrSwitch.SWITCH:
-        //            ChangeButtonColor(btnGaze, onOff[0], false);
-        //            ChangeButtonColor(btnSwitch, !onOff[0], false);
-        //            break;
-        //    }
-        //}
-
-
-
-        //private void lblOnOff(Label l, bool b)
-        //{
-        //    if(b)
-        //    {
-        //        l.Text = "On";
-        //    }
-        //    else
-        //    {
-        //        l.Text = "Off";
-        //    }
-
-        //}
 
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -312,8 +250,6 @@ namespace GazeToolBar
                 setting.doubleClick = lbDouble.Text;
                 setting.rightClick = lbRight.Text;
                 setting.scroll = lbScroll.Text;
-                setting.micInput = lbMicOn.Text;
-                setting.micInputOff = lbMicOff.Text;
                 setting.sidebar = selectedActions.ToArray<string>();
                 setting.Crosshair = trackBarCrosshair.Value;
                 setting.maxZoom = trackBarZoomAmount.Value;
@@ -357,9 +293,9 @@ namespace GazeToolBar
             Program.onStartUp = !Program.onStartUp;
             ChangeButtonColor(btnAutoStart, false, false);
             resetSideBar();
-            stickyLeft = Program.readSettings.stickyLeftClick;
-            buttonStickyLeftClick.BackColor = Color.Black;
-            selectionFeedback = Program.readSettings.selectionFeedback;
+            //stickyLeft = Program.readSettings.stickyLeftClick;
+            //buttonStickyLeftClick.BackColor = Color.Black;
+            //selectionFeedback = Program.readSettings.selectionFeedback;
             btnFeedback.BackColor = Color.White;
             dynamicZoom = false;
         }
@@ -392,8 +328,8 @@ namespace GazeToolBar
             lbDouble.Text = Program.readSettings.doubleClick;
             lbRight.Text = Program.readSettings.rightClick;
             lbScroll.Text = Program.readSettings.scroll;
-            lbMicOn.Text = Program.readSettings.micInput;
-            lbMicOff.Text = Program.readSettings.micInputOff;
+            //lbMicOn.Text = Program.readSettings.micInput;
+            //lbMicOff.Text = Program.readSettings.micInputOff;
 
             trackBarCrosshair.Value = Program.readSettings.Crosshair;
             UpdateCrosshair();
