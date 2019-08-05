@@ -71,25 +71,25 @@ namespace GazeToolBar
             //lbMicOff.Text = form1.FKeyMapDictionary[ActionToBePerformed.MicInputOff];
             WaitForUserKeyPress = false;
 
-            stickyLeft = Program.readSettings.stickyLeftClick;
-            if (stickyLeft)
-                buttonStickyLeftClick.BackColor = Color.White;
+            //stickyLeft = Program.readSettings.stickyLeftClick;
+            //if (stickyLeft)
+            //    buttonStickyLeftClick.BackColor = Color.White;
 
-            selectionFeedback = Program.readSettings.selectionFeedback;
-            if (selectionFeedback)
-                btnFeedback.BackColor = Color.White;
+            //selectionFeedback = Program.readSettings.selectionFeedback;
+            //if (selectionFeedback)
+            //    btnFeedback.BackColor = Color.White;
 
-            dynamicZoom = Program.readSettings.dynamicZoom;
-            if (dynamicZoom)
-            {
-                btnDynamicZoomMode.BackColor = Color.White;
-                btnDynamicZoomMode.ForeColor = Color.Black;
-            }
-            else
-            {
-                btnStaticZoomMode.BackColor = Color.White;
-                btnStaticZoomMode.ForeColor = Color.Black;
-            }
+            //dynamicZoom = Program.readSettings.dynamicZoom;
+            //if (dynamicZoom)
+            //{
+            //    btnDynamicZoomMode.BackColor = Color.White;
+            //    btnDynamicZoomMode.ForeColor = Color.Black;
+            //}
+            //else
+            //{
+            //    btnStaticZoomMode.BackColor = Color.White;
+            //    btnStaticZoomMode.ForeColor = Color.Black;
+            //}
 
             form1.LowLevelKeyBoardHook.OnKeyPressed += GetKeyPress;
 
@@ -256,8 +256,8 @@ namespace GazeToolBar
                 setting.zoomWindowSize = trackBarZoomWindowSize.Value;
                 setting.stickyLeftClick = stickyLeft;
                 setting.selectionFeedback = selectionFeedback;
-                setting.dynamicZoom = dynamicZoom;
-
+                //setting.dynamicZoom = dynamicZoom;
+                setting.dynamicZoom = true;
                 Program.readSettings.sidebar = selectedActions.ToArray<string>();
                 Program.readSettings.maxZoom = setting.maxZoom;
                 form1.ArrangeSidebar(Program.readSettings.sidebar);
