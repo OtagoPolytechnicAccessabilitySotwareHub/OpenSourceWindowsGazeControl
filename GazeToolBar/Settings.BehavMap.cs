@@ -11,7 +11,7 @@ namespace GazeToolBar
 {
 
 
-    partial class Settings
+    partial class SettingsForm
     {
 
         int buttonClickDelay = 500;

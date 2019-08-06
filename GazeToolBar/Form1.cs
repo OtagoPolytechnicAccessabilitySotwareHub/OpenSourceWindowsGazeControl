@@ -18,7 +18,7 @@ namespace GazeToolBar
     */
     public partial class Form1 : ShellLib.ApplicationDesktopToolbar
     {
-        private Settings settings;
+        private SettingsForm settings;
         private ContextMenu contextMenu;
         private MenuItem menuItemExit;
         private MenuItem menuItemStartOnOff;
@@ -204,9 +204,9 @@ namespace GazeToolBar
             String[] sidebarArrangement = Program.readSettings.sidebar;
             ArrangeSidebar(sidebarArrangement);
 
-            if (!checkOpenForm(typeof(Settings)))
+            if (!checkOpenForm(typeof(SettingsForm)))
             {
-                settings = new Settings(this, eyeXHost);
+                settings = new SettingsForm(this, eyeXHost);
                 settings.Show();
                 settings.Close();
             }
@@ -247,9 +247,9 @@ namespace GazeToolBar
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            if (!checkOpenForm(typeof(Settings)))
+            if (!checkOpenForm(typeof(SettingsForm)))
             {
-                settings = new Settings(this, eyeXHost);
+                settings = new SettingsForm(this, eyeXHost);
                 settings.Show();
             }
         }

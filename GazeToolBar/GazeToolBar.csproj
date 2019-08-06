@@ -178,12 +178,6 @@
     <Compile Include="IFixationSmoother.cs" />
     <Compile Include="KeyboardHook.cs" />
     <Compile Include="KeyConverter.cs" />
-    <Compile Include="newSettings.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="newSettings.Designer.cs">
-      <DependentUpon>newSettings.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReletiveSize.cs" />
@@ -192,11 +186,12 @@
     <Compile Include="Settings.BehavMap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings.cs">
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings.Designer.cs">
-      <DependentUpon>Settings.cs</DependentUpon>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ShortcutKeyWorker.cs" />
     <Compile Include="StateManager.cs" />
@@ -224,9 +219,6 @@
     <EmbeddedResource Include="Keyboard.BehavMap.resx">
       <DependentUpon>Keyboard.BehavMap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="newSettings.resx">
-      <DependentUpon>newSettings.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -237,8 +229,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Settings.resx">
-      <DependentUpon>Settings.cs</DependentUpon>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ZoomLens.resx">
