@@ -264,7 +264,7 @@ namespace GazeToolBar
                 string settings = JsonConvert.SerializeObject(setting);
                 File.WriteAllText(Program.path, settings);
 
-                Program.readSettings = setting;
+                //Program.readSettings = setting;
                 //form1.stateManager.RefreshZoom();
 
                 form1.NotifyIcon.BalloonTipTitle = "Saving success";

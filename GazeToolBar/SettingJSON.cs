@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+//JSON object. Can only have variables. No methods so it can be converted.
 namespace GazeToolBar
 {
     public class SettingJSON

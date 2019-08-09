@@ -11,7 +11,7 @@ namespace GazeToolBar
 {
     public class ZoomMagnifier
     {
-        protected const int UPDATE_SPEED = 1; //how fast the lens will update
+        protected const int UPDATE_SPEED = 50; //how fast the lens will update
 
         //TODO: Move these to settings json
         public bool DO_ZOOM = Program.readSettings.dynamicZoom;
@@ -19,7 +19,7 @@ namespace GazeToolBar
         public static float ZOOM_SPEED = 0.06F;    //Amount zoom will increment
 
         public static float ZOOM_MAX;           //Max zoom amount
-        public static int SMOOTHER_BUFFER = 5;
+        public static int SMOOTHER_BUFFER = 10;
 
         public Point FixationPoint { get; set; }
         public Point Offset { get; set; }  //Offset is the amount of pixels moved when repositioning the form if it is offscreen. It's used to reposition the Fixation point.

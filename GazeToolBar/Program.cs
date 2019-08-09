@@ -14,7 +14,8 @@ namespace GazeToolBar
     static class Program
     {
         public static string path { get; set; }
-        public static SettingJSON readSettings { get; set; }
+        //public static SettingJSON readSettings { get; set; }
+        public static Settings readSettings { get; set; }
         public static bool onStartUp { get; set; }
 
         static Mutex mutex = new Mutex(true, "51427aea-a311-11e7-abc4-cec278b6b50a");
@@ -35,8 +36,8 @@ namespace GazeToolBar
                 file.Directory.Create(); // If the directory already exists, this method does nothing.
 
                 //path = Application.StartupPath + "\\" + "Settings.json";
-                ReadWriteJson();
-
+                //ReadWriteJson();
+                readSettings = new Settings(path);
 
                 onStartUp = AutoStart.IsOn();
                 Application.EnableVisualStyles();
@@ -74,12 +75,13 @@ namespace GazeToolBar
                 string JSONstr = JsonConvert.SerializeObject(defaultSetting);
                 File.AppendAllText(path, JSONstr);
 
-                readSettings = defaultSetting;
+                //readSettings = defaultSetting;
             }
             else
             {
                 string s = File.ReadAllText(path);
-                readSettings = JsonConvert.DeserializeObject<SettingJSON>(s);
+                //readSettings = JsonConvert.DeserializeObject<SettingJSON>(s);
+                Console.WriteLine("Settings loaded");
             }
         }
     }

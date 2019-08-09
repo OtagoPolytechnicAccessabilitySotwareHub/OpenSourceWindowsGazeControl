@@ -204,12 +204,12 @@ namespace GazeToolBar
             String[] sidebarArrangement = Program.readSettings.sidebar;
             ArrangeSidebar(sidebarArrangement);
 
-            if (!checkOpenForm(typeof(SettingsForm)))
-            {
-                settings = new SettingsForm(this, eyeXHost);
-                settings.Show();
-                settings.Close();
-            }
+            //if (!checkOpenForm(typeof(SettingsForm)))
+            //{
+            //    settings = new SettingsForm(this, eyeXHost);
+            //    settings.Show();
+            //    settings.Close();
+            //}
 
         }
 
