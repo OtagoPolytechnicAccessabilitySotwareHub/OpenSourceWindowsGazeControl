@@ -66,7 +66,7 @@ namespace GazeToolBar
                 stickyLeftClick = settingsJson.stickyLeftClick;
                 selectionFeedback = settingsJson.selectionFeedback;
                 //dynamicZoom = settingsJson.dynamicZoom;                                  //Changed for testing
-                dynamicZoom = true;
+                dynamicZoom = false;
                 Console.WriteLine("Settings loaded");
             }
 }

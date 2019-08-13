@@ -20,6 +20,8 @@ namespace GazeToolBar
         private int FORM_HEIGHT { get; set;}
 
         private Point SecondaryOffset;
+        int leftPoint = 0;
+        int topPoint = 0;
 
         public ZoomMagnifierCentered(Form displayform, FixationDetection fixationWorker)
             : base(displayform, fixationWorker)
@@ -40,9 +42,33 @@ namespace GazeToolBar
             updateTimer.Enabled = true;
             form.Width = FORM_WIDTH;
             form.Height = FORM_HEIGHT;
+            int halfTop = screenBounds.Height / 2;
+            int halfWidth = screenBounds.Width / 2;
 
-            form.Left = offsetX + (screenBounds.Right / 2) - (form.Width / 2);
-            form.Top = (screenBounds.Bottom / 2) - (form.Height / 2);
+            if (fixationPoint.X >= halfWidth)
+            {
+                leftPoint = halfWidth;
+            }
+            else
+            {
+                leftPoint = 0;
+            }
+            if (fixationPoint.Y >= halfTop)
+            {
+                topPoint = halfTop;
+            }
+            else
+            {
+                topPoint = 0;
+            }
+
+            form.Left = leftPoint;
+            form.Top = topPoint;
+
+            FORM_WIDTH = screenBounds.Width / 2;
+            FORM_HEIGHT = screenBounds.Height / 2;
+            //form.Left = offsetX + (screenBounds.Right / 2) - (form.Width / 2);
+            //form.Top = (screenBounds.Bottom / 2) - (form.Height / 2);
 
             int dX = fixationPoint.X - (form.Left + FORM_WIDTH / 2);
             int dY = fixationPoint.Y - (form.Top + FORM_HEIGHT / 2);
@@ -68,8 +94,10 @@ namespace GazeToolBar
             form.Width = FORM_WIDTH;
             form.Height = FORM_HEIGHT;
 
-            form.Left = Math.Abs(offsetX) + (screenBounds.Right / 2) - (form.Width / 2);
-            form.Top =  (screenBounds.Bottom / 2) - (form.Height / 2);
+            //form.Left = Math.Abs(offsetX) + (screenBounds.Right / 2) - (form.Width / 2);
+            //form.Top =  (screenBounds.Bottom / 2) - (form.Height / 2);
+            form.Left = leftPoint;
+            form.Top = topPoint;
 
             int dX = FixationPoint.X - (form.Left + FORM_WIDTH / 2);
             int dY = FixationPoint.Y - (form.Top + FORM_HEIGHT / 2);

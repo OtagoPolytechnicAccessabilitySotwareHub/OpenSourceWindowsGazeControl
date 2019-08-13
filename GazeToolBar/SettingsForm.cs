@@ -257,7 +257,7 @@ namespace GazeToolBar
                 setting.stickyLeftClick = stickyLeft;
                 setting.selectionFeedback = selectionFeedback;
                 //setting.dynamicZoom = dynamicZoom;
-                setting.dynamicZoom = true;
+                setting.dynamicZoom = false;
                 Program.readSettings.sidebar = selectedActions.ToArray<string>();
                 Program.readSettings.maxZoom = setting.maxZoom;
                 form1.ArrangeSidebar(Program.readSettings.sidebar);

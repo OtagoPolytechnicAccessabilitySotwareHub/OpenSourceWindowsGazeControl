@@ -113,27 +113,9 @@ namespace GazeToolBar
         public virtual void PlaceZoomWindow(Point fixationPoint)
         {
 
-            //sourceRect.left = fixationPoint.X;
-            //sourceRect.top =  fixationPoint.Y;
-            int halfTop = screenBounds.Height / 2;
-            int halfWidth = screenBounds.Width / 2;
+            sourceRect.left = fixationPoint.X;
+            sourceRect.top = fixationPoint.Y;
 
-            if (fixationPoint.X>=halfWidth)
-            {
-                sourceRect.left = halfWidth;
-            }
-            else
-            {
-                sourceRect.left = 0;
-            }
-            if (fixationPoint.Y >= halfTop)
-            {
-                sourceRect.top = halfTop;
-            }
-            else
-            {
-                sourceRect.top = 0;
-            }
 
             FixationPoint = fixationPoint;
 
@@ -143,10 +125,8 @@ namespace GazeToolBar
 
             screenBounds = Screen.FromControl(form).Bounds;
 
-            form.Left = Clamp(sourceRect.left, 0, screenBounds.Width - form.Width);
-            form.Top = Clamp(sourceRect.top, 0, screenBounds.Height - form.Height);
-            //form.Left = Clamp((FixationPoint.X - (form.Width / 2)), 0, screenBounds.Width - form.Width);
-            //form.Top = Clamp((FixationPoint.Y - (form.Width / 2)), 0, screenBounds.Height - form.Height);
+            form.Left = Clamp((FixationPoint.X - (form.Width / 2)), 0, screenBounds.Width - form.Width);
+            form.Top = Clamp((FixationPoint.Y - (form.Width / 2)), 0, screenBounds.Height - form.Height);
 
             positionSmoother = new FixationSmootherAverage(SMOOTHER_BUFFER);
 
