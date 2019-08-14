@@ -62,9 +62,6 @@ namespace GazeToolBar
                 topPoint = 0;
             }
 
-            form.Left = leftPoint;
-            form.Top = topPoint;
-
             FORM_WIDTH = screenBounds.Width / 2;
             FORM_HEIGHT = screenBounds.Height / 2;
             //form.Left = offsetX + (screenBounds.Right / 2) - (form.Width / 2);
@@ -95,7 +92,7 @@ namespace GazeToolBar
             form.Height = FORM_HEIGHT;
 
             //form.Left = Math.Abs(offsetX) + (screenBounds.Right / 2) - (form.Width / 2);
-            //form.Top =  (screenBounds.Bottom / 2) - (form.Height / 2);
+            //form.Top = (screenBounds.Bottom / 2) - (form.Height / 2);
             form.Left = leftPoint;
             form.Top = topPoint;
 

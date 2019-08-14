@@ -52,37 +52,37 @@ namespace GazeToolBar
 
         }
 
-        public static void ReadWriteJson()
-        {
-            if (!File.Exists(path))
-            {
-                SettingJSON defaultSetting = new SettingJSON();
-                defaultSetting.fixationTimeLength = Constants.DEFAULT_TIME_LENGTH;
-                defaultSetting.fixationTimeOut = Constants.DEFAULT_TIME_OUT;
-                defaultSetting.leftClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-                defaultSetting.doubleClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-                defaultSetting.rightClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-                defaultSetting.scroll = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-                defaultSetting.micInput = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-                defaultSetting.micInputOff = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-                defaultSetting.sidebar = new string[] { "right_click", "left_click", "double_left_click", "scroll", "keyboard", "settings" };
-                defaultSetting.maxZoom = 3;
-                defaultSetting.Crosshair = 3;
-                defaultSetting.zoomWindowSize = 10;
-                defaultSetting.stickyLeftClick = false;
-                defaultSetting.selectionFeedback = true;
-                defaultSetting.dynamicZoom = false;
-                string JSONstr = JsonConvert.SerializeObject(defaultSetting);
-                File.AppendAllText(path, JSONstr);
+        //public static void ReadWriteJson()
+        //{
+        //    if (!File.Exists(path))
+        //    {
+        //        SettingJSON defaultSetting = new SettingJSON();
+        //        defaultSetting.fixationTimeLength = Constants.DEFAULT_TIME_LENGTH;
+        //        defaultSetting.fixationTimeOut = Constants.DEFAULT_TIME_OUT;
+        //        defaultSetting.leftClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
+        //        defaultSetting.doubleClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
+        //        defaultSetting.rightClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
+        //        defaultSetting.scroll = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
+        //        defaultSetting.micInput = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
+        //        defaultSetting.micInputOff = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
+        //        defaultSetting.sidebar = new string[] { "right_click", "left_click", "double_left_click", "scroll", "keyboard", "settings" };
+        //        defaultSetting.maxZoom = 3;
+        //        defaultSetting.Crosshair = 3;
+        //        defaultSetting.zoomWindowSize = 10;
+        //        defaultSetting.stickyLeftClick = false;
+        //        defaultSetting.selectionFeedback = true;
+        //        defaultSetting.dynamicZoom = false;
+        //        string JSONstr = JsonConvert.SerializeObject(defaultSetting);
+        //        File.AppendAllText(path, JSONstr);
 
-                //readSettings = defaultSetting;
-            }
-            else
-            {
-                string s = File.ReadAllText(path);
-                //readSettings = JsonConvert.DeserializeObject<SettingJSON>(s);
-                Console.WriteLine("Settings loaded");
-            }
-        }
+        //        //readSettings = defaultSetting;
+        //    }
+        //    else
+        //    {
+        //        string s = File.ReadAllText(path);
+        //        //readSettings = JsonConvert.DeserializeObject<SettingJSON>(s);
+        //        Console.WriteLine("Settings loaded");
+        //    }
+        //}
     }
 }

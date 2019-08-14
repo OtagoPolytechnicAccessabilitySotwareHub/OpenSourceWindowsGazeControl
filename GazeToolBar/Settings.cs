@@ -31,21 +31,7 @@ namespace GazeToolBar
         {
             if (!File.Exists(path))
             {
-                fixationTimeLength = Constants.DEFAULT_TIME_LENGTH;
-                fixationTimeOut = Constants.DEFAULT_TIME_OUT;
-                leftClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-                doubleClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-                rightClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-                scroll = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-                micInput = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-                micInputOff = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-                sidebar = new string[] { "right_click", "left_click", "double_left_click", "scroll", "keyboard", "settings" };
-                maxZoom = 3;
-                Crosshair = 3;
-                zoomWindowSize = 10;
-                stickyLeftClick = false;
-                selectionFeedback = true;
-                dynamicZoom = false;
+                defaultSettings();
             }
             else
             {
@@ -69,16 +55,50 @@ namespace GazeToolBar
                 dynamicZoom = false;
                 Console.WriteLine("Settings loaded");
             }
-}
-
-
-        public void createJSON()
-        {
-
         }
 
 
+        public void createJSON(string[] side)
+        {
+            SettingJSON setting = new SettingJSON();
 
+            setting.fixationTimeLength = fixationTimeLength;
+            setting.fixationTimeOut = fixationTimeOut;
+            setting.leftClick = leftClick;
+            setting.doubleClick = doubleClick;
+            setting.rightClick = rightClick;
+            setting.scroll = scroll;
+            setting.sidebar = sidebar;
+            setting.Crosshair = Crosshair;
+            setting.maxZoom = maxZoom;
+            setting.zoomWindowSize = zoomWindowSize;
+            setting.stickyLeftClick = stickyLeftClick;
+            setting.selectionFeedback = selectionFeedback;
+            //setting.dynamicZoom = dynamicZoom;
+            setting.dynamicZoom = false;
+            string settings = JsonConvert.SerializeObject(setting);
+            File.WriteAllText(Program.path, settings);
+        }
+
+
+        public void defaultSettings()
+        {
+            fixationTimeLength = Constants.DEFAULT_TIME_LENGTH;
+            fixationTimeOut = Constants.DEFAULT_TIME_OUT;
+            leftClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
+            doubleClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
+            rightClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
+            scroll = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
+            micInput = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
+            micInputOff = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
+            sidebar = new string[] { "right_click", "left_click", "double_left_click", "scroll", "keyboard", "settings" };
+            maxZoom = 3;
+            Crosshair = 3;
+            zoomWindowSize = 10;
+            stickyLeftClick = false;
+            selectionFeedback = true;
+            dynamicZoom = false;
+        }
 
 
 
