@@ -208,6 +208,7 @@
     </Compile>
     <Compile Include="ZoomMagnifier.cs" />
     <Compile Include="ZoomMagnifierCentered.cs" />
+    <Compile Include="ZoomMagnifierDynamic.cs" />
     <EmbeddedResource Include="DrawingForm.resx">
       <DependentUpon>DrawingForm.cs</DependentUpon>
       <SubType>Designer</SubType>

@@ -19,7 +19,7 @@ namespace GazeToolBar
         private int FORM_WIDTH { get; set; }
         private int FORM_HEIGHT { get; set;}
 
-        private Point SecondaryOffset;
+        //private Point SecondaryOffset;
         int leftPoint = 0;
         int topPoint = 0;
 

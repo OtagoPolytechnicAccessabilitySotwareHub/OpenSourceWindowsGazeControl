@@ -32,8 +32,17 @@ namespace GazeToolBar
         FormsEyeXHost eyeXHost;
         GazePointDataStream gazeStream;
         private Point zoomPoint;
+        /// <summary>
+        /// ////////////////////////////////////////////////Trial variables
+        /// </summary>
+        bool trial = false;
+        Point startGazePoint;
 
 
+
+        /// <summary>
+        /// ///////////////////////////////////End test Variables
+        /// </summary>
         protected FixationSmootherExponential fixationSmoother;
         protected FixationSmootherAverage positionSmoother;
 
@@ -59,6 +68,10 @@ namespace GazeToolBar
             FixationPoint = fixationWorker.getXY();
             InitLens();
             sourceRect = new RECT();
+
+
+            startGazePoint = FixationPoint;
+
 
             //Event handlers
             form.Resize += new EventHandler(form_Resize);
@@ -106,10 +119,11 @@ namespace GazeToolBar
                 Transformation matrix = new Transformation(Magnification);
                 NativeMethods.MagSetWindowTransform(hwndMag, ref matrix);
             }
+            trial = false;
 
         }
         //initialises the zoom window. called from statemanager
-        //////////////////////////////////////I think this is where I need to do stuff.???????
+
         public virtual void PlaceZoomWindow(Point fixationPoint)
         {
 
@@ -134,41 +148,58 @@ namespace GazeToolBar
         }
 
         //updates the portion of the screen the zoom window is looking at.
+        //////////////////////////////////////I think this is where I need to do stuff.???????
         protected virtual void UpdateZoomPosition()
         {
+
             if ((!hasInitialized) || (hwndMag == IntPtr.Zero) || !updateTimer.Enabled)
             {
                 return;
             }
-
+            //center of zoom screen
             zoomPoint = new Point(
-                (int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
-                (int)(fixationWorker.getXY().Y - ((form.Height / Magnification) / 2))
-                );
+            (int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
+            (int)(fixationWorker.getXY().Y - ((form.Height / Magnification) / 2))
+                    );
 
 
-
+            //Smoothed point
             Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
 
+            //What is displayed in the zoom window
             sourceRect.left = zoomPointSmoothed.X;
             sourceRect.top = zoomPointSmoothed.Y;
-
+            //ensuring zoom window is on screen
             sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - (int)(form.Width / Magnification));
             sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - (int)(form.Height / Magnification));
-
+            //bottom and right of screen
             sourceRect.right = form.Width;
-            sourceRect.bottom = form.Height;
-            Console.WriteLine("sourceRect: left: " + sourceRect.left + " top: " + sourceRect.top + " right: " + sourceRect.right);
+            sourceRect.bottom = form.Height;            
+            //if (!trial)
+            //{
+            //    trial = true;
+            //}
 
-            //Thread.Sleep(100);
-            
-            
+                //Console.WriteLine("sourceRect: left: " + sourceRect.left + " top: " + sourceRect.top + " right: " + sourceRect.right);
+
+                //Thread.Sleep(100);
+
+
+
             NativeMethods.MagSetWindowSource(hwndMag, sourceRect); //Sets the source of the zoom
-                
+
             NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
             
+            
         }
-        
+
+        private void startZoom()
+        {
+
+        }
+
+
+
         public void Zoom()
         {
             if (DO_ZOOM)
@@ -224,6 +255,10 @@ namespace GazeToolBar
 
         private void timer_Tick(object sender, EventArgs e)
         {
+            if (trial)
+            {
+                startZoom();
+            }
             Zoom();
             UpdateZoomPosition();
 
