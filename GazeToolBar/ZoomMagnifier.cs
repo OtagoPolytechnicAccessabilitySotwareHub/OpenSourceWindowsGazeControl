@@ -11,7 +11,7 @@ namespace GazeToolBar
 {
     public class ZoomMagnifier
     {
-        protected const int UPDATE_SPEED = 50; //how fast the lens will update
+        protected const int UPDATE_SPEED = 120; //how fast the lens will update
 
         //TODO: Move these to settings json
         public bool DO_ZOOM = Program.readSettings.dynamicZoom;
@@ -127,8 +127,7 @@ namespace GazeToolBar
         public virtual void PlaceZoomWindow(Point fixationPoint)
         {
 
-            sourceRect.left = fixationPoint.X;
-            sourceRect.top = fixationPoint.Y;
+
 
 
             FixationPoint = fixationPoint;
@@ -136,6 +135,9 @@ namespace GazeToolBar
             updateTimer.Enabled = true;
             form.Width = Program.readSettings.zoomWindowSize * 100;
             form.Height = Program.readSettings.zoomWindowSize * 80;
+            //Centers the zoom form on the circle
+            sourceRect.left = FixationPoint.X - (form.Width/2);
+            sourceRect.top = FixationPoint.Y - (form.Width / 2);
 
             screenBounds = Screen.FromControl(form).Bounds;
 
@@ -156,6 +158,48 @@ namespace GazeToolBar
             {
                 return;
             }
+            ////center of zoom screen
+            //zoomPoint = new Point(
+            //(int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
+            //(int)(fixationWorker.getXY().Y - ((form.Height / Magnification) / 2))
+            //        );
+
+
+            ////Smoothed point
+            //Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
+
+            ////What is displayed in the zoom window
+            //sourceRect.left = zoomPointSmoothed.X;
+            //sourceRect.top = zoomPointSmoothed.Y;
+
+            ////ensuring zoom window is on screen
+            //sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - (int)(form.Width / Magnification));
+            //sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - (int)(form.Height / Magnification));
+
+            ////bottom and right of screen
+            //sourceRect.right = form.Width;
+            //sourceRect.bottom = form.Height;            
+            //if (!trial)
+            //{
+            //    trial = true;
+            //}
+
+            //Console.WriteLine("sourceRect: left: " + sourceRect.left + " top: " + sourceRect.top + " right: " + sourceRect.right);
+
+            //Thread.Sleep(100);
+
+            sourceRect.left = Convert.ToInt32(FixationPoint.X - ((form.Width / Magnification) / 2));
+            sourceRect.top = Convert.ToInt32(FixationPoint.Y - ((form.Width / Magnification) / 2));
+
+            NativeMethods.MagSetWindowSource(hwndMag, sourceRect); //Sets the source of the zoom
+
+            NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
+            
+            
+        }
+
+        private void startZoom()
+        {
             //center of zoom screen
             zoomPoint = new Point(
             (int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
@@ -167,35 +211,21 @@ namespace GazeToolBar
             Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
 
             //What is displayed in the zoom window
-            sourceRect.left = zoomPointSmoothed.X;
-            sourceRect.top = zoomPointSmoothed.Y;
+            //sourceRect.left = zoomPointSmoothed.X;
+            //sourceRect.top = zoomPointSmoothed.Y;
+
+            sourceRect.left = FixationPoint.X - (form.Width / 2);
+            sourceRect.top = FixationPoint.Y - (form.Width / 2);
+
+
             //ensuring zoom window is on screen
             sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - (int)(form.Width / Magnification));
             sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - (int)(form.Height / Magnification));
+
             //bottom and right of screen
             sourceRect.right = form.Width;
-            sourceRect.bottom = form.Height;            
-            //if (!trial)
-            //{
-            //    trial = true;
-            //}
-
-                //Console.WriteLine("sourceRect: left: " + sourceRect.left + " top: " + sourceRect.top + " right: " + sourceRect.right);
-
-                //Thread.Sleep(100);
-
-
-
-            NativeMethods.MagSetWindowSource(hwndMag, sourceRect); //Sets the source of the zoom
-
-            NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
-            
-            
-        }
-
-        private void startZoom()
-        {
-
+            sourceRect.bottom = form.Height;
+            startGazePoint = FixationPoint;
         }
 
 
@@ -258,6 +288,7 @@ namespace GazeToolBar
             if (trial)
             {
                 startZoom();
+                trial = false;
             }
             Zoom();
             UpdateZoomPosition();
@@ -301,6 +332,7 @@ namespace GazeToolBar
             form.Top = -5000;
             form.Width = 1;
             form.Height = 1;
+            trial = true;
             form.Refresh();
             form.Hide();
         }
