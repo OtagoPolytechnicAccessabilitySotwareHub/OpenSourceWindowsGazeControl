@@ -11,12 +11,12 @@ namespace GazeToolBar
 {
     public class ZoomMagnifier
     {
-        protected const int UPDATE_SPEED = 120; //how fast the lens will update
+        protected const int UPDATE_SPEED = 105; //how fast the lens will update
 
         //TODO: Move these to settings json
         public bool DO_ZOOM = Program.readSettings.dynamicZoom;
 
-        public static float ZOOM_SPEED = 0.06F;    //Amount zoom will increment
+        public static float ZOOM_SPEED = 0.5F;//0.06F;    //Amount zoom will increment
 
         public static float ZOOM_MAX;           //Max zoom amount
         public static int SMOOTHER_BUFFER = 10;
@@ -193,6 +193,7 @@ namespace GazeToolBar
 
             NativeMethods.MagSetWindowSource(hwndMag, sourceRect); //Sets the source of the zoom
 
+
             NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
             
             
@@ -200,22 +201,22 @@ namespace GazeToolBar
 
         private void startZoom()
         {
-            //center of zoom screen
-            zoomPoint = new Point(
-            (int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
-            (int)(fixationWorker.getXY().Y - ((form.Height / Magnification) / 2))
-                    );
+            ////center of zoom screen
+            //zoomPoint = new Point(
+            //(int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
+            //(int)(fixationWorker.getXY().Y - ((form.Height / Magnification) / 2))
+            //        );
 
 
-            //Smoothed point
-            Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
+            ////Smoothed point
+            //Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
 
             //What is displayed in the zoom window
             //sourceRect.left = zoomPointSmoothed.X;
             //sourceRect.top = zoomPointSmoothed.Y;
 
             sourceRect.left = FixationPoint.X - (form.Width / 2);
-            sourceRect.top = FixationPoint.Y - (form.Width / 2);
+            sourceRect.top = FixationPoint.Y - (form.Height / 2);
 
 
             //ensuring zoom window is on screen
