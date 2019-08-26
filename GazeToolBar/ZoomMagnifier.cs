@@ -11,7 +11,7 @@ namespace GazeToolBar
 {
     public class ZoomMagnifier
     {
-        protected const int UPDATE_SPEED = 105; //how fast the lens will update
+        protected const int UPDATE_SPEED = 150; //how fast the lens will update
 
         //TODO: Move these to settings json
         public bool DO_ZOOM = Program.readSettings.dynamicZoom;
