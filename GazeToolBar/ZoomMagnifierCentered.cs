@@ -10,6 +10,7 @@ using System.Windows.Forms;
 /*
  * I think it would be better to have a base class from which ZoomMagnifier and ZoomMagnifierCentered
  * Inherit, rather than having ZoomMagnifierCentered inherit from ZoomMagnifier.
+ * That has been done
  */
 
 namespace GazeToolBar
@@ -44,28 +45,33 @@ namespace GazeToolBar
             form.Height = FORM_HEIGHT;
             int halfTop = screenBounds.Height / 2;
             int halfWidth = screenBounds.Width / 2;
-
-            if (fixationPoint.X >= halfWidth)
+            if (Program.readSettings.centerZoom)
             {
-                leftPoint = halfWidth;
+                if (fixationPoint.X >= halfWidth)
+                {
+                    leftPoint = halfWidth;
+                }
+                else
+                {
+                    leftPoint = 0;
+                }
+                if (fixationPoint.Y >= halfTop)
+                {
+                    topPoint = halfTop;
+                }
+                else
+                {
+                    topPoint = 0;
+                }
             }
             else
             {
-                leftPoint = 0;
+                form.Left = offsetX + (screenBounds.Right / 2) - (form.Width / 2);
+                form.Top = (screenBounds.Bottom / 2) - (form.Height / 2);
             }
-            if (fixationPoint.Y >= halfTop)
-            {
-                topPoint = halfTop;
-            }
-            else
-            {
-                topPoint = 0;
-            }
-
             FORM_WIDTH = screenBounds.Width / 2;
             FORM_HEIGHT = screenBounds.Height / 2;
-            //form.Left = offsetX + (screenBounds.Right / 2) - (form.Width / 2);
-            //form.Top = (screenBounds.Bottom / 2) - (form.Height / 2);
+
 
             int dX = fixationPoint.X - (form.Left + FORM_WIDTH / 2);
             int dY = fixationPoint.Y - (form.Top + FORM_HEIGHT / 2);
@@ -90,11 +96,16 @@ namespace GazeToolBar
             offsetX = screenBounds.Left;
             form.Width = FORM_WIDTH;
             form.Height = FORM_HEIGHT;
-
-            //form.Left = Math.Abs(offsetX) + (screenBounds.Right / 2) - (form.Width / 2);
-            //form.Top = (screenBounds.Bottom / 2) - (form.Height / 2);
-            form.Left = leftPoint;
-            form.Top = topPoint;
+            if (Program.readSettings.centerZoom)
+            {
+                form.Left = leftPoint;
+                form.Top = topPoint;
+            }
+            else
+            {
+                form.Left = Math.Abs(offsetX) + (screenBounds.Right / 2) - (form.Width / 2);
+                form.Top = (screenBounds.Bottom / 2) - (form.Height / 2);
+            }
 
             int dX = FixationPoint.X - (form.Left + FORM_WIDTH / 2);
             int dY = FixationPoint.Y - (form.Top + FORM_HEIGHT / 2);

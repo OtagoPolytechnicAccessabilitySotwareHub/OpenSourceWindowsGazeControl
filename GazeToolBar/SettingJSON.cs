@@ -23,5 +23,6 @@ namespace GazeToolBar
         public bool stickyLeftClick { get; set; }
         public bool selectionFeedback { get; set; }
         public bool dynamicZoom { get; set; }
+        public bool centerZoom { get; set; }
     }
 }

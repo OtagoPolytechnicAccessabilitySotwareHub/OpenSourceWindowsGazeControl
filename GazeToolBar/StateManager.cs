@@ -75,7 +75,7 @@ namespace GazeToolBar
             */
             if (Program.readSettings.dynamicZoom)
             {
-                magnifier = new ZoomMagnifier(zoomForm, fixationWorker);
+                magnifier = new ZoomMagnifierDynamic(zoomForm, fixationWorker);
             }
             else
             {

@@ -1558,9 +1558,9 @@ namespace GazeToolBar
             this.pnlRearrange.Controls.Add(this.pnlKeyboardButton);
             this.pnlRearrange.Controls.Add(this.pnlScrollClickButton);
             this.pnlRearrange.Controls.Add(this.pnlDoubleLeftClickButton);
-            this.pnlRearrange.Location = new System.Drawing.Point(431, 144);
+            this.pnlRearrange.Location = new System.Drawing.Point(257, 153);
             this.pnlRearrange.Name = "pnlRearrange";
-            this.pnlRearrange.Size = new System.Drawing.Size(222, 203);
+            this.pnlRearrange.Size = new System.Drawing.Size(301, 207);
             this.pnlRearrange.TabIndex = 30;
             this.pnlRearrange.Visible = false;
             // 

@@ -32,17 +32,7 @@ namespace GazeToolBar
         FormsEyeXHost eyeXHost;
         GazePointDataStream gazeStream;
         private Point zoomPoint;
-        /// <summary>
-        /// ////////////////////////////////////////////////Trial variables
-        /// </summary>
-        bool trial = false;
-        Point startGazePoint;
 
-
-
-        /// <summary>
-        /// ///////////////////////////////////End test Variables
-        /// </summary>
         protected FixationSmootherExponential fixationSmoother;
         protected FixationSmootherAverage positionSmoother;
 
@@ -54,6 +44,8 @@ namespace GazeToolBar
         protected FixationDetection fixationWorker;
 
         protected Rectangle screenBounds;
+
+        public bool trial = false;
 
         public ZoomMagnifier(Form displayform, FixationDetection fixationWorker)
         {
@@ -68,11 +60,6 @@ namespace GazeToolBar
             FixationPoint = fixationWorker.getXY();
             InitLens();
             sourceRect = new RECT();
-
-
-            startGazePoint = FixationPoint;
-
-
             //Event handlers
             form.Resize += new EventHandler(form_Resize);
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
@@ -119,104 +106,33 @@ namespace GazeToolBar
                 Transformation matrix = new Transformation(Magnification);
                 NativeMethods.MagSetWindowTransform(hwndMag, ref matrix);
             }
-            trial = false;
 
         }
         //initialises the zoom window. called from statemanager
 
         public virtual void PlaceZoomWindow(Point fixationPoint)
         {
-
-
-
-
-            FixationPoint = fixationPoint;
-
-            updateTimer.Enabled = true;
-            form.Width = Program.readSettings.zoomWindowSize * 100;
-            form.Height = Program.readSettings.zoomWindowSize * 80;
-            //Centers the zoom form on the circle
-            sourceRect.left = FixationPoint.X - (form.Width/2);
-            sourceRect.top = FixationPoint.Y - (form.Width / 2);
-
-            screenBounds = Screen.FromControl(form).Bounds;
-
-            form.Left = Clamp((FixationPoint.X - (form.Width / 2)), 0, screenBounds.Width - form.Width);
-            form.Top = Clamp((FixationPoint.Y - (form.Width / 2)), 0, screenBounds.Height - form.Height);
-
-            positionSmoother = new FixationSmootherAverage(SMOOTHER_BUFFER);
-
-            ZOOM_MAX = Program.readSettings.maxZoom;
         }
 
         //updates the portion of the screen the zoom window is looking at.
-        //////////////////////////////////////I think this is where I need to do stuff.???????
         protected virtual void UpdateZoomPosition()
-        {
-
-            if ((!hasInitialized) || (hwndMag == IntPtr.Zero) || !updateTimer.Enabled)
-            {
-                return;
-            }
-            ////center of zoom screen
-            //zoomPoint = new Point(
-            //(int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
-            //(int)(fixationWorker.getXY().Y - ((form.Height / Magnification) / 2))
-            //        );
-
-
-            ////Smoothed point
-            //Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
-
-            ////What is displayed in the zoom window
-            //sourceRect.left = zoomPointSmoothed.X;
-            //sourceRect.top = zoomPointSmoothed.Y;
-
-            ////ensuring zoom window is on screen
-            //sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - (int)(form.Width / Magnification));
-            //sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - (int)(form.Height / Magnification));
-
-            ////bottom and right of screen
-            //sourceRect.right = form.Width;
-            //sourceRect.bottom = form.Height;            
-            //if (!trial)
-            //{
-            //    trial = true;
-            //}
-
-            //Console.WriteLine("sourceRect: left: " + sourceRect.left + " top: " + sourceRect.top + " right: " + sourceRect.right);
-
-            //Thread.Sleep(100);
-
-            sourceRect.left = Convert.ToInt32(FixationPoint.X - ((form.Width / Magnification) / 2));
-            sourceRect.top = Convert.ToInt32(FixationPoint.Y - ((form.Width / Magnification) / 2));
-
-            NativeMethods.MagSetWindowSource(hwndMag, sourceRect); //Sets the source of the zoom
-
-
-            NativeMethods.InvalidateRect(hwndMag, IntPtr.Zero, true); // Force redraw.
-            
-            
+        {          
         }
 
-        private void startZoom()
+        protected virtual void startZoom()
         {
             ////center of zoom screen
-            //zoomPoint = new Point(
-            //(int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
-            //(int)(fixationWorker.getXY().Y - ((form.Height / Magnification) / 2))
-            //        );
+            zoomPoint = new Point(
+            (int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
+            (int)(fixationWorker.getXY().Y - ((form.Height / Magnification) / 2))
+                    );
 
-
-            ////Smoothed point
-            //Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
+            //Smoothed point
+            Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
 
             //What is displayed in the zoom window
-            //sourceRect.left = zoomPointSmoothed.X;
-            //sourceRect.top = zoomPointSmoothed.Y;
-
-            sourceRect.left = FixationPoint.X - (form.Width / 2);
-            sourceRect.top = FixationPoint.Y - (form.Height / 2);
+            sourceRect.left = zoomPointSmoothed.X;
+            sourceRect.top = zoomPointSmoothed.Y;
 
 
             //ensuring zoom window is on screen
@@ -226,7 +142,6 @@ namespace GazeToolBar
             //bottom and right of screen
             sourceRect.right = form.Width;
             sourceRect.bottom = form.Height;
-            startGazePoint = FixationPoint;
         }
 
 
@@ -284,16 +199,10 @@ namespace GazeToolBar
         }
         
 
-        private void timer_Tick(object sender, EventArgs e)
+        protected virtual void timer_Tick(object sender, EventArgs e)
         {
-            if (trial)
-            {
-                startZoom();
-                trial = false;
-            }
             Zoom();
             UpdateZoomPosition();
-
         }
 
         private void form_FormClosing(object sender, FormClosingEventArgs e)
