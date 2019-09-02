@@ -103,6 +103,8 @@ namespace GazeToolBar
             this.labZoomAmount = new System.Windows.Forms.Label();
             this.pnlZoomSettings = new System.Windows.Forms.Panel();
             this.pnlZoomMode = new System.Windows.Forms.Panel();
+            this.pnlCornerZoomMode = new System.Windows.Forms.Panel();
+            this.btnCornerZoomMode = new System.Windows.Forms.Button();
             this.pnlStaticZoomMode = new System.Windows.Forms.Panel();
             this.pnlDynamicZoomMode = new System.Windows.Forms.Panel();
             this.btnDynamicZoomMode = new System.Windows.Forms.Button();
@@ -225,6 +227,7 @@ namespace GazeToolBar
             this.pnlZIAMinus.SuspendLayout();
             this.pnlZoomSettings.SuspendLayout();
             this.pnlZoomMode.SuspendLayout();
+            this.pnlCornerZoomMode.SuspendLayout();
             this.pnlStaticZoomMode.SuspendLayout();
             this.pnlDynamicZoomMode.SuspendLayout();
             this.pnlGeneral.SuspendLayout();
@@ -452,7 +455,6 @@ namespace GazeToolBar
             this.pnlRightClick.Name = "pnlRightClick";
             this.pnlRightClick.Size = new System.Drawing.Size(195, 533);
             this.pnlRightClick.TabIndex = 4;
-            this.pnlRightClick.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlRightClick_Paint);
             // 
             // lbRight
             // 
@@ -714,8 +716,9 @@ namespace GazeToolBar
             this.btnStaticZoomMode.Name = "btnStaticZoomMode";
             this.btnStaticZoomMode.Size = new System.Drawing.Size(150, 100);
             this.btnStaticZoomMode.TabIndex = 34;
-            this.btnStaticZoomMode.Text = "Static Zoom";
+            this.btnStaticZoomMode.Text = "Centered Zoom";
             this.btnStaticZoomMode.UseVisualStyleBackColor = false;
+            this.btnStaticZoomMode.Click += new System.EventHandler(this.btnStaticZoomModeClick);
             // 
             // pnlFKeyHighlight10
             // 
@@ -1090,23 +1093,48 @@ namespace GazeToolBar
             this.pnlZoomSettings.Controls.Add(this.pnlZoomMode);
             this.pnlZoomSettings.Controls.Add(this.pnlZoomAmount);
             this.pnlZoomSettings.Controls.Add(this.pnlZoomSize);
-            this.pnlZoomSettings.Location = new System.Drawing.Point(1305, 319);
+            this.pnlZoomSettings.Location = new System.Drawing.Point(219, 118);
             this.pnlZoomSettings.Margin = new System.Windows.Forms.Padding(2);
             this.pnlZoomSettings.Name = "pnlZoomSettings";
-            this.pnlZoomSettings.Size = new System.Drawing.Size(279, 163);
+            this.pnlZoomSettings.Size = new System.Drawing.Size(73, 250);
             this.pnlZoomSettings.TabIndex = 29;
             this.pnlZoomSettings.Visible = false;
             this.pnlZoomSettings.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlZoomSettings_Paint);
             // 
             // pnlZoomMode
             // 
+            this.pnlZoomMode.Controls.Add(this.pnlCornerZoomMode);
             this.pnlZoomMode.Controls.Add(this.pnlStaticZoomMode);
             this.pnlZoomMode.Controls.Add(this.pnlDynamicZoomMode);
-            this.pnlZoomMode.Location = new System.Drawing.Point(6000, 500);
+            this.pnlZoomMode.Location = new System.Drawing.Point(500, 550);
             this.pnlZoomMode.Name = "pnlZoomMode";
-            this.pnlZoomMode.Size = new System.Drawing.Size(608, 100);
+            this.pnlZoomMode.Size = new System.Drawing.Size(850, 119);
             this.pnlZoomMode.TabIndex = 31;
             this.pnlZoomMode.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlZoomMode_Paint);
+            // 
+            // pnlCornerZoomMode
+            // 
+            this.pnlCornerZoomMode.Controls.Add(this.btnCornerZoomMode);
+            this.pnlCornerZoomMode.Location = new System.Drawing.Point(364, 0);
+            this.pnlCornerZoomMode.Name = "pnlCornerZoomMode";
+            this.pnlCornerZoomMode.Size = new System.Drawing.Size(155, 100);
+            this.pnlCornerZoomMode.TabIndex = 32;
+            // 
+            // btnCornerZoomMode
+            // 
+            this.btnCornerZoomMode.BackColor = System.Drawing.Color.Transparent;
+            this.btnCornerZoomMode.FlatAppearance.BorderSize = 5;
+            this.btnCornerZoomMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCornerZoomMode.Font = new System.Drawing.Font("Arial", 15.75F);
+            this.btnCornerZoomMode.ForeColor = System.Drawing.Color.White;
+            this.btnCornerZoomMode.Location = new System.Drawing.Point(3, 2);
+            this.btnCornerZoomMode.Margin = new System.Windows.Forms.Padding(2);
+            this.btnCornerZoomMode.Name = "btnCornerZoomMode";
+            this.btnCornerZoomMode.Size = new System.Drawing.Size(150, 100);
+            this.btnCornerZoomMode.TabIndex = 34;
+            this.btnCornerZoomMode.Text = "Corner Zoom";
+            this.btnCornerZoomMode.UseVisualStyleBackColor = false;
+            this.btnCornerZoomMode.Click += new System.EventHandler(this.btnCornerZoomMode_Click);
             // 
             // pnlStaticZoomMode
             // 
@@ -1119,14 +1147,14 @@ namespace GazeToolBar
             // pnlDynamicZoomMode
             // 
             this.pnlDynamicZoomMode.Controls.Add(this.btnDynamicZoomMode);
-            this.pnlDynamicZoomMode.Location = new System.Drawing.Point(456, 2);
+            this.pnlDynamicZoomMode.Location = new System.Drawing.Point(664, 0);
             this.pnlDynamicZoomMode.Name = "pnlDynamicZoomMode";
             this.pnlDynamicZoomMode.Size = new System.Drawing.Size(129, 100);
             this.pnlDynamicZoomMode.TabIndex = 31;
             // 
             // btnDynamicZoomMode
             // 
-            this.btnDynamicZoomMode.BackColor = System.Drawing.Color.Gray;
+            this.btnDynamicZoomMode.BackColor = System.Drawing.Color.Transparent;
             this.btnDynamicZoomMode.FlatAppearance.BorderSize = 5;
             this.btnDynamicZoomMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDynamicZoomMode.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1136,7 +1164,7 @@ namespace GazeToolBar
             this.btnDynamicZoomMode.Name = "btnDynamicZoomMode";
             this.btnDynamicZoomMode.Size = new System.Drawing.Size(121, 96);
             this.btnDynamicZoomMode.TabIndex = 31;
-            this.btnDynamicZoomMode.Text = "Coming Soon";
+            this.btnDynamicZoomMode.Text = "Dynamic Zoom";
             this.btnDynamicZoomMode.UseVisualStyleBackColor = false;
             this.btnDynamicZoomMode.Click += new System.EventHandler(this.btnDynamicZoomMode_Click);
             // 
@@ -1558,9 +1586,9 @@ namespace GazeToolBar
             this.pnlRearrange.Controls.Add(this.pnlKeyboardButton);
             this.pnlRearrange.Controls.Add(this.pnlScrollClickButton);
             this.pnlRearrange.Controls.Add(this.pnlDoubleLeftClickButton);
-            this.pnlRearrange.Location = new System.Drawing.Point(257, 153);
+            this.pnlRearrange.Location = new System.Drawing.Point(12, 372);
             this.pnlRearrange.Name = "pnlRearrange";
-            this.pnlRearrange.Size = new System.Drawing.Size(301, 207);
+            this.pnlRearrange.Size = new System.Drawing.Size(259, 206);
             this.pnlRearrange.TabIndex = 30;
             this.pnlRearrange.Visible = false;
             // 
@@ -1961,10 +1989,10 @@ namespace GazeToolBar
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1825, 787);
             this.Controls.Add(this.pnlRearrange);
+            this.Controls.Add(this.pnlZoomSettings);
             this.Controls.Add(this.pnlGeneral);
             this.Controls.Add(this.pnlCrosshairPage);
             this.Controls.Add(this.pnlPageKeyboard);
-            this.Controls.Add(this.pnlZoomSettings);
             this.Controls.Add(this.panelSaveAndCancel);
             this.Controls.Add(this.pnlSwitchSetting);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -2027,6 +2055,7 @@ namespace GazeToolBar
             this.pnlZIAMinus.ResumeLayout(false);
             this.pnlZoomSettings.ResumeLayout(false);
             this.pnlZoomMode.ResumeLayout(false);
+            this.pnlCornerZoomMode.ResumeLayout(false);
             this.pnlStaticZoomMode.ResumeLayout(false);
             this.pnlDynamicZoomMode.ResumeLayout(false);
             this.pnlGeneral.ResumeLayout(false);
@@ -2240,5 +2269,7 @@ namespace GazeToolBar
         private Panel pnlZoomMode;
         private Panel pnlDynamicZoomMode;
         private Button btnDynamicZoomMode;
+        private Panel pnlCornerZoomMode;
+        private Button btnCornerZoomMode;
     }
 }

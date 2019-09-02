@@ -53,9 +53,10 @@ namespace GazeToolBar
                 zoomWindowSize = settingsJson.zoomWindowSize;
                 stickyLeftClick = settingsJson.stickyLeftClick;
                 selectionFeedback = settingsJson.selectionFeedback;
-                //dynamicZoom = settingsJson.dynamicZoom;                                  //Changed for TESTINGVARIABLE
-                dynamicZoom = false;
-                centerZoom = false;
+                dynamicZoom = settingsJson.dynamicZoom;                                  //Changed for TESTINGVARIABLE
+                centerZoom = settingsJson.centerZoom;
+                //dynamicZoom = false;
+                //centerZoom = false;
                 Console.WriteLine("Settings loaded");
             }
         }
@@ -77,9 +78,10 @@ namespace GazeToolBar
             setting.zoomWindowSize = zoomWindowSize;
             setting.stickyLeftClick = stickyLeftClick;
             setting.selectionFeedback = selectionFeedback;
-            //setting.dynamicZoom = dynamicZoom;                                  //Changed for TESTINGVARIABLE
-            setting.dynamicZoom = false;
-            centerZoom = false;
+            setting.dynamicZoom = dynamicZoom;                                  //Changed for TESTINGVARIABLE
+            setting.centerZoom = centerZoom;
+            //setting.dynamicZoom = false;
+            //centerZoom = false;
             string settings = JsonConvert.SerializeObject(setting);
             File.WriteAllText(Program.path, settings);
         }

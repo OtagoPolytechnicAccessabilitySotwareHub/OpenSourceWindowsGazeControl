@@ -27,7 +27,7 @@ namespace GazeToolBar
         private List<Panel> actionPanels = new List<Panel>();
         private String selectionButton = "";
         private Dictionary<String, Button> buttonMap = new Dictionary<string, Button>();
-        private bool stickyLeft, selectionFeedback, dynamicZoom;
+        private bool stickyLeft, selectionFeedback, dynamicZoom, corners;
 
         private List<Panel> fKeyPannels;
 
@@ -79,17 +79,26 @@ namespace GazeToolBar
             //if (selectionFeedback)
             //    btnFeedback.BackColor = Color.White;
 
-            //dynamicZoom = Program.readSettings.dynamicZoom;
-            //if (dynamicZoom)
-            //{
-            //    btnDynamicZoomMode.BackColor = Color.White;
-            //    btnDynamicZoomMode.ForeColor = Color.Black;
-            //}
-            //else
-            //{
-            //    btnStaticZoomMode.BackColor = Color.White;
-            //    btnStaticZoomMode.ForeColor = Color.Black;
-            //}
+            dynamicZoom = Program.readSettings.dynamicZoom;
+            corners = Program.readSettings.centerZoom;
+            if (dynamicZoom)
+            {
+                btnDynamicZoomMode.BackColor = Color.White;
+                btnDynamicZoomMode.ForeColor = Color.Black;
+            }
+            else
+            {
+                if (corners)
+                {
+                    btnCornerZoomMode.BackColor = Color.White;
+                    btnCornerZoomMode.ForeColor = Color.Black;
+                }
+                else
+                {
+                    btnStaticZoomMode.BackColor = Color.White;
+                    btnStaticZoomMode.ForeColor = Color.Black;
+                }
+            }
 
             form1.LowLevelKeyBoardHook.OnKeyPressed += GetKeyPress;
 
@@ -163,8 +172,9 @@ namespace GazeToolBar
                 Program.readSettings.zoomWindowSize = trackBarZoomWindowSize.Value;
                 Program.readSettings.stickyLeftClick = stickyLeft;
                 Program.readSettings.selectionFeedback = selectionFeedback;
-                //Program.readSettings.dynamicZoom = dynamicZoom;
-                Program.readSettings.dynamicZoom = false;
+                Program.readSettings.dynamicZoom = dynamicZoom;
+                Program.readSettings.centerZoom = corners;
+                //Program.readSettings.dynamicZoom = false;                                                     TESTINGVARIABLE
                 //Program.readSettings.sidebar = selectedActions.ToArray<string>();
                 //Program.readSettings.maxZoom = setting.maxZoom;
                 Program.readSettings.createJSON(selectedActions.ToArray<string>());
@@ -206,6 +216,7 @@ namespace GazeToolBar
             //selectionFeedback = Program.readSettings.selectionFeedback;
             btnFeedback.BackColor = Color.White;
             dynamicZoom = false;
+            corners = false;
         }
 
         void NotifyIcon_BalloonTipClicked(object sender, EventArgs e)
@@ -819,19 +830,8 @@ namespace GazeToolBar
             pnlDefaultConfirmNo.BackColor = Color.Black;
         }
 
-        private void btnStaticZoomModeClick(object sender, EventArgs e) //DYNMIC ZOON CLICK BIND HERE
-        {
-            dynamicZoom = false;
-            btnStaticZoomMode.BackColor = Color.White;
-            btnStaticZoomMode.ForeColor = Color.Black;
-            btnDynamicZoomMode.BackColor = Color.Black;
-            btnDynamicZoomMode.ForeColor = Color.White;
-        }
 
-        private void pnlRightClick_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
 
         private void pnlZoomSettings_Paint(object sender, PaintEventArgs e)
         {
@@ -843,13 +843,47 @@ namespace GazeToolBar
             //OFFSET 6000, change location in Settings.Designer.cs to bring back. Search for (ctrl + f) "Change this to 600"
         }
 
+        private void btnCornerZoomMode_Click(object sender, EventArgs e)
+        {
+            dynamicZoom = false;
+            corners = true;
+            //clicked button
+            btnCornerZoomMode.BackColor = Color.White;
+            btnCornerZoomMode.ForeColor = Color.Black;
+            //unselected
+            btnDynamicZoomMode.BackColor = Color.Black;
+            btnDynamicZoomMode.ForeColor = Color.White;
+            btnStaticZoomMode.BackColor = Color.Black;
+            btnStaticZoomMode.ForeColor = Color.White;
+        }
+
+        private void btnStaticZoomModeClick(object sender, EventArgs e) //DYNMIC ZOON CLICK BIND HERE
+        {
+            dynamicZoom = false;
+            corners = false;
+            //clicked button
+            btnStaticZoomMode.BackColor = Color.White;
+            btnStaticZoomMode.ForeColor = Color.Black;
+            //unselected
+            btnDynamicZoomMode.BackColor = Color.Black;
+            btnDynamicZoomMode.ForeColor = Color.White;
+            btnCornerZoomMode.BackColor = Color.Black;
+            btnCornerZoomMode.ForeColor = Color.White;
+        }
+
+
         private void btnDynamicZoomMode_Click(object sender, EventArgs e)
         {
             dynamicZoom = true;
+            corners = false;
+            //clicked button
             btnDynamicZoomMode.BackColor = Color.White;
             btnDynamicZoomMode.ForeColor = Color.Black;
+            //unselected
             btnStaticZoomMode.BackColor = Color.Black;
             btnStaticZoomMode.ForeColor = Color.White;
+            btnCornerZoomMode.BackColor = Color.Black;
+            btnCornerZoomMode.ForeColor = Color.White;
         }
 
         private void btnDefaults_Click(object sender, EventArgs e)
@@ -917,6 +951,7 @@ namespace GazeToolBar
             //Set feed back label to the center of the screen.
             //lbFKeyFeedback.Location = new Point((pnlPageKeyboard.Width / 2) - (lbFKeyFeedback.Width / 2), lbFKeyFeedback.Location.Y);
             //pnlPageKeyboard.Location = ReletiveSize.mainPanelLocation(pnlSwitchSetting.Location.Y, pnlSwitchSetting.Height);
+
             //Zoom Settings size and location
             //Main Panel
             pnlZoomSettings.Location = ReletiveSize.mainPanelLocation(pnlSwitchSetting.Location.Y, pnlSwitchSetting.Height);
@@ -942,6 +977,10 @@ namespace GazeToolBar
             pnlRearrange.Location = ReletiveSize.mainPanelLocation(pnlSwitchSetting.Location.Y, pnlSwitchSetting.Height);
             pnlRearrange.Size = ReletiveSize.panelRearrangeSize(panelSaveAndCancel.Location.Y, pnlRearrange.Location.Y);
             pnlRearrangeControls.Location = ReletiveSize.centerLocation(pnlRearrange, pnlRearrangeControls);
+            //Zoom type panel
+            //pnlStaticZoomMode.Location = ReletiveSize.distribute(pnlZoomMode, pnlZoomMode.Location.Y, 1, 3, "w", 1);
+            //pnlCornerZoomMode.Location = ReletiveSize.distribute(pnlZoomMode, pnlZoomMode.Location.X, 2, 2, "h", 0.050);
+            //pnlDynamicZoomMode.Location = ReletiveSize.distribute(pnlZoomMode, pnlZoomMode.Location.X, 3, 3, "h", 0.075);
             //Crosshair Settings size and location
             //Main panel
             pnlCrosshairPage.Location = ReletiveSize.mainPanelLocation(pnlSwitchSetting.Location.Y, pnlSwitchSetting.Height);

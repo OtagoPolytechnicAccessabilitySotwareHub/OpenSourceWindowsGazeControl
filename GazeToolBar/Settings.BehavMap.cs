@@ -136,6 +136,7 @@ namespace GazeToolBar
             bhavZoomMap.Add(btnZoomAmountPlus, new GazeAwareBehavior(OnBtnZoomAmountPlus_Click) { DelayMilliseconds = buttonClickDelay });
             bhavZoomMap.Add(btnStaticZoomMode, new GazeAwareBehavior(OnStaticZoomMode_Click) { DelayMilliseconds = buttonClickDelay });
             bhavZoomMap.Add(btnDynamicZoomMode, new GazeAwareBehavior(OnDynamicZoomMode_Click) { DelayMilliseconds = buttonClickDelay });
+            bhavZoomMap.Add(btnCornerZoomMode, new GazeAwareBehavior(btnCornerZoomMode_Click) { DelayMilliseconds = buttonClickDelay });
 
             bhavZoomMap.Add(pnlZWSMinus, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavZoomMap.Add(pnlZWSPlus, new GazeAwareBehavior(OnGazeChangeBTColour));
@@ -143,6 +144,7 @@ namespace GazeToolBar
             bhavZoomMap.Add(pnlZIAPlus, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavZoomMap.Add(pnlStaticZoomMode, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavZoomMap.Add(pnlDynamicZoomMode, new GazeAwareBehavior(OnGazeChangeBTColour));
+            bhavZoomMap.Add(pnlCornerZoomMode, new GazeAwareBehavior(OnGazeChangeBTColour));
         }
 
         private void setupShortcutMap()

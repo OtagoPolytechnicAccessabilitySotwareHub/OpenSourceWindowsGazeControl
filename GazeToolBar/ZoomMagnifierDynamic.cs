@@ -22,6 +22,7 @@ namespace GazeToolBar
         public ZoomMagnifierDynamic(Form displayform, FixationDetection fixationWorker)
     : base(displayform, fixationWorker)
         {
+            trial = true;
             startGazePoint = FixationPoint;
         }
 
