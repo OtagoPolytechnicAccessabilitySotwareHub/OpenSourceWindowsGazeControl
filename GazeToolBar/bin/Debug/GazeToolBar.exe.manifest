@@ -41,14 +41,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GazeToolBar.exe" size="1698304">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GazeToolBar.exe" size="1697792">
       <assemblyIdentity name="GazeToolBar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>s6eFMyFkHqsuiicqlZXMGci80DdSXP4LViJGNzz5w+U=</dsig:DigestValue>
+        <dsig:DigestValue>0y4TztVWGRP8SB0Cq83MkWXbpxmu/3qYLJRnCv1IvDQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -260,6 +260,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>sii5u5B04BgPl/v2+OFo5heboRDDIQDQcwLlXms2taw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="KeyboardSetOne.txt" size="264">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>wPabUKAIa9TWHMWb2AAq6/oz+90jB/aCaJwsdBOFOJQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="KeyboardSetTwo.txt" size="352">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>lYotEqdSFgg4JbWWcnA2EIMcRfCTY0lyYEY8WkWuaEc=</dsig:DigestValue>
     </hash>
   </file>
   <file name="programIcon.ico" size="370070">

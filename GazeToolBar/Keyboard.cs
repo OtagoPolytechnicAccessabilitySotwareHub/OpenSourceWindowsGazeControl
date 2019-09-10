@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -26,38 +27,15 @@ namespace GazeToolBar
         private bool bottom; //for location of keyboard. top or bottom
         private static FormsEyeXHost eyeXHost;
 
-        private const int KeyboardAmount = 4; //How many keyboard.
+        private const int KeyboardAmount = 6; //How many keyboard.
         private bool cap; //If shift has been pressed
         private int KeyboardView; //Which keyboard is being displayed
 
         //Lists for each key on the keyboard. Enter, Tab, Space, ,, ., shift not included.
-        private string[] button1x;
-        private string[] button2x;
-        private string[] button3x;
-        private string[] button4x;
-        private string[] button5x;
-        private string[] button6x;
-        private string[] button7x;
-        private string[] button8x;
-        private string[] button9x;
-        private string[] button10x;
-        private string[] button11x;
-        private string[] button14x;
-        private string[] button15x;
-        private string[] button16x;
-        private string[] button17x;
-        private string[] button18x;
-        private string[] button19x;
-        private string[] button21x;
-        private string[] button22x;
-        private string[] button23x;
-        private string[] button28x;
-        private string[] button29x;
-        private string[] button30x;
-        private string[] button31x;
-        private string[] button32x;
-        private string[] button33x;
-        private string[] button34x;
+
+        private keyboardKeys[] keys;
+
+
         private Panel F1keyboardPanel;
         private Panel F1LeftClickPanel;
         private Panel F1RightClickPanel;
@@ -135,38 +113,39 @@ namespace GazeToolBar
                 }
             }
 
-            //Lists for each key on keyboard.
-            //When adding new keyboards, add two at a time to allow for shift key.
-            button1x = new String[] { "123", "123", "abc", "abc" };//Entries repeated to allow for shift button
-            //Row One
-            button2x = new String[] {"q","Q", "1" , "{F1}" };
-            button3x = new String[] {"w", "W", "2", "{F2}" };
-            button4x = new String[] { "e", "E", "3", "{F3}" };
-            button5x = new String[] { "r", "R", "4", "{F4}" };
-            button6x = new String[] { "t", "T", "5", "{F5}" };
-            button7x = new String[] { "y", "Y", "6", "{F6}" };
-            button8x = new String[] { "u", "U", "7", "{F7}" };
-            button9x = new String[] { "i", "I", "8", "{F8}" };
-            button10x = new String[] { "o", "O", "9", "{F9}" };
-            button11x = new String[] { "p", "P", "0", "{F10}" };
-            //Row 2
-            button14x = new String[] { "a", "A", "@", "{F11}" };
-            button15x = new String[] { "s", "S", "#", "{F12}" };
-            button16x = new String[] { "d", "D", "$", "{HOME}" };
-            button17x = new String[] { "f", "F", "?", "{END}" };
-            button18x = new String[] { "g", "G", "{(}", "{PRTSC}" };
-            button19x = new String[] { "h", "H", "{)}", "{UP}" };
-            button21x = new String[] { "j", "J", "'", "{%}" };
-            button22x = new String[] { "k", "K", "\"", "{{}" };
-            button23x = new String[] { "l", "L", "!", "{}}" };
-            //Row 3
-            button28x = new String[] { "z", "Z", "-", "/" }; //
-            button29x = new String[] { "x", "X", "{+}", "[" }; //
-            button30x = new String[] { "c", "C", "=", "]" }; //
-            button31x = new String[] { "v", "V", "<", "{LEFT}" }; //
-            button32x = new String[] { "b", "B", ">", "{DOWN}" };
-            button33x = new String[] { "n", "N", ";", "{RIGHT}" };
-            button34x = new String[] { "m", "M", ":", "&" };
+
+
+            keys = new keyboardKeys[27];
+            string[] keyboardsAvailable = new string[] { "KeyboardSetOne.txt", "KeyboardSetTwo.txt", "KeyboardSetThree.txt" };
+            for (int i = 0; i < 27; i++)
+            {
+                keys[i] = new keyboardKeys();
+            }
+            Console.WriteLine("Keyboard Made");
+
+
+            for (int i = 0; i < keyboardsAvailable.Length; i++)
+            {
+                Console.WriteLine("Keys added");
+                using (StreamReader sr = new StreamReader(keyboardsAvailable[i], Encoding.GetEncoding("iso-8859-1")))
+                    {
+                        string line;
+                        int lineNum = 0;
+                        string firstEnt = sr.ReadLine();
+                        keys[lineNum].addKey(firstEnt);
+                        keys[lineNum].addKey(firstEnt);
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            lineNum++;
+                            string[] seperateKeys = line.Split(',');
+                            keys[lineNum].addKey(seperateKeys[0]);
+                            keys[lineNum].addKey(seperateKeys[1]);                            
+                        }
+
+                }
+                
+            }
+            Console.WriteLine("Keys finished");
 
             //puts correct text on keys
             rename_buttons();
@@ -206,34 +185,39 @@ namespace GazeToolBar
         private void rename_buttons()
         {
             //Strips keys of {} before reseting text on each button
-            button10.Text = strip_Keys(button1x[KeyboardView]);
-            button13.Text = strip_Keys(button2x[KeyboardView]);
-            button25.Text = strip_Keys(button3x[KeyboardView]);
-            button37.Text = strip_Keys(button4x[KeyboardView]);
-            button26.Text = strip_Keys(button5x[KeyboardView]);
-            button14.Text = strip_Keys(button6x[KeyboardView]);
-            button9.Text = strip_Keys(button7x[KeyboardView]);
-            button20.Text = strip_Keys(button8x[KeyboardView]);
-            button27.Text = strip_Keys(button9x[KeyboardView]);
-            button12.Text = strip_Keys(button10x[KeyboardView]);
-            button15.Text = strip_Keys(button11x[KeyboardView]);
-            button11.Text = strip_Keys(button14x[KeyboardView]);
-            button29.Text = strip_Keys(button15x[KeyboardView]);
-            button16.Text = strip_Keys(button16x[KeyboardView]);
-            button33.Text = strip_Keys(button17x[KeyboardView]);
-            button30.Text = strip_Keys(button18x[KeyboardView]);
-            button7.Text = strip_Keys(button19x[KeyboardView]);
-            button21.Text = strip_Keys(button21x[KeyboardView]);
-            button17.Text = strip_Keys(button22x[KeyboardView]);
-            button31.Text = strip_Keys(button23x[KeyboardView]);
-            button18.Text = strip_Keys(button28x[KeyboardView]);
-            button24.Text = strip_Keys(button29x[KeyboardView]);
-            button35.Text = strip_Keys(button30x[KeyboardView]);
-            button1.Text = strip_Keys(button31x[KeyboardView]);
-            button5.Text = strip_Keys(button32x[KeyboardView]);
-            button23.Text = strip_Keys(button33x[KeyboardView]);
-            button2.Text = strip_Keys(button34x[KeyboardView]);
+            Console.WriteLine("strip 0");
+            button10.Text = strip_Keys(keys[0].getKey((KeyboardView+2)%KeyboardAmount));
+            button13.Text = strip_Keys(keys[1].getKey(KeyboardView));
+            button25.Text = strip_Keys(keys[2].getKey(KeyboardView));
+            button37.Text = strip_Keys(keys[3].getKey(KeyboardView));
+            button26.Text = strip_Keys(keys[4].getKey(KeyboardView));
+            button14.Text = strip_Keys(keys[5].getKey(KeyboardView));
+            button9.Text = strip_Keys(keys[6].getKey(KeyboardView));
+            button20.Text = strip_Keys(keys[7].getKey(KeyboardView));
+            button27.Text = strip_Keys(keys[8].getKey(KeyboardView));
+            button12.Text = strip_Keys(keys[9].getKey(KeyboardView));
+            
+            button15.Text = strip_Keys(keys[10].getKey(KeyboardView));
+            button11.Text = strip_Keys(keys[11].getKey(KeyboardView));
+            button29.Text = strip_Keys(keys[12].getKey(KeyboardView));
+            button16.Text = strip_Keys(keys[13].getKey(KeyboardView));
+            button33.Text = strip_Keys(keys[14].getKey(KeyboardView));
+            button30.Text = strip_Keys(keys[15].getKey(KeyboardView));
+            button7.Text = strip_Keys(keys[16].getKey(KeyboardView));
+            
+            button21.Text = strip_Keys(keys[17].getKey(KeyboardView));
+            button17.Text = strip_Keys(keys[18].getKey(KeyboardView));
+            button31.Text = strip_Keys(keys[19].getKey(KeyboardView));
+            button18.Text = strip_Keys(keys[20].getKey(KeyboardView));
+            button24.Text = strip_Keys(keys[21].getKey(KeyboardView));
+            button35.Text = strip_Keys(keys[22].getKey(KeyboardView));
+            Console.WriteLine("strip 3");
+            button1.Text = strip_Keys(keys[23].getKey(KeyboardView));
+            button5.Text = strip_Keys(keys[24].getKey(KeyboardView));
+            button23.Text = strip_Keys(keys[25].getKey(KeyboardView));
+            button2.Text = strip_Keys(keys[26].getKey(KeyboardView));
 
+            
             //------------------------------------------------------//
 
             //Resizes text on keys
@@ -279,10 +263,10 @@ namespace GazeToolBar
             return (Math.Abs(System.Windows.SystemParameters.PrimaryScreenHeight - System.Windows.SystemParameters.WorkArea.Height) > 0);
         }
 
-        private async void buttonClicker(String[] key, Button button)
+        private async void buttonClicker(int key, Button button)
         {
             button.BackColor = Color.Cyan;
-            SendKeys.Send(key[KeyboardView]); //set background color when clicked
+            SendKeys.Send(keys[key].getKey(KeyboardView)); //set background color when clicked
             await Task.Delay(FlashDelay);     //delay before deactivting button flash
             button.BackColor = Color.Black;   //revert back to original color
         }
@@ -294,18 +278,144 @@ namespace GazeToolBar
             await Task.Delay(FlashDelay);     //delay before deactivting button flash
             button.BackColor = Color.Black;   //revert back to original color
         }
+        //Buttons
 
-
-        private void button1_Click(object sender, EventArgs e) 
+        private async void button10_Click(object sender, EventArgs e)
         {
-            buttonClicker(button31x, button1);
+            //Increase by two to allow for shift key.
+            KeyboardView = (KeyboardView + 2) % KeyboardAmount;
+            rename_buttons();
+            await Task.Delay(FlashDelay);
+            button10.BackColor = Color.Black;
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            buttonClicker(1, button13);
+        }
+
+        private void button25_ClickAsync(object sender, EventArgs e)
+        {
+            buttonClicker(2, button25);
+        }
+
+        private void button37_ClickAsync(object sender, EventArgs e)
+        {
+            buttonClicker(3, button37);
+
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            buttonClicker(4, button26);
+        }
+
+        private void button14_ClickAsync(object sender, EventArgs e)
+        {
+            buttonClicker(5, button14);
+        }
+
+        private void button9_ClickAsync(object sender, EventArgs e)
+        {
+            buttonClicker(6, button9);
+        }
+
+        private void button20_ClickAsync(object sender, EventArgs e)
+        {
+            buttonClicker(7, button20);
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            buttonClicker(8, button27);
+        }
+        private void button12_ClickAsync(object sender, EventArgs e)
+        {
+            buttonClicker(9, button12);
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            buttonClicker(10, button15);
+        }
+        private void button11_ClickAsync(object sender, EventArgs e)
+        {
+            buttonClicker(11, button11);
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            buttonClicker(12, button29);
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            buttonClicker(13, button16);
+        }
+
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            buttonClicker(14, button33);
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            buttonClicker(15, button30);
+        }
+        private void button7_Click(object sender, EventArgs e)
+        {
+            buttonClicker(16, button7);
+        }
+
+        private void button21_Click(object sender, EventArgs e)
+        {
+            buttonClicker(17, button21);
+        }
+        private void button17_Click(object sender, EventArgs e)
+        {
+            buttonClicker(18, button17);
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            buttonClicker(19, button31);
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            //buttonClicker(" ", button18);
+            buttonClicker(20, button18);
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            buttonClicker(21, button24);
+        }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            buttonClicker(22, button35);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            buttonClicker(23, button1);
+        }
+        private void button5_Click(object sender, EventArgs e)
+        {
+            buttonClicker(24, button5);
+        }
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            buttonClicker(25, button23);
         }
 
         private void button2_ClickAsync(object sender, EventArgs e)
         {
-            buttonClicker(button34x, button2);
+            buttonClicker(26, button2);
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             buttonClicker(".", button3);
@@ -344,10 +454,7 @@ namespace GazeToolBar
             button4.BackColor = Color.Black;
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button32x, button5);
-        }
+
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -355,30 +462,15 @@ namespace GazeToolBar
             buttonClicker("^", button6);
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button19x, button7);
-        }
 
-        private void button13_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button2x, button13);
-        }
 
-        private void button21_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button21x, button21);
-        }
 
-        private void button24_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button29x, button24);
-        }
 
-        private void button23_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button33x, button23);
-        }
+
+
+
+
+
 
         private void button22_Click(object sender, EventArgs e)
         {
@@ -391,76 +483,39 @@ namespace GazeToolBar
             //buttonClicker(button31x, button19);
         }
 
-        private void button18_Click(object sender, EventArgs e)
-        {
-            //buttonClicker(" ", button18);
-            buttonClicker(button28x, button18);
-        }
 
-        private void button17_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button22x, button17);
-        }
 
-        private void button16_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button16x, button16);
-        }
 
-        private void button15_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button11x, button15);
-        }
 
-        private void button33_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button17x, button33);
-        }
+
+
 
         private void button36_Click(object sender, EventArgs e)
         {
             buttonClicker("{TAB}", button36);
         }
 
-        private void button35_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button30x, button35);
-        }
+
 
         private void button34_Click(object sender, EventArgs e)
         {
             buttonClicker("{ENTER}", button34);
         }
 
-        private void button31_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button23x, button31);
-        }
 
-        private void button30_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button18x, button30);
-        }
 
-        private void button29_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button15x, button29);
-        }
+
+
+
 
         private void button28_Click(object sender, EventArgs e)
         {
             buttonClicker("{BACKSPACE}", button28);
         }
 
-        private void button27_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button9x, button27);
-        }
 
-        private void button26_Click(object sender, EventArgs e)
-        {
-            buttonClicker(button5x, button26);
-        }
+
+
 
         //Shift key.
         private async void button8_Click(object sender, EventArgs e)
@@ -481,51 +536,22 @@ namespace GazeToolBar
             rename_buttons();
         }
 
-        private void button9_ClickAsync(object sender, EventArgs e)
-        {
-            buttonClicker(button7x, button9);
-        }
+
 
         //'abc' button.
-        private async void button10_Click(object sender, EventArgs e)
-        {
-            //Increase by two to allow for shift key.
-            KeyboardView = (KeyboardView + 2) % KeyboardAmount;
-            rename_buttons();
-            await Task.Delay(FlashDelay);
-            button10.BackColor = Color.Black;
-        }
 
-        private void button11_ClickAsync(object sender, EventArgs e)
-        {
-            buttonClicker(button14x, button11);
-        }
 
-        private void button12_ClickAsync(object sender, EventArgs e)
-        {
-            buttonClicker(button10x, button12);
-        }
 
-        private void button20_ClickAsync(object sender, EventArgs e)
-        {
-            buttonClicker(button8x, button20);
-        }
 
-        private void button14_ClickAsync(object sender, EventArgs e)
-        {
-            buttonClicker(button6x, button14);
-        }
 
-        private void button25_ClickAsync(object sender, EventArgs e)
-        {
-            buttonClicker(button3x, button25);
-        }
 
-        private void button37_ClickAsync(object sender, EventArgs e)
-        {
-            buttonClicker(button4x, button37);
 
-        }
+
+
+
+
+
+
 
         private void panel38_Paint(object sender, PaintEventArgs e)
         {

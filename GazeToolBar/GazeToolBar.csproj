@@ -177,6 +177,7 @@
     <Compile Include="HookedKeyboardEventArgs.cs" />
     <Compile Include="IFixationSmoother.cs" />
     <Compile Include="KeyboardHook.cs" />
+    <Compile Include="keyboardKeys.cs" />
     <Compile Include="KeyConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -275,6 +276,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Mic-icon.png" />
+    <Content Include="KeyboardSetOne.txt" />
+    <Content Include="KeyboardSetTwo.txt" />
     <Content Include="programIcon.ico" />
     <Content Include="Gaze.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
