@@ -218,8 +218,8 @@
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Keyboard.BehavMap.resx">
-      <DependentUpon>Keyboard.BehavMap.cs</DependentUpon>
+    <EmbeddedResource Include="Keyboard.resx">
+      <DependentUpon>Keyboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -278,6 +278,7 @@
     <None Include="Images\Mic-icon.png" />
     <Content Include="KeyboardSetOne.txt" />
     <Content Include="KeyboardSetTwo.txt" />
+    <Content Include="practiceDict.txt" />
     <Content Include="programIcon.ico" />
     <Content Include="Gaze.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -34,6 +34,8 @@ namespace GazeToolBar
         //Lists for each key on the keyboard. Enter, Tab, Space, ,, ., shift not included.
 
         private keyboardKeys[] keys;
+        private string enteredWord;
+        private List<string> dictWords;
 
 
         private Panel F1keyboardPanel;
@@ -59,6 +61,21 @@ namespace GazeToolBar
             F1DoubleClickPanel = form1DCP;
             F1ScrollPanel = form1ScrollP;
             this.gazeSidePanel = gazeSidePanel;
+            enteredWord = "";
+            dictWords = new List<string>();
+            using (StreamReader sr = new StreamReader("practiceDict.txt"))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] seperateKeys = line.Split(',');
+                    dictWords.Add(seperateKeys[0]);
+                }
+
+            }
+
+
+
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -257,6 +274,67 @@ namespace GazeToolBar
         }
 
 
+
+        public static int GetDamerauLevenshteinDistance(string s, string t)
+        {
+            var bounds = new { Height = s.Length + 1, Width = t.Length + 1 };
+
+            int[,] matrix = new int[bounds.Height, bounds.Width];
+
+            for (int height = 0; height < bounds.Height; height++) { matrix[height, 0] = height; };
+            for (int width = 0; width < bounds.Width; width++) { matrix[0, width] = width; };
+
+            for (int height = 1; height < bounds.Height; height++)
+            {
+                for (int width = 1; width < bounds.Width; width++)
+                {
+                    int cost = (s[height - 1] == t[width - 1]) ? 0 : 1;
+                    int insertion = matrix[height, width - 1] + 1;
+                    int deletion = matrix[height - 1, width] + 1;
+                    int substitution = matrix[height - 1, width - 1] + cost;
+
+                    int distance = Math.Min(insertion, Math.Min(deletion, substitution));
+
+                    if (height > 1 && width > 1 && s[height - 1] == t[width - 2] && s[height - 2] == t[width - 1])
+                    {
+                        distance = Math.Min(distance, matrix[height - 2, width - 2] + cost);
+                    }
+
+                    matrix[height, width] = distance;
+                }
+            }
+
+            return matrix[bounds.Height - 1, bounds.Width - 1];
+        }
+
+
+        private void fillInSuggestions()
+        {
+            List<string> results = new List<string>();
+            Button[] buttons = new Button[] { btnOp1, btnOp2, btnOp3, btnOp4 };
+            for (int i = 0; i < dictWords.Count; i++)
+            {
+                int distance = GetDamerauLevenshteinDistance(enteredWord, dictWords[i]);
+                if(distance<4)
+                {
+                    results.Add(dictWords[i]);
+                }
+            }
+            int optionCount = 4;
+            if (results.Count<4)
+            {
+                optionCount = results.Count;
+            }
+            for (int i = 0; i < optionCount; i++)
+            {
+                buttons[i].Text = results[i];
+            }
+
+        }
+
+
+
+
         //Returns if taskbar is visible on screen.
         public static bool IsTaskbarVisible()
         {
@@ -267,6 +345,9 @@ namespace GazeToolBar
         {
             button.BackColor = Color.Cyan;
             SendKeys.Send(keys[key].getKey(KeyboardView)); //set background color when clicked
+            enteredWord += keys[key].getKey(KeyboardView);
+            typedWord.Text = enteredWord;
+            fillInSuggestions();
             await Task.Delay(FlashDelay);     //delay before deactivting button flash
             button.BackColor = Color.Black;   //revert back to original color
         }
@@ -275,6 +356,7 @@ namespace GazeToolBar
         {
             button.BackColor = Color.Cyan;
             SendKeys.Send(key);               //set background color when clicked
+            fillInSuggestions();
             await Task.Delay(FlashDelay);     //delay before deactivting button flash
             button.BackColor = Color.Black;   //revert back to original color
         }

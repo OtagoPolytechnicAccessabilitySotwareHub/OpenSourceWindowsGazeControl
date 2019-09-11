@@ -41,14 +41,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GazeToolBar.exe" size="1697792">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GazeToolBar.exe" size="1700864">
       <assemblyIdentity name="GazeToolBar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0y4TztVWGRP8SB0Cq83MkWXbpxmu/3qYLJRnCv1IvDQ=</dsig:DigestValue>
+        <dsig:DigestValue>1+ERw6/AI7SVnyhDEORhjfmpJhN+zMx4BPM/i6jL5+U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -72,7 +72,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8vmAvJzx48J+88TwlZiOHuSOF0wC37JpaNfwcj/yx5Y=</dsig:DigestValue>
+        <dsig:DigestValue>SwjMpz4LL+Y026vmEeCBdCamE7cee+RytxHFAZkQW1M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -278,6 +278,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>lYotEqdSFgg4JbWWcnA2EIMcRfCTY0lyYEY8WkWuaEc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="practiceDict.txt" size="5989">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>kxB5HLUek5o47sbsu3QcI9/mwpwbJEPlfpnYkTyR5JQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="programIcon.ico" size="370070">

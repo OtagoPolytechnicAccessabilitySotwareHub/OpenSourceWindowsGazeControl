@@ -109,11 +109,16 @@
             this.panelRightClick = new System.Windows.Forms.Panel();
             this.panelScroll = new System.Windows.Forms.Panel();
             this.panelDLeftClick = new System.Windows.Forms.Panel();
+            this.btnOp1 = new System.Windows.Forms.Button();
             this.btnDoubleLeftClick = new System.Windows.Forms.Button();
             this.btnScroll = new System.Windows.Forms.Button();
             this.btnRightClick = new System.Windows.Forms.Button();
             this.btnLeftClick = new System.Windows.Forms.Button();
             this.btnKeyboard = new System.Windows.Forms.Button();
+            this.btnOp2 = new System.Windows.Forms.Button();
+            this.btnOp3 = new System.Windows.Forms.Button();
+            this.btnOp4 = new System.Windows.Forms.Button();
+            this.typedWord = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -1087,6 +1092,15 @@
             this.panelDLeftClick.Size = new System.Drawing.Size(80, 80);
             this.panelDLeftClick.TabIndex = 44;
             // 
+            // btnOp1
+            // 
+            this.btnOp1.Location = new System.Drawing.Point(278, 232);
+            this.btnOp1.Name = "btnOp1";
+            this.btnOp1.Size = new System.Drawing.Size(133, 59);
+            this.btnOp1.TabIndex = 45;
+            this.btnOp1.Text = "option 1";
+            this.btnOp1.UseVisualStyleBackColor = true;
+            // 
             // btnDoubleLeftClick
             // 
             this.btnDoubleLeftClick.BackColor = System.Drawing.Color.Black;
@@ -1147,12 +1161,54 @@
             this.btnKeyboard.UseVisualStyleBackColor = false;
             this.btnKeyboard.Click += new System.EventHandler(this.btnKeyboard_Click);
             // 
+            // btnOp2
+            // 
+            this.btnOp2.Location = new System.Drawing.Point(446, 232);
+            this.btnOp2.Name = "btnOp2";
+            this.btnOp2.Size = new System.Drawing.Size(96, 64);
+            this.btnOp2.TabIndex = 46;
+            this.btnOp2.Text = "option2";
+            this.btnOp2.UseVisualStyleBackColor = true;
+            // 
+            // btnOp3
+            // 
+            this.btnOp3.Location = new System.Drawing.Point(539, 257);
+            this.btnOp3.Name = "btnOp3";
+            this.btnOp3.Size = new System.Drawing.Size(118, 39);
+            this.btnOp3.TabIndex = 47;
+            this.btnOp3.Text = "option 3";
+            this.btnOp3.UseVisualStyleBackColor = true;
+            // 
+            // btnOp4
+            // 
+            this.btnOp4.Location = new System.Drawing.Point(764, 260);
+            this.btnOp4.Name = "btnOp4";
+            this.btnOp4.Size = new System.Drawing.Size(136, 49);
+            this.btnOp4.TabIndex = 48;
+            this.btnOp4.Text = "Option 4";
+            this.btnOp4.UseVisualStyleBackColor = true;
+            // 
+            // typedWord
+            // 
+            this.typedWord.AutoSize = true;
+            this.typedWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typedWord.Location = new System.Drawing.Point(65, 229);
+            this.typedWord.Name = "typedWord";
+            this.typedWord.Size = new System.Drawing.Size(126, 46);
+            this.typedWord.TabIndex = 49;
+            this.typedWord.Text = "label1";
+            // 
             // Keyboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1444, 904);
             this.ControlBox = false;
+            this.Controls.Add(this.typedWord);
+            this.Controls.Add(this.btnOp4);
+            this.Controls.Add(this.btnOp3);
+            this.Controls.Add(this.btnOp2);
+            this.Controls.Add(this.btnOp1);
             this.Controls.Add(this.panelDLeftClick);
             this.Controls.Add(this.panelScroll);
             this.Controls.Add(this.panelRightClick);
@@ -1207,6 +1263,7 @@
             this.panelScroll.ResumeLayout(false);
             this.panelDLeftClick.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1297,5 +1354,10 @@
         private System.Windows.Forms.Button btnScroll;
         private System.Windows.Forms.Panel panelDLeftClick;
         private System.Windows.Forms.Button btnDoubleLeftClick;
+        private System.Windows.Forms.Button btnOp1;
+        private System.Windows.Forms.Button btnOp2;
+        private System.Windows.Forms.Button btnOp3;
+        private System.Windows.Forms.Button btnOp4;
+        private System.Windows.Forms.Label typedWord;
     }
 }
