@@ -123,6 +123,7 @@
             this.pnlOp2 = new System.Windows.Forms.Panel();
             this.pnlOp3 = new System.Windows.Forms.Panel();
             this.pnlOp4 = new System.Windows.Forms.Panel();
+            this.typedWordpnl = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -169,6 +170,7 @@
             this.pnlOp2.SuspendLayout();
             this.pnlOp3.SuspendLayout();
             this.pnlOp4.SuspendLayout();
+            this.typedWordpnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1214,7 +1216,7 @@
             this.typedWord.BackColor = System.Drawing.Color.Black;
             this.typedWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.typedWord.ForeColor = System.Drawing.Color.White;
-            this.typedWord.Location = new System.Drawing.Point(65, 229);
+            this.typedWord.Location = new System.Drawing.Point(3, 3);
             this.typedWord.Name = "typedWord";
             this.typedWord.Size = new System.Drawing.Size(126, 46);
             this.typedWord.TabIndex = 49;
@@ -1222,6 +1224,7 @@
             // 
             // pnlOp1
             // 
+            this.pnlOp1.BackColor = System.Drawing.Color.Black;
             this.pnlOp1.Controls.Add(this.btnOp1);
             this.pnlOp1.Location = new System.Drawing.Point(258, 23);
             this.pnlOp1.Name = "pnlOp1";
@@ -1230,6 +1233,7 @@
             // 
             // pnlOp2
             // 
+            this.pnlOp2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pnlOp2.Controls.Add(this.btnOp2);
             this.pnlOp2.Location = new System.Drawing.Point(512, 23);
             this.pnlOp2.Name = "pnlOp2";
@@ -1238,6 +1242,7 @@
             // 
             // pnlOp3
             // 
+            this.pnlOp3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pnlOp3.Controls.Add(this.btnOp3);
             this.pnlOp3.Location = new System.Drawing.Point(740, 23);
             this.pnlOp3.Name = "pnlOp3";
@@ -1246,11 +1251,21 @@
             // 
             // pnlOp4
             // 
+            this.pnlOp4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.pnlOp4.Controls.Add(this.btnOp4);
             this.pnlOp4.Location = new System.Drawing.Point(975, 23);
             this.pnlOp4.Name = "pnlOp4";
             this.pnlOp4.Size = new System.Drawing.Size(200, 100);
             this.pnlOp4.TabIndex = 53;
+            // 
+            // typedWordpnl
+            // 
+            this.typedWordpnl.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.typedWordpnl.Controls.Add(this.typedWord);
+            this.typedWordpnl.Location = new System.Drawing.Point(76, 128);
+            this.typedWordpnl.Name = "typedWordpnl";
+            this.typedWordpnl.Size = new System.Drawing.Size(200, 100);
+            this.typedWordpnl.TabIndex = 54;
             // 
             // Keyboard
             // 
@@ -1258,11 +1273,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1444, 904);
             this.ControlBox = false;
+            this.Controls.Add(this.typedWordpnl);
             this.Controls.Add(this.pnlOp4);
             this.Controls.Add(this.pnlOp3);
             this.Controls.Add(this.pnlOp2);
             this.Controls.Add(this.pnlOp1);
-            this.Controls.Add(this.typedWord);
             this.Controls.Add(this.panelDLeftClick);
             this.Controls.Add(this.panelScroll);
             this.Controls.Add(this.panelRightClick);
@@ -1320,8 +1335,9 @@
             this.pnlOp2.ResumeLayout(false);
             this.pnlOp3.ResumeLayout(false);
             this.pnlOp4.ResumeLayout(false);
+            this.typedWordpnl.ResumeLayout(false);
+            this.typedWordpnl.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -1421,5 +1437,6 @@
         private System.Windows.Forms.Panel pnlOp2;
         private System.Windows.Forms.Panel pnlOp3;
         private System.Windows.Forms.Panel pnlOp4;
+        private System.Windows.Forms.Panel typedWordpnl;
     }
 }

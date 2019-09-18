@@ -131,29 +131,34 @@ namespace GazeToolBar
             }
 
             int third = panel38.Width / 3;
-            typedWord.Width = third;
-            typedWord.Height = Convert.ToInt32(button1.Height * 0.8);
-            typedWord.Left = 0;
-            typedWord.Top = panel38.Top - typedWord.Height;
+            typedWordpnl.Width = third;
+            typedWordpnl.Height = 100;//Convert.ToInt32(panel1.Height);
+            typedWordpnl.Left = 0;
+            typedWordpnl.Top = panel38.Top - typedWordpnl.Height;
 
             int predWordSize = (third * 2) / 4;
 
-            pnlOp1.Size = new Size(predWordSize, typedWord.Height);
-            pnlOp2.Size = new Size(predWordSize, typedWord.Height);
-            pnlOp3.Size = new Size(predWordSize, typedWord.Height);
-            pnlOp4.Size = new Size(predWordSize, typedWord.Height);
+            pnlOp1.Size = new Size(predWordSize, typedWordpnl.Height);
+            pnlOp2.Size = new Size(predWordSize, typedWordpnl.Height);
+            pnlOp3.Size = new Size(predWordSize, typedWordpnl.Height);
+            pnlOp4.Size = new Size(predWordSize, typedWordpnl.Height);
 
-            pnlOp1.Location = new Point(third, typedWord.Top);
-            pnlOp2.Location = new Point(third+predWordSize, typedWord.Top);
-            pnlOp3.Location = new Point(third+(predWordSize*2), typedWord.Top);
-            pnlOp4.Location = new Point(third + (predWordSize * 3), typedWord.Top);
+            pnlOp1.Location = new Point(third, typedWordpnl.Top);
+            pnlOp2.Location = new Point(third+predWordSize, typedWordpnl.Top);
+            pnlOp3.Location = new Point(third+(predWordSize*2), typedWordpnl.Top);
+            pnlOp4.Location = new Point(third + (predWordSize * 3), typedWordpnl.Top);
 
-            btnOp1.Size = new Size(predWordSize-3, typedWord.Height-3);
-            btnOp2.Size = new Size(predWordSize - 3, typedWord.Height - 3);
-            btnOp3.Size = new Size(predWordSize - 3, typedWord.Height - 3);
-            btnOp4.Size = new Size(predWordSize - 3, typedWord.Height - 3);
+            btnOp1.Size = new Size(predWordSize-6, typedWordpnl.Height-3);
+            btnOp2.Size = new Size(predWordSize - 6, typedWordpnl.Height - 6);
+            btnOp3.Size = new Size(predWordSize - 6, typedWordpnl.Height - 6);
+            btnOp4.Size = new Size(predWordSize - 6, typedWordpnl.Height - 6);
 
 
+            btnOp1.Font = new Font(button34.Font.FontFamily, panel38.Width / 45);
+            btnOp2.Font = new Font(button34.Font.FontFamily, panel38.Width / 45);
+            btnOp3.Font = new Font(button34.Font.FontFamily, panel38.Width / 45);
+            btnOp4.Font = new Font(button34.Font.FontFamily, panel38.Width / 45);
+            typedWord.Font = new Font(button34.Font.FontFamily, panel38.Width / 30);
 
             keys = new keyboardKeys[27];
             string[] keyboardsAvailable = new string[] { "KeyboardSetOne.txt", "KeyboardSetTwo.txt", "KeyboardSetThree.txt" };
