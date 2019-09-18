@@ -1,7 +1,7 @@
-hello
-hell
-help
-hii
+hello,0
+hell,0
+help,0
+hii,0
 the,0
 of,0
 and,0

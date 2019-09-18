@@ -35,7 +35,7 @@ namespace GazeToolBar
 
         private keyboardKeys[] keys;
         private string enteredWord;
-        private List<string> dictWords;
+        private List<AutoWord> dictWords;
 
 
         private Panel F1keyboardPanel;
@@ -62,14 +62,14 @@ namespace GazeToolBar
             F1ScrollPanel = form1ScrollP;
             this.gazeSidePanel = gazeSidePanel;
             enteredWord = "";
-            dictWords = new List<string>();
+            dictWords = new List<AutoWord>();
             using (StreamReader sr = new StreamReader("practiceDict.txt"))
             {
                 string line;
                 while ((line = sr.ReadLine()) != null)
                 {
                     string[] seperateKeys = line.Split(',');
-                    dictWords.Add(seperateKeys[0]);
+                    dictWords.Add(new AutoWord(seperateKeys[0], seperateKeys[1]));
                 }
 
             }
@@ -129,6 +129,29 @@ namespace GazeToolBar
                     countbutton++;
                 }
             }
+
+            int third = panel38.Width / 3;
+            typedWord.Width = third;
+            typedWord.Height = Convert.ToInt32(button1.Height * 0.8);
+            typedWord.Left = 0;
+            typedWord.Top = panel38.Top - typedWord.Height;
+
+            int predWordSize = (third * 2) / 4;
+
+            pnlOp1.Size = new Size(predWordSize, typedWord.Height);
+            pnlOp2.Size = new Size(predWordSize, typedWord.Height);
+            pnlOp3.Size = new Size(predWordSize, typedWord.Height);
+            pnlOp4.Size = new Size(predWordSize, typedWord.Height);
+
+            pnlOp1.Location = new Point(third, typedWord.Top);
+            pnlOp2.Location = new Point(third+predWordSize, typedWord.Top);
+            pnlOp3.Location = new Point(third+(predWordSize*2), typedWord.Top);
+            pnlOp4.Location = new Point(third + (predWordSize * 3), typedWord.Top);
+
+            btnOp1.Size = new Size(predWordSize-3, typedWord.Height-3);
+            btnOp2.Size = new Size(predWordSize - 3, typedWord.Height - 3);
+            btnOp3.Size = new Size(predWordSize - 3, typedWord.Height - 3);
+            btnOp4.Size = new Size(predWordSize - 3, typedWord.Height - 3);
 
 
 
@@ -310,30 +333,52 @@ namespace GazeToolBar
 
         private void fillInSuggestions()
         {
-            List<string> results = new List<string>();
+            List<AutoWord> results = new List<AutoWord>();
             Button[] buttons = new Button[] { btnOp1, btnOp2, btnOp3, btnOp4 };
             for (int i = 0; i < dictWords.Count; i++)
             {
-                int distance = GetDamerauLevenshteinDistance(enteredWord, dictWords[i]);
-                if(distance<4)
+                int distance = GetDamerauLevenshteinDistance(enteredWord, dictWords[i].Word);
+                if(distance<6)
                 {
+                    dictWords[i].CurrentDistance = distance/(1/dictWords[i].Frequency);
                     results.Add(dictWords[i]);
                 }
             }
             int optionCount = 4;
+            IntArrayInsertionSort(results);
             if (results.Count<4)
             {
                 optionCount = results.Count;
             }
             for (int i = 0; i < optionCount; i++)
             {
-                buttons[i].Text = results[i];
+                buttons[i].Text = results[i].Word;
             }
+
 
         }
 
+        public static void IntArrayInsertionSort(List<AutoWord> data)
+        {
+            int i, j;
+            int N = data.Count;
 
+            for (j = 1; j < N; j++)
+            {
+                for (i = j; i > 0 && data[i].CurrentDistance < data[i - 1].CurrentDistance; i--)
+                {
+                    exchange(data, i, i - 1);
+                }
+            }
+        }
+        public static void exchange(List<AutoWord> data, int m, int n)
+        {
+            AutoWord temporary;
 
+            temporary = data[m];
+            data[m] = data[n];
+            data[n] = temporary;
+        }
 
         //Returns if taskbar is visible on screen.
         public static bool IsTaskbarVisible()

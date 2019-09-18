@@ -140,6 +140,7 @@
   <ItemGroup>
     <Compile Include="ActionHandler.cs" />
     <Compile Include="AutoStart.cs" />
+    <Compile Include="AutoWord.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="CustomFixationDataStream.cs" />
     <Compile Include="DrawingForm.cs">
