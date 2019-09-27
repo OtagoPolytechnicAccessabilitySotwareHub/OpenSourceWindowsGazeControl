@@ -183,7 +183,7 @@ namespace GazeToolBar
         */
         public void DoActionZooming()
         {
-            
+
             if (SystemFlags.shortCutKeyPressed)//if a user defined click key is pressed
             {
                 magnifier.PlaceZoomWindow(shortcutKeyWorker.GetXY());
@@ -409,6 +409,7 @@ namespace GazeToolBar
 
         private void resetColorButton()
         {
+
             if (SystemFlags.hasSelectedButtonColourBeenReset == false)
             {
                 SystemFlags.hasSelectedButtonColourBeenReset = true;

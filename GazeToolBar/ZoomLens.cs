@@ -38,8 +38,8 @@ namespace GazeToolBar
         public void Start()
         {
             // Show the form that the user feedback image is drawn on
-            drawingForm.Show();
             DrawTimer.Start();
+            drawingForm.Show();
         }
 
 

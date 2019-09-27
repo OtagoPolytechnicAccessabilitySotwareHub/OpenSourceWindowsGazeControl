@@ -9,17 +9,17 @@ namespace GazeToolBar
     public class AutoWord
     {
         private string word;
-        private int frequency;
-        private int currentDistance;
+        private Double frequency;
+        private Double currentDistance;
         public AutoWord(string word, string freq)
         {
             this.word = word;
-            frequency = 1;
+            frequency = Convert.ToDouble(freq);
             currentDistance = 0;
         }
 
-        public int CurrentDistance { get => currentDistance; set => currentDistance = value; }
-        public int Frequency { get => frequency; set => frequency = value; }
+        public Double CurrentDistance { get => currentDistance; set => currentDistance = value; }
+        public Double Frequency { get => frequency; set => frequency = value; }
         public string Word { get => word; set => word = value; }
     }
 }

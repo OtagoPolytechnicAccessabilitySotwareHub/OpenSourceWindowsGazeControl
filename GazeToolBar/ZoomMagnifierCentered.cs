@@ -152,8 +152,12 @@ namespace GazeToolBar
         public override void ResetZoomValue()
         {
             //base.ResetZoomValue();
-
+            Console.WriteLine("zoom Reset");
+            sourceRect.left = -40000;
+            sourceRect.top = -40000;
+            NativeMethods.MagSetWindowSource(hwndMag, sourceRect);
             SecondaryOffset = new Point(0, 0);
+            trial = true;
             Magnification = ZOOM_MAX;
 
         }

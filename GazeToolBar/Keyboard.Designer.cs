@@ -1171,8 +1171,8 @@
             this.btnOp1.Name = "btnOp1";
             this.btnOp1.Size = new System.Drawing.Size(133, 59);
             this.btnOp1.TabIndex = 45;
-            this.btnOp1.Text = "option 1";
             this.btnOp1.UseVisualStyleBackColor = false;
+            this.btnOp1.Click += new System.EventHandler(this.btnOp1_Click);
             // 
             // btnOp2
             // 
@@ -1183,8 +1183,8 @@
             this.btnOp2.Name = "btnOp2";
             this.btnOp2.Size = new System.Drawing.Size(96, 64);
             this.btnOp2.TabIndex = 46;
-            this.btnOp2.Text = "option2";
             this.btnOp2.UseVisualStyleBackColor = false;
+            this.btnOp2.Click += new System.EventHandler(this.btnOp2_Click);
             // 
             // btnOp3
             // 
@@ -1195,8 +1195,8 @@
             this.btnOp3.Name = "btnOp3";
             this.btnOp3.Size = new System.Drawing.Size(118, 39);
             this.btnOp3.TabIndex = 47;
-            this.btnOp3.Text = "option 3";
             this.btnOp3.UseVisualStyleBackColor = false;
+            this.btnOp3.Click += new System.EventHandler(this.btnOp3_Click);
             // 
             // btnOp4
             // 
@@ -1207,8 +1207,8 @@
             this.btnOp4.Name = "btnOp4";
             this.btnOp4.Size = new System.Drawing.Size(136, 49);
             this.btnOp4.TabIndex = 48;
-            this.btnOp4.Text = "Option 4";
             this.btnOp4.UseVisualStyleBackColor = false;
+            this.btnOp4.Click += new System.EventHandler(this.btnOp4_Click);
             // 
             // typedWord
             // 
@@ -1218,9 +1218,8 @@
             this.typedWord.ForeColor = System.Drawing.Color.White;
             this.typedWord.Location = new System.Drawing.Point(3, 3);
             this.typedWord.Name = "typedWord";
-            this.typedWord.Size = new System.Drawing.Size(126, 46);
+            this.typedWord.Size = new System.Drawing.Size(0, 46);
             this.typedWord.TabIndex = 49;
-            this.typedWord.Text = "label1";
             // 
             // pnlOp1
             // 

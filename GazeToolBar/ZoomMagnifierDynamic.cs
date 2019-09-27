@@ -65,6 +65,19 @@ namespace GazeToolBar
 
         protected override void startZoom()
         {
+            FixationPoint = fixationWorker.getXY();
+
+
+            zoomPoint = new Point(
+            (int)(fixationWorker.getXY().X - ((form.Width / Magnification) / 2)),
+            (int)(fixationWorker.getXY().Y - ((form.Height / Magnification) / 2))
+            );
+
+            //Smoothed point
+            Point zoomPointSmoothed = GetPointSmoothed(zoomPoint);
+
+
+
             sourceRect.left = FixationPoint.X - (form.Width / 2);
             sourceRect.top = FixationPoint.Y - (form.Height / 2);
 

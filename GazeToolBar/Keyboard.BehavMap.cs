@@ -15,6 +15,7 @@ namespace GazeToolBar
     public partial class Keyboard : Form
     {
         int buttonClickDelay = 500; //How long (ms) you need to look at button before it sends click event
+        int buttonClickDelayPred = 750;
         private void connectBehaveMap() //connecting the behaviour map with the form
         {
             eyeXHost.Connect(Form2Map);
@@ -140,6 +141,21 @@ namespace GazeToolBar
 
             Form2Map.Add(button37, new GazeAwareBehavior(button37_Click) { DelayMilliseconds = buttonClickDelay });
             Form2Map.Add(panel32, new GazeAwareBehavior(OnGazeChangeBTColour));
+
+            //Autopredict word buttons
+            Form2Map.Add(btnOp1, new GazeAwareBehavior(btnOp1_Click) { DelayMilliseconds = buttonClickDelayPred });
+            Form2Map.Add(pnlOp1, new GazeAwareBehavior(OnGazeChangeBTColour));
+            Form2Map.Add(btnOp2, new GazeAwareBehavior(btnOp2_Click) { DelayMilliseconds = buttonClickDelayPred });
+            Form2Map.Add(pnlOp2, new GazeAwareBehavior(OnGazeChangeBTColour));
+            Form2Map.Add(btnOp3, new GazeAwareBehavior(btnOp3_Click) { DelayMilliseconds = buttonClickDelayPred });
+            Form2Map.Add(pnlOp3, new GazeAwareBehavior(OnGazeChangeBTColour));
+            Form2Map.Add(btnOp4, new GazeAwareBehavior(btnOp4_Click) { DelayMilliseconds = buttonClickDelayPred });
+            Form2Map.Add(pnlOp4, new GazeAwareBehavior(OnGazeChangeBTColour));
+
+
+
+
+            //New side panel buttons
 
             Form2Map.Add(btnKeyboard, new GazeAwareBehavior(btnKeyboard_Click) { DelayMilliseconds = 1000 });
             Form2Map.Add(pnlHighLightKeyboard, new GazeAwareBehavior(OnGazeChangeBTColour2));

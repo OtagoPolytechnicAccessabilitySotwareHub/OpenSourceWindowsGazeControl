@@ -31,7 +31,7 @@ namespace GazeToolBar
         public RECT sourceRect;
         FormsEyeXHost eyeXHost;
         GazePointDataStream gazeStream;
-        private Point zoomPoint;
+        protected Point zoomPoint;
 
         protected FixationSmootherExponential fixationSmoother;
         protected FixationSmootherAverage positionSmoother;
@@ -134,7 +134,7 @@ namespace GazeToolBar
             sourceRect.left = zoomPointSmoothed.X;
             sourceRect.top = zoomPointSmoothed.Y;
 
-
+            UpdateZoomPosition();
             //ensuring zoom window is on screen
             sourceRect.left = Clamp(sourceRect.left, 0, screenBounds.Width - (int)(form.Width / Magnification));
             sourceRect.top = Clamp(sourceRect.top, 0, screenBounds.Height - (int)(form.Height / Magnification));
@@ -194,7 +194,7 @@ namespace GazeToolBar
             Offset = new Point(0, 0);
 
             Magnification = 1;
-
+            trial = true;
             updateTimer.Enabled = false;
         }
         
@@ -207,7 +207,8 @@ namespace GazeToolBar
 
         private void form_FormClosing(object sender, FormClosingEventArgs e)
         {
-            updateTimer.Enabled = false;
+            //updateTimer.Enabled = false;
+            Stop();
         }
 
         private void form_Resize(object sender, EventArgs e)
@@ -243,6 +244,7 @@ namespace GazeToolBar
             form.Width = 1;
             form.Height = 1;
             trial = true;
+            sourceRect = new RECT();
             form.Refresh();
             form.Hide();
         }
