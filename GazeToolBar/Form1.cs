@@ -18,7 +18,8 @@ namespace GazeToolBar
     */
     public partial class Form1 : ShellLib.ApplicationDesktopToolbar
     {
-        private SettingsForm settings;
+        //private SettingsForm settings;
+        private HomeSettings settings;
         private ContextMenu contextMenu;
         private MenuItem menuItemExit;
         private MenuItem menuItemStartOnOff;
@@ -249,7 +250,8 @@ namespace GazeToolBar
         {
             if (!checkOpenForm(typeof(SettingsForm)))
             {
-                settings = new SettingsForm(this, eyeXHost);
+                //settings = new SettingsForm(this, eyeXHost);
+                settings = new HomeSettings(this, eyeXHost);
                 settings.Show();
             }
         }

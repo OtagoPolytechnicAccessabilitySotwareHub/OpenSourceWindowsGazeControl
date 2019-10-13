@@ -344,14 +344,15 @@ namespace GazeToolBar
                 for (int i = 0; i < dictWords.Count; i++)
                 {
                     int distance = GetDamerauLevenshteinDistance(enteredWord, dictWords[i].Word);
-                    if (distance < 4)
+                    if (distance < 3)
                     {
                         dictWords[i].CurrentDistance = distance / (1 / dictWords[i].Frequency);
                         results.Add(dictWords[i]);
                     }
                 }
                 int optionCount = 4;
-                IntArrayInsertionSort(results);
+                //IntArrayInsertionSort(results);
+                QuickSort_Recursive(results, 0, results.Count-1);
                 if (results.Count < 4)
                 {
                     optionCount = results.Count;
@@ -393,6 +394,86 @@ namespace GazeToolBar
             data[m] = data[n];
             data[n] = temporary;
         }
+
+
+
+        static public int Partition(List<AutoWord> numbers, int left, int right)
+
+        {
+
+            AutoWord pivot = numbers[left];
+
+            while (true)
+
+            {
+
+                while (numbers[left].CurrentDistance < pivot.CurrentDistance)
+
+                    left++;
+
+
+
+                while (numbers[right].CurrentDistance > pivot.CurrentDistance)
+
+                    right--;
+
+
+
+                if (left < right)
+
+                {
+
+                    AutoWord temp = numbers[right];
+
+                    numbers[right] = numbers[left];
+
+                    numbers[left] = temp;
+
+                }
+
+                else
+
+                {
+
+                    return right;
+
+                }
+
+            }
+
+        }
+
+
+
+        static public void QuickSort_Recursive(List<AutoWord> arr, int left, int right)
+
+        {
+
+            // For Recusrion
+
+            if (left < right)
+
+            {
+
+                int pivot = Partition(arr, left, right);
+
+
+
+                if (pivot > 1)
+
+                    QuickSort_Recursive(arr, left, pivot - 1);
+
+
+
+                if (pivot + 1 < right)
+
+                    QuickSort_Recursive(arr, pivot + 1, right);
+
+            }
+
+        }
+
+
 
         //Returns if taskbar is visible on screen.
         public static bool IsTaskbarVisible()

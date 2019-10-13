@@ -41,14 +41,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GazeToolBar.exe" size="1704960">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GazeToolBar.exe" size="1737728">
       <assemblyIdentity name="GazeToolBar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xHEBFX00K2eex9aXOieSO4PlNOmq7KBSZvLUyBXnjTE=</dsig:DigestValue>
+        <dsig:DigestValue>EuxTWmahgjNSN7o2vOlHOTQzdIL29u85dDzzfySjgfM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

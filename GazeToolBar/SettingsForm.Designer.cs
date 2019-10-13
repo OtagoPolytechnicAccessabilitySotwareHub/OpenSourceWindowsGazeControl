@@ -310,7 +310,7 @@ namespace GazeToolBar
             // 
             this.panelSaveAndCancel.Controls.Add(this.pnlCancel);
             this.panelSaveAndCancel.Controls.Add(this.pnlSave);
-            this.panelSaveAndCancel.Location = new System.Drawing.Point(48, 480);
+            this.panelSaveAndCancel.Location = new System.Drawing.Point(26, 400);
             this.panelSaveAndCancel.Margin = new System.Windows.Forms.Padding(2);
             this.panelSaveAndCancel.Name = "panelSaveAndCancel";
             this.panelSaveAndCancel.Size = new System.Drawing.Size(782, 164);
@@ -1096,7 +1096,7 @@ namespace GazeToolBar
             this.pnlZoomSettings.Location = new System.Drawing.Point(219, 118);
             this.pnlZoomSettings.Margin = new System.Windows.Forms.Padding(2);
             this.pnlZoomSettings.Name = "pnlZoomSettings";
-            this.pnlZoomSettings.Size = new System.Drawing.Size(73, 250);
+            this.pnlZoomSettings.Size = new System.Drawing.Size(181, 220);
             this.pnlZoomSettings.TabIndex = 29;
             this.pnlZoomSettings.Visible = false;
             this.pnlZoomSettings.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlZoomSettings_Paint);
@@ -1175,9 +1175,9 @@ namespace GazeToolBar
             this.pnlGeneral.Controls.Add(this.pnlDefaultConfirm);
             this.pnlGeneral.Controls.Add(this.pnlFixationTimeOut);
             this.pnlGeneral.Controls.Add(this.panelOther);
-            this.pnlGeneral.Location = new System.Drawing.Point(19, 159);
+            this.pnlGeneral.Location = new System.Drawing.Point(45, 580);
             this.pnlGeneral.Name = "pnlGeneral";
-            this.pnlGeneral.Size = new System.Drawing.Size(163, 120);
+            this.pnlGeneral.Size = new System.Drawing.Size(1579, 469);
             this.pnlGeneral.TabIndex = 27;
             // 
             // panelPrecision
@@ -1185,9 +1185,9 @@ namespace GazeToolBar
             this.panelPrecision.BackColor = System.Drawing.Color.Black;
             this.panelPrecision.Controls.Add(this.pnlFixTimeLengthContent);
             this.panelPrecision.Controls.Add(this.lblFixationDetectionTimeLength);
-            this.panelPrecision.Location = new System.Drawing.Point(2, 4);
+            this.panelPrecision.Location = new System.Drawing.Point(12, 10);
             this.panelPrecision.Name = "panelPrecision";
-            this.panelPrecision.Size = new System.Drawing.Size(264, 184);
+            this.panelPrecision.Size = new System.Drawing.Size(1425, 184);
             this.panelPrecision.TabIndex = 13;
             // 
             // pnlFixTimeLengthContent
@@ -1586,7 +1586,7 @@ namespace GazeToolBar
             this.pnlRearrange.Controls.Add(this.pnlKeyboardButton);
             this.pnlRearrange.Controls.Add(this.pnlScrollClickButton);
             this.pnlRearrange.Controls.Add(this.pnlDoubleLeftClickButton);
-            this.pnlRearrange.Location = new System.Drawing.Point(12, 372);
+            this.pnlRearrange.Location = new System.Drawing.Point(12, 177);
             this.pnlRearrange.Name = "pnlRearrange";
             this.pnlRearrange.Size = new System.Drawing.Size(259, 206);
             this.pnlRearrange.TabIndex = 30;
@@ -1987,10 +1987,10 @@ namespace GazeToolBar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1825, 787);
+            this.ClientSize = new System.Drawing.Size(1825, 1061);
             this.Controls.Add(this.pnlRearrange);
-            this.Controls.Add(this.pnlZoomSettings);
             this.Controls.Add(this.pnlGeneral);
+            this.Controls.Add(this.pnlZoomSettings);
             this.Controls.Add(this.pnlCrosshairPage);
             this.Controls.Add(this.pnlPageKeyboard);
             this.Controls.Add(this.panelSaveAndCancel);
