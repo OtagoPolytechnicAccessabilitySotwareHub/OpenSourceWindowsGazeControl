@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GazeToolBar
 {
-    public class AutoWord
+    public class AutoWord : IComparable<AutoWord>
     {
         private string word;
         private Double frequency;
@@ -16,6 +16,18 @@ namespace GazeToolBar
             this.word = word;
             frequency = Convert.ToDouble(freq);
             currentDistance = 0;
+        }
+
+        //Comparator to allow Sort() method to be used when in a list.
+        public int CompareTo(AutoWord other)
+        {
+            //If same distance
+            if (this.currentDistance == other.currentDistance)
+            {
+                return this.word.CompareTo(other.word);
+            }
+            //Compare distances of items in list
+            return this.currentDistance.CompareTo(other.currentDistance);
         }
 
         public Double CurrentDistance { get => currentDistance; set => currentDistance = value; }
