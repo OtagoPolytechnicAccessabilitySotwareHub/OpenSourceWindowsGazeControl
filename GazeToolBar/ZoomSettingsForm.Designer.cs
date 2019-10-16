@@ -410,6 +410,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1678, 800);
+            this.ControlBox = false;
             this.Controls.Add(this.panelSaveAndCancel);
             this.Controls.Add(this.pnlZoomSize);
             this.Controls.Add(this.pnlZoomAmount);

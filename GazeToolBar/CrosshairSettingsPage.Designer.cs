@@ -107,6 +107,7 @@
             this.buttonCrosshairUp.TabIndex = 13;
             this.buttonCrosshairUp.Text = "+";
             this.buttonCrosshairUp.UseVisualStyleBackColor = false;
+            this.buttonCrosshairUp.Click += new System.EventHandler(this.buttonCrosshairUp_Click);
             // 
             // trackBarCrosshair
             // 
@@ -118,6 +119,7 @@
             this.trackBarCrosshair.TabIndex = 12;
             this.trackBarCrosshair.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBarCrosshair.Value = 5;
+            this.trackBarCrosshair.ValueChanged += new System.EventHandler(this.trackBarCrosshair_ValueChanged);
             // 
             // pnlCrosshairDownButton
             // 
@@ -141,6 +143,7 @@
             this.buttonCrosshairDown.TabIndex = 14;
             this.buttonCrosshairDown.Text = "-";
             this.buttonCrosshairDown.UseVisualStyleBackColor = false;
+            this.buttonCrosshairDown.Click += new System.EventHandler(this.buttonCrosshairDown_Click);
             // 
             // labCrosshairType
             // 
@@ -186,6 +189,7 @@
             this.btnCancel.TabIndex = 24;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pnlSave
             // 
@@ -210,6 +214,7 @@
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // CrosshairSettingsPage
             // 

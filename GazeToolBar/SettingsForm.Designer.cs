@@ -818,6 +818,7 @@ namespace GazeToolBar
             // 
             this.pnlSwitchSetting.BackColor = System.Drawing.Color.Black;
             this.pnlSwitchSetting.Controls.Add(this.panelCrosshairButton);
+            this.pnlSwitchSetting.Controls.Add(this.pnlGeneral);
             this.pnlSwitchSetting.Controls.Add(this.pnlRearrangeButton);
             this.pnlSwitchSetting.Controls.Add(this.pnlZoomButton);
             this.pnlSwitchSetting.Controls.Add(this.pnlKeysButton);
@@ -1175,9 +1176,9 @@ namespace GazeToolBar
             this.pnlGeneral.Controls.Add(this.pnlDefaultConfirm);
             this.pnlGeneral.Controls.Add(this.pnlFixationTimeOut);
             this.pnlGeneral.Controls.Add(this.panelOther);
-            this.pnlGeneral.Location = new System.Drawing.Point(45, 580);
+            this.pnlGeneral.Location = new System.Drawing.Point(613, 29);
             this.pnlGeneral.Name = "pnlGeneral";
-            this.pnlGeneral.Size = new System.Drawing.Size(1579, 469);
+            this.pnlGeneral.Size = new System.Drawing.Size(183, 154);
             this.pnlGeneral.TabIndex = 27;
             // 
             // panelPrecision
@@ -1586,9 +1587,9 @@ namespace GazeToolBar
             this.pnlRearrange.Controls.Add(this.pnlKeyboardButton);
             this.pnlRearrange.Controls.Add(this.pnlScrollClickButton);
             this.pnlRearrange.Controls.Add(this.pnlDoubleLeftClickButton);
-            this.pnlRearrange.Location = new System.Drawing.Point(12, 177);
+            this.pnlRearrange.Location = new System.Drawing.Point(81, 591);
             this.pnlRearrange.Name = "pnlRearrange";
-            this.pnlRearrange.Size = new System.Drawing.Size(259, 206);
+            this.pnlRearrange.Size = new System.Drawing.Size(808, 596);
             this.pnlRearrange.TabIndex = 30;
             this.pnlRearrange.Visible = false;
             // 
@@ -1796,10 +1797,10 @@ namespace GazeToolBar
             this.pnlCrosshairPage.Controls.Add(this.pnlFeedback);
             this.pnlCrosshairPage.Controls.Add(this.pictureBoxCrosshairPreview);
             this.pnlCrosshairPage.Controls.Add(this.panelCrosshairSelection);
-            this.pnlCrosshairPage.Location = new System.Drawing.Point(1424, 113);
+            this.pnlCrosshairPage.Location = new System.Drawing.Point(33, 158);
             this.pnlCrosshairPage.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCrosshairPage.Name = "pnlCrosshairPage";
-            this.pnlCrosshairPage.Size = new System.Drawing.Size(239, 166);
+            this.pnlCrosshairPage.Size = new System.Drawing.Size(168, 165);
             this.pnlCrosshairPage.TabIndex = 30;
             this.pnlCrosshairPage.Visible = false;
             // 
@@ -1987,11 +1988,10 @@ namespace GazeToolBar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1825, 1061);
+            this.ClientSize = new System.Drawing.Size(1825, 1181);
             this.Controls.Add(this.pnlRearrange);
-            this.Controls.Add(this.pnlGeneral);
-            this.Controls.Add(this.pnlZoomSettings);
             this.Controls.Add(this.pnlCrosshairPage);
+            this.Controls.Add(this.pnlZoomSettings);
             this.Controls.Add(this.pnlPageKeyboard);
             this.Controls.Add(this.panelSaveAndCancel);
             this.Controls.Add(this.pnlSwitchSetting);

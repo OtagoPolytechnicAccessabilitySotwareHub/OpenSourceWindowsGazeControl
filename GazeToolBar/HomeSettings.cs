@@ -24,6 +24,8 @@ namespace GazeToolBar
         private Form1 form1;
         private GeneralSettingsForm genSettings;
         private ZoomSettingsForm zoomSettings;
+        private CrosshairSettingsPage crossSettings;
+        private RearrangeSettingPage buttonArrangement;
         private static FormsEyeXHost eyeXHost;
         public HomeSettings(Form1 form1, FormsEyeXHost EyeXHost)
         {
@@ -53,6 +55,33 @@ namespace GazeToolBar
         {
             zoomSettings = new ZoomSettingsForm(this, form1, eyeXHost);
             zoomSettings.Show();
+        }
+
+        private void crossButton_Click(object sender, EventArgs e)
+        {
+            crossSettings = new CrosshairSettingsPage(this, form1, eyeXHost);
+            crossSettings.Show();
+        }
+
+        private void arrangeButton_Click(object sender, EventArgs e)
+        {
+
+            buttonArrangement = new RearrangeSettingPage(this, form1, eyeXHost);
+            buttonArrangement.Show();
+
+        }
+
+        //Very important method. Do NOT delete!!!!!
+        private Boolean returnTrue()
+        {
+            if(false)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

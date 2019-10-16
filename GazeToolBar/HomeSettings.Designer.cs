@@ -106,6 +106,7 @@
             this.crossButton.TabIndex = 1;
             this.crossButton.Text = "Crosshair Settings";
             this.crossButton.UseVisualStyleBackColor = true;
+            this.crossButton.Click += new System.EventHandler(this.crossButton_Click);
             // 
             // arrangePanel
             // 
@@ -125,6 +126,7 @@
             this.arrangeButton.TabIndex = 2;
             this.arrangeButton.Text = "Button Arrangement";
             this.arrangeButton.UseVisualStyleBackColor = true;
+            this.arrangeButton.Click += new System.EventHandler(this.arrangeButton_Click);
             // 
             // shortcutPanel
             // 
