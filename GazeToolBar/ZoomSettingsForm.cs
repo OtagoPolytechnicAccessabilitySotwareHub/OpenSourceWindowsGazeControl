@@ -23,6 +23,7 @@ namespace GazeToolBar
             InitializeComponent();
             this.home = home;
             this.form1 = form1;
+            //connectBehaveMap();
         }
 
 

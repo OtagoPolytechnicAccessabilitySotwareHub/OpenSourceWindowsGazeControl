@@ -7,14 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EyeXFramework.Forms;
 
 namespace GazeToolBar
 {
     public partial class ShortcutSettingForm : Form
     {
-        public ShortcutSettingForm()
+        private HomeSettings home;
+        private static FormsEyeXHost eyeXHost;
+        private Form1 form1;
+        private bool WaitForUserKeyPress;
+        public ShortcutSettingForm(HomeSettings home, Form1 form1, FormsEyeXHost EyeXHost)
         {
+            eyeXHost = EyeXHost;
             InitializeComponent();
+            this.home = home;
+            this.form1 = form1;
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        
     }
 }

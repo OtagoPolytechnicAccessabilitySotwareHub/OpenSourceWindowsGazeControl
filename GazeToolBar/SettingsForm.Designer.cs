@@ -342,10 +342,10 @@ namespace GazeToolBar
             this.pnlPageKeyboard.Controls.Add(this.pnlRightClick);
             this.pnlPageKeyboard.Controls.Add(this.pnlDoubleClick);
             this.pnlPageKeyboard.Controls.Add(this.pnlScroll);
-            this.pnlPageKeyboard.Location = new System.Drawing.Point(19, 47);
+            this.pnlPageKeyboard.Location = new System.Drawing.Point(45, 599);
             this.pnlPageKeyboard.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPageKeyboard.Name = "pnlPageKeyboard";
-            this.pnlPageKeyboard.Size = new System.Drawing.Size(163, 107);
+            this.pnlPageKeyboard.Size = new System.Drawing.Size(1291, 571);
             this.pnlPageKeyboard.TabIndex = 26;
             this.pnlPageKeyboard.Visible = false;
             // 
@@ -1587,9 +1587,9 @@ namespace GazeToolBar
             this.pnlRearrange.Controls.Add(this.pnlKeyboardButton);
             this.pnlRearrange.Controls.Add(this.pnlScrollClickButton);
             this.pnlRearrange.Controls.Add(this.pnlDoubleLeftClickButton);
-            this.pnlRearrange.Location = new System.Drawing.Point(81, 591);
+            this.pnlRearrange.Location = new System.Drawing.Point(126, 352);
             this.pnlRearrange.Name = "pnlRearrange";
-            this.pnlRearrange.Size = new System.Drawing.Size(808, 596);
+            this.pnlRearrange.Size = new System.Drawing.Size(183, 205);
             this.pnlRearrange.TabIndex = 30;
             this.pnlRearrange.Visible = false;
             // 

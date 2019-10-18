@@ -55,7 +55,7 @@
             // 
             // pictureBoxCrosshairPreview
             // 
-            this.pictureBoxCrosshairPreview.BackColor = System.Drawing.Color.White;
+            this.pictureBoxCrosshairPreview.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxCrosshairPreview.Location = new System.Drawing.Point(627, 332);
             this.pictureBoxCrosshairPreview.Name = "pictureBoxCrosshairPreview";
             this.pictureBoxCrosshairPreview.Size = new System.Drawing.Size(150, 150);
@@ -228,6 +228,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrosshairSettingsPage";
             this.Text = "CrosshairSettingsPage";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCrosshairPreview)).EndInit();
             this.panelCrosshairSelection.ResumeLayout(false);
             this.panelCrosshairSelection.PerformLayout();

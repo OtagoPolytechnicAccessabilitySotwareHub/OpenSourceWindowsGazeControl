@@ -146,6 +146,7 @@
             this.shortcutButton.TabIndex = 2;
             this.shortcutButton.Text = "Shortcut Settings";
             this.shortcutButton.UseVisualStyleBackColor = true;
+            this.shortcutButton.Click += new System.EventHandler(this.shortcutButton_Click);
             // 
             // backPanel
             // 

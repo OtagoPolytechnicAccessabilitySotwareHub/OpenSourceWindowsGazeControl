@@ -30,28 +30,29 @@
         {
             this.pnlRearrangeControls = new System.Windows.Forms.Panel();
             this.pnlMoveUpButton = new System.Windows.Forms.Panel();
-            this.pnlMoveDownButton = new System.Windows.Forms.Panel();
-            this.pnlRemoveButton = new System.Windows.Forms.Panel();
-            this.pnlRightClickButton = new System.Windows.Forms.Panel();
-            this.pnlSettingsButton = new System.Windows.Forms.Panel();
-            this.pnlLeftClickButton = new System.Windows.Forms.Panel();
-            this.pnlKeyboardButton = new System.Windows.Forms.Panel();
-            this.pnlScrollClickButton = new System.Windows.Forms.Panel();
-            this.pnlDoubleLeftClickButton = new System.Windows.Forms.Panel();
             this.btnMoveUp = new System.Windows.Forms.Button();
+            this.pnlMoveDownButton = new System.Windows.Forms.Panel();
             this.btnMoveDown = new System.Windows.Forms.Button();
+            this.pnlRemoveButton = new System.Windows.Forms.Panel();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.pnlRightClickButton = new System.Windows.Forms.Panel();
             this.btnActionRightClick = new System.Windows.Forms.Button();
+            this.pnlSettingsButton = new System.Windows.Forms.Panel();
             this.btnActionSettings = new System.Windows.Forms.Button();
+            this.pnlLeftClickButton = new System.Windows.Forms.Panel();
             this.btnActionLeftClick = new System.Windows.Forms.Button();
+            this.pnlKeyboardButton = new System.Windows.Forms.Panel();
             this.btnActionKeyboard = new System.Windows.Forms.Button();
+            this.pnlScrollClickButton = new System.Windows.Forms.Panel();
             this.btnActionScrollClick = new System.Windows.Forms.Button();
+            this.pnlDoubleLeftClickButton = new System.Windows.Forms.Panel();
             this.btnActionDoubleLeftClick = new System.Windows.Forms.Button();
             this.panelSaveAndCancel = new System.Windows.Forms.Panel();
             this.pnlCancel = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlSave = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
+            this.pnlRearrange = new System.Windows.Forms.Panel();
             this.pnlRearrangeControls.SuspendLayout();
             this.pnlMoveUpButton.SuspendLayout();
             this.pnlMoveDownButton.SuspendLayout();
@@ -65,6 +66,7 @@
             this.panelSaveAndCancel.SuspendLayout();
             this.pnlCancel.SuspendLayout();
             this.pnlSave.SuspendLayout();
+            this.pnlRearrange.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlRearrangeControls
@@ -72,7 +74,7 @@
             this.pnlRearrangeControls.Controls.Add(this.pnlMoveUpButton);
             this.pnlRearrangeControls.Controls.Add(this.pnlMoveDownButton);
             this.pnlRearrangeControls.Controls.Add(this.pnlRemoveButton);
-            this.pnlRearrangeControls.Location = new System.Drawing.Point(613, 45);
+            this.pnlRearrangeControls.Location = new System.Drawing.Point(642, 42);
             this.pnlRearrangeControls.Name = "pnlRearrangeControls";
             this.pnlRearrangeControls.Size = new System.Drawing.Size(113, 497);
             this.pnlRearrangeControls.TabIndex = 4;
@@ -85,72 +87,6 @@
             this.pnlMoveUpButton.Size = new System.Drawing.Size(104, 105);
             this.pnlMoveUpButton.TabIndex = 3;
             // 
-            // pnlMoveDownButton
-            // 
-            this.pnlMoveDownButton.Controls.Add(this.btnMoveDown);
-            this.pnlMoveDownButton.Location = new System.Drawing.Point(3, 385);
-            this.pnlMoveDownButton.Name = "pnlMoveDownButton";
-            this.pnlMoveDownButton.Size = new System.Drawing.Size(104, 105);
-            this.pnlMoveDownButton.TabIndex = 3;
-            // 
-            // pnlRemoveButton
-            // 
-            this.pnlRemoveButton.Controls.Add(this.btnRemove);
-            this.pnlRemoveButton.Location = new System.Drawing.Point(3, 194);
-            this.pnlRemoveButton.Name = "pnlRemoveButton";
-            this.pnlRemoveButton.Size = new System.Drawing.Size(104, 105);
-            this.pnlRemoveButton.TabIndex = 3;
-            // 
-            // pnlRightClickButton
-            // 
-            this.pnlRightClickButton.BackColor = System.Drawing.Color.Black;
-            this.pnlRightClickButton.Controls.Add(this.btnActionRightClick);
-            this.pnlRightClickButton.Location = new System.Drawing.Point(122, 338);
-            this.pnlRightClickButton.Name = "pnlRightClickButton";
-            this.pnlRightClickButton.Size = new System.Drawing.Size(94, 95);
-            this.pnlRightClickButton.TabIndex = 2;
-            // 
-            // pnlSettingsButton
-            // 
-            this.pnlSettingsButton.Controls.Add(this.btnActionSettings);
-            this.pnlSettingsButton.Location = new System.Drawing.Point(426, 230);
-            this.pnlSettingsButton.Name = "pnlSettingsButton";
-            this.pnlSettingsButton.Size = new System.Drawing.Size(94, 95);
-            this.pnlSettingsButton.TabIndex = 2;
-            // 
-            // pnlLeftClickButton
-            // 
-            this.pnlLeftClickButton.Controls.Add(this.btnActionLeftClick);
-            this.pnlLeftClickButton.Location = new System.Drawing.Point(122, 230);
-            this.pnlLeftClickButton.Name = "pnlLeftClickButton";
-            this.pnlLeftClickButton.Size = new System.Drawing.Size(94, 95);
-            this.pnlLeftClickButton.TabIndex = 2;
-            // 
-            // pnlKeyboardButton
-            // 
-            this.pnlKeyboardButton.BackColor = System.Drawing.Color.Transparent;
-            this.pnlKeyboardButton.Controls.Add(this.btnActionKeyboard);
-            this.pnlKeyboardButton.Location = new System.Drawing.Point(233, 230);
-            this.pnlKeyboardButton.Name = "pnlKeyboardButton";
-            this.pnlKeyboardButton.Size = new System.Drawing.Size(94, 95);
-            this.pnlKeyboardButton.TabIndex = 2;
-            // 
-            // pnlScrollClickButton
-            // 
-            this.pnlScrollClickButton.Controls.Add(this.btnActionScrollClick);
-            this.pnlScrollClickButton.Location = new System.Drawing.Point(233, 124);
-            this.pnlScrollClickButton.Name = "pnlScrollClickButton";
-            this.pnlScrollClickButton.Size = new System.Drawing.Size(94, 95);
-            this.pnlScrollClickButton.TabIndex = 2;
-            // 
-            // pnlDoubleLeftClickButton
-            // 
-            this.pnlDoubleLeftClickButton.Controls.Add(this.btnActionDoubleLeftClick);
-            this.pnlDoubleLeftClickButton.Location = new System.Drawing.Point(122, 124);
-            this.pnlDoubleLeftClickButton.Name = "pnlDoubleLeftClickButton";
-            this.pnlDoubleLeftClickButton.Size = new System.Drawing.Size(94, 95);
-            this.pnlDoubleLeftClickButton.TabIndex = 1;
-            // 
             // btnMoveUp
             // 
             this.btnMoveUp.BackColor = System.Drawing.Color.Black;
@@ -162,6 +98,15 @@
             this.btnMoveUp.Size = new System.Drawing.Size(100, 100);
             this.btnMoveUp.TabIndex = 0;
             this.btnMoveUp.UseVisualStyleBackColor = false;
+            this.btnMoveUp.Click += new System.EventHandler(this.btnMoveUp_Click);
+            // 
+            // pnlMoveDownButton
+            // 
+            this.pnlMoveDownButton.Controls.Add(this.btnMoveDown);
+            this.pnlMoveDownButton.Location = new System.Drawing.Point(3, 385);
+            this.pnlMoveDownButton.Name = "pnlMoveDownButton";
+            this.pnlMoveDownButton.Size = new System.Drawing.Size(104, 105);
+            this.pnlMoveDownButton.TabIndex = 3;
             // 
             // btnMoveDown
             // 
@@ -174,6 +119,15 @@
             this.btnMoveDown.Size = new System.Drawing.Size(100, 100);
             this.btnMoveDown.TabIndex = 0;
             this.btnMoveDown.UseVisualStyleBackColor = false;
+            this.btnMoveDown.Click += new System.EventHandler(this.btnMoveDown_Click);
+            // 
+            // pnlRemoveButton
+            // 
+            this.pnlRemoveButton.Controls.Add(this.btnRemove);
+            this.pnlRemoveButton.Location = new System.Drawing.Point(3, 194);
+            this.pnlRemoveButton.Name = "pnlRemoveButton";
+            this.pnlRemoveButton.Size = new System.Drawing.Size(104, 105);
+            this.pnlRemoveButton.TabIndex = 3;
             // 
             // btnRemove
             // 
@@ -186,6 +140,16 @@
             this.btnRemove.Size = new System.Drawing.Size(100, 100);
             this.btnRemove.TabIndex = 0;
             this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // pnlRightClickButton
+            // 
+            this.pnlRightClickButton.BackColor = System.Drawing.Color.Black;
+            this.pnlRightClickButton.Controls.Add(this.btnActionRightClick);
+            this.pnlRightClickButton.Location = new System.Drawing.Point(187, 330);
+            this.pnlRightClickButton.Name = "pnlRightClickButton";
+            this.pnlRightClickButton.Size = new System.Drawing.Size(94, 95);
+            this.pnlRightClickButton.TabIndex = 2;
             // 
             // btnActionRightClick
             // 
@@ -198,6 +162,15 @@
             this.btnActionRightClick.Size = new System.Drawing.Size(90, 90);
             this.btnActionRightClick.TabIndex = 0;
             this.btnActionRightClick.UseVisualStyleBackColor = false;
+            this.btnActionRightClick.Click += new System.EventHandler(this.btnActionButtonClick_Click);
+            // 
+            // pnlSettingsButton
+            // 
+            this.pnlSettingsButton.Controls.Add(this.btnActionSettings);
+            this.pnlSettingsButton.Location = new System.Drawing.Point(491, 222);
+            this.pnlSettingsButton.Name = "pnlSettingsButton";
+            this.pnlSettingsButton.Size = new System.Drawing.Size(94, 95);
+            this.pnlSettingsButton.TabIndex = 2;
             // 
             // btnActionSettings
             // 
@@ -210,6 +183,15 @@
             this.btnActionSettings.Size = new System.Drawing.Size(90, 90);
             this.btnActionSettings.TabIndex = 0;
             this.btnActionSettings.UseVisualStyleBackColor = false;
+            this.btnActionSettings.Click += new System.EventHandler(this.btnActionButtonClick_Click);
+            // 
+            // pnlLeftClickButton
+            // 
+            this.pnlLeftClickButton.Controls.Add(this.btnActionLeftClick);
+            this.pnlLeftClickButton.Location = new System.Drawing.Point(187, 222);
+            this.pnlLeftClickButton.Name = "pnlLeftClickButton";
+            this.pnlLeftClickButton.Size = new System.Drawing.Size(94, 95);
+            this.pnlLeftClickButton.TabIndex = 2;
             // 
             // btnActionLeftClick
             // 
@@ -222,6 +204,16 @@
             this.btnActionLeftClick.Size = new System.Drawing.Size(90, 90);
             this.btnActionLeftClick.TabIndex = 0;
             this.btnActionLeftClick.UseVisualStyleBackColor = false;
+            this.btnActionLeftClick.Click += new System.EventHandler(this.btnActionButtonClick_Click);
+            // 
+            // pnlKeyboardButton
+            // 
+            this.pnlKeyboardButton.BackColor = System.Drawing.Color.Transparent;
+            this.pnlKeyboardButton.Controls.Add(this.btnActionKeyboard);
+            this.pnlKeyboardButton.Location = new System.Drawing.Point(298, 222);
+            this.pnlKeyboardButton.Name = "pnlKeyboardButton";
+            this.pnlKeyboardButton.Size = new System.Drawing.Size(94, 95);
+            this.pnlKeyboardButton.TabIndex = 2;
             // 
             // btnActionKeyboard
             // 
@@ -233,6 +225,15 @@
             this.btnActionKeyboard.Size = new System.Drawing.Size(90, 90);
             this.btnActionKeyboard.TabIndex = 0;
             this.btnActionKeyboard.UseVisualStyleBackColor = false;
+            this.btnActionKeyboard.Click += new System.EventHandler(this.btnActionButtonClick_Click);
+            // 
+            // pnlScrollClickButton
+            // 
+            this.pnlScrollClickButton.Controls.Add(this.btnActionScrollClick);
+            this.pnlScrollClickButton.Location = new System.Drawing.Point(298, 116);
+            this.pnlScrollClickButton.Name = "pnlScrollClickButton";
+            this.pnlScrollClickButton.Size = new System.Drawing.Size(94, 95);
+            this.pnlScrollClickButton.TabIndex = 2;
             // 
             // btnActionScrollClick
             // 
@@ -244,6 +245,15 @@
             this.btnActionScrollClick.Size = new System.Drawing.Size(90, 90);
             this.btnActionScrollClick.TabIndex = 0;
             this.btnActionScrollClick.UseVisualStyleBackColor = false;
+            this.btnActionScrollClick.Click += new System.EventHandler(this.btnActionButtonClick_Click);
+            // 
+            // pnlDoubleLeftClickButton
+            // 
+            this.pnlDoubleLeftClickButton.Controls.Add(this.btnActionDoubleLeftClick);
+            this.pnlDoubleLeftClickButton.Location = new System.Drawing.Point(187, 116);
+            this.pnlDoubleLeftClickButton.Name = "pnlDoubleLeftClickButton";
+            this.pnlDoubleLeftClickButton.Size = new System.Drawing.Size(94, 95);
+            this.pnlDoubleLeftClickButton.TabIndex = 1;
             // 
             // btnActionDoubleLeftClick
             // 
@@ -256,12 +266,13 @@
             this.btnActionDoubleLeftClick.Size = new System.Drawing.Size(90, 90);
             this.btnActionDoubleLeftClick.TabIndex = 0;
             this.btnActionDoubleLeftClick.UseVisualStyleBackColor = false;
+            this.btnActionDoubleLeftClick.Click += new System.EventHandler(this.btnActionButtonClick_Click);
             // 
             // panelSaveAndCancel
             // 
             this.panelSaveAndCancel.Controls.Add(this.pnlCancel);
             this.panelSaveAndCancel.Controls.Add(this.pnlSave);
-            this.panelSaveAndCancel.Location = new System.Drawing.Point(356, 569);
+            this.panelSaveAndCancel.Location = new System.Drawing.Point(439, 799);
             this.panelSaveAndCancel.Margin = new System.Windows.Forms.Padding(2);
             this.panelSaveAndCancel.Name = "panelSaveAndCancel";
             this.panelSaveAndCancel.Size = new System.Drawing.Size(782, 164);
@@ -290,6 +301,7 @@
             this.btnCancel.TabIndex = 24;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pnlSave
             // 
@@ -314,24 +326,36 @@
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // pnlRearrange
+            // 
+            this.pnlRearrange.Controls.Add(this.pnlRearrangeControls);
+            this.pnlRearrange.Controls.Add(this.pnlScrollClickButton);
+            this.pnlRearrange.Controls.Add(this.pnlRightClickButton);
+            this.pnlRearrange.Controls.Add(this.pnlKeyboardButton);
+            this.pnlRearrange.Controls.Add(this.pnlDoubleLeftClickButton);
+            this.pnlRearrange.Controls.Add(this.pnlLeftClickButton);
+            this.pnlRearrange.Controls.Add(this.pnlSettingsButton);
+            this.pnlRearrange.Location = new System.Drawing.Point(39, 12);
+            this.pnlRearrange.Name = "pnlRearrange";
+            this.pnlRearrange.Size = new System.Drawing.Size(1388, 671);
+            this.pnlRearrange.TabIndex = 35;
             // 
             // RearrangeSettingPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1483, 784);
+            this.ClientSize = new System.Drawing.Size(1871, 998);
+            this.Controls.Add(this.pnlRearrange);
             this.Controls.Add(this.panelSaveAndCancel);
-            this.Controls.Add(this.pnlRearrangeControls);
-            this.Controls.Add(this.pnlRightClickButton);
-            this.Controls.Add(this.pnlDoubleLeftClickButton);
-            this.Controls.Add(this.pnlSettingsButton);
-            this.Controls.Add(this.pnlScrollClickButton);
-            this.Controls.Add(this.pnlLeftClickButton);
-            this.Controls.Add(this.pnlKeyboardButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "RearrangeSettingPage";
             this.Text = "RearrangeSettingPage";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlRearrangeControls.ResumeLayout(false);
             this.pnlMoveUpButton.ResumeLayout(false);
             this.pnlMoveDownButton.ResumeLayout(false);
@@ -345,6 +369,7 @@
             this.panelSaveAndCancel.ResumeLayout(false);
             this.pnlCancel.ResumeLayout(false);
             this.pnlSave.ResumeLayout(false);
+            this.pnlRearrange.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -374,5 +399,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel pnlSave;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Panel pnlRearrange;
     }
 }

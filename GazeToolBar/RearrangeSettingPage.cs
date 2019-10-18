@@ -25,10 +25,13 @@ namespace GazeToolBar
         private Dictionary<String, Button> buttonMap = new Dictionary<string, Button>();
         public RearrangeSettingPage(HomeSettings home, Form1 form1, FormsEyeXHost EyeXHost)
         {
+
             eyeXHost = EyeXHost;
             InitializeComponent();
             this.home = home;
             this.form1 = form1;
+            InitSidebarActions();
+            RefreshActions();
         }
 
 
@@ -103,6 +106,7 @@ namespace GazeToolBar
 
         public void RefreshActions()
         {
+            int RIGHT_XPOS = pnlRearrange.Width - 400;
             int LEFT_XPOS = 400;
             int yPos = 0;
             const int YGAP = 10;
@@ -118,6 +122,18 @@ namespace GazeToolBar
                 {
                     int selIndex = selectedActions.IndexOf(GetStringForButton(b));
                     int y = yPos + ((b.Height + YGAP) * selIndex);
+
+                    if (y + b.Height < pnlRearrange.Height)
+                    {
+                        actionPanels[ind].Left = RIGHT_XPOS;
+                        actionPanels[ind].Top = y;
+                    }
+                    else
+                    {
+                        actionPanels[ind].Left = RIGHT_XPOS + b.Width + XGAP;
+                        actionPanels[ind].Top = yPos + ((b.Height + YGAP) * outOfScreen);
+                        outOfScreen++;
+                    }
 
                 }
                 else
@@ -245,24 +261,28 @@ namespace GazeToolBar
             ActionButtonClick((Button)sender);
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //SettingJSON setting = new SettingJSON();
 
+                
+                Program.readSettings.sidebar = selectedActions.ToArray<string>();
+                Program.readSettings.createJSON(selectedActions.ToArray<string>());
+                form1.ArrangeSidebar(Program.readSettings.sidebar);
+                this.Close();
+            }
+            catch (Exception exception)
+            {
+                form1.NotifyIcon.BalloonTipTitle = "Saving error";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            }
+        }
     }
 }

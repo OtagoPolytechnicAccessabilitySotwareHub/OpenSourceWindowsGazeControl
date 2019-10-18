@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlLeftClick = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlFKeyHighlight2 = new System.Windows.Forms.Panel();
             this.btClearFKeyLeftClick = new System.Windows.Forms.Button();
             this.pnlFKeyHighlight1 = new System.Windows.Forms.Panel();
@@ -36,12 +37,14 @@
             this.lbLeft = new System.Windows.Forms.Label();
             this.pnlRightClick = new System.Windows.Forms.Panel();
             this.lbRight = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pnlFKeyHighlight3 = new System.Windows.Forms.Panel();
             this.btFKeyRightClick = new System.Windows.Forms.Button();
             this.pnlFKeyHighlight4 = new System.Windows.Forms.Panel();
             this.btClearFKeyRightClick = new System.Windows.Forms.Button();
             this.pnlDoubleClick = new System.Windows.Forms.Panel();
             this.lbDouble = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pnlFKeyHighlight5 = new System.Windows.Forms.Panel();
             this.btFKeyDoubleClick = new System.Windows.Forms.Button();
             this.pnlFKeyHighlight6 = new System.Windows.Forms.Panel();
@@ -52,34 +55,28 @@
             this.btClearFKeyScroll = new System.Windows.Forms.Button();
             this.pnlFKeyHighlight7 = new System.Windows.Forms.Panel();
             this.btFKeyScroll = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panelSaveAndCancel = new System.Windows.Forms.Panel();
             this.pnlCancel = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.pnlSave = new System.Windows.Forms.Panel();
-            this.btnSave = new System.Windows.Forms.Button();
             this.pnlLeftClick.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlFKeyHighlight2.SuspendLayout();
             this.pnlFKeyHighlight1.SuspendLayout();
             this.pnlRightClick.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnlFKeyHighlight3.SuspendLayout();
             this.pnlFKeyHighlight4.SuspendLayout();
             this.pnlDoubleClick.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pnlFKeyHighlight5.SuspendLayout();
             this.pnlFKeyHighlight6.SuspendLayout();
             this.pnlScroll.SuspendLayout();
             this.pnlFKeyHighlight8.SuspendLayout();
             this.pnlFKeyHighlight7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelSaveAndCancel.SuspendLayout();
             this.pnlCancel.SuspendLayout();
-            this.pnlSave.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLeftClick
@@ -93,6 +90,17 @@
             this.pnlLeftClick.Name = "pnlLeftClick";
             this.pnlLeftClick.Size = new System.Drawing.Size(195, 533);
             this.pnlLeftClick.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GazeToolBar.Properties.Resources.Left_Click_icon;
+            this.pictureBox1.Location = new System.Drawing.Point(19, 22);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(155, 91);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // pnlFKeyHighlight2
             // 
@@ -176,6 +184,17 @@
             this.lbRight.TabIndex = 3;
             this.lbRight.Text = "label3";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::GazeToolBar.Properties.Resources.Right_Click_icon;
+            this.pictureBox2.Location = new System.Drawing.Point(19, 22);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(155, 91);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // pnlFKeyHighlight3
             // 
             this.pnlFKeyHighlight3.Controls.Add(this.btFKeyRightClick);
@@ -245,6 +264,17 @@
             this.lbDouble.Size = new System.Drawing.Size(77, 27);
             this.lbDouble.TabIndex = 3;
             this.lbDouble.Text = "label4";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::GazeToolBar.Properties.Resources.Double_Click_icon;
+            this.pictureBox3.Location = new System.Drawing.Point(21, 22);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(155, 91);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
             // 
             // pnlFKeyHighlight5
             // 
@@ -362,39 +392,6 @@
             this.btFKeyScroll.Text = "Set";
             this.btFKeyScroll.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::GazeToolBar.Properties.Resources.Left_Click_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(19, 22);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(155, 91);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::GazeToolBar.Properties.Resources.Right_Click_icon;
-            this.pictureBox2.Location = new System.Drawing.Point(19, 22);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(155, 91);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::GazeToolBar.Properties.Resources.Double_Click_icon;
-            this.pictureBox3.Location = new System.Drawing.Point(21, 22);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(155, 91);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::GazeToolBar.Properties.Resources.Scroll_icon;
@@ -409,7 +406,6 @@
             // panelSaveAndCancel
             // 
             this.panelSaveAndCancel.Controls.Add(this.pnlCancel);
-            this.panelSaveAndCancel.Controls.Add(this.pnlSave);
             this.panelSaveAndCancel.Location = new System.Drawing.Point(283, 614);
             this.panelSaveAndCancel.Margin = new System.Windows.Forms.Padding(2);
             this.panelSaveAndCancel.Name = "panelSaveAndCancel";
@@ -419,7 +415,7 @@
             // pnlCancel
             // 
             this.pnlCancel.Controls.Add(this.btnCancel);
-            this.pnlCancel.Location = new System.Drawing.Point(626, 2);
+            this.pnlCancel.Location = new System.Drawing.Point(220, 7);
             this.pnlCancel.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCancel.Name = "pnlCancel";
             this.pnlCancel.Size = new System.Drawing.Size(154, 155);
@@ -432,37 +428,14 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial", 24F);
             this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(2, 2);
+            this.btnCancel.Location = new System.Drawing.Point(2, 3);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 150);
             this.btnCancel.TabIndex = 24;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Done";
             this.btnCancel.UseVisualStyleBackColor = false;
-            // 
-            // pnlSave
-            // 
-            this.pnlSave.Controls.Add(this.btnSave);
-            this.pnlSave.Location = new System.Drawing.Point(5, 2);
-            this.pnlSave.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlSave.Name = "pnlSave";
-            this.pnlSave.Size = new System.Drawing.Size(154, 155);
-            this.pnlSave.TabIndex = 22;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.Transparent;
-            this.btnSave.FlatAppearance.BorderSize = 3;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(2, 2);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(150, 150);
-            this.btnSave.TabIndex = 23;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // ShortcutSettingForm
             // 
@@ -478,29 +451,29 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ShortcutSettingForm";
             this.Text = "ShortcutSettingForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlLeftClick.ResumeLayout(false);
             this.pnlLeftClick.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlFKeyHighlight2.ResumeLayout(false);
             this.pnlFKeyHighlight1.ResumeLayout(false);
             this.pnlRightClick.ResumeLayout(false);
             this.pnlRightClick.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnlFKeyHighlight3.ResumeLayout(false);
             this.pnlFKeyHighlight4.ResumeLayout(false);
             this.pnlDoubleClick.ResumeLayout(false);
             this.pnlDoubleClick.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pnlFKeyHighlight5.ResumeLayout(false);
             this.pnlFKeyHighlight6.ResumeLayout(false);
             this.pnlScroll.ResumeLayout(false);
             this.pnlScroll.PerformLayout();
             this.pnlFKeyHighlight8.ResumeLayout(false);
             this.pnlFKeyHighlight7.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelSaveAndCancel.ResumeLayout(false);
             this.pnlCancel.ResumeLayout(false);
-            this.pnlSave.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -537,7 +510,5 @@
         private System.Windows.Forms.Panel panelSaveAndCancel;
         private System.Windows.Forms.Panel pnlCancel;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Panel pnlSave;
-        private System.Windows.Forms.Button btnSave;
     }
 }

@@ -26,6 +26,7 @@ namespace GazeToolBar
         private ZoomSettingsForm zoomSettings;
         private CrosshairSettingsPage crossSettings;
         private RearrangeSettingPage buttonArrangement;
+        private ShortcutSettingForm shortcutSettings;
         private static FormsEyeXHost eyeXHost;
         public HomeSettings(Form1 form1, FormsEyeXHost EyeXHost)
         {
@@ -82,6 +83,12 @@ namespace GazeToolBar
             {
                 return false;
             }
+        }
+
+        private void shortcutButton_Click(object sender, EventArgs e)
+        {
+            shortcutSettings = new ShortcutSettingForm(this, form1, eyeXHost);
+            shortcutSettings.Show();
         }
     }
 }

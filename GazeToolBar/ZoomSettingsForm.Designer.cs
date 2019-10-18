@@ -419,6 +419,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ZoomSettingsForm";
             this.Text = "ZoomSettingsForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ZoomSettingsForm_Load);
             this.pnlZoomMode.ResumeLayout(false);
             this.pnlCornerZoomMode.ResumeLayout(false);
@@ -446,6 +447,7 @@
 
         #endregion
 
+        private EyeXFramework.Forms.BehaviorMap bhavConfirmMap;
         private System.Windows.Forms.Panel pnlZoomMode;
         private System.Windows.Forms.Panel pnlCornerZoomMode;
         private System.Windows.Forms.Button btnCornerZoomMode;
