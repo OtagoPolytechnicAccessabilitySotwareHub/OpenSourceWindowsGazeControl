@@ -142,6 +142,12 @@
     <Compile Include="AutoStart.cs" />
     <Compile Include="AutoWord.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ColourSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColourSettings.Designer.cs">
+      <DependentUpon>ColourSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrosshairSettingsPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,12 @@
     <Compile Include="IFixationSmoother.cs" />
     <Compile Include="KeyboardHook.cs" />
     <Compile Include="keyboardKeys.cs" />
+    <Compile Include="keyboardSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="keyboardSettings.Designer.cs">
+      <DependentUpon>keyboardSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="KeyConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -247,6 +259,9 @@
     <Compile Include="ZoomSettingsForm.Designer.cs">
       <DependentUpon>ZoomSettingsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ColourSettings.resx">
+      <DependentUpon>ColourSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrosshairSettingsPage.resx">
       <DependentUpon>CrosshairSettingsPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Keyboard.resx">
       <DependentUpon>Keyboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="keyboardSettings.resx">
+      <DependentUpon>keyboardSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
