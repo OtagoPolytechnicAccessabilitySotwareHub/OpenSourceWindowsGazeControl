@@ -40,18 +40,24 @@
             this.shortcutButton = new System.Windows.Forms.Button();
             this.backPanel = new System.Windows.Forms.Panel();
             this.backButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.colourSettings = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.KeyboardSettings = new System.Windows.Forms.Button();
             this.generalPanel.SuspendLayout();
             this.zoomPanel.SuspendLayout();
             this.crossPanel.SuspendLayout();
             this.arrangePanel.SuspendLayout();
             this.shortcutPanel.SuspendLayout();
             this.backPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // generalPanel
             // 
             this.generalPanel.Controls.Add(this.generalButton);
-            this.generalPanel.Location = new System.Drawing.Point(526, 202);
+            this.generalPanel.Location = new System.Drawing.Point(574, 64);
             this.generalPanel.Name = "generalPanel";
             this.generalPanel.Size = new System.Drawing.Size(200, 100);
             this.generalPanel.TabIndex = 0;
@@ -168,6 +174,46 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.colourSettings);
+            this.panel1.Location = new System.Drawing.Point(411, 371);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 100);
+            this.panel1.TabIndex = 6;
+            // 
+            // colourSettings
+            // 
+            this.colourSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colourSettings.ForeColor = System.Drawing.Color.White;
+            this.colourSettings.Location = new System.Drawing.Point(3, 3);
+            this.colourSettings.Name = "colourSettings";
+            this.colourSettings.Size = new System.Drawing.Size(165, 73);
+            this.colourSettings.TabIndex = 0;
+            this.colourSettings.Text = "Colour Settings";
+            this.colourSettings.UseVisualStyleBackColor = true;
+            this.colourSettings.Click += new System.EventHandler(this.colourSettings_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.KeyboardSettings);
+            this.panel2.Location = new System.Drawing.Point(791, 374);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 100);
+            this.panel2.TabIndex = 7;
+            // 
+            // KeyboardSettings
+            // 
+            this.KeyboardSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.KeyboardSettings.ForeColor = System.Drawing.Color.White;
+            this.KeyboardSettings.Location = new System.Drawing.Point(3, 3);
+            this.KeyboardSettings.Name = "KeyboardSettings";
+            this.KeyboardSettings.Size = new System.Drawing.Size(165, 73);
+            this.KeyboardSettings.TabIndex = 0;
+            this.KeyboardSettings.Text = "Keyboard Settings";
+            this.KeyboardSettings.UseVisualStyleBackColor = true;
+            this.KeyboardSettings.Click += new System.EventHandler(this.KeyboardSettings_Click);
+            // 
             // HomeSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -175,6 +221,8 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1376, 649);
             this.ControlBox = false;
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.backPanel);
             this.Controls.Add(this.shortcutPanel);
             this.Controls.Add(this.arrangePanel);
@@ -193,6 +241,8 @@
             this.arrangePanel.ResumeLayout(false);
             this.shortcutPanel.ResumeLayout(false);
             this.backPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -211,5 +261,9 @@
         private System.Windows.Forms.Button shortcutButton;
         private System.Windows.Forms.Panel backPanel;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button colourSettings;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button KeyboardSettings;
     }
 }

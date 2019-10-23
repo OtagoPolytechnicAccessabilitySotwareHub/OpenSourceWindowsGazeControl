@@ -24,5 +24,13 @@ namespace GazeToolBar
         public bool selectionFeedback { get; set; }
         public bool dynamicZoom { get; set; }
         public bool centerZoom { get; set; }
+        public bool eng { get; set; }
+
+        public bool k123 { get; set; }
+        public bool kacc { get; set; }
+
+        public bool autocomplete { get; set; }
+
+        public bool spanish { get; set; }
     }
 }

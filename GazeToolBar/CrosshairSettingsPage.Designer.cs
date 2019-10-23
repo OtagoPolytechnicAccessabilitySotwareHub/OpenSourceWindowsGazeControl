@@ -227,7 +227,7 @@
             this.Controls.Add(this.panelCrosshairSelection);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrosshairSettingsPage";
-            this.Text = "CrosshairSettingsPage";
+            this.Text = "0.";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCrosshairPreview)).EndInit();
             this.panelCrosshairSelection.ResumeLayout(false);

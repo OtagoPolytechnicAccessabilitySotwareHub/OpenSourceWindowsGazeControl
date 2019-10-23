@@ -38,16 +38,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnAutoStart = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.btnAbcOn = new System.Windows.Forms.Button();
+            this.btnAbcOff = new System.Windows.Forms.Button();
+            this.btn123On = new System.Windows.Forms.Button();
+            this.btn123Off = new System.Windows.Forms.Button();
+            this.btnAccOn = new System.Windows.Forms.Button();
+            this.btnAccOff = new System.Windows.Forms.Button();
+            this.btnespOn = new System.Windows.Forms.Button();
+            this.btnespOff = new System.Windows.Forms.Button();
+            this.btnAutoOn = new System.Windows.Forms.Button();
+            this.btnAutoOff = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panelSaveAndCancel.SuspendLayout();
@@ -88,6 +88,7 @@
             this.btnCancel.TabIndex = 24;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pnlSave
             // 
@@ -112,6 +113,7 @@
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label1
             // 
@@ -168,125 +170,135 @@
             this.label5.TabIndex = 41;
             this.label5.Text = "esp";
             // 
-            // btnAutoStart
+            // btnAbcOn
             // 
-            this.btnAutoStart.BackColor = System.Drawing.Color.Black;
-            this.btnAutoStart.FlatAppearance.BorderSize = 5;
-            this.btnAutoStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAutoStart.ForeColor = System.Drawing.Color.White;
-            this.btnAutoStart.Location = new System.Drawing.Point(199, 194);
-            this.btnAutoStart.Name = "btnAutoStart";
-            this.btnAutoStart.Size = new System.Drawing.Size(80, 75);
-            this.btnAutoStart.TabIndex = 42;
-            this.btnAutoStart.UseVisualStyleBackColor = false;
+            this.btnAbcOn.BackColor = System.Drawing.Color.Black;
+            this.btnAbcOn.FlatAppearance.BorderSize = 5;
+            this.btnAbcOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbcOn.ForeColor = System.Drawing.Color.White;
+            this.btnAbcOn.Location = new System.Drawing.Point(199, 194);
+            this.btnAbcOn.Name = "btnAbcOn";
+            this.btnAbcOn.Size = new System.Drawing.Size(80, 75);
+            this.btnAbcOn.TabIndex = 42;
+            this.btnAbcOn.UseVisualStyleBackColor = false;
+            this.btnAbcOn.Click += new System.EventHandler(this.btnAbcOn_Click);
             // 
-            // button1
+            // btnAbcOff
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderSize = 5;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(199, 323);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(80, 75);
-            this.button1.TabIndex = 43;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAbcOff.BackColor = System.Drawing.Color.Black;
+            this.btnAbcOff.FlatAppearance.BorderSize = 5;
+            this.btnAbcOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAbcOff.ForeColor = System.Drawing.Color.White;
+            this.btnAbcOff.Location = new System.Drawing.Point(199, 323);
+            this.btnAbcOff.Name = "btnAbcOff";
+            this.btnAbcOff.Size = new System.Drawing.Size(80, 75);
+            this.btnAbcOff.TabIndex = 43;
+            this.btnAbcOff.UseVisualStyleBackColor = false;
+            this.btnAbcOff.Click += new System.EventHandler(this.btnAbcOff_Click);
             // 
-            // button2
+            // btn123On
             // 
-            this.button2.BackColor = System.Drawing.Color.Black;
-            this.button2.FlatAppearance.BorderSize = 5;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(397, 194);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 75);
-            this.button2.TabIndex = 44;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btn123On.BackColor = System.Drawing.Color.Black;
+            this.btn123On.FlatAppearance.BorderSize = 5;
+            this.btn123On.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn123On.ForeColor = System.Drawing.Color.White;
+            this.btn123On.Location = new System.Drawing.Point(397, 194);
+            this.btn123On.Name = "btn123On";
+            this.btn123On.Size = new System.Drawing.Size(80, 75);
+            this.btn123On.TabIndex = 44;
+            this.btn123On.UseVisualStyleBackColor = false;
+            this.btn123On.Click += new System.EventHandler(this.btn123On_Click);
             // 
-            // button3
+            // btn123Off
             // 
-            this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.FlatAppearance.BorderSize = 5;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(397, 323);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(80, 75);
-            this.button3.TabIndex = 45;
-            this.button3.UseVisualStyleBackColor = false;
+            this.btn123Off.BackColor = System.Drawing.Color.Black;
+            this.btn123Off.FlatAppearance.BorderSize = 5;
+            this.btn123Off.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn123Off.ForeColor = System.Drawing.Color.White;
+            this.btn123Off.Location = new System.Drawing.Point(397, 323);
+            this.btn123Off.Name = "btn123Off";
+            this.btn123Off.Size = new System.Drawing.Size(80, 75);
+            this.btn123Off.TabIndex = 45;
+            this.btn123Off.UseVisualStyleBackColor = false;
+            this.btn123Off.Click += new System.EventHandler(this.btn123Off_Click);
             // 
-            // button4
+            // btnAccOn
             // 
-            this.button4.BackColor = System.Drawing.Color.Black;
-            this.button4.FlatAppearance.BorderSize = 5;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(589, 194);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(80, 75);
-            this.button4.TabIndex = 46;
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnAccOn.BackColor = System.Drawing.Color.Black;
+            this.btnAccOn.FlatAppearance.BorderSize = 5;
+            this.btnAccOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccOn.ForeColor = System.Drawing.Color.White;
+            this.btnAccOn.Location = new System.Drawing.Point(589, 194);
+            this.btnAccOn.Name = "btnAccOn";
+            this.btnAccOn.Size = new System.Drawing.Size(80, 75);
+            this.btnAccOn.TabIndex = 46;
+            this.btnAccOn.UseVisualStyleBackColor = false;
+            this.btnAccOn.Click += new System.EventHandler(this.btnAccOn_Click);
             // 
-            // button5
+            // btnAccOff
             // 
-            this.button5.BackColor = System.Drawing.Color.Black;
-            this.button5.FlatAppearance.BorderSize = 5;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(589, 323);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(80, 75);
-            this.button5.TabIndex = 47;
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnAccOff.BackColor = System.Drawing.Color.Black;
+            this.btnAccOff.FlatAppearance.BorderSize = 5;
+            this.btnAccOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccOff.ForeColor = System.Drawing.Color.White;
+            this.btnAccOff.Location = new System.Drawing.Point(589, 323);
+            this.btnAccOff.Name = "btnAccOff";
+            this.btnAccOff.Size = new System.Drawing.Size(80, 75);
+            this.btnAccOff.TabIndex = 47;
+            this.btnAccOff.UseVisualStyleBackColor = false;
+            this.btnAccOff.Click += new System.EventHandler(this.btnAccOff_Click);
             // 
-            // button6
+            // btnespOn
             // 
-            this.button6.BackColor = System.Drawing.Color.Black;
-            this.button6.FlatAppearance.BorderSize = 5;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(751, 194);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(80, 75);
-            this.button6.TabIndex = 48;
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnespOn.BackColor = System.Drawing.Color.Black;
+            this.btnespOn.FlatAppearance.BorderSize = 5;
+            this.btnespOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnespOn.ForeColor = System.Drawing.Color.White;
+            this.btnespOn.Location = new System.Drawing.Point(751, 194);
+            this.btnespOn.Name = "btnespOn";
+            this.btnespOn.Size = new System.Drawing.Size(80, 75);
+            this.btnespOn.TabIndex = 48;
+            this.btnespOn.UseVisualStyleBackColor = false;
+            this.btnespOn.Click += new System.EventHandler(this.btnespOn_Click);
             // 
-            // button7
+            // btnespOff
             // 
-            this.button7.BackColor = System.Drawing.Color.Black;
-            this.button7.FlatAppearance.BorderSize = 5;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(751, 323);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(80, 75);
-            this.button7.TabIndex = 49;
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnespOff.BackColor = System.Drawing.Color.Black;
+            this.btnespOff.FlatAppearance.BorderSize = 5;
+            this.btnespOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnespOff.ForeColor = System.Drawing.Color.White;
+            this.btnespOff.Location = new System.Drawing.Point(751, 323);
+            this.btnespOff.Name = "btnespOff";
+            this.btnespOff.Size = new System.Drawing.Size(80, 75);
+            this.btnespOff.TabIndex = 49;
+            this.btnespOff.UseVisualStyleBackColor = false;
+            this.btnespOff.Click += new System.EventHandler(this.btnespOff_Click);
             // 
-            // button8
+            // btnAutoOn
             // 
-            this.button8.BackColor = System.Drawing.Color.Black;
-            this.button8.FlatAppearance.BorderSize = 5;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(1031, 194);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(80, 75);
-            this.button8.TabIndex = 50;
-            this.button8.UseVisualStyleBackColor = false;
+            this.btnAutoOn.BackColor = System.Drawing.Color.Black;
+            this.btnAutoOn.FlatAppearance.BorderSize = 5;
+            this.btnAutoOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAutoOn.ForeColor = System.Drawing.Color.White;
+            this.btnAutoOn.Location = new System.Drawing.Point(1031, 194);
+            this.btnAutoOn.Name = "btnAutoOn";
+            this.btnAutoOn.Size = new System.Drawing.Size(80, 75);
+            this.btnAutoOn.TabIndex = 50;
+            this.btnAutoOn.UseVisualStyleBackColor = false;
+            this.btnAutoOn.Click += new System.EventHandler(this.btnAutoOn_Click);
             // 
-            // button9
+            // btnAutoOff
             // 
-            this.button9.BackColor = System.Drawing.Color.Black;
-            this.button9.FlatAppearance.BorderSize = 5;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(1031, 323);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(80, 75);
-            this.button9.TabIndex = 51;
-            this.button9.UseVisualStyleBackColor = false;
+            this.btnAutoOff.BackColor = System.Drawing.Color.Black;
+            this.btnAutoOff.FlatAppearance.BorderSize = 5;
+            this.btnAutoOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAutoOff.ForeColor = System.Drawing.Color.White;
+            this.btnAutoOff.Location = new System.Drawing.Point(1031, 323);
+            this.btnAutoOff.Name = "btnAutoOff";
+            this.btnAutoOff.Size = new System.Drawing.Size(80, 75);
+            this.btnAutoOff.TabIndex = 51;
+            this.btnAutoOff.UseVisualStyleBackColor = false;
+            this.btnAutoOff.Click += new System.EventHandler(this.btnAutoOff_Click);
             // 
             // label6
             // 
@@ -319,16 +331,16 @@
             this.ControlBox = false;
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnAutoStart);
+            this.Controls.Add(this.btnAutoOff);
+            this.Controls.Add(this.btnAutoOn);
+            this.Controls.Add(this.btnespOff);
+            this.Controls.Add(this.btnespOn);
+            this.Controls.Add(this.btnAccOff);
+            this.Controls.Add(this.btnAccOn);
+            this.Controls.Add(this.btn123Off);
+            this.Controls.Add(this.btn123On);
+            this.Controls.Add(this.btnAbcOff);
+            this.Controls.Add(this.btnAbcOn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -362,16 +374,16 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnAutoStart;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnAbcOn;
+        private System.Windows.Forms.Button btnAbcOff;
+        private System.Windows.Forms.Button btn123On;
+        private System.Windows.Forms.Button btn123Off;
+        private System.Windows.Forms.Button btnAccOn;
+        private System.Windows.Forms.Button btnAccOff;
+        private System.Windows.Forms.Button btnespOn;
+        private System.Windows.Forms.Button btnespOff;
+        private System.Windows.Forms.Button btnAutoOn;
+        private System.Windows.Forms.Button btnAutoOff;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
     }

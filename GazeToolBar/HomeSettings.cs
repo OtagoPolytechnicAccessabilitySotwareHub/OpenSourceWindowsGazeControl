@@ -27,6 +27,8 @@ namespace GazeToolBar
         private CrosshairSettingsPage crossSettings;
         private RearrangeSettingPage buttonArrangement;
         private ShortcutSettingForm shortcutSettings;
+        private keyboardSettings keyboardSettings;
+        private ColourSettings colourSets;
         private static FormsEyeXHost eyeXHost;
         public HomeSettings(Form1 form1, FormsEyeXHost EyeXHost)
         {
@@ -90,5 +92,23 @@ namespace GazeToolBar
             shortcutSettings = new ShortcutSettingForm(this, form1, eyeXHost);
             shortcutSettings.Show();
         }
+
+
+
+        private void KeyboardSettings_Click(object sender, EventArgs e)
+        {
+            keyboardSettings = new keyboardSettings(this, form1, eyeXHost);
+            keyboardSettings.Show();
+        }
+
+        private void colourSettings_Click(object sender, EventArgs e)
+        {
+            colourSets = new ColourSettings(this, form1, eyeXHost);
+            colourSets.Show();
+        }
+
+
+
+
     }
 }

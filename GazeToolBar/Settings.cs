@@ -28,6 +28,15 @@ namespace GazeToolBar
 
         public bool centerZoom { get; set; }
 
+        public bool eng { get; set; }
+
+        public bool k123 { get; set; }
+        public bool kacc { get; set; }
+
+        public bool autocomplete { get; set; }
+
+        public bool spanish { get; set; }
+
         SettingJSON settingsJson;
         public Settings(string path)
         {
@@ -55,6 +64,11 @@ namespace GazeToolBar
                 selectionFeedback = settingsJson.selectionFeedback;
                 dynamicZoom = settingsJson.dynamicZoom;                                  //Changed for TESTINGVARIABLE
                 centerZoom = settingsJson.centerZoom;
+                eng = true;
+                k123 = true;
+                kacc = true;
+                spanish = true;
+                autocomplete = true;
                 //dynamicZoom = false;
                 //centerZoom = false;
                 Console.WriteLine("Settings loaded");
@@ -80,6 +94,11 @@ namespace GazeToolBar
             setting.selectionFeedback = selectionFeedback;
             setting.dynamicZoom = dynamicZoom;                                  //Changed for TESTINGVARIABLE
             setting.centerZoom = centerZoom;
+            setting.eng = eng;
+            setting.k123 = k123;
+            setting.kacc = kacc;
+            setting.spanish = spanish;
+            setting.autocomplete = autocomplete;
             //setting.dynamicZoom = false;
             //centerZoom = false;
             string settings = JsonConvert.SerializeObject(setting);
