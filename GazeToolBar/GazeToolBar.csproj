@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionHandler.cs" />
+    <Compile Include="AutoCompleteTree.cs" />
     <Compile Include="AutoStart.cs" />
     <Compile Include="AutoWord.cs" />
     <Compile Include="Class1.cs" />
@@ -148,11 +149,18 @@
     <Compile Include="ColourSettings.Designer.cs">
       <DependentUpon>ColourSettings.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrosshairSettingsPage.cs">
+    <Compile Include="Node.cs" />
+    <Compile Include="SettingRearrangePage.BehavMap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CrosshairSettingsPage.Designer.cs">
-      <DependentUpon>CrosshairSettingsPage.cs</DependentUpon>
+    <Compile Include="SettingsCrosshairPage.BehavMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsCrosshairPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsCrosshairPage.Designer.cs">
+      <DependentUpon>SettingsCrosshairPage.cs</DependentUpon>
     </Compile>
     <Compile Include="CustomFixationDataStream.cs" />
     <Compile Include="DrawingForm.cs">
@@ -176,6 +184,9 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralSettingsForm.BehavMap.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GeneralSettingsForm.cs">
       <SubType>Form</SubType>
@@ -215,11 +226,11 @@
     <Compile Include="KeyConverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RearrangeSettingPage.cs">
+    <Compile Include="SettingRearrangePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RearrangeSettingPage.Designer.cs">
-      <DependentUpon>RearrangeSettingPage.cs</DependentUpon>
+    <Compile Include="SettingRearrangePage.Designer.cs">
+      <DependentUpon>SettingRearrangePage.cs</DependentUpon>
     </Compile>
     <Compile Include="ReletiveSize.cs" />
     <Compile Include="ScrollControl.cs" />
@@ -234,12 +245,15 @@
     <Compile Include="SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShortcutKeyWorker.cs" />
-    <Compile Include="ShortcutSettingForm.cs">
+    <Compile Include="SettingShortcutForm.BehavMap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShortcutSettingForm.Designer.cs">
-      <DependentUpon>ShortcutSettingForm.cs</DependentUpon>
+    <Compile Include="ShortcutKeyWorker.cs" />
+    <Compile Include="SettingShortcutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingShortcutForm.Designer.cs">
+      <DependentUpon>SettingShortcutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StateManager.cs" />
     <Compile Include="SystemFlags.cs" />
@@ -256,6 +270,9 @@
     <Compile Include="ZoomMagnifier.cs" />
     <Compile Include="ZoomMagnifierCentered.cs" />
     <Compile Include="ZoomMagnifierDynamic.cs" />
+    <Compile Include="ZoomSettingsForm.BehavMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ZoomSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,8 +282,8 @@
     <EmbeddedResource Include="ColourSettings.resx">
       <DependentUpon>ColourSettings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrosshairSettingsPage.resx">
-      <DependentUpon>CrosshairSettingsPage.cs</DependentUpon>
+    <EmbeddedResource Include="SettingsCrosshairPage.resx">
+      <DependentUpon>SettingsCrosshairPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DrawingForm.resx">
       <DependentUpon>DrawingForm.cs</DependentUpon>
@@ -298,15 +315,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RearrangeSettingPage.resx">
-      <DependentUpon>RearrangeSettingPage.cs</DependentUpon>
+    <EmbeddedResource Include="SettingRearrangePage.resx">
+      <DependentUpon>SettingRearrangePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ShortcutSettingForm.resx">
-      <DependentUpon>ShortcutSettingForm.cs</DependentUpon>
+    <EmbeddedResource Include="SettingShortcutForm.resx">
+      <DependentUpon>SettingShortcutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ZoomLens.resx">
       <DependentUpon>ZoomLens.cs</DependentUpon>

@@ -24,9 +24,9 @@ namespace GazeToolBar
         private Form1 form1;
         private GeneralSettingsForm genSettings;
         private ZoomSettingsForm zoomSettings;
-        private CrosshairSettingsPage crossSettings;
-        private RearrangeSettingPage buttonArrangement;
-        private ShortcutSettingForm shortcutSettings;
+        private SettingsCrosshairPage crossSettings;
+        private SettingRearrangePage buttonArrangement;
+        private SettingShortcutForm shortcutSettings;
         private keyboardSettings keyboardSettings;
         private ColourSettings colourSets;
 
@@ -67,14 +67,14 @@ namespace GazeToolBar
 
         private void crossButton_Click(object sender, EventArgs e)
         {
-            crossSettings = new CrosshairSettingsPage(this, form1, eyeXHost);
+            crossSettings = new SettingsCrosshairPage(this, form1, eyeXHost);
             crossSettings.Show();
         }
 
         private void arrangeButton_Click(object sender, EventArgs e)
         {
 
-            buttonArrangement = new RearrangeSettingPage(this, form1, eyeXHost);
+            buttonArrangement = new SettingRearrangePage(this, form1, eyeXHost);
             buttonArrangement.Show();
 
         }
@@ -94,7 +94,7 @@ namespace GazeToolBar
 
         private void shortcutButton_Click(object sender, EventArgs e)
         {
-            shortcutSettings = new ShortcutSettingForm(this, form1, eyeXHost);
+            shortcutSettings = new SettingShortcutForm(this, form1, eyeXHost);
             shortcutSettings.Show();
         }
 

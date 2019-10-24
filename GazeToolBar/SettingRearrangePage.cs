@@ -11,7 +11,7 @@ using EyeXFramework.Forms;
 
 namespace GazeToolBar
 {
-    public partial class RearrangeSettingPage : Form
+    public partial class SettingRearrangePage : Form
     {
 
         private List<Point> sidebarActionInitPositions = new List<Point>();
@@ -23,11 +23,12 @@ namespace GazeToolBar
         private static FormsEyeXHost eyeXHost;
         private Form1 form1;
         private Dictionary<String, Button> buttonMap = new Dictionary<string, Button>();
-        public RearrangeSettingPage(SettingsHome home, Form1 form1, FormsEyeXHost EyeXHost)
+        public SettingRearrangePage(SettingsHome home, Form1 form1, FormsEyeXHost EyeXHost)
         {
 
             eyeXHost = EyeXHost;
             InitializeComponent();
+            connectBehaveMap();
             this.home = home;
             this.form1 = form1;
             InitSidebarActions();

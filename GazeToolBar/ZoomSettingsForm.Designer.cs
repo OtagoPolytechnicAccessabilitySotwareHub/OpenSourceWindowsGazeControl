@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.bhavZoomMap = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.pnlZoomMode = new System.Windows.Forms.Panel();
             this.pnlCornerZoomMode = new System.Windows.Forms.Panel();
             this.btnCornerZoomMode = new System.Windows.Forms.Button();
@@ -446,7 +448,7 @@
         }
 
         #endregion
-
+        private EyeXFramework.Forms.BehaviorMap bhavZoomMap;
         private EyeXFramework.Forms.BehaviorMap bhavConfirmMap;
         private System.Windows.Forms.Panel pnlZoomMode;
         private System.Windows.Forms.Panel pnlCornerZoomMode;

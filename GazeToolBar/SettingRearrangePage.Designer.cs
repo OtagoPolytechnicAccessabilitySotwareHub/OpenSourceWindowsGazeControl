@@ -1,6 +1,6 @@
 ﻿namespace GazeToolBar
 {
-    partial class RearrangeSettingPage
+    partial class SettingRearrangePage
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.bhavRearrangeMap = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.pnlRearrangeControls = new System.Windows.Forms.Panel();
             this.pnlMoveUpButton = new System.Windows.Forms.Panel();
             this.btnMoveUp = new System.Windows.Forms.Button();
@@ -375,6 +377,7 @@
         }
 
         #endregion
+        private EyeXFramework.Forms.BehaviorMap bhavRearrangeMap;
         private System.Windows.Forms.Panel pnlRearrangeControls;
         private System.Windows.Forms.Panel pnlMoveUpButton;
         private System.Windows.Forms.Button btnMoveUp;

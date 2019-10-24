@@ -1,6 +1,6 @@
 ﻿namespace GazeToolBar
 {
-    partial class ShortcutSettingForm
+    partial class SettingShortcutForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.bhavShortcutMap = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.pnlLeftClick = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlFKeyHighlight2 = new System.Windows.Forms.Panel();
@@ -479,6 +481,7 @@
         }
 
         #endregion
+        private EyeXFramework.Forms.BehaviorMap bhavShortcutMap;
         private System.Windows.Forms.Panel pnlLeftClick;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel pnlFKeyHighlight2;

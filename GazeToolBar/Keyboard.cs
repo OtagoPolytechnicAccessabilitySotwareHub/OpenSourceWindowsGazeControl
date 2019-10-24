@@ -37,7 +37,7 @@ namespace GazeToolBar
         private keyboardKeys[] keys;
         private string enteredWord;
         private List<AutoWord> dictWords;
-
+        AutoCompleteTree predictTree;
 
         private Panel F1keyboardPanel;
         private Panel F1LeftClickPanel;
@@ -65,6 +65,7 @@ namespace GazeToolBar
             enteredWord = "";
             dictWords = new List<AutoWord>();
             //using (StreamReader sr = new StreamReader("fullDictionary.txt"))
+            predictTree = new AutoCompleteTree();
             using (StreamReader sr = new StreamReader("tempDict.csv"))
             {
                 string line;
@@ -72,6 +73,7 @@ namespace GazeToolBar
                 {
                     string[] seperateKeys = line.Split(',');
                     dictWords.Add(new AutoWord(seperateKeys[0], seperateKeys[1]));
+                    predictTree.Add(seperateKeys[0]);
                 }
 
             }
@@ -339,36 +341,54 @@ namespace GazeToolBar
             typedWord.Text = enteredWord;
             if (enteredWord.Length >= 2)
             {
-                List<AutoWord> results = new List<AutoWord>();
-                
-                for (int i = 0; i < dictWords.Count; i++)
+                int optionCount = 4;
+                //List<AutoWord> results = new List<AutoWord>();
+
+                //for (int i = 0; i < dictWords.Count; i++)
+                //{
+                //    int distance = GetDamerauLevenshteinDistance(enteredWord, dictWords[i].Word);
+                //    if (distance < 3)
+                //    {
+                //        dictWords[i].CurrentDistance = distance / (1 / dictWords[i].Frequency);
+                //        results.Add(dictWords[i]);
+                //    }
+                //}
+
+                //IntArrayInsertionSort(results);
+                //results.Sort();
+
+                String[] results;
+                results = predictTree.suggestions(enteredWord);
+                if(results!=null)
                 {
-                    int distance = GetDamerauLevenshteinDistance(enteredWord, dictWords[i].Word);
-                    if (distance < 3)
+                    if (results.Length-1 < 4)
                     {
-                        dictWords[i].CurrentDistance = distance / (1 / dictWords[i].Frequency);
-                        results.Add(dictWords[i]);
+                        if (results.Length - 1 >= 0)
+                        {
+                            optionCount = results.Length - 1;
+                        }
+                    }
+                    for (int i = 0; i < optionCount; i++)
+                    {
+                        buttons[i].Text = results[i];
                     }
                 }
-                int optionCount = 4;
-                //IntArrayInsertionSort(results);
-                results.Sort();
-                if (results.Count < 4)
+                else
                 {
-                    optionCount = results.Count;
+                    optionCount = 4;
                 }
-                for (int i = 0; i < optionCount; i++)
+                for (int i = optionCount; i < 4; i++)
                 {
-                    buttons[i].Text = results[i].Word;
+                    buttons[i].Text = "";
                 }
             }
-            else
-            {
-                foreach(Button button in buttons)
-                {
-                    button.Text = "";
-                }
-            }
+            //else
+            //{
+            //    foreach(Button button in buttons)
+            //    {
+            //        button.Text = "";
+            //    }
+            //}
 
 
         }

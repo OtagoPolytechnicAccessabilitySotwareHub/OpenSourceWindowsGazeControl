@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralSettingsForm));
+            this.bhavGeneralMap = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.panelPrecision = new System.Windows.Forms.Panel();
             this.pnlFixTimeLengthContent = new System.Windows.Forms.Panel();
@@ -494,6 +497,7 @@
 
         #endregion
 
+        private EyeXFramework.Forms.BehaviorMap bhavGeneralMap;
         private System.Windows.Forms.Panel pnlGeneral;
         private System.Windows.Forms.Panel panelPrecision;
         private System.Windows.Forms.Panel pnlFixTimeLengthContent;

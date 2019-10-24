@@ -1,6 +1,6 @@
 ﻿namespace GazeToolBar
 {
-    partial class CrosshairSettingsPage
+    partial class SettingsCrosshairPage
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsCrosshairPage));
+            this.bhavCrosshairMap = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.pictureBoxCrosshairPreview = new System.Windows.Forms.PictureBox();
             this.panelCrosshairSelection = new System.Windows.Forms.Panel();
             this.panelCrosshairHolder = new System.Windows.Forms.Panel();
@@ -245,7 +249,7 @@
         }
 
         #endregion
-
+        private EyeXFramework.Forms.BehaviorMap bhavCrosshairMap;
         private System.Windows.Forms.PictureBox pictureBoxCrosshairPreview;
         private System.Windows.Forms.Panel panelCrosshairSelection;
         private System.Windows.Forms.Panel panelCrosshairHolder;

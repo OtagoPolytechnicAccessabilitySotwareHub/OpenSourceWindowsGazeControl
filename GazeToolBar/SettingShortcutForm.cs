@@ -11,16 +11,17 @@ using EyeXFramework.Forms;
 
 namespace GazeToolBar
 {
-    public partial class ShortcutSettingForm : Form
+    public partial class SettingShortcutForm : Form
     {
         private SettingsHome home;
         private static FormsEyeXHost eyeXHost;
         private Form1 form1;
         private bool WaitForUserKeyPress;
-        public ShortcutSettingForm(SettingsHome home, Form1 form1, FormsEyeXHost EyeXHost)
+        public SettingShortcutForm(SettingsHome home, Form1 form1, FormsEyeXHost EyeXHost)
         {
             eyeXHost = EyeXHost;
             InitializeComponent();
+            connectBehaveMap();
             this.home = home;
             this.form1 = form1;
         }
