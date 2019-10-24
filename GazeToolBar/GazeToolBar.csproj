@@ -183,11 +183,14 @@
     <Compile Include="GeneralSettingsForm.Designer.cs">
       <DependentUpon>GeneralSettingsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomeSettings.cs">
+    <Compile Include="SettingsHome.BehavMap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HomeSettings.Designer.cs">
-      <DependentUpon>HomeSettings.cs</DependentUpon>
+    <Compile Include="SettingsHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsHome.Designer.cs">
+      <DependentUpon>SettingsHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Keyboard.BehavMap.cs">
       <SubType>Form</SubType>
@@ -276,8 +279,8 @@
     <EmbeddedResource Include="GeneralSettingsForm.resx">
       <DependentUpon>GeneralSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomeSettings.resx">
-      <DependentUpon>HomeSettings.cs</DependentUpon>
+    <EmbeddedResource Include="SettingsHome.resx">
+      <DependentUpon>SettingsHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Keyboard.resx">
       <DependentUpon>Keyboard.cs</DependentUpon>

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using ShellLib;
+using System.Drawing;
+using Newtonsoft.Json;
+using System.IO;
+using System.Collections.Generic;
 using EyeXFramework.Forms;
+using System.Linq;
 
 namespace GazeToolBar
 {
@@ -19,8 +18,9 @@ namespace GazeToolBar
  *  Each button opens a new form that will close back to this page.
  *  Purpose: To create a landing page for the settings to keep it from being too cluttered and hard to understand.
  */
-    public partial class HomeSettings : Form
+    public partial class SettingsHome : Form
     {
+        private static FormsEyeXHost eyeXHost;
         private Form1 form1;
         private GeneralSettingsForm genSettings;
         private ZoomSettingsForm zoomSettings;
@@ -29,12 +29,15 @@ namespace GazeToolBar
         private ShortcutSettingForm shortcutSettings;
         private keyboardSettings keyboardSettings;
         private ColourSettings colourSets;
-        private static FormsEyeXHost eyeXHost;
-        public HomeSettings(Form1 form1, FormsEyeXHost EyeXHost)
+
+
+        public SettingsHome(Form1 form1, FormsEyeXHost EyeXHost)
         {
             eyeXHost = EyeXHost;
             InitializeComponent();
+            connectBehaveMap();
             this.form1 = form1;
+            
         }
 
 
@@ -43,6 +46,8 @@ namespace GazeToolBar
         //Close Setting Window
         private void backButton_Click(object sender, EventArgs e)
         {
+            List<String> selectedActions = new List<String>();
+            Program.readSettings.createJSON(selectedActions.ToArray<string>());
             Close();
         }
 
@@ -107,7 +112,10 @@ namespace GazeToolBar
             colourSets.Show();
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Program.readSettings.defaultSettings();
+        }
 
 
     }

@@ -1,6 +1,6 @@
 ﻿namespace GazeToolBar
 {
-    partial class HomeSettings
+    partial class SettingsHome
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            this.behavSetting = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.generalPanel = new System.Windows.Forms.Panel();
             this.generalButton = new System.Windows.Forms.Button();
             this.zoomPanel = new System.Windows.Forms.Panel();
@@ -40,18 +42,21 @@
             this.shortcutButton = new System.Windows.Forms.Button();
             this.backPanel = new System.Windows.Forms.Panel();
             this.backButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.colourPanel = new System.Windows.Forms.Panel();
             this.colourSettings = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.keyboardPanel = new System.Windows.Forms.Panel();
             this.KeyboardSettings = new System.Windows.Forms.Button();
+            this.defaultPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.generalPanel.SuspendLayout();
             this.zoomPanel.SuspendLayout();
             this.crossPanel.SuspendLayout();
             this.arrangePanel.SuspendLayout();
             this.shortcutPanel.SuspendLayout();
             this.backPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.colourPanel.SuspendLayout();
+            this.keyboardPanel.SuspendLayout();
+            this.defaultPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // generalPanel
@@ -174,13 +179,13 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
-            // panel1
+            // colourPanel
             // 
-            this.panel1.Controls.Add(this.colourSettings);
-            this.panel1.Location = new System.Drawing.Point(411, 371);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 6;
+            this.colourPanel.Controls.Add(this.colourSettings);
+            this.colourPanel.Location = new System.Drawing.Point(411, 371);
+            this.colourPanel.Name = "colourPanel";
+            this.colourPanel.Size = new System.Drawing.Size(200, 100);
+            this.colourPanel.TabIndex = 6;
             // 
             // colourSettings
             // 
@@ -194,13 +199,13 @@
             this.colourSettings.UseVisualStyleBackColor = true;
             this.colourSettings.Click += new System.EventHandler(this.colourSettings_Click);
             // 
-            // panel2
+            // keyboardPanel
             // 
-            this.panel2.Controls.Add(this.KeyboardSettings);
-            this.panel2.Location = new System.Drawing.Point(791, 374);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 100);
-            this.panel2.TabIndex = 7;
+            this.keyboardPanel.Controls.Add(this.KeyboardSettings);
+            this.keyboardPanel.Location = new System.Drawing.Point(791, 374);
+            this.keyboardPanel.Name = "keyboardPanel";
+            this.keyboardPanel.Size = new System.Drawing.Size(200, 100);
+            this.keyboardPanel.TabIndex = 7;
             // 
             // KeyboardSettings
             // 
@@ -214,15 +219,35 @@
             this.KeyboardSettings.UseVisualStyleBackColor = true;
             this.KeyboardSettings.Click += new System.EventHandler(this.KeyboardSettings_Click);
             // 
-            // HomeSettings
+            // defaultPanel
+            // 
+            this.defaultPanel.Controls.Add(this.button1);
+            this.defaultPanel.Location = new System.Drawing.Point(759, 228);
+            this.defaultPanel.Name = "defaultPanel";
+            this.defaultPanel.Size = new System.Drawing.Size(200, 100);
+            this.defaultPanel.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(165, 73);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Default Settings";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // SettingsHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1376, 649);
             this.ControlBox = false;
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.defaultPanel);
+            this.Controls.Add(this.keyboardPanel);
+            this.Controls.Add(this.colourPanel);
             this.Controls.Add(this.backPanel);
             this.Controls.Add(this.shortcutPanel);
             this.Controls.Add(this.arrangePanel);
@@ -232,7 +257,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "HomeSettings";
+            this.Name = "SettingsHome";
             this.ShowIcon = false;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.generalPanel.ResumeLayout(false);
@@ -241,14 +266,15 @@
             this.arrangePanel.ResumeLayout(false);
             this.shortcutPanel.ResumeLayout(false);
             this.backPanel.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.colourPanel.ResumeLayout(false);
+            this.keyboardPanel.ResumeLayout(false);
+            this.defaultPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
+        private EyeXFramework.Forms.BehaviorMap behavSetting;
         private System.Windows.Forms.Panel generalPanel;
         private System.Windows.Forms.Button generalButton;
         private System.Windows.Forms.Panel zoomPanel;
@@ -261,9 +287,11 @@
         private System.Windows.Forms.Button shortcutButton;
         private System.Windows.Forms.Panel backPanel;
         private System.Windows.Forms.Button backButton;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel colourPanel;
         private System.Windows.Forms.Button colourSettings;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel keyboardPanel;
         private System.Windows.Forms.Button KeyboardSettings;
+        private System.Windows.Forms.Panel defaultPanel;
+        private System.Windows.Forms.Button button1;
     }
 }

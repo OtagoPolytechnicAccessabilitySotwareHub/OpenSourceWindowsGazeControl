@@ -13,11 +13,11 @@ namespace GazeToolBar
 {
     public partial class ShortcutSettingForm : Form
     {
-        private HomeSettings home;
+        private SettingsHome home;
         private static FormsEyeXHost eyeXHost;
         private Form1 form1;
         private bool WaitForUserKeyPress;
-        public ShortcutSettingForm(HomeSettings home, Form1 form1, FormsEyeXHost EyeXHost)
+        public ShortcutSettingForm(SettingsHome home, Form1 form1, FormsEyeXHost EyeXHost)
         {
             eyeXHost = EyeXHost;
             InitializeComponent();

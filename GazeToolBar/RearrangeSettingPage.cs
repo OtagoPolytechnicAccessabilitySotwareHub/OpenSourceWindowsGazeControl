@@ -19,11 +19,11 @@ namespace GazeToolBar
         private List<Button> actionButtons = new List<Button>();
         private List<Panel> actionPanels = new List<Panel>();
         private String selectionButton = "";
-        private HomeSettings home;
+        private SettingsHome home;
         private static FormsEyeXHost eyeXHost;
         private Form1 form1;
         private Dictionary<String, Button> buttonMap = new Dictionary<string, Button>();
-        public RearrangeSettingPage(HomeSettings home, Form1 form1, FormsEyeXHost EyeXHost)
+        public RearrangeSettingPage(SettingsHome home, Form1 form1, FormsEyeXHost EyeXHost)
         {
 
             eyeXHost = EyeXHost;
@@ -270,19 +270,27 @@ namespace GazeToolBar
         {
             try
             {
-                //SettingJSON setting = new SettingJSON();
-
-                
                 Program.readSettings.sidebar = selectedActions.ToArray<string>();
                 Program.readSettings.createJSON(selectedActions.ToArray<string>());
                 form1.ArrangeSidebar(Program.readSettings.sidebar);
+
+
+                //form1.NotifyIcon.BalloonTipTitle = "Saving success";
+                //form1.NotifyIcon.BalloonTipText = "Your settings are successfuly saved";
                 this.Close();
+                form1.stateManager.ResetMagnifier();
+                //form1.NotifyIcon.ShowBalloonTip(2000);
             }
             catch (Exception exception)
             {
-                form1.NotifyIcon.BalloonTipTitle = "Saving error";
-
+                //form1.NotifyIcon.BalloonTipTitle = "Saving error";
+                //form1.NotifyIcon.BalloonTipText = "For some reason, your settings are not successfuly saved, click me to show error message";
+                //form1.NotifyIcon.Tag = exception.Message;
+                this.Close();
+                //form1.NotifyIcon.BalloonTipClicked += NotifyIcon_BalloonTipClicked;
+                //form1.NotifyIcon.ShowBalloonTip(5000);
             }
+            
         }
     }
 }

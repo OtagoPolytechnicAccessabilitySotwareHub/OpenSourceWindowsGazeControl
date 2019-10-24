@@ -13,7 +13,7 @@ namespace GazeToolBar
 {
     public partial class keyboardSettings : Form
     {
-        private HomeSettings home;
+        private SettingsHome home;
         private static FormsEyeXHost eyeXHost;
         private Form1 form1;
         private bool eng;
@@ -21,7 +21,7 @@ namespace GazeToolBar
         private bool kacc;
         private bool autocomplete;
         private bool spanish;
-        public keyboardSettings(HomeSettings home, Form1 form1, FormsEyeXHost EyeXHost)
+        public keyboardSettings(SettingsHome home, Form1 form1, FormsEyeXHost EyeXHost)
         {
             eyeXHost = EyeXHost;
             InitializeComponent();
@@ -34,6 +34,32 @@ namespace GazeToolBar
             changeButtonColour(Program.readSettings.autocomplete, btnAutoOn, btnAutoOff);
         }
 
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Program.readSettings.eng = eng;
+                Program.readSettings.k123 = k123;
+                Program.readSettings.kacc = kacc;
+                Program.readSettings.spanish = spanish;
+                Program.readSettings.autocomplete = autocomplete;
+
+                //form1.NotifyIcon.BalloonTipTitle = "Saving success";
+                //form1.NotifyIcon.BalloonTipText = "Your settings are successfuly saved";
+                this.Close();
+                form1.stateManager.ResetMagnifier();
+                //form1.NotifyIcon.ShowBalloonTip(2000);
+            }
+            catch (Exception exception)
+            {
+                //form1.NotifyIcon.BalloonTipTitle = "Saving error";
+                //form1.NotifyIcon.BalloonTipText = "For some reason, your settings are not successfuly saved, click me to show error message";
+                //form1.NotifyIcon.Tag = exception.Message;
+                this.Close();
+                //form1.NotifyIcon.BalloonTipClicked += NotifyIcon_BalloonTipClicked;
+                //form1.NotifyIcon.ShowBalloonTip(5000);
+            }
+        }
 
         private void changeButtonColour(Boolean switchbool, Button on, Button off)
         {
@@ -128,9 +154,6 @@ namespace GazeToolBar
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
 
-        }
     }
 }

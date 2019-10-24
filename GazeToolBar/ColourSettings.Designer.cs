@@ -66,15 +66,15 @@
             this.colourOptionPanel18 = new System.Windows.Forms.Panel();
             this.colourOptionButton18 = new System.Windows.Forms.Button();
             this.pnlBackColour = new System.Windows.Forms.Panel();
-            this.pnlHighlightColour = new System.Windows.Forms.Panel();
-            this.pnlIconColour = new System.Windows.Forms.Panel();
             this.btnMainColour = new System.Windows.Forms.Button();
+            this.pnlHighlightColour = new System.Windows.Forms.Panel();
             this.btnHighLight = new System.Windows.Forms.Button();
+            this.pnlIconColour = new System.Windows.Forms.Panel();
             this.btnIcon = new System.Windows.Forms.Button();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.pnlSec = new System.Windows.Forms.Panel();
             this.pnlIcon = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPanel = new System.Windows.Forms.Panel();
             this.panelSaveAndCancel = new System.Windows.Forms.Panel();
             this.pnlCancel = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -102,7 +102,7 @@
             this.pnlBackColour.SuspendLayout();
             this.pnlHighlightColour.SuspendLayout();
             this.pnlIconColour.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.btnPanel.SuspendLayout();
             this.panelSaveAndCancel.SuspendLayout();
             this.pnlCancel.SuspendLayout();
             this.pnlSave.SuspendLayout();
@@ -129,15 +129,15 @@
             this.brushColours.Controls.Add(this.colourOptionPanel15);
             this.brushColours.Controls.Add(this.colourOptionPanel17);
             this.brushColours.Controls.Add(this.colourOptionPanel18);
-            this.brushColours.Location = new System.Drawing.Point(41, 74);
+            this.brushColours.Location = new System.Drawing.Point(12, 12);
             this.brushColours.Name = "brushColours";
-            this.brushColours.Size = new System.Drawing.Size(86, 190);
+            this.brushColours.Size = new System.Drawing.Size(256, 165);
             this.brushColours.TabIndex = 15;
             // 
             // colourOptionPanel1
             // 
             this.colourOptionPanel1.Controls.Add(this.colourOptionButton1);
-            this.colourOptionPanel1.Location = new System.Drawing.Point(131, 65);
+            this.colourOptionPanel1.Location = new System.Drawing.Point(128, 106);
             this.colourOptionPanel1.Name = "colourOptionPanel1";
             this.colourOptionPanel1.Size = new System.Drawing.Size(109, 84);
             this.colourOptionPanel1.TabIndex = 20;
@@ -151,11 +151,12 @@
             this.colourOptionButton1.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton1.TabIndex = 9;
             this.colourOptionButton1.UseVisualStyleBackColor = false;
+            this.colourOptionButton1.Click += new System.EventHandler(this.colourOptionButton1_Click);
             // 
             // colourOptionPanel2
             // 
             this.colourOptionPanel2.Controls.Add(this.colourOptionButton2);
-            this.colourOptionPanel2.Location = new System.Drawing.Point(336, 64);
+            this.colourOptionPanel2.Location = new System.Drawing.Point(333, 105);
             this.colourOptionPanel2.Name = "colourOptionPanel2";
             this.colourOptionPanel2.Size = new System.Drawing.Size(107, 85);
             this.colourOptionPanel2.TabIndex = 21;
@@ -169,11 +170,12 @@
             this.colourOptionButton2.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton2.TabIndex = 10;
             this.colourOptionButton2.UseVisualStyleBackColor = false;
+            this.colourOptionButton2.Click += new System.EventHandler(this.colourOptionButton2_Click);
             // 
             // colourOptionPanel3
             // 
             this.colourOptionPanel3.Controls.Add(this.colourOptionButton3);
-            this.colourOptionPanel3.Location = new System.Drawing.Point(548, 68);
+            this.colourOptionPanel3.Location = new System.Drawing.Point(545, 109);
             this.colourOptionPanel3.Name = "colourOptionPanel3";
             this.colourOptionPanel3.Size = new System.Drawing.Size(108, 85);
             this.colourOptionPanel3.TabIndex = 22;
@@ -187,11 +189,12 @@
             this.colourOptionButton3.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton3.TabIndex = 1;
             this.colourOptionButton3.UseVisualStyleBackColor = false;
+            this.colourOptionButton3.Click += new System.EventHandler(this.colourOptionButton3_Click);
             // 
             // colourOptionPanel4
             // 
             this.colourOptionPanel4.Controls.Add(this.colourOptionButton4);
-            this.colourOptionPanel4.Location = new System.Drawing.Point(736, 71);
+            this.colourOptionPanel4.Location = new System.Drawing.Point(733, 112);
             this.colourOptionPanel4.Name = "colourOptionPanel4";
             this.colourOptionPanel4.Size = new System.Drawing.Size(111, 87);
             this.colourOptionPanel4.TabIndex = 23;
@@ -205,11 +208,12 @@
             this.colourOptionButton4.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton4.TabIndex = 6;
             this.colourOptionButton4.UseVisualStyleBackColor = false;
+            this.colourOptionButton4.Click += new System.EventHandler(this.colourOptionButton4_Click);
             // 
             // colourOptionPanel16
             // 
             this.colourOptionPanel16.Controls.Add(this.colourOptionButton16);
-            this.colourOptionPanel16.Location = new System.Drawing.Point(936, 74);
+            this.colourOptionPanel16.Location = new System.Drawing.Point(933, 115);
             this.colourOptionPanel16.Name = "colourOptionPanel16";
             this.colourOptionPanel16.Size = new System.Drawing.Size(111, 87);
             this.colourOptionPanel16.TabIndex = 13;
@@ -223,11 +227,12 @@
             this.colourOptionButton16.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton16.TabIndex = 6;
             this.colourOptionButton16.UseVisualStyleBackColor = false;
+            this.colourOptionButton16.Click += new System.EventHandler(this.colourOptionButton16_Click);
             // 
             // colourOptionPanel5
             // 
             this.colourOptionPanel5.Controls.Add(this.colourOptionButton5);
-            this.colourOptionPanel5.Location = new System.Drawing.Point(1110, 83);
+            this.colourOptionPanel5.Location = new System.Drawing.Point(1107, 124);
             this.colourOptionPanel5.Name = "colourOptionPanel5";
             this.colourOptionPanel5.Size = new System.Drawing.Size(108, 75);
             this.colourOptionPanel5.TabIndex = 18;
@@ -241,11 +246,12 @@
             this.colourOptionButton5.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton5.TabIndex = 8;
             this.colourOptionButton5.UseVisualStyleBackColor = false;
+            this.colourOptionButton5.Click += new System.EventHandler(this.colourOptionButton5_Click);
             // 
             // colourOptionPanel6
             // 
             this.colourOptionPanel6.Controls.Add(this.colourOptionButton6);
-            this.colourOptionPanel6.Location = new System.Drawing.Point(121, 231);
+            this.colourOptionPanel6.Location = new System.Drawing.Point(118, 272);
             this.colourOptionPanel6.Name = "colourOptionPanel6";
             this.colourOptionPanel6.Size = new System.Drawing.Size(113, 88);
             this.colourOptionPanel6.TabIndex = 19;
@@ -259,11 +265,12 @@
             this.colourOptionButton6.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton6.TabIndex = 7;
             this.colourOptionButton6.UseVisualStyleBackColor = false;
+            this.colourOptionButton6.Click += new System.EventHandler(this.colourOptionButton6_Click);
             // 
             // colourOptionPanel7
             // 
             this.colourOptionPanel7.Controls.Add(this.colourOptionButton7);
-            this.colourOptionPanel7.Location = new System.Drawing.Point(334, 228);
+            this.colourOptionPanel7.Location = new System.Drawing.Point(331, 269);
             this.colourOptionPanel7.Name = "colourOptionPanel7";
             this.colourOptionPanel7.Size = new System.Drawing.Size(109, 84);
             this.colourOptionPanel7.TabIndex = 14;
@@ -277,11 +284,12 @@
             this.colourOptionButton7.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton7.TabIndex = 9;
             this.colourOptionButton7.UseVisualStyleBackColor = false;
+            this.colourOptionButton7.Click += new System.EventHandler(this.colourOptionButton7_Click);
             // 
             // colourOptionPanel8
             // 
             this.colourOptionPanel8.Controls.Add(this.colourOptionButton8);
-            this.colourOptionPanel8.Location = new System.Drawing.Point(539, 237);
+            this.colourOptionPanel8.Location = new System.Drawing.Point(536, 278);
             this.colourOptionPanel8.Name = "colourOptionPanel8";
             this.colourOptionPanel8.Size = new System.Drawing.Size(107, 85);
             this.colourOptionPanel8.TabIndex = 15;
@@ -295,11 +303,12 @@
             this.colourOptionButton8.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton8.TabIndex = 10;
             this.colourOptionButton8.UseVisualStyleBackColor = false;
+            this.colourOptionButton8.Click += new System.EventHandler(this.colourOptionButton8_Click);
             // 
             // colourOptionPanel9
             // 
             this.colourOptionPanel9.Controls.Add(this.colourOptionButton9);
-            this.colourOptionPanel9.Location = new System.Drawing.Point(736, 231);
+            this.colourOptionPanel9.Location = new System.Drawing.Point(733, 272);
             this.colourOptionPanel9.Name = "colourOptionPanel9";
             this.colourOptionPanel9.Size = new System.Drawing.Size(108, 85);
             this.colourOptionPanel9.TabIndex = 16;
@@ -313,11 +322,12 @@
             this.colourOptionButton9.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton9.TabIndex = 1;
             this.colourOptionButton9.UseVisualStyleBackColor = false;
+            this.colourOptionButton9.Click += new System.EventHandler(this.colourOptionButton9_Click);
             // 
             // colourOptionPanel10
             // 
             this.colourOptionPanel10.Controls.Add(this.colourOptionButton10);
-            this.colourOptionPanel10.Location = new System.Drawing.Point(936, 231);
+            this.colourOptionPanel10.Location = new System.Drawing.Point(933, 272);
             this.colourOptionPanel10.Name = "colourOptionPanel10";
             this.colourOptionPanel10.Size = new System.Drawing.Size(111, 87);
             this.colourOptionPanel10.TabIndex = 17;
@@ -331,11 +341,12 @@
             this.colourOptionButton10.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton10.TabIndex = 6;
             this.colourOptionButton10.UseVisualStyleBackColor = false;
+            this.colourOptionButton10.Click += new System.EventHandler(this.colourOptionButton10_Click);
             // 
             // colourOptionPanel11
             // 
             this.colourOptionPanel11.Controls.Add(this.colourOptionButton11);
-            this.colourOptionPanel11.Location = new System.Drawing.Point(1110, 231);
+            this.colourOptionPanel11.Location = new System.Drawing.Point(1107, 272);
             this.colourOptionPanel11.Name = "colourOptionPanel11";
             this.colourOptionPanel11.Size = new System.Drawing.Size(112, 84);
             this.colourOptionPanel11.TabIndex = 11;
@@ -349,11 +360,12 @@
             this.colourOptionButton11.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton11.TabIndex = 5;
             this.colourOptionButton11.UseVisualStyleBackColor = false;
+            this.colourOptionButton11.Click += new System.EventHandler(this.colourOptionButton11_Click);
             // 
             // colourOptionPanel12
             // 
             this.colourOptionPanel12.Controls.Add(this.colourOptionButton12);
-            this.colourOptionPanel12.Location = new System.Drawing.Point(125, 359);
+            this.colourOptionPanel12.Location = new System.Drawing.Point(122, 400);
             this.colourOptionPanel12.Name = "colourOptionPanel12";
             this.colourOptionPanel12.Size = new System.Drawing.Size(109, 84);
             this.colourOptionPanel12.TabIndex = 13;
@@ -367,11 +379,12 @@
             this.colourOptionButton12.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton12.TabIndex = 9;
             this.colourOptionButton12.UseVisualStyleBackColor = false;
+            this.colourOptionButton12.Click += new System.EventHandler(this.colourOptionButton12_Click);
             // 
             // colourOptionPanel13
             // 
             this.colourOptionPanel13.Controls.Add(this.colourOptionButton13);
-            this.colourOptionPanel13.Location = new System.Drawing.Point(339, 354);
+            this.colourOptionPanel13.Location = new System.Drawing.Point(336, 395);
             this.colourOptionPanel13.Name = "colourOptionPanel13";
             this.colourOptionPanel13.Size = new System.Drawing.Size(107, 85);
             this.colourOptionPanel13.TabIndex = 13;
@@ -385,29 +398,31 @@
             this.colourOptionButton13.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton13.TabIndex = 10;
             this.colourOptionButton13.UseVisualStyleBackColor = false;
+            this.colourOptionButton13.Click += new System.EventHandler(this.colourOptionButton13_Click);
             // 
             // colourOptionPanel14
             // 
             this.colourOptionPanel14.Controls.Add(this.colourOptionButton14);
-            this.colourOptionPanel14.Location = new System.Drawing.Point(551, 359);
+            this.colourOptionPanel14.Location = new System.Drawing.Point(548, 400);
             this.colourOptionPanel14.Name = "colourOptionPanel14";
             this.colourOptionPanel14.Size = new System.Drawing.Size(108, 85);
             this.colourOptionPanel14.TabIndex = 13;
             // 
             // colourOptionButton14
             // 
-            this.colourOptionButton14.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.colourOptionButton14.BackColor = System.Drawing.Color.Cyan;
             this.colourOptionButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colourOptionButton14.Location = new System.Drawing.Point(3, 3);
             this.colourOptionButton14.Name = "colourOptionButton14";
             this.colourOptionButton14.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton14.TabIndex = 1;
             this.colourOptionButton14.UseVisualStyleBackColor = false;
+            this.colourOptionButton14.Click += new System.EventHandler(this.colourOptionButton14_Click);
             // 
             // colourOptionPanel15
             // 
             this.colourOptionPanel15.Controls.Add(this.colourOptionButton15);
-            this.colourOptionPanel15.Location = new System.Drawing.Point(736, 359);
+            this.colourOptionPanel15.Location = new System.Drawing.Point(733, 400);
             this.colourOptionPanel15.Name = "colourOptionPanel15";
             this.colourOptionPanel15.Size = new System.Drawing.Size(105, 81);
             this.colourOptionPanel15.TabIndex = 12;
@@ -421,11 +436,12 @@
             this.colourOptionButton15.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton15.TabIndex = 4;
             this.colourOptionButton15.UseVisualStyleBackColor = false;
+            this.colourOptionButton15.Click += new System.EventHandler(this.colourOptionButton15_Click);
             // 
             // colourOptionPanel17
             // 
             this.colourOptionPanel17.Controls.Add(this.colourOptionButton17);
-            this.colourOptionPanel17.Location = new System.Drawing.Point(936, 361);
+            this.colourOptionPanel17.Location = new System.Drawing.Point(933, 402);
             this.colourOptionPanel17.Name = "colourOptionPanel17";
             this.colourOptionPanel17.Size = new System.Drawing.Size(108, 75);
             this.colourOptionPanel17.TabIndex = 13;
@@ -439,11 +455,12 @@
             this.colourOptionButton17.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton17.TabIndex = 8;
             this.colourOptionButton17.UseVisualStyleBackColor = false;
+            this.colourOptionButton17.Click += new System.EventHandler(this.colourOptionButton17_Click);
             // 
             // colourOptionPanel18
             // 
             this.colourOptionPanel18.Controls.Add(this.colourOptionButton18);
-            this.colourOptionPanel18.Location = new System.Drawing.Point(1110, 356);
+            this.colourOptionPanel18.Location = new System.Drawing.Point(1107, 397);
             this.colourOptionPanel18.Name = "colourOptionPanel18";
             this.colourOptionPanel18.Size = new System.Drawing.Size(113, 88);
             this.colourOptionPanel18.TabIndex = 13;
@@ -457,30 +474,15 @@
             this.colourOptionButton18.Size = new System.Drawing.Size(97, 75);
             this.colourOptionButton18.TabIndex = 7;
             this.colourOptionButton18.UseVisualStyleBackColor = false;
+            this.colourOptionButton18.Click += new System.EventHandler(this.colourOptionButton18_Click);
             // 
             // pnlBackColour
             // 
             this.pnlBackColour.Controls.Add(this.btnMainColour);
-            this.pnlBackColour.Location = new System.Drawing.Point(65, 16);
+            this.pnlBackColour.Location = new System.Drawing.Point(75, 174);
             this.pnlBackColour.Name = "pnlBackColour";
             this.pnlBackColour.Size = new System.Drawing.Size(200, 100);
             this.pnlBackColour.TabIndex = 16;
-            // 
-            // pnlHighlightColour
-            // 
-            this.pnlHighlightColour.Controls.Add(this.btnHighLight);
-            this.pnlHighlightColour.Location = new System.Drawing.Point(287, 16);
-            this.pnlHighlightColour.Name = "pnlHighlightColour";
-            this.pnlHighlightColour.Size = new System.Drawing.Size(200, 100);
-            this.pnlHighlightColour.TabIndex = 17;
-            // 
-            // pnlIconColour
-            // 
-            this.pnlIconColour.Controls.Add(this.btnIcon);
-            this.pnlIconColour.Location = new System.Drawing.Point(512, 19);
-            this.pnlIconColour.Name = "pnlIconColour";
-            this.pnlIconColour.Size = new System.Drawing.Size(200, 100);
-            this.pnlIconColour.TabIndex = 18;
             // 
             // btnMainColour
             // 
@@ -490,6 +492,15 @@
             this.btnMainColour.TabIndex = 0;
             this.btnMainColour.Text = "Main Colour";
             this.btnMainColour.UseVisualStyleBackColor = true;
+            this.btnMainColour.Click += new System.EventHandler(this.btnMainColour_Click);
+            // 
+            // pnlHighlightColour
+            // 
+            this.pnlHighlightColour.Controls.Add(this.btnHighLight);
+            this.pnlHighlightColour.Location = new System.Drawing.Point(304, 174);
+            this.pnlHighlightColour.Name = "pnlHighlightColour";
+            this.pnlHighlightColour.Size = new System.Drawing.Size(200, 100);
+            this.pnlHighlightColour.TabIndex = 17;
             // 
             // btnHighLight
             // 
@@ -499,6 +510,15 @@
             this.btnHighLight.TabIndex = 19;
             this.btnHighLight.Text = "Secondary Colour";
             this.btnHighLight.UseVisualStyleBackColor = true;
+            this.btnHighLight.Click += new System.EventHandler(this.btnHighLight_Click);
+            // 
+            // pnlIconColour
+            // 
+            this.pnlIconColour.Controls.Add(this.btnIcon);
+            this.pnlIconColour.Location = new System.Drawing.Point(547, 173);
+            this.pnlIconColour.Name = "pnlIconColour";
+            this.pnlIconColour.Size = new System.Drawing.Size(200, 100);
+            this.pnlIconColour.TabIndex = 18;
             // 
             // btnIcon
             // 
@@ -508,41 +528,42 @@
             this.btnIcon.TabIndex = 19;
             this.btnIcon.Text = "Icon Colour";
             this.btnIcon.UseVisualStyleBackColor = true;
+            this.btnIcon.Click += new System.EventHandler(this.btnIcon_Click);
             // 
             // pnlMain
             // 
-            this.pnlMain.Location = new System.Drawing.Point(107, 174);
+            this.pnlMain.Location = new System.Drawing.Point(124, 24);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(112, 103);
             this.pnlMain.TabIndex = 19;
             // 
             // pnlSec
             // 
-            this.pnlSec.Location = new System.Drawing.Point(334, 178);
+            this.pnlSec.Location = new System.Drawing.Point(329, 24);
             this.pnlSec.Name = "pnlSec";
             this.pnlSec.Size = new System.Drawing.Size(112, 103);
             this.pnlSec.TabIndex = 20;
             // 
             // pnlIcon
             // 
-            this.pnlIcon.Location = new System.Drawing.Point(567, 174);
+            this.pnlIcon.Location = new System.Drawing.Point(580, 30);
             this.pnlIcon.Name = "pnlIcon";
             this.pnlIcon.Size = new System.Drawing.Size(112, 103);
             this.pnlIcon.TabIndex = 20;
             // 
-            // panel1
+            // btnPanel
             // 
-            this.panel1.Controls.Add(this.panelSaveAndCancel);
-            this.panel1.Controls.Add(this.pnlBackColour);
-            this.panel1.Controls.Add(this.pnlIcon);
-            this.panel1.Controls.Add(this.pnlHighlightColour);
-            this.panel1.Controls.Add(this.pnlSec);
-            this.panel1.Controls.Add(this.pnlIconColour);
-            this.panel1.Controls.Add(this.pnlMain);
-            this.panel1.Location = new System.Drawing.Point(149, 32);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(860, 557);
-            this.panel1.TabIndex = 21;
+            this.btnPanel.Controls.Add(this.panelSaveAndCancel);
+            this.btnPanel.Controls.Add(this.pnlBackColour);
+            this.btnPanel.Controls.Add(this.pnlIcon);
+            this.btnPanel.Controls.Add(this.pnlHighlightColour);
+            this.btnPanel.Controls.Add(this.pnlSec);
+            this.btnPanel.Controls.Add(this.pnlIconColour);
+            this.btnPanel.Controls.Add(this.pnlMain);
+            this.btnPanel.Location = new System.Drawing.Point(298, 44);
+            this.btnPanel.Name = "btnPanel";
+            this.btnPanel.Size = new System.Drawing.Size(934, 560);
+            this.btnPanel.TabIndex = 21;
             // 
             // panelSaveAndCancel
             // 
@@ -602,6 +623,7 @@
             this.btnSave.TabIndex = 23;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // ColourSettings
             // 
@@ -609,7 +631,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1476, 629);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnPanel);
             this.Controls.Add(this.brushColours);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ColourSettings";
@@ -637,7 +659,7 @@
             this.pnlBackColour.ResumeLayout(false);
             this.pnlHighlightColour.ResumeLayout(false);
             this.pnlIconColour.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.btnPanel.ResumeLayout(false);
             this.panelSaveAndCancel.ResumeLayout(false);
             this.pnlCancel.ResumeLayout(false);
             this.pnlSave.ResumeLayout(false);
@@ -693,7 +715,7 @@
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.Panel pnlSec;
         private System.Windows.Forms.Panel pnlIcon;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel btnPanel;
         private System.Windows.Forms.Panel panelSaveAndCancel;
         private System.Windows.Forms.Panel pnlCancel;
         private System.Windows.Forms.Button btnCancel;

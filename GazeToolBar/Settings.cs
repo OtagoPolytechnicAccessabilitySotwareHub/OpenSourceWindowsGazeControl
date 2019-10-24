@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.IO;
 using Newtonsoft.Json;
 using System.Threading;
+using System.Drawing;
+
 namespace GazeToolBar
 {
     class Settings
@@ -36,6 +38,9 @@ namespace GazeToolBar
         public bool autocomplete { get; set; }
 
         public bool spanish { get; set; }
+        public Color mainColour { get; set; }
+        public Color secondColour { get; set; }
+        public String iconColour { get; set; }
 
         SettingJSON settingsJson;
         public Settings(string path)
@@ -64,11 +69,14 @@ namespace GazeToolBar
                 selectionFeedback = settingsJson.selectionFeedback;
                 dynamicZoom = settingsJson.dynamicZoom;                                  //Changed for TESTINGVARIABLE
                 centerZoom = settingsJson.centerZoom;
-                eng = true;
-                k123 = true;
-                kacc = true;
-                spanish = true;
-                autocomplete = true;
+                eng = settingsJson.eng;
+                k123 = settingsJson.k123;
+                kacc = settingsJson.kacc;
+                spanish = settingsJson.spanish;
+                autocomplete = settingsJson.autocomplete;
+                mainColour = settingsJson.mainColour;
+                secondColour = settingsJson.secondColour;
+                iconColour = settingsJson.iconColour;
                 //dynamicZoom = false;
                 //centerZoom = false;
                 Console.WriteLine("Settings loaded");
@@ -101,6 +109,9 @@ namespace GazeToolBar
             setting.autocomplete = autocomplete;
             //setting.dynamicZoom = false;
             //centerZoom = false;
+            setting.mainColour = mainColour;
+            setting.secondColour = secondColour;
+            setting.iconColour = iconColour;
             string settings = JsonConvert.SerializeObject(setting);
             File.WriteAllText(Program.path, settings);
         }
@@ -124,6 +135,14 @@ namespace GazeToolBar
             selectionFeedback = true;
             dynamicZoom = false;                                  //Changed for TESTINGVARIABLE
             centerZoom = false;
+            eng = true;
+            k123 = true;
+            kacc = true;
+            spanish = true;
+            autocomplete = true;
+            mainColour = Color.Black;
+            secondColour = Color.Cyan;
+            iconColour = "Cyan";
         }
 
 
