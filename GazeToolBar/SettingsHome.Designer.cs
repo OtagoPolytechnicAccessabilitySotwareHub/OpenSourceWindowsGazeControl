@@ -195,7 +195,7 @@
             this.colourSettings.Name = "colourSettings";
             this.colourSettings.Size = new System.Drawing.Size(165, 73);
             this.colourSettings.TabIndex = 0;
-            this.colourSettings.Text = "Colour Settings";
+            this.colourSettings.Text = "Color Settings";
             this.colourSettings.UseVisualStyleBackColor = true;
             this.colourSettings.Click += new System.EventHandler(this.colourSettings_Click);
             // 
@@ -229,6 +229,7 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(3, 3);
@@ -236,13 +237,14 @@
             this.button1.Size = new System.Drawing.Size(165, 73);
             this.button1.TabIndex = 0;
             this.button1.Text = "Default Settings";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // SettingsHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(1376, 649);
             this.ControlBox = false;
             this.Controls.Add(this.defaultPanel);

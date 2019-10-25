@@ -88,7 +88,7 @@ namespace GazeToolBar
             int pos = 0;
             Node enteredEnd = m_root;
             String[] sg;
-            for (int i = 0; i < word.Length-1; i++)
+            for (int i = 0; i < word.Length; i++)
             {
                 if (enteredEnd.children.Count > 0) { 
                     enteredEnd = enteredEnd.findNode(word[i], false);
@@ -116,10 +116,17 @@ namespace GazeToolBar
         {
             if (!startNode.m_wordEnd)
             {
-                foreach (Node node in startNode.children)
+                //foreach (Node node in startNode.children)
+                for (int i = 0; i < startNode.children.Count; i++)
                 {
-                    suggestions.Add(Char.ToString(node.m_char));
-                    travelNode(node, suggestions);
+                    if (i > 0)
+                    {
+                        suggestions.Add(Char.ToString(startNode.m_char));
+                    }
+                    //suggestions.Add(Char.ToString(node.m_char));
+                    //travelNode(node, suggestions);
+                    suggestions.Add(Char.ToString(startNode.children[i].m_char));
+                    travelNode(startNode.children[i], suggestions);
                 }
             }
             else
