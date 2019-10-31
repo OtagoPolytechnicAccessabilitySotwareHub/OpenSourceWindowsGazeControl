@@ -24,6 +24,7 @@ namespace GazeToolBar
             this.home = home;
             this.form1 = form1;
             connectBehaveMap();
+            controlRelocateAndResize();
         }
 
 
@@ -182,5 +183,62 @@ namespace GazeToolBar
         {
             Close();
         }
+
+
+        private void controlRelocateAndResize()
+        {
+            int percentageSize = 400; //Higher number for smaller trackbars
+            panelSaveAndCancel.Location = ReletiveSize.panelSaveAndCancel(panelSaveAndCancel.Width, panelSaveAndCancel.Height);
+            ReletiveSize.sizeEvenly(panelSaveAndCancel, 0.4);
+            pnlSave.Location = ReletiveSize.distribute(panelSaveAndCancel, pnlSave.Location.Y, 1, 2, "wn", 0.5);
+            pnlCancel.Location = ReletiveSize.distribute(panelSaveAndCancel, pnlSave.Location.Y, 2, 2, "wn", 0.7);
+            ReletiveSize.resizeLabel(label1, 20);
+            //General Settings size and location
+
+
+            //Panel other
+
+            //Set feed back label to the center of the screen.
+            //lbFKeyFeedback.Location = new Point((pnlPageKeyboard.Width / 2) - (lbFKeyFeedback.Width / 2), lbFKeyFeedback.Location.Y);
+            //pnlPageKeyboard.Location = ReletiveSize.mainPanelLocation(pnlSwitchSetting.Location.Y, pnlSwitchSetting.Height);
+
+            //Zoom Settings size and location
+            //Main Panel
+            pnlZoomSettings.Size = ReletiveSize.panelGeneralSize(panelSaveAndCancel.Location.Y, pnlZoomSettings.Location.Y);
+            //Zoom size panel
+            pnlZoomSize.Location = ReletiveSize.distribute(pnlZoomSettings, pnlZoomSize.Location.X, 1, 3, "h", 0);
+            pnlZoomSize.Size = new Size(pnlZoomSettings.Size.Width, pnlZoomSize.Size.Height);
+            pnlZoomSizeContent.Location = ReletiveSize.distribute(pnlZoomSize, pnlZoomSizeContent.Location.Y, 1, 1, "w", 0.1);
+            pnlZoomSizeContent.Size = ReletiveSize.controlLength(pnlZoomSettings, pnlZoomSizeContent.Size.Height, 0.85);
+            double zoomPercentage = (double)(pnlZoomSizeContent.Size.Width - percentageSize) / (double)pnlZoomSizeContent.Size.Width;
+            trackBarZoomWindowSize.Size = ReletiveSize.controlLength(pnlZoomSizeContent, trackBarZoomWindowSize.Size.Height, zoomPercentage);
+            pnlZWSPlus.Location = ReletiveSize.reletiveLocation(trackBarZoomWindowSize, pnlZWSPlus.Location.Y, 7, 'v');
+            labZoomWindowSize.Location = ReletiveSize.labelPosition(pnlZoomSize, labZoomWindowSize);
+            //Zoom amount panel
+            pnlZoomAmount.Location = ReletiveSize.distribute(pnlZoomSettings, pnlZoomAmount.Location.X, 2, 3, "h", 0);
+            pnlZoomAmount.Size = new Size(pnlZoomSettings.Size.Width, pnlZoomAmount.Size.Height);
+            pnlZoomAmountContent.Location = new Point(pnlZoomSizeContent.Location.X, pnlZoomAmountContent.Location.Y);
+            pnlZoomAmountContent.Size = pnlZoomSizeContent.Size;
+            trackBarZoomAmount.Size = trackBarZoomWindowSize.Size;
+            pnlZIAPlus.Location = new Point(pnlZWSPlus.Location.X, pnlZIAPlus.Location.Y);
+            labZoomAmount.Location = ReletiveSize.labelPosition(pnlZoomAmount, labZoomAmount);
+            //Rearrange panel
+            pnlZoomMode.Location = ReletiveSize.distribute(pnlZoomSettings, pnlZoomMode.Location.X, 3, 3, "h", 0);
+            pnlZoomMode.Size = new Size(pnlZoomSettings.Size.Width, pnlZoomMode.Size.Height);
+            ReletiveSize.sizeEvenly(pnlZoomMode, 0.6);
+            pnlStaticZoomMode.Location = ReletiveSize.distribute(pnlZoomMode, pnlStaticZoomMode.Location.Y, 1, 3, "wn", 0.3);
+            pnlCornerZoomMode.Location = ReletiveSize.distribute(pnlZoomMode, pnlCornerZoomMode.Location.Y, 2, 3, "wn", 0.3);
+            pnlDynamicZoomMode.Location = ReletiveSize.distribute(pnlZoomMode, pnlDynamicZoomMode.Location.Y, 3, 3, "wn", 0.3);
+        }
+        
+
+
+
+
+
+
+
+
+
     }
 }

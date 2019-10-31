@@ -31,8 +31,10 @@ namespace GazeToolBar
             connectBehaveMap();
             this.home = home;
             this.form1 = form1;
+            controlRelocateAndResize();
             InitSidebarActions();
             RefreshActions();
+            
         }
 
 
@@ -293,5 +295,38 @@ namespace GazeToolBar
             }
             
         }
+
+
+
+
+
+
+
+        private void controlRelocateAndResize()
+        {
+            int percentageSize = 400; //Higher number for smaller trackbars
+            panelSaveAndCancel.Location = ReletiveSize.panelSaveAndCancel(panelSaveAndCancel.Width, panelSaveAndCancel.Height);
+            ReletiveSize.sizeEvenly(panelSaveAndCancel, 0.4);
+            pnlSave.Location = ReletiveSize.distribute(panelSaveAndCancel, pnlSave.Location.Y, 1, 2, "wn", 0.5);
+            pnlCancel.Location = ReletiveSize.distribute(panelSaveAndCancel, pnlSave.Location.Y, 2, 2, "wn", 0.7);
+            ReletiveSize.resizeLabel(label1, 20);
+            //Set feed back label to the center of the screen.
+            //lbFKeyFeedback.Location = new Point((pnlPageKeyboard.Width / 2) - (lbFKeyFeedback.Width / 2), lbFKeyFeedback.Location.Y);
+            //pnlPageKeyboard.Location = ReletiveSize.mainPanelLocation(pnlSwitchSetting.Location.Y, pnlSwitchSetting.Height);
+
+            //Zoom Settings size and location
+            //Main Panel
+            //Rearrange panel
+            pnlRearrange.Size = ReletiveSize.panelRearrangeSize(panelSaveAndCancel.Location.Y, pnlRearrange.Location.Y);
+            pnlRearrangeControls.Location = ReletiveSize.centerLocation(pnlRearrange, pnlRearrangeControls);
+
+        }
+
+
+
+
+
+
+
     }
 }

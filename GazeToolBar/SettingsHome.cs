@@ -37,7 +37,7 @@ namespace GazeToolBar
             InitializeComponent();
             connectBehaveMap();
             this.form1 = form1;
-            
+            controlRelocateAndResize();
         }
 
 
@@ -117,6 +117,33 @@ namespace GazeToolBar
             Program.readSettings.defaultSettings();
         }
 
+        private void controlRelocateAndResize()
+        {
+            int percentageSize = 400; //Higher number for smaller trackbars
+            panelSaveAndCancel.Location = ReletiveSize.panelSaveAndCancel(panelSaveAndCancel.Width, panelSaveAndCancel.Height);
+            ReletiveSize.sizeEvenly(panelSaveAndCancel,0.4);
+            button1.Location = ReletiveSize.distribute(panelSaveAndCancel, button1.Location.Y, 1, 2, "wn", 0);
+            backButton.Location = ReletiveSize.distribute(panelSaveAndCancel, button1.Location.Y, 2, 2, "wn", 0);
+            ReletiveSize.resizeLabel(label1,20);
+            homeButtons.Height = panelSaveAndCancel.Location.Y - 200;
+            homeButtons.Width = Constants.SCREEN_SIZE.Width;
+            homeButtons.Location = new Point(0, 200);
+            //Console.WriteLine(homeButtons.Location.Y);
+            topRow.Location = ReletiveSize.distribute(homeButtons, 100, 1, 2, "h", 0.3);
+            topRow.Width = homeButtons.Width-200;
+            bottomRow.Location = ReletiveSize.distribute(homeButtons, 100, 2, 2, "h", 0.3);
+            bottomRow.Width = homeButtons.Width - 200;
+            ReletiveSize.sizeEvenly(topRow, 0.5);
+            ReletiveSize.sizeEvenly(bottomRow, 0.4);
+            zoomPanel.Location = ReletiveSize.distribute(topRow, zoomPanel.Location.Y, 1, 3, "wn", 0.4);
+            generalPanel.Location = ReletiveSize.distribute(topRow, generalPanel.Location.Y, 2, 3, "wn", 0.4);
+            crossPanel.Location = ReletiveSize.distribute(topRow, crossPanel.Location.Y, 3, 3, "wn", 0.4);
+            keyboardPanel.Location = ReletiveSize.distribute(bottomRow, keyboardPanel.Location.Y, 1, 4, "wn", 0.28);
+            arrangePanel.Location = ReletiveSize.distribute(bottomRow, arrangePanel.Location.Y, 2, 4, "wn", 0.28);
+            colourPanel.Location = ReletiveSize.distribute(bottomRow, colourPanel.Location.Y, 3, 4, "wn", 0.28);
+            shortcutPanel.Location = ReletiveSize.distribute(bottomRow, shortcutPanel.Location.Y, 4, 4, "wn", 0.28);
 
+
+        }
     }
 }

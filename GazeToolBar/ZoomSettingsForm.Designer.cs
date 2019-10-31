@@ -58,6 +58,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlSave = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
+            this.pnlZoomSettings = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlZoomMode.SuspendLayout();
             this.pnlCornerZoomMode.SuspendLayout();
             this.pnlStaticZoomMode.SuspendLayout();
@@ -75,24 +77,27 @@
             this.panelSaveAndCancel.SuspendLayout();
             this.pnlCancel.SuspendLayout();
             this.pnlSave.SuspendLayout();
+            this.pnlZoomSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlZoomMode
             // 
+            this.pnlZoomMode.BackColor = System.Drawing.Color.Black;
             this.pnlZoomMode.Controls.Add(this.pnlCornerZoomMode);
             this.pnlZoomMode.Controls.Add(this.pnlStaticZoomMode);
             this.pnlZoomMode.Controls.Add(this.pnlDynamicZoomMode);
-            this.pnlZoomMode.Location = new System.Drawing.Point(362, 503);
+            this.pnlZoomMode.Location = new System.Drawing.Point(296, 438);
             this.pnlZoomMode.Name = "pnlZoomMode";
-            this.pnlZoomMode.Size = new System.Drawing.Size(850, 119);
+            this.pnlZoomMode.Size = new System.Drawing.Size(850, 163);
             this.pnlZoomMode.TabIndex = 31;
             // 
             // pnlCornerZoomMode
             // 
+            this.pnlCornerZoomMode.BackColor = System.Drawing.Color.Black;
             this.pnlCornerZoomMode.Controls.Add(this.btnCornerZoomMode);
             this.pnlCornerZoomMode.Location = new System.Drawing.Point(364, 0);
             this.pnlCornerZoomMode.Name = "pnlCornerZoomMode";
-            this.pnlCornerZoomMode.Size = new System.Drawing.Size(155, 100);
+            this.pnlCornerZoomMode.Size = new System.Drawing.Size(155, 155);
             this.pnlCornerZoomMode.TabIndex = 32;
             // 
             // btnCornerZoomMode
@@ -102,10 +107,10 @@
             this.btnCornerZoomMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCornerZoomMode.Font = new System.Drawing.Font("Arial", 15.75F);
             this.btnCornerZoomMode.ForeColor = System.Drawing.Color.White;
-            this.btnCornerZoomMode.Location = new System.Drawing.Point(3, 2);
+            this.btnCornerZoomMode.Location = new System.Drawing.Point(2, 2);
             this.btnCornerZoomMode.Margin = new System.Windows.Forms.Padding(2);
             this.btnCornerZoomMode.Name = "btnCornerZoomMode";
-            this.btnCornerZoomMode.Size = new System.Drawing.Size(150, 100);
+            this.btnCornerZoomMode.Size = new System.Drawing.Size(150, 150);
             this.btnCornerZoomMode.TabIndex = 34;
             this.btnCornerZoomMode.Text = "Corner Zoom";
             this.btnCornerZoomMode.UseVisualStyleBackColor = false;
@@ -113,10 +118,11 @@
             // 
             // pnlStaticZoomMode
             // 
+            this.pnlStaticZoomMode.BackColor = System.Drawing.Color.Black;
             this.pnlStaticZoomMode.Controls.Add(this.btnStaticZoomMode);
             this.pnlStaticZoomMode.Location = new System.Drawing.Point(2, 2);
             this.pnlStaticZoomMode.Name = "pnlStaticZoomMode";
-            this.pnlStaticZoomMode.Size = new System.Drawing.Size(155, 100);
+            this.pnlStaticZoomMode.Size = new System.Drawing.Size(155, 155);
             this.pnlStaticZoomMode.TabIndex = 31;
             // 
             // btnStaticZoomMode
@@ -129,7 +135,7 @@
             this.btnStaticZoomMode.Location = new System.Drawing.Point(2, 2);
             this.btnStaticZoomMode.Margin = new System.Windows.Forms.Padding(2);
             this.btnStaticZoomMode.Name = "btnStaticZoomMode";
-            this.btnStaticZoomMode.Size = new System.Drawing.Size(150, 100);
+            this.btnStaticZoomMode.Size = new System.Drawing.Size(150, 150);
             this.btnStaticZoomMode.TabIndex = 34;
             this.btnStaticZoomMode.Text = "Centered Zoom";
             this.btnStaticZoomMode.UseVisualStyleBackColor = false;
@@ -137,10 +143,11 @@
             // 
             // pnlDynamicZoomMode
             // 
+            this.pnlDynamicZoomMode.BackColor = System.Drawing.Color.Black;
             this.pnlDynamicZoomMode.Controls.Add(this.btnDynamicZoomMode);
             this.pnlDynamicZoomMode.Location = new System.Drawing.Point(664, 0);
             this.pnlDynamicZoomMode.Name = "pnlDynamicZoomMode";
-            this.pnlDynamicZoomMode.Size = new System.Drawing.Size(129, 100);
+            this.pnlDynamicZoomMode.Size = new System.Drawing.Size(155, 155);
             this.pnlDynamicZoomMode.TabIndex = 31;
             // 
             // btnDynamicZoomMode
@@ -153,7 +160,7 @@
             this.btnDynamicZoomMode.Location = new System.Drawing.Point(2, 2);
             this.btnDynamicZoomMode.Margin = new System.Windows.Forms.Padding(2);
             this.btnDynamicZoomMode.Name = "btnDynamicZoomMode";
-            this.btnDynamicZoomMode.Size = new System.Drawing.Size(121, 96);
+            this.btnDynamicZoomMode.Size = new System.Drawing.Size(150, 150);
             this.btnDynamicZoomMode.TabIndex = 31;
             this.btnDynamicZoomMode.Text = "Dynamic Zoom";
             this.btnDynamicZoomMode.UseVisualStyleBackColor = false;
@@ -164,9 +171,9 @@
             this.pnlZoomAmount.BackColor = System.Drawing.Color.Black;
             this.pnlZoomAmount.Controls.Add(this.pnlZoomAmountContent);
             this.pnlZoomAmount.Controls.Add(this.labZoomAmount);
-            this.pnlZoomAmount.Location = new System.Drawing.Point(94, 282);
+            this.pnlZoomAmount.Location = new System.Drawing.Point(11, 238);
             this.pnlZoomAmount.Name = "pnlZoomAmount";
-            this.pnlZoomAmount.Size = new System.Drawing.Size(1347, 165);
+            this.pnlZoomAmount.Size = new System.Drawing.Size(1361, 165);
             this.pnlZoomAmount.TabIndex = 23;
             // 
             // pnlZoomAmountContent
@@ -258,9 +265,9 @@
             this.pnlZoomSize.BackColor = System.Drawing.Color.Black;
             this.pnlZoomSize.Controls.Add(this.pnlZoomSizeContent);
             this.pnlZoomSize.Controls.Add(this.labZoomWindowSize);
-            this.pnlZoomSize.Location = new System.Drawing.Point(94, 60);
+            this.pnlZoomSize.Location = new System.Drawing.Point(11, 19);
             this.pnlZoomSize.Name = "pnlZoomSize";
-            this.pnlZoomSize.Size = new System.Drawing.Size(1347, 165);
+            this.pnlZoomSize.Size = new System.Drawing.Size(1361, 165);
             this.pnlZoomSize.TabIndex = 14;
             // 
             // pnlZoomSizeContent
@@ -350,7 +357,7 @@
             // 
             this.panelSaveAndCancel.Controls.Add(this.pnlCancel);
             this.panelSaveAndCancel.Controls.Add(this.pnlSave);
-            this.panelSaveAndCancel.Location = new System.Drawing.Point(421, 641);
+            this.panelSaveAndCancel.Location = new System.Drawing.Point(343, 771);
             this.panelSaveAndCancel.Margin = new System.Windows.Forms.Padding(2);
             this.panelSaveAndCancel.Name = "panelSaveAndCancel";
             this.panelSaveAndCancel.Size = new System.Drawing.Size(782, 164);
@@ -406,17 +413,37 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // pnlZoomSettings
+            // 
+            this.pnlZoomSettings.Controls.Add(this.pnlZoomSize);
+            this.pnlZoomSettings.Controls.Add(this.pnlZoomAmount);
+            this.pnlZoomSettings.Controls.Add(this.pnlZoomMode);
+            this.pnlZoomSettings.Location = new System.Drawing.Point(31, 139);
+            this.pnlZoomSettings.Name = "pnlZoomSettings";
+            this.pnlZoomSettings.Size = new System.Drawing.Size(1445, 627);
+            this.pnlZoomSettings.TabIndex = 33;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(460, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(550, 91);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Zoom Settings";
+            // 
             // ZoomSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1678, 800);
+            this.ClientSize = new System.Drawing.Size(1678, 874);
             this.ControlBox = false;
             this.Controls.Add(this.panelSaveAndCancel);
-            this.Controls.Add(this.pnlZoomSize);
-            this.Controls.Add(this.pnlZoomAmount);
-            this.Controls.Add(this.pnlZoomMode);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pnlZoomSettings);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ZoomSettingsForm";
@@ -443,7 +470,9 @@
             this.panelSaveAndCancel.ResumeLayout(false);
             this.pnlCancel.ResumeLayout(false);
             this.pnlSave.ResumeLayout(false);
+            this.pnlZoomSettings.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -478,5 +507,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel pnlSave;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Panel pnlZoomSettings;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -48,6 +48,11 @@
             this.KeyboardSettings = new System.Windows.Forms.Button();
             this.defaultPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.topRow = new System.Windows.Forms.Panel();
+            this.bottomRow = new System.Windows.Forms.Panel();
+            this.panelSaveAndCancel = new System.Windows.Forms.Panel();
+            this.homeButtons = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.generalPanel.SuspendLayout();
             this.zoomPanel.SuspendLayout();
             this.crossPanel.SuspendLayout();
@@ -57,12 +62,16 @@
             this.colourPanel.SuspendLayout();
             this.keyboardPanel.SuspendLayout();
             this.defaultPanel.SuspendLayout();
+            this.topRow.SuspendLayout();
+            this.bottomRow.SuspendLayout();
+            this.panelSaveAndCancel.SuspendLayout();
+            this.homeButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // generalPanel
             // 
             this.generalPanel.Controls.Add(this.generalButton);
-            this.generalPanel.Location = new System.Drawing.Point(574, 64);
+            this.generalPanel.Location = new System.Drawing.Point(363, 19);
             this.generalPanel.Name = "generalPanel";
             this.generalPanel.Size = new System.Drawing.Size(200, 100);
             this.generalPanel.TabIndex = 0;
@@ -82,7 +91,7 @@
             // zoomPanel
             // 
             this.zoomPanel.Controls.Add(this.zoomButton);
-            this.zoomPanel.Location = new System.Drawing.Point(103, 61);
+            this.zoomPanel.Location = new System.Drawing.Point(55, 19);
             this.zoomPanel.Name = "zoomPanel";
             this.zoomPanel.Size = new System.Drawing.Size(200, 100);
             this.zoomPanel.TabIndex = 1;
@@ -102,7 +111,7 @@
             // crossPanel
             // 
             this.crossPanel.Controls.Add(this.crossButton);
-            this.crossPanel.Location = new System.Drawing.Point(1059, 61);
+            this.crossPanel.Location = new System.Drawing.Point(646, 22);
             this.crossPanel.Name = "crossPanel";
             this.crossPanel.Size = new System.Drawing.Size(200, 100);
             this.crossPanel.TabIndex = 2;
@@ -122,7 +131,7 @@
             // arrangePanel
             // 
             this.arrangePanel.Controls.Add(this.arrangeButton);
-            this.arrangePanel.Location = new System.Drawing.Point(103, 371);
+            this.arrangePanel.Location = new System.Drawing.Point(400, 61);
             this.arrangePanel.Name = "arrangePanel";
             this.arrangePanel.Size = new System.Drawing.Size(200, 100);
             this.arrangePanel.TabIndex = 3;
@@ -142,7 +151,7 @@
             // shortcutPanel
             // 
             this.shortcutPanel.Controls.Add(this.shortcutButton);
-            this.shortcutPanel.Location = new System.Drawing.Point(1059, 371);
+            this.shortcutPanel.Location = new System.Drawing.Point(959, 61);
             this.shortcutPanel.Name = "shortcutPanel";
             this.shortcutPanel.Size = new System.Drawing.Size(200, 100);
             this.shortcutPanel.TabIndex = 4;
@@ -162,9 +171,9 @@
             // backPanel
             // 
             this.backPanel.Controls.Add(this.backButton);
-            this.backPanel.Location = new System.Drawing.Point(550, 528);
+            this.backPanel.Location = new System.Drawing.Point(372, 7);
             this.backPanel.Name = "backPanel";
-            this.backPanel.Size = new System.Drawing.Size(200, 100);
+            this.backPanel.Size = new System.Drawing.Size(173, 82);
             this.backPanel.TabIndex = 5;
             // 
             // backButton
@@ -182,7 +191,7 @@
             // colourPanel
             // 
             this.colourPanel.Controls.Add(this.colourSettings);
-            this.colourPanel.Location = new System.Drawing.Point(411, 371);
+            this.colourPanel.Location = new System.Drawing.Point(708, 61);
             this.colourPanel.Name = "colourPanel";
             this.colourPanel.Size = new System.Drawing.Size(200, 100);
             this.colourPanel.TabIndex = 6;
@@ -202,7 +211,7 @@
             // keyboardPanel
             // 
             this.keyboardPanel.Controls.Add(this.KeyboardSettings);
-            this.keyboardPanel.Location = new System.Drawing.Point(791, 374);
+            this.keyboardPanel.Location = new System.Drawing.Point(95, 61);
             this.keyboardPanel.Name = "keyboardPanel";
             this.keyboardPanel.Size = new System.Drawing.Size(200, 100);
             this.keyboardPanel.TabIndex = 7;
@@ -222,9 +231,9 @@
             // defaultPanel
             // 
             this.defaultPanel.Controls.Add(this.button1);
-            this.defaultPanel.Location = new System.Drawing.Point(759, 228);
+            this.defaultPanel.Location = new System.Drawing.Point(104, 7);
             this.defaultPanel.Name = "defaultPanel";
-            this.defaultPanel.Size = new System.Drawing.Size(200, 100);
+            this.defaultPanel.Size = new System.Drawing.Size(172, 82);
             this.defaultPanel.TabIndex = 8;
             // 
             // button1
@@ -240,22 +249,69 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // topRow
+            // 
+            this.topRow.BackColor = System.Drawing.Color.Transparent;
+            this.topRow.Controls.Add(this.crossPanel);
+            this.topRow.Controls.Add(this.zoomPanel);
+            this.topRow.Controls.Add(this.generalPanel);
+            this.topRow.Location = new System.Drawing.Point(36, 30);
+            this.topRow.Name = "topRow";
+            this.topRow.Size = new System.Drawing.Size(1181, 185);
+            this.topRow.TabIndex = 9;
+            // 
+            // bottomRow
+            // 
+            this.bottomRow.BackColor = System.Drawing.Color.Transparent;
+            this.bottomRow.Controls.Add(this.keyboardPanel);
+            this.bottomRow.Controls.Add(this.colourPanel);
+            this.bottomRow.Controls.Add(this.shortcutPanel);
+            this.bottomRow.Controls.Add(this.arrangePanel);
+            this.bottomRow.Location = new System.Drawing.Point(36, 257);
+            this.bottomRow.Name = "bottomRow";
+            this.bottomRow.Size = new System.Drawing.Size(1181, 201);
+            this.bottomRow.TabIndex = 10;
+            // 
+            // panelSaveAndCancel
+            // 
+            this.panelSaveAndCancel.Controls.Add(this.defaultPanel);
+            this.panelSaveAndCancel.Controls.Add(this.backPanel);
+            this.panelSaveAndCancel.Location = new System.Drawing.Point(363, 668);
+            this.panelSaveAndCancel.Name = "panelSaveAndCancel";
+            this.panelSaveAndCancel.Size = new System.Drawing.Size(627, 114);
+            this.panelSaveAndCancel.TabIndex = 11;
+            // 
+            // homeButtons
+            // 
+            this.homeButtons.BackColor = System.Drawing.Color.Transparent;
+            this.homeButtons.Controls.Add(this.topRow);
+            this.homeButtons.Controls.Add(this.bottomRow);
+            this.homeButtons.Location = new System.Drawing.Point(12, 116);
+            this.homeButtons.Name = "homeButtons";
+            this.homeButtons.Size = new System.Drawing.Size(1237, 480);
+            this.homeButtons.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(482, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(325, 91);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Settings";
+            // 
             // SettingsHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(1376, 649);
+            this.ClientSize = new System.Drawing.Size(1376, 811);
             this.ControlBox = false;
-            this.Controls.Add(this.defaultPanel);
-            this.Controls.Add(this.keyboardPanel);
-            this.Controls.Add(this.colourPanel);
-            this.Controls.Add(this.backPanel);
-            this.Controls.Add(this.shortcutPanel);
-            this.Controls.Add(this.arrangePanel);
-            this.Controls.Add(this.crossPanel);
-            this.Controls.Add(this.zoomPanel);
-            this.Controls.Add(this.generalPanel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panelSaveAndCancel);
+            this.Controls.Add(this.homeButtons);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -271,7 +327,12 @@
             this.colourPanel.ResumeLayout(false);
             this.keyboardPanel.ResumeLayout(false);
             this.defaultPanel.ResumeLayout(false);
+            this.topRow.ResumeLayout(false);
+            this.bottomRow.ResumeLayout(false);
+            this.panelSaveAndCancel.ResumeLayout(false);
+            this.homeButtons.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -295,5 +356,10 @@
         private System.Windows.Forms.Button KeyboardSettings;
         private System.Windows.Forms.Panel defaultPanel;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel topRow;
+        private System.Windows.Forms.Panel bottomRow;
+        private System.Windows.Forms.Panel panelSaveAndCancel;
+        private System.Windows.Forms.Panel homeButtons;
+        private System.Windows.Forms.Label label1;
     }
 }

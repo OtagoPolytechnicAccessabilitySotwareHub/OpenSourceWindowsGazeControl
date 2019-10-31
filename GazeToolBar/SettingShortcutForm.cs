@@ -24,6 +24,7 @@ namespace GazeToolBar
             connectBehaveMap();
             this.home = home;
             this.form1 = form1;
+            controlRelocateAndResize();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -31,6 +32,23 @@ namespace GazeToolBar
             Close();
         }
 
-        
+        private void controlRelocateAndResize()
+        {
+            int percentageSize = 400; //Higher number for smaller trackbars
+
+            panelSaveAndCancel.Location = ReletiveSize.panelSaveAndCancel(panelSaveAndCancel.Width, panelSaveAndCancel.Height);
+            ReletiveSize.sizeEvenly(panelSaveAndCancel, 0.4);
+            ReletiveSize.evenlyDistrubute(panelSaveAndCancel);
+            ReletiveSize.resizeLabel(label1,20);
+            //Panel confirm defaults
+
+            //Shortcut settings panel
+            pnlPageKeyboard.Width = Constants.SCREEN_SIZE.Width;// - 20;
+            pnlPageKeyboard.Size = ReletiveSize.panelGeneralSize(panelSaveAndCancel.Location.Y, pnlPageKeyboard.Location.Y);
+            pnlLeftClick.Location = ReletiveSize.distribute(pnlPageKeyboard, pnlLeftClick.Location.Y, 1, 4, "wn", 0.25);
+            pnlRightClick.Location = ReletiveSize.distribute(pnlPageKeyboard, pnlRightClick.Location.Y, 2, 4, "wn", 0.25);
+            pnlDoubleClick.Location = ReletiveSize.distribute(pnlPageKeyboard, pnlDoubleClick.Location.Y, 3, 4, "wn", 0.25);
+            pnlScroll.Location = ReletiveSize.distribute(pnlPageKeyboard, pnlScroll.Location.Y, 4, 4, "wn", 0.25);
+        }
     }
 }

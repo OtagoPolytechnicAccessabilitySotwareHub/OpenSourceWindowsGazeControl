@@ -75,11 +75,14 @@
             this.pnlSec = new System.Windows.Forms.Panel();
             this.pnlIcon = new System.Windows.Forms.Panel();
             this.btnPanel = new System.Windows.Forms.Panel();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.panelBottom = new System.Windows.Forms.Panel();
             this.panelSaveAndCancel = new System.Windows.Forms.Panel();
             this.pnlCancel = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlSave = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.brushColours.SuspendLayout();
             this.colourOptionPanel1.SuspendLayout();
             this.colourOptionPanel2.SuspendLayout();
@@ -103,6 +106,8 @@
             this.pnlHighlightColour.SuspendLayout();
             this.pnlIconColour.SuspendLayout();
             this.btnPanel.SuspendLayout();
+            this.panelTop.SuspendLayout();
+            this.panelBottom.SuspendLayout();
             this.panelSaveAndCancel.SuspendLayout();
             this.pnlCancel.SuspendLayout();
             this.pnlSave.SuspendLayout();
@@ -479,16 +484,18 @@
             // pnlBackColour
             // 
             this.pnlBackColour.Controls.Add(this.btnMainColour);
-            this.pnlBackColour.Location = new System.Drawing.Point(75, 174);
+            this.pnlBackColour.Location = new System.Drawing.Point(14, 10);
             this.pnlBackColour.Name = "pnlBackColour";
             this.pnlBackColour.Size = new System.Drawing.Size(200, 100);
             this.pnlBackColour.TabIndex = 16;
             // 
             // btnMainColour
             // 
-            this.btnMainColour.Location = new System.Drawing.Point(4, -4);
+            this.btnMainColour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMainColour.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnMainColour.Location = new System.Drawing.Point(2, 6);
             this.btnMainColour.Name = "btnMainColour";
-            this.btnMainColour.Size = new System.Drawing.Size(75, 23);
+            this.btnMainColour.Size = new System.Drawing.Size(195, 90);
             this.btnMainColour.TabIndex = 0;
             this.btnMainColour.Text = "Main Colour";
             this.btnMainColour.UseVisualStyleBackColor = true;
@@ -497,16 +504,18 @@
             // pnlHighlightColour
             // 
             this.pnlHighlightColour.Controls.Add(this.btnHighLight);
-            this.pnlHighlightColour.Location = new System.Drawing.Point(304, 174);
+            this.pnlHighlightColour.Location = new System.Drawing.Point(332, 10);
             this.pnlHighlightColour.Name = "pnlHighlightColour";
             this.pnlHighlightColour.Size = new System.Drawing.Size(200, 100);
             this.pnlHighlightColour.TabIndex = 17;
             // 
             // btnHighLight
             // 
-            this.btnHighLight.Location = new System.Drawing.Point(3, 3);
+            this.btnHighLight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHighLight.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnHighLight.Location = new System.Drawing.Point(2, 2);
             this.btnHighLight.Name = "btnHighLight";
-            this.btnHighLight.Size = new System.Drawing.Size(75, 23);
+            this.btnHighLight.Size = new System.Drawing.Size(195, 91);
             this.btnHighLight.TabIndex = 19;
             this.btnHighLight.Text = "Secondary Colour";
             this.btnHighLight.UseVisualStyleBackColor = true;
@@ -515,16 +524,18 @@
             // pnlIconColour
             // 
             this.pnlIconColour.Controls.Add(this.btnIcon);
-            this.pnlIconColour.Location = new System.Drawing.Point(547, 173);
+            this.pnlIconColour.Location = new System.Drawing.Point(633, 10);
             this.pnlIconColour.Name = "pnlIconColour";
             this.pnlIconColour.Size = new System.Drawing.Size(200, 100);
             this.pnlIconColour.TabIndex = 18;
             // 
             // btnIcon
             // 
-            this.btnIcon.Location = new System.Drawing.Point(3, 5);
+            this.btnIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIcon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnIcon.Location = new System.Drawing.Point(2, 2);
             this.btnIcon.Name = "btnIcon";
-            this.btnIcon.Size = new System.Drawing.Size(75, 23);
+            this.btnIcon.Size = new System.Drawing.Size(194, 92);
             this.btnIcon.TabIndex = 19;
             this.btnIcon.Text = "Icon Colour";
             this.btnIcon.UseVisualStyleBackColor = true;
@@ -532,44 +543,62 @@
             // 
             // pnlMain
             // 
-            this.pnlMain.Location = new System.Drawing.Point(124, 24);
+            this.pnlMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMain.Location = new System.Drawing.Point(96, 10);
             this.pnlMain.Name = "pnlMain";
             this.pnlMain.Size = new System.Drawing.Size(112, 103);
             this.pnlMain.TabIndex = 19;
             // 
             // pnlSec
             // 
-            this.pnlSec.Location = new System.Drawing.Point(329, 24);
+            this.pnlSec.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSec.Location = new System.Drawing.Point(368, 10);
             this.pnlSec.Name = "pnlSec";
             this.pnlSec.Size = new System.Drawing.Size(112, 103);
             this.pnlSec.TabIndex = 20;
             // 
             // pnlIcon
             // 
-            this.pnlIcon.Location = new System.Drawing.Point(580, 30);
+            this.pnlIcon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlIcon.Location = new System.Drawing.Point(694, 10);
             this.pnlIcon.Name = "pnlIcon";
             this.pnlIcon.Size = new System.Drawing.Size(112, 103);
             this.pnlIcon.TabIndex = 20;
             // 
             // btnPanel
             // 
-            this.btnPanel.Controls.Add(this.panelSaveAndCancel);
-            this.btnPanel.Controls.Add(this.pnlBackColour);
-            this.btnPanel.Controls.Add(this.pnlIcon);
-            this.btnPanel.Controls.Add(this.pnlHighlightColour);
-            this.btnPanel.Controls.Add(this.pnlSec);
-            this.btnPanel.Controls.Add(this.pnlIconColour);
-            this.btnPanel.Controls.Add(this.pnlMain);
-            this.btnPanel.Location = new System.Drawing.Point(298, 44);
+            this.btnPanel.Controls.Add(this.panelTop);
+            this.btnPanel.Controls.Add(this.panelBottom);
+            this.btnPanel.Location = new System.Drawing.Point(12, 192);
             this.btnPanel.Name = "btnPanel";
-            this.btnPanel.Size = new System.Drawing.Size(934, 560);
+            this.btnPanel.Size = new System.Drawing.Size(934, 331);
             this.btnPanel.TabIndex = 21;
+            // 
+            // panelTop
+            // 
+            this.panelTop.Controls.Add(this.pnlIcon);
+            this.panelTop.Controls.Add(this.pnlSec);
+            this.panelTop.Controls.Add(this.pnlMain);
+            this.panelTop.Location = new System.Drawing.Point(3, 19);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(840, 127);
+            this.panelTop.TabIndex = 22;
+            // 
+            // panelBottom
+            // 
+            this.panelBottom.Controls.Add(this.pnlHighlightColour);
+            this.panelBottom.Controls.Add(this.pnlIconColour);
+            this.panelBottom.Controls.Add(this.pnlBackColour);
+            this.panelBottom.Location = new System.Drawing.Point(4, 173);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Size = new System.Drawing.Size(839, 129);
+            this.panelBottom.TabIndex = 21;
             // 
             // panelSaveAndCancel
             // 
             this.panelSaveAndCancel.Controls.Add(this.pnlCancel);
             this.panelSaveAndCancel.Controls.Add(this.pnlSave);
-            this.panelSaveAndCancel.Location = new System.Drawing.Point(26, 362);
+            this.panelSaveAndCancel.Location = new System.Drawing.Point(351, 454);
             this.panelSaveAndCancel.Margin = new System.Windows.Forms.Padding(2);
             this.panelSaveAndCancel.Name = "panelSaveAndCancel";
             this.panelSaveAndCancel.Size = new System.Drawing.Size(782, 164);
@@ -625,12 +654,25 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(834, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(536, 91);
+            this.label8.TabIndex = 59;
+            this.label8.Text = "Color Settings";
+            // 
             // ColourSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1476, 629);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.panelSaveAndCancel);
             this.Controls.Add(this.btnPanel);
             this.Controls.Add(this.brushColours);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -660,10 +702,13 @@
             this.pnlHighlightColour.ResumeLayout(false);
             this.pnlIconColour.ResumeLayout(false);
             this.btnPanel.ResumeLayout(false);
+            this.panelTop.ResumeLayout(false);
+            this.panelBottom.ResumeLayout(false);
             this.panelSaveAndCancel.ResumeLayout(false);
             this.pnlCancel.ResumeLayout(false);
             this.pnlSave.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -721,5 +766,8 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel pnlSave;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.Panel panelBottom;
     }
 }

@@ -32,6 +32,7 @@ namespace GazeToolBar
             changeButtonColour(Program.readSettings.kacc, btnAccOn, btnAccOff);
             changeButtonColour(Program.readSettings.spanish, btnespOn, btnespOff);
             changeButtonColour(Program.readSettings.autocomplete, btnAutoOn, btnAutoOff);
+            controlRelocateAndResize();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -139,6 +140,57 @@ namespace GazeToolBar
             autocomplete = returnTrue(autocomplete);
             changeButtonColour(autocomplete, btnAutoOn, btnAutoOff);
         }
+
+
+        private void controlRelocateAndResize()
+        {
+            int percentageSize = 400; //Higher number for smaller trackbars
+            panelSaveAndCancel.Location = ReletiveSize.panelSaveAndCancel(panelSaveAndCancel.Width, panelSaveAndCancel.Height);
+            ReletiveSize.sizeEvenly(panelSaveAndCancel, 0.4);
+            pnlSave.Location = ReletiveSize.distribute(panelSaveAndCancel, pnlSave.Location.Y, 1, 2, "wn", 0.5);
+            pnlCancel.Location = ReletiveSize.distribute(panelSaveAndCancel, pnlSave.Location.Y, 2, 2, "wn", 0.7);
+            panelKeyboard.Size = ReletiveSize.panelGeneralSize(panelSaveAndCancel.Location.Y, panelKeyboard.Location.Y);
+            ReletiveSize.resizeLabel(label8,20);
+            panelOn.Location = ReletiveSize.distribute(panelKeyboard, panelOn.Location.X, 2, 3, "h", 0);
+            panelOff.Location = ReletiveSize.distribute(panelKeyboard, panelOff.Location.X, 3, 3, "h", 0);
+            panelTitle.Location = new Point(panelOn.Left, (panelOn.Top - (panelTitle.Height)-20));
+            panelTitle.Width = panelKeyboard.Width;
+            panelOn.Width = panelKeyboard.Width;
+            panelOff.Width = panelKeyboard.Width;
+
+            ReletiveSize.resizeLabel(label1, 50);
+            ReletiveSize.resizeLabel(label2, 50);
+            ReletiveSize.resizeLabel(label3, 50);
+            ReletiveSize.resizeLabel(label4, 50);
+            ReletiveSize.resizeLabel(label5, 50);
+            label1.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 2, 6, "wn", 0.15);
+            label2.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 3, 6, "wn", 0.15);
+            label3.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 4, 6, "wn", 0.15);
+            label5.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 5, 6, "wn", 0.15);
+            label4.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 6, 6, "wn", 0.14);
+
+
+            ReletiveSize.resizeLabel(label6, 50);
+            ReletiveSize.sizeEvenly(panelOn, 0.7);
+            label6.Location = ReletiveSize.distribute(panelOn, label6.Location.Y, 1, 6, "wn", 0.15);
+            pnlAbcOn.Location = ReletiveSize.distribute(panelOn, pnlAbcOn.Location.Y, 2, 6, "wn", 0.15);
+            pnl123On.Location = ReletiveSize.distribute(panelOn, pnl123On.Location.Y, 3, 6, "wn", 0.15);
+            pnlAccOn.Location = ReletiveSize.distribute(panelOn, pnlAccOn.Location.Y, 4, 6, "wn", 0.15);
+            pnlespOn.Location = ReletiveSize.distribute(panelOn, pnlespOn.Location.Y, 5, 6, "wn", 0.15);
+            pnlAutoOn.Location = ReletiveSize.distribute(panelOn, pnlAutoOn.Location.Y, 6, 6, "wn", 0.15);
+
+            ReletiveSize.resizeLabel(label7, 50);
+            ReletiveSize.sizeEvenly(panelOff, 0.7);
+            label7.Location = ReletiveSize.distribute(panelOff, label7.Location.Y, 1, 6, "wn", 0.15);
+            pnlAbcOff.Location = ReletiveSize.distribute(panelOff, pnlAbcOff.Location.Y, 2, 6, "wn", 0.15);
+            pnl123Off.Location = ReletiveSize.distribute(panelOff, pnl123Off.Location.Y, 3, 6, "wn", 0.15);
+            pnlAccOff.Location = ReletiveSize.distribute(panelOff, pnlAccOff.Location.Y, 4, 6, "wn", 0.15);
+            pnlespOff.Location = ReletiveSize.distribute(panelOff, pnlespOff.Location.Y, 5, 6, "wn", 0.15);
+            pnlAutoOff.Location = ReletiveSize.distribute(panelOff, pnlAutoOff.Location.Y, 6, 6, "wn", 0.15);
+
+
+        }
+
 
 
 

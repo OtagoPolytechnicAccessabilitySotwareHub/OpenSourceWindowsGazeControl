@@ -81,33 +81,6 @@ namespace GazeToolBar
             this.pnlSwitchSetting = new System.Windows.Forms.Panel();
             this.panelCrosshairButton = new System.Windows.Forms.Panel();
             this.buttonCrosshairSetting = new System.Windows.Forms.Button();
-            this.pnlRearrangeButton = new System.Windows.Forms.Panel();
-            this.btnRearrangeSetting = new System.Windows.Forms.Button();
-            this.pnlZoomButton = new System.Windows.Forms.Panel();
-            this.btnZoomSettings = new System.Windows.Forms.Button();
-            this.pnlZoomSize = new System.Windows.Forms.Panel();
-            this.pnlZoomSizeContent = new System.Windows.Forms.Panel();
-            this.pnlZWSPlus = new System.Windows.Forms.Panel();
-            this.btnZoomSizePlus = new System.Windows.Forms.Button();
-            this.trackBarZoomWindowSize = new System.Windows.Forms.TrackBar();
-            this.pnlZWSMinus = new System.Windows.Forms.Panel();
-            this.btnZoomSizeMinus = new System.Windows.Forms.Button();
-            this.labZoomWindowSize = new System.Windows.Forms.Label();
-            this.pnlZoomAmount = new System.Windows.Forms.Panel();
-            this.pnlZoomAmountContent = new System.Windows.Forms.Panel();
-            this.pnlZIAPlus = new System.Windows.Forms.Panel();
-            this.btnZoomAmountPlus = new System.Windows.Forms.Button();
-            this.trackBarZoomAmount = new System.Windows.Forms.TrackBar();
-            this.pnlZIAMinus = new System.Windows.Forms.Panel();
-            this.btnZoomAmountMinus = new System.Windows.Forms.Button();
-            this.labZoomAmount = new System.Windows.Forms.Label();
-            this.pnlZoomSettings = new System.Windows.Forms.Panel();
-            this.pnlZoomMode = new System.Windows.Forms.Panel();
-            this.pnlCornerZoomMode = new System.Windows.Forms.Panel();
-            this.btnCornerZoomMode = new System.Windows.Forms.Button();
-            this.pnlStaticZoomMode = new System.Windows.Forms.Panel();
-            this.pnlDynamicZoomMode = new System.Windows.Forms.Panel();
-            this.btnDynamicZoomMode = new System.Windows.Forms.Button();
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.panelPrecision = new System.Windows.Forms.Panel();
             this.pnlFixTimeLengthContent = new System.Windows.Forms.Panel();
@@ -143,6 +116,33 @@ namespace GazeToolBar
             this.btnAutoStart = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.lblOther = new System.Windows.Forms.Label();
+            this.pnlRearrangeButton = new System.Windows.Forms.Panel();
+            this.btnRearrangeSetting = new System.Windows.Forms.Button();
+            this.pnlZoomButton = new System.Windows.Forms.Panel();
+            this.btnZoomSettings = new System.Windows.Forms.Button();
+            this.pnlZoomSize = new System.Windows.Forms.Panel();
+            this.pnlZoomSizeContent = new System.Windows.Forms.Panel();
+            this.pnlZWSPlus = new System.Windows.Forms.Panel();
+            this.btnZoomSizePlus = new System.Windows.Forms.Button();
+            this.trackBarZoomWindowSize = new System.Windows.Forms.TrackBar();
+            this.pnlZWSMinus = new System.Windows.Forms.Panel();
+            this.btnZoomSizeMinus = new System.Windows.Forms.Button();
+            this.labZoomWindowSize = new System.Windows.Forms.Label();
+            this.pnlZoomAmount = new System.Windows.Forms.Panel();
+            this.pnlZoomAmountContent = new System.Windows.Forms.Panel();
+            this.pnlZIAPlus = new System.Windows.Forms.Panel();
+            this.btnZoomAmountPlus = new System.Windows.Forms.Button();
+            this.trackBarZoomAmount = new System.Windows.Forms.TrackBar();
+            this.pnlZIAMinus = new System.Windows.Forms.Panel();
+            this.btnZoomAmountMinus = new System.Windows.Forms.Button();
+            this.labZoomAmount = new System.Windows.Forms.Label();
+            this.pnlZoomSettings = new System.Windows.Forms.Panel();
+            this.pnlZoomMode = new System.Windows.Forms.Panel();
+            this.pnlCornerZoomMode = new System.Windows.Forms.Panel();
+            this.btnCornerZoomMode = new System.Windows.Forms.Button();
+            this.pnlStaticZoomMode = new System.Windows.Forms.Panel();
+            this.pnlDynamicZoomMode = new System.Windows.Forms.Panel();
+            this.btnDynamicZoomMode = new System.Windows.Forms.Button();
             this.pnlRearrange = new System.Windows.Forms.Panel();
             this.pnlRearrangeControls = new System.Windows.Forms.Panel();
             this.pnlMoveUpButton = new System.Windows.Forms.Panel();
@@ -213,23 +213,6 @@ namespace GazeToolBar
             this.pnlKeysButton.SuspendLayout();
             this.pnlSwitchSetting.SuspendLayout();
             this.panelCrosshairButton.SuspendLayout();
-            this.pnlRearrangeButton.SuspendLayout();
-            this.pnlZoomButton.SuspendLayout();
-            this.pnlZoomSize.SuspendLayout();
-            this.pnlZoomSizeContent.SuspendLayout();
-            this.pnlZWSPlus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarZoomWindowSize)).BeginInit();
-            this.pnlZWSMinus.SuspendLayout();
-            this.pnlZoomAmount.SuspendLayout();
-            this.pnlZoomAmountContent.SuspendLayout();
-            this.pnlZIAPlus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarZoomAmount)).BeginInit();
-            this.pnlZIAMinus.SuspendLayout();
-            this.pnlZoomSettings.SuspendLayout();
-            this.pnlZoomMode.SuspendLayout();
-            this.pnlCornerZoomMode.SuspendLayout();
-            this.pnlStaticZoomMode.SuspendLayout();
-            this.pnlDynamicZoomMode.SuspendLayout();
             this.pnlGeneral.SuspendLayout();
             this.panelPrecision.SuspendLayout();
             this.pnlFixTimeLengthContent.SuspendLayout();
@@ -250,6 +233,23 @@ namespace GazeToolBar
             this.panel2.SuspendLayout();
             this.pnlOtherAuto.SuspendLayout();
             this.pnlAuto.SuspendLayout();
+            this.pnlRearrangeButton.SuspendLayout();
+            this.pnlZoomButton.SuspendLayout();
+            this.pnlZoomSize.SuspendLayout();
+            this.pnlZoomSizeContent.SuspendLayout();
+            this.pnlZWSPlus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarZoomWindowSize)).BeginInit();
+            this.pnlZWSMinus.SuspendLayout();
+            this.pnlZoomAmount.SuspendLayout();
+            this.pnlZoomAmountContent.SuspendLayout();
+            this.pnlZIAPlus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarZoomAmount)).BeginInit();
+            this.pnlZIAMinus.SuspendLayout();
+            this.pnlZoomSettings.SuspendLayout();
+            this.pnlZoomMode.SuspendLayout();
+            this.pnlCornerZoomMode.SuspendLayout();
+            this.pnlStaticZoomMode.SuspendLayout();
+            this.pnlDynamicZoomMode.SuspendLayout();
             this.pnlRearrange.SuspendLayout();
             this.pnlRearrangeControls.SuspendLayout();
             this.pnlMoveUpButton.SuspendLayout();
@@ -852,6 +852,414 @@ namespace GazeToolBar
             this.buttonCrosshairSetting.UseVisualStyleBackColor = false;
             this.buttonCrosshairSetting.Click += new System.EventHandler(this.buttonCrosshairSetting_Click);
             // 
+            // pnlGeneral
+            // 
+            this.pnlGeneral.BackColor = System.Drawing.Color.Black;
+            this.pnlGeneral.Controls.Add(this.panelPrecision);
+            this.pnlGeneral.Controls.Add(this.pnlDefaultConfirm);
+            this.pnlGeneral.Controls.Add(this.pnlFixationTimeOut);
+            this.pnlGeneral.Controls.Add(this.panelOther);
+            this.pnlGeneral.Location = new System.Drawing.Point(613, 29);
+            this.pnlGeneral.Name = "pnlGeneral";
+            this.pnlGeneral.Size = new System.Drawing.Size(183, 154);
+            this.pnlGeneral.TabIndex = 27;
+            // 
+            // panelPrecision
+            // 
+            this.panelPrecision.BackColor = System.Drawing.Color.Black;
+            this.panelPrecision.Controls.Add(this.pnlFixTimeLengthContent);
+            this.panelPrecision.Controls.Add(this.lblFixationDetectionTimeLength);
+            this.panelPrecision.Location = new System.Drawing.Point(12, 10);
+            this.panelPrecision.Name = "panelPrecision";
+            this.panelPrecision.Size = new System.Drawing.Size(1425, 184);
+            this.panelPrecision.TabIndex = 13;
+            // 
+            // pnlFixTimeLengthContent
+            // 
+            this.pnlFixTimeLengthContent.BackColor = System.Drawing.Color.Black;
+            this.pnlFixTimeLengthContent.Controls.Add(this.pnlFTLPlus);
+            this.pnlFixTimeLengthContent.Controls.Add(this.trackBarFixTimeLength);
+            this.pnlFixTimeLengthContent.Controls.Add(this.pnlFTLMins);
+            this.pnlFixTimeLengthContent.Location = new System.Drawing.Point(115, 2);
+            this.pnlFixTimeLengthContent.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlFixTimeLengthContent.Name = "pnlFixTimeLengthContent";
+            this.pnlFixTimeLengthContent.Size = new System.Drawing.Size(1232, 160);
+            this.pnlFixTimeLengthContent.TabIndex = 22;
+            // 
+            // pnlFTLPlus
+            // 
+            this.pnlFTLPlus.Controls.Add(this.btnFixTimeLengthPlus);
+            this.pnlFTLPlus.Location = new System.Drawing.Point(1076, 2);
+            this.pnlFTLPlus.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlFTLPlus.Name = "pnlFTLPlus";
+            this.pnlFTLPlus.Size = new System.Drawing.Size(154, 155);
+            this.pnlFTLPlus.TabIndex = 23;
+            // 
+            // btnFixTimeLengthPlus
+            // 
+            this.btnFixTimeLengthPlus.BackColor = System.Drawing.Color.Transparent;
+            this.btnFixTimeLengthPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFixTimeLengthPlus.Font = new System.Drawing.Font("SimSun", 72F, System.Drawing.FontStyle.Bold);
+            this.btnFixTimeLengthPlus.ForeColor = System.Drawing.Color.White;
+            this.btnFixTimeLengthPlus.Location = new System.Drawing.Point(2, 2);
+            this.btnFixTimeLengthPlus.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFixTimeLengthPlus.Name = "btnFixTimeLengthPlus";
+            this.btnFixTimeLengthPlus.Size = new System.Drawing.Size(150, 150);
+            this.btnFixTimeLengthPlus.TabIndex = 13;
+            this.btnFixTimeLengthPlus.Text = "+";
+            this.btnFixTimeLengthPlus.UseVisualStyleBackColor = false;
+            this.btnFixTimeLengthPlus.Click += new System.EventHandler(this.btnFixTimeLengthPlus_Click);
+            // 
+            // trackBarFixTimeLength
+            // 
+            this.trackBarFixTimeLength.BackColor = System.Drawing.Color.Black;
+            this.trackBarFixTimeLength.Location = new System.Drawing.Point(170, 58);
+            this.trackBarFixTimeLength.Maximum = 8;
+            this.trackBarFixTimeLength.Name = "trackBarFixTimeLength";
+            this.trackBarFixTimeLength.Size = new System.Drawing.Size(896, 45);
+            this.trackBarFixTimeLength.TabIndex = 12;
+            this.trackBarFixTimeLength.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBarFixTimeLength.Value = 4;
+            this.trackBarFixTimeLength.ValueChanged += new System.EventHandler(this.trackBarFixTimeLength_ValueChanged);
+            // 
+            // pnlFTLMins
+            // 
+            this.pnlFTLMins.Controls.Add(this.btnFixTimeLengthMins);
+            this.pnlFTLMins.Location = new System.Drawing.Point(2, 2);
+            this.pnlFTLMins.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlFTLMins.Name = "pnlFTLMins";
+            this.pnlFTLMins.Size = new System.Drawing.Size(154, 155);
+            this.pnlFTLMins.TabIndex = 22;
+            // 
+            // btnFixTimeLengthMins
+            // 
+            this.btnFixTimeLengthMins.BackColor = System.Drawing.Color.Transparent;
+            this.btnFixTimeLengthMins.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFixTimeLengthMins.Font = new System.Drawing.Font("SimSun", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFixTimeLengthMins.ForeColor = System.Drawing.Color.White;
+            this.btnFixTimeLengthMins.Location = new System.Drawing.Point(2, 2);
+            this.btnFixTimeLengthMins.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFixTimeLengthMins.Name = "btnFixTimeLengthMins";
+            this.btnFixTimeLengthMins.Size = new System.Drawing.Size(150, 150);
+            this.btnFixTimeLengthMins.TabIndex = 14;
+            this.btnFixTimeLengthMins.Text = "-";
+            this.btnFixTimeLengthMins.UseVisualStyleBackColor = false;
+            this.btnFixTimeLengthMins.Click += new System.EventHandler(this.btnFixTimeLengthMins_Click);
+            // 
+            // lblFixationDetectionTimeLength
+            // 
+            this.lblFixationDetectionTimeLength.AutoSize = true;
+            this.lblFixationDetectionTimeLength.Font = new System.Drawing.Font("Arial", 18F);
+            this.lblFixationDetectionTimeLength.ForeColor = System.Drawing.Color.White;
+            this.lblFixationDetectionTimeLength.Location = new System.Drawing.Point(10, 15);
+            this.lblFixationDetectionTimeLength.Name = "lblFixationDetectionTimeLength";
+            this.lblFixationDetectionTimeLength.Size = new System.Drawing.Size(102, 81);
+            this.lblFixationDetectionTimeLength.TabIndex = 11;
+            this.lblFixationDetectionTimeLength.Text = "Fixation \r\nTime\r\nLength";
+            // 
+            // pnlDefaultConfirm
+            // 
+            this.pnlDefaultConfirm.BackColor = System.Drawing.Color.Black;
+            this.pnlDefaultConfirm.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlDefaultConfirm.Controls.Add(this.pnlDefaultConfirmNo);
+            this.pnlDefaultConfirm.Controls.Add(this.pnlDefaultConfirmYes);
+            this.pnlDefaultConfirm.Controls.Add(this.label4);
+            this.pnlDefaultConfirm.Location = new System.Drawing.Point(1272, 387);
+            this.pnlDefaultConfirm.Name = "pnlDefaultConfirm";
+            this.pnlDefaultConfirm.Size = new System.Drawing.Size(95, 52);
+            this.pnlDefaultConfirm.TabIndex = 31;
+            // 
+            // pnlDefaultConfirmNo
+            // 
+            this.pnlDefaultConfirmNo.Controls.Add(this.btnDefaultConfirmNo);
+            this.pnlDefaultConfirmNo.Location = new System.Drawing.Point(418, 138);
+            this.pnlDefaultConfirmNo.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlDefaultConfirmNo.Name = "pnlDefaultConfirmNo";
+            this.pnlDefaultConfirmNo.Size = new System.Drawing.Size(154, 155);
+            this.pnlDefaultConfirmNo.TabIndex = 24;
+            // 
+            // btnDefaultConfirmNo
+            // 
+            this.btnDefaultConfirmNo.BackColor = System.Drawing.Color.Transparent;
+            this.btnDefaultConfirmNo.FlatAppearance.BorderSize = 3;
+            this.btnDefaultConfirmNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDefaultConfirmNo.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDefaultConfirmNo.ForeColor = System.Drawing.Color.White;
+            this.btnDefaultConfirmNo.Location = new System.Drawing.Point(2, 2);
+            this.btnDefaultConfirmNo.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDefaultConfirmNo.Name = "btnDefaultConfirmNo";
+            this.btnDefaultConfirmNo.Size = new System.Drawing.Size(150, 150);
+            this.btnDefaultConfirmNo.TabIndex = 23;
+            this.btnDefaultConfirmNo.Text = "No";
+            this.btnDefaultConfirmNo.UseVisualStyleBackColor = false;
+            this.btnDefaultConfirmNo.Click += new System.EventHandler(this.btnDefaultConfirmNo_Click);
+            // 
+            // pnlDefaultConfirmYes
+            // 
+            this.pnlDefaultConfirmYes.Controls.Add(this.btnDefaultConfirmYes);
+            this.pnlDefaultConfirmYes.Location = new System.Drawing.Point(9, 138);
+            this.pnlDefaultConfirmYes.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlDefaultConfirmYes.Name = "pnlDefaultConfirmYes";
+            this.pnlDefaultConfirmYes.Size = new System.Drawing.Size(154, 155);
+            this.pnlDefaultConfirmYes.TabIndex = 23;
+            // 
+            // btnDefaultConfirmYes
+            // 
+            this.btnDefaultConfirmYes.BackColor = System.Drawing.Color.Transparent;
+            this.btnDefaultConfirmYes.FlatAppearance.BorderSize = 3;
+            this.btnDefaultConfirmYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDefaultConfirmYes.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDefaultConfirmYes.ForeColor = System.Drawing.Color.White;
+            this.btnDefaultConfirmYes.Location = new System.Drawing.Point(2, 2);
+            this.btnDefaultConfirmYes.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDefaultConfirmYes.Name = "btnDefaultConfirmYes";
+            this.btnDefaultConfirmYes.Size = new System.Drawing.Size(150, 150);
+            this.btnDefaultConfirmYes.TabIndex = 23;
+            this.btnDefaultConfirmYes.Text = "Yes";
+            this.btnDefaultConfirmYes.UseVisualStyleBackColor = false;
+            this.btnDefaultConfirmYes.Click += new System.EventHandler(this.btnDefaultConfirmYes_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Arial", 24F);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(3, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(591, 72);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "All settings will be reset back to defaults. \r\nAre you sure?";
+            // 
+            // pnlFixationTimeOut
+            // 
+            this.pnlFixationTimeOut.BackColor = System.Drawing.Color.Black;
+            this.pnlFixationTimeOut.Controls.Add(this.pnlFixTimeOutContent);
+            this.pnlFixationTimeOut.Controls.Add(this.lblSpeed);
+            this.pnlFixationTimeOut.Location = new System.Drawing.Point(4, 200);
+            this.pnlFixationTimeOut.Name = "pnlFixationTimeOut";
+            this.pnlFixationTimeOut.Size = new System.Drawing.Size(1347, 165);
+            this.pnlFixationTimeOut.TabIndex = 16;
+            // 
+            // pnlFixTimeOutContent
+            // 
+            this.pnlFixTimeOutContent.BackColor = System.Drawing.Color.Black;
+            this.pnlFixTimeOutContent.Controls.Add(this.pnlFTOPlus);
+            this.pnlFixTimeOutContent.Controls.Add(this.trackBarFixTimeOut);
+            this.pnlFixTimeOutContent.Controls.Add(this.pnlFTOMins);
+            this.pnlFixTimeOutContent.Location = new System.Drawing.Point(115, 2);
+            this.pnlFixTimeOutContent.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlFixTimeOutContent.Name = "pnlFixTimeOutContent";
+            this.pnlFixTimeOutContent.Size = new System.Drawing.Size(1232, 160);
+            this.pnlFixTimeOutContent.TabIndex = 22;
+            // 
+            // pnlFTOPlus
+            // 
+            this.pnlFTOPlus.Controls.Add(this.btnFixTimeOutPlus);
+            this.pnlFTOPlus.Location = new System.Drawing.Point(1076, 2);
+            this.pnlFTOPlus.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlFTOPlus.Name = "pnlFTOPlus";
+            this.pnlFTOPlus.Size = new System.Drawing.Size(154, 155);
+            this.pnlFTOPlus.TabIndex = 23;
+            // 
+            // btnFixTimeOutPlus
+            // 
+            this.btnFixTimeOutPlus.BackColor = System.Drawing.Color.Transparent;
+            this.btnFixTimeOutPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFixTimeOutPlus.Font = new System.Drawing.Font("SimSun", 72F, System.Drawing.FontStyle.Bold);
+            this.btnFixTimeOutPlus.ForeColor = System.Drawing.Color.White;
+            this.btnFixTimeOutPlus.Location = new System.Drawing.Point(2, 2);
+            this.btnFixTimeOutPlus.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFixTimeOutPlus.Name = "btnFixTimeOutPlus";
+            this.btnFixTimeOutPlus.Size = new System.Drawing.Size(150, 150);
+            this.btnFixTimeOutPlus.TabIndex = 16;
+            this.btnFixTimeOutPlus.Text = "+";
+            this.btnFixTimeOutPlus.UseVisualStyleBackColor = false;
+            this.btnFixTimeOutPlus.Click += new System.EventHandler(this.btnFixTimeOutPlus_Click);
+            // 
+            // trackBarFixTimeOut
+            // 
+            this.trackBarFixTimeOut.Location = new System.Drawing.Point(170, 58);
+            this.trackBarFixTimeOut.Maximum = 8;
+            this.trackBarFixTimeOut.Name = "trackBarFixTimeOut";
+            this.trackBarFixTimeOut.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trackBarFixTimeOut.Size = new System.Drawing.Size(894, 45);
+            this.trackBarFixTimeOut.TabIndex = 15;
+            this.trackBarFixTimeOut.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBarFixTimeOut.Value = 5;
+            this.trackBarFixTimeOut.ValueChanged += new System.EventHandler(this.trackBarFixTimeOut_ValueChanged);
+            // 
+            // pnlFTOMins
+            // 
+            this.pnlFTOMins.Controls.Add(this.btnFixTimeOutMins);
+            this.pnlFTOMins.Location = new System.Drawing.Point(2, 2);
+            this.pnlFTOMins.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlFTOMins.Name = "pnlFTOMins";
+            this.pnlFTOMins.Size = new System.Drawing.Size(154, 155);
+            this.pnlFTOMins.TabIndex = 22;
+            // 
+            // btnFixTimeOutMins
+            // 
+            this.btnFixTimeOutMins.BackColor = System.Drawing.Color.Transparent;
+            this.btnFixTimeOutMins.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFixTimeOutMins.Font = new System.Drawing.Font("SimSun", 72F, System.Drawing.FontStyle.Bold);
+            this.btnFixTimeOutMins.ForeColor = System.Drawing.Color.White;
+            this.btnFixTimeOutMins.Location = new System.Drawing.Point(2, 2);
+            this.btnFixTimeOutMins.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFixTimeOutMins.Name = "btnFixTimeOutMins";
+            this.btnFixTimeOutMins.Size = new System.Drawing.Size(150, 150);
+            this.btnFixTimeOutMins.TabIndex = 17;
+            this.btnFixTimeOutMins.Text = "-";
+            this.btnFixTimeOutMins.UseVisualStyleBackColor = false;
+            this.btnFixTimeOutMins.Click += new System.EventHandler(this.btnFixTimeOutMins_Click);
+            // 
+            // lblSpeed
+            // 
+            this.lblSpeed.AutoSize = true;
+            this.lblSpeed.Font = new System.Drawing.Font("Arial", 18F);
+            this.lblSpeed.ForeColor = System.Drawing.Color.White;
+            this.lblSpeed.Location = new System.Drawing.Point(3, 66);
+            this.lblSpeed.Name = "lblSpeed";
+            this.lblSpeed.Size = new System.Drawing.Size(110, 54);
+            this.lblSpeed.TabIndex = 14;
+            this.lblSpeed.Text = "Fixation \r\nTime Out";
+            // 
+            // panelOther
+            // 
+            this.panelOther.BackColor = System.Drawing.Color.Black;
+            this.panelOther.Controls.Add(this.pnlDefaults);
+            this.panelOther.Controls.Add(this.pnlStickyLeft);
+            this.panelOther.Controls.Add(this.pnlOtherAuto);
+            this.panelOther.Controls.Add(this.lblOther);
+            this.panelOther.Location = new System.Drawing.Point(4, 383);
+            this.panelOther.Name = "panelOther";
+            this.panelOther.Size = new System.Drawing.Size(1243, 174);
+            this.panelOther.TabIndex = 21;
+            // 
+            // pnlDefaults
+            // 
+            this.pnlDefaults.Controls.Add(this.btnDefaults);
+            this.pnlDefaults.Location = new System.Drawing.Point(300, 36);
+            this.pnlDefaults.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlDefaults.Name = "pnlDefaults";
+            this.pnlDefaults.Size = new System.Drawing.Size(134, 135);
+            this.pnlDefaults.TabIndex = 26;
+            // 
+            // btnDefaults
+            // 
+            this.btnDefaults.BackColor = System.Drawing.Color.Transparent;
+            this.btnDefaults.FlatAppearance.BorderSize = 3;
+            this.btnDefaults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDefaults.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDefaults.ForeColor = System.Drawing.Color.White;
+            this.btnDefaults.Location = new System.Drawing.Point(2, 2);
+            this.btnDefaults.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDefaults.Name = "btnDefaults";
+            this.btnDefaults.Size = new System.Drawing.Size(130, 130);
+            this.btnDefaults.TabIndex = 24;
+            this.btnDefaults.Text = "Default Settings";
+            this.btnDefaults.UseVisualStyleBackColor = false;
+            this.btnDefaults.Click += new System.EventHandler(this.btnDefaults_Click);
+            // 
+            // pnlStickyLeft
+            // 
+            this.pnlStickyLeft.BackColor = System.Drawing.Color.Black;
+            this.pnlStickyLeft.Controls.Add(this.panel2);
+            this.pnlStickyLeft.Controls.Add(this.label3);
+            this.pnlStickyLeft.Location = new System.Drawing.Point(32026, 1000);
+            this.pnlStickyLeft.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlStickyLeft.Name = "pnlStickyLeft";
+            this.pnlStickyLeft.Size = new System.Drawing.Size(139, 164);
+            this.pnlStickyLeft.TabIndex = 24;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.buttonStickyLeftClick);
+            this.panel2.Location = new System.Drawing.Point(0, 26);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(134, 135);
+            this.panel2.TabIndex = 23;
+            // 
+            // buttonStickyLeftClick
+            // 
+            this.buttonStickyLeftClick.BackColor = System.Drawing.Color.Black;
+            this.buttonStickyLeftClick.FlatAppearance.BorderSize = 5;
+            this.buttonStickyLeftClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonStickyLeftClick.ForeColor = System.Drawing.Color.White;
+            this.buttonStickyLeftClick.Location = new System.Drawing.Point(0, 2);
+            this.buttonStickyLeftClick.Name = "buttonStickyLeftClick";
+            this.buttonStickyLeftClick.Size = new System.Drawing.Size(130, 130);
+            this.buttonStickyLeftClick.TabIndex = 4;
+            this.buttonStickyLeftClick.UseVisualStyleBackColor = false;
+            this.buttonStickyLeftClick.Click += new System.EventHandler(this.buttonStickyLeftClick_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(0, 1);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(127, 19);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Sticky Left Click";
+            // 
+            // pnlOtherAuto
+            // 
+            this.pnlOtherAuto.BackColor = System.Drawing.Color.Black;
+            this.pnlOtherAuto.Controls.Add(this.pnlAuto);
+            this.pnlOtherAuto.Controls.Add(this.label2);
+            this.pnlOtherAuto.Location = new System.Drawing.Point(765, 9);
+            this.pnlOtherAuto.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlOtherAuto.Name = "pnlOtherAuto";
+            this.pnlOtherAuto.Size = new System.Drawing.Size(139, 164);
+            this.pnlOtherAuto.TabIndex = 22;
+            // 
+            // pnlAuto
+            // 
+            this.pnlAuto.Controls.Add(this.btnAutoStart);
+            this.pnlAuto.Location = new System.Drawing.Point(2, 26);
+            this.pnlAuto.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlAuto.Name = "pnlAuto";
+            this.pnlAuto.Size = new System.Drawing.Size(134, 135);
+            this.pnlAuto.TabIndex = 23;
+            // 
+            // btnAutoStart
+            // 
+            this.btnAutoStart.BackColor = System.Drawing.Color.Black;
+            this.btnAutoStart.FlatAppearance.BorderSize = 5;
+            this.btnAutoStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAutoStart.ForeColor = System.Drawing.Color.White;
+            this.btnAutoStart.Location = new System.Drawing.Point(2, 2);
+            this.btnAutoStart.Name = "btnAutoStart";
+            this.btnAutoStart.Size = new System.Drawing.Size(130, 130);
+            this.btnAutoStart.TabIndex = 4;
+            this.btnAutoStart.UseVisualStyleBackColor = false;
+            this.btnAutoStart.Click += new System.EventHandler(this.btnAutoStart_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 18F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(3, 1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(115, 27);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Auto start";
+            // 
+            // lblOther
+            // 
+            this.lblOther.AutoSize = true;
+            this.lblOther.Font = new System.Drawing.Font("Arial", 18F);
+            this.lblOther.ForeColor = System.Drawing.Color.White;
+            this.lblOther.Location = new System.Drawing.Point(19, 78);
+            this.lblOther.Name = "lblOther";
+            this.lblOther.Size = new System.Drawing.Size(73, 27);
+            this.lblOther.TabIndex = 17;
+            this.lblOther.Text = "Other";
+            // 
             // pnlRearrangeButton
             // 
             this.pnlRearrangeButton.Controls.Add(this.btnRearrangeSetting);
@@ -1169,414 +1577,6 @@ namespace GazeToolBar
             this.btnDynamicZoomMode.UseVisualStyleBackColor = false;
             this.btnDynamicZoomMode.Click += new System.EventHandler(this.btnDynamicZoomMode_Click);
             // 
-            // pnlGeneral
-            // 
-            this.pnlGeneral.BackColor = System.Drawing.Color.Black;
-            this.pnlGeneral.Controls.Add(this.panelPrecision);
-            this.pnlGeneral.Controls.Add(this.pnlDefaultConfirm);
-            this.pnlGeneral.Controls.Add(this.pnlFixationTimeOut);
-            this.pnlGeneral.Controls.Add(this.panelOther);
-            this.pnlGeneral.Location = new System.Drawing.Point(613, 29);
-            this.pnlGeneral.Name = "pnlGeneral";
-            this.pnlGeneral.Size = new System.Drawing.Size(183, 154);
-            this.pnlGeneral.TabIndex = 27;
-            // 
-            // panelPrecision
-            // 
-            this.panelPrecision.BackColor = System.Drawing.Color.Black;
-            this.panelPrecision.Controls.Add(this.pnlFixTimeLengthContent);
-            this.panelPrecision.Controls.Add(this.lblFixationDetectionTimeLength);
-            this.panelPrecision.Location = new System.Drawing.Point(12, 10);
-            this.panelPrecision.Name = "panelPrecision";
-            this.panelPrecision.Size = new System.Drawing.Size(1425, 184);
-            this.panelPrecision.TabIndex = 13;
-            // 
-            // pnlFixTimeLengthContent
-            // 
-            this.pnlFixTimeLengthContent.BackColor = System.Drawing.Color.Black;
-            this.pnlFixTimeLengthContent.Controls.Add(this.pnlFTLPlus);
-            this.pnlFixTimeLengthContent.Controls.Add(this.trackBarFixTimeLength);
-            this.pnlFixTimeLengthContent.Controls.Add(this.pnlFTLMins);
-            this.pnlFixTimeLengthContent.Location = new System.Drawing.Point(115, 2);
-            this.pnlFixTimeLengthContent.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlFixTimeLengthContent.Name = "pnlFixTimeLengthContent";
-            this.pnlFixTimeLengthContent.Size = new System.Drawing.Size(1232, 160);
-            this.pnlFixTimeLengthContent.TabIndex = 22;
-            // 
-            // pnlFTLPlus
-            // 
-            this.pnlFTLPlus.Controls.Add(this.btnFixTimeLengthPlus);
-            this.pnlFTLPlus.Location = new System.Drawing.Point(1076, 2);
-            this.pnlFTLPlus.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlFTLPlus.Name = "pnlFTLPlus";
-            this.pnlFTLPlus.Size = new System.Drawing.Size(154, 155);
-            this.pnlFTLPlus.TabIndex = 23;
-            // 
-            // btnFixTimeLengthPlus
-            // 
-            this.btnFixTimeLengthPlus.BackColor = System.Drawing.Color.Transparent;
-            this.btnFixTimeLengthPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFixTimeLengthPlus.Font = new System.Drawing.Font("SimSun", 72F, System.Drawing.FontStyle.Bold);
-            this.btnFixTimeLengthPlus.ForeColor = System.Drawing.Color.White;
-            this.btnFixTimeLengthPlus.Location = new System.Drawing.Point(2, 2);
-            this.btnFixTimeLengthPlus.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFixTimeLengthPlus.Name = "btnFixTimeLengthPlus";
-            this.btnFixTimeLengthPlus.Size = new System.Drawing.Size(150, 150);
-            this.btnFixTimeLengthPlus.TabIndex = 13;
-            this.btnFixTimeLengthPlus.Text = "+";
-            this.btnFixTimeLengthPlus.UseVisualStyleBackColor = false;
-            this.btnFixTimeLengthPlus.Click += new System.EventHandler(this.btnFixTimeLengthPlus_Click);
-            // 
-            // trackBarFixTimeLength
-            // 
-            this.trackBarFixTimeLength.BackColor = System.Drawing.Color.Black;
-            this.trackBarFixTimeLength.Location = new System.Drawing.Point(170, 58);
-            this.trackBarFixTimeLength.Maximum = 8;
-            this.trackBarFixTimeLength.Name = "trackBarFixTimeLength";
-            this.trackBarFixTimeLength.Size = new System.Drawing.Size(896, 45);
-            this.trackBarFixTimeLength.TabIndex = 12;
-            this.trackBarFixTimeLength.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackBarFixTimeLength.Value = 4;
-            this.trackBarFixTimeLength.ValueChanged += new System.EventHandler(this.trackBarFixTimeLength_ValueChanged);
-            // 
-            // pnlFTLMins
-            // 
-            this.pnlFTLMins.Controls.Add(this.btnFixTimeLengthMins);
-            this.pnlFTLMins.Location = new System.Drawing.Point(2, 2);
-            this.pnlFTLMins.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlFTLMins.Name = "pnlFTLMins";
-            this.pnlFTLMins.Size = new System.Drawing.Size(154, 155);
-            this.pnlFTLMins.TabIndex = 22;
-            // 
-            // btnFixTimeLengthMins
-            // 
-            this.btnFixTimeLengthMins.BackColor = System.Drawing.Color.Transparent;
-            this.btnFixTimeLengthMins.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFixTimeLengthMins.Font = new System.Drawing.Font("SimSun", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFixTimeLengthMins.ForeColor = System.Drawing.Color.White;
-            this.btnFixTimeLengthMins.Location = new System.Drawing.Point(2, 2);
-            this.btnFixTimeLengthMins.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFixTimeLengthMins.Name = "btnFixTimeLengthMins";
-            this.btnFixTimeLengthMins.Size = new System.Drawing.Size(150, 150);
-            this.btnFixTimeLengthMins.TabIndex = 14;
-            this.btnFixTimeLengthMins.Text = "-";
-            this.btnFixTimeLengthMins.UseVisualStyleBackColor = false;
-            this.btnFixTimeLengthMins.Click += new System.EventHandler(this.btnFixTimeLengthMins_Click);
-            // 
-            // lblFixationDetectionTimeLength
-            // 
-            this.lblFixationDetectionTimeLength.AutoSize = true;
-            this.lblFixationDetectionTimeLength.Font = new System.Drawing.Font("Arial", 18F);
-            this.lblFixationDetectionTimeLength.ForeColor = System.Drawing.Color.White;
-            this.lblFixationDetectionTimeLength.Location = new System.Drawing.Point(10, 15);
-            this.lblFixationDetectionTimeLength.Name = "lblFixationDetectionTimeLength";
-            this.lblFixationDetectionTimeLength.Size = new System.Drawing.Size(102, 81);
-            this.lblFixationDetectionTimeLength.TabIndex = 11;
-            this.lblFixationDetectionTimeLength.Text = "Fixation \r\nTime\r\nLength";
-            // 
-            // pnlDefaultConfirm
-            // 
-            this.pnlDefaultConfirm.BackColor = System.Drawing.Color.Black;
-            this.pnlDefaultConfirm.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlDefaultConfirm.Controls.Add(this.pnlDefaultConfirmNo);
-            this.pnlDefaultConfirm.Controls.Add(this.pnlDefaultConfirmYes);
-            this.pnlDefaultConfirm.Controls.Add(this.label4);
-            this.pnlDefaultConfirm.Location = new System.Drawing.Point(1272, 387);
-            this.pnlDefaultConfirm.Name = "pnlDefaultConfirm";
-            this.pnlDefaultConfirm.Size = new System.Drawing.Size(95, 52);
-            this.pnlDefaultConfirm.TabIndex = 31;
-            // 
-            // pnlDefaultConfirmNo
-            // 
-            this.pnlDefaultConfirmNo.Controls.Add(this.btnDefaultConfirmNo);
-            this.pnlDefaultConfirmNo.Location = new System.Drawing.Point(418, 138);
-            this.pnlDefaultConfirmNo.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlDefaultConfirmNo.Name = "pnlDefaultConfirmNo";
-            this.pnlDefaultConfirmNo.Size = new System.Drawing.Size(154, 155);
-            this.pnlDefaultConfirmNo.TabIndex = 24;
-            // 
-            // btnDefaultConfirmNo
-            // 
-            this.btnDefaultConfirmNo.BackColor = System.Drawing.Color.Transparent;
-            this.btnDefaultConfirmNo.FlatAppearance.BorderSize = 3;
-            this.btnDefaultConfirmNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDefaultConfirmNo.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDefaultConfirmNo.ForeColor = System.Drawing.Color.White;
-            this.btnDefaultConfirmNo.Location = new System.Drawing.Point(2, 2);
-            this.btnDefaultConfirmNo.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDefaultConfirmNo.Name = "btnDefaultConfirmNo";
-            this.btnDefaultConfirmNo.Size = new System.Drawing.Size(150, 150);
-            this.btnDefaultConfirmNo.TabIndex = 23;
-            this.btnDefaultConfirmNo.Text = "No";
-            this.btnDefaultConfirmNo.UseVisualStyleBackColor = false;
-            this.btnDefaultConfirmNo.Click += new System.EventHandler(this.btnDefaultConfirmNo_Click);
-            // 
-            // pnlDefaultConfirmYes
-            // 
-            this.pnlDefaultConfirmYes.Controls.Add(this.btnDefaultConfirmYes);
-            this.pnlDefaultConfirmYes.Location = new System.Drawing.Point(9, 138);
-            this.pnlDefaultConfirmYes.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlDefaultConfirmYes.Name = "pnlDefaultConfirmYes";
-            this.pnlDefaultConfirmYes.Size = new System.Drawing.Size(154, 155);
-            this.pnlDefaultConfirmYes.TabIndex = 23;
-            // 
-            // btnDefaultConfirmYes
-            // 
-            this.btnDefaultConfirmYes.BackColor = System.Drawing.Color.Transparent;
-            this.btnDefaultConfirmYes.FlatAppearance.BorderSize = 3;
-            this.btnDefaultConfirmYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDefaultConfirmYes.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDefaultConfirmYes.ForeColor = System.Drawing.Color.White;
-            this.btnDefaultConfirmYes.Location = new System.Drawing.Point(2, 2);
-            this.btnDefaultConfirmYes.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDefaultConfirmYes.Name = "btnDefaultConfirmYes";
-            this.btnDefaultConfirmYes.Size = new System.Drawing.Size(150, 150);
-            this.btnDefaultConfirmYes.TabIndex = 23;
-            this.btnDefaultConfirmYes.Text = "Yes";
-            this.btnDefaultConfirmYes.UseVisualStyleBackColor = false;
-            this.btnDefaultConfirmYes.Click += new System.EventHandler(this.btnDefaultConfirmYes_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Arial", 24F);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(3, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(591, 72);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "All settings will be reset back to defaults. \r\nAre you sure?";
-            // 
-            // pnlFixationTimeOut
-            // 
-            this.pnlFixationTimeOut.BackColor = System.Drawing.Color.Black;
-            this.pnlFixationTimeOut.Controls.Add(this.pnlFixTimeOutContent);
-            this.pnlFixationTimeOut.Controls.Add(this.lblSpeed);
-            this.pnlFixationTimeOut.Location = new System.Drawing.Point(4, 200);
-            this.pnlFixationTimeOut.Name = "pnlFixationTimeOut";
-            this.pnlFixationTimeOut.Size = new System.Drawing.Size(1347, 165);
-            this.pnlFixationTimeOut.TabIndex = 16;
-            // 
-            // pnlFixTimeOutContent
-            // 
-            this.pnlFixTimeOutContent.BackColor = System.Drawing.Color.Black;
-            this.pnlFixTimeOutContent.Controls.Add(this.pnlFTOPlus);
-            this.pnlFixTimeOutContent.Controls.Add(this.trackBarFixTimeOut);
-            this.pnlFixTimeOutContent.Controls.Add(this.pnlFTOMins);
-            this.pnlFixTimeOutContent.Location = new System.Drawing.Point(115, 2);
-            this.pnlFixTimeOutContent.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlFixTimeOutContent.Name = "pnlFixTimeOutContent";
-            this.pnlFixTimeOutContent.Size = new System.Drawing.Size(1232, 160);
-            this.pnlFixTimeOutContent.TabIndex = 22;
-            // 
-            // pnlFTOPlus
-            // 
-            this.pnlFTOPlus.Controls.Add(this.btnFixTimeOutPlus);
-            this.pnlFTOPlus.Location = new System.Drawing.Point(1076, 2);
-            this.pnlFTOPlus.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlFTOPlus.Name = "pnlFTOPlus";
-            this.pnlFTOPlus.Size = new System.Drawing.Size(154, 155);
-            this.pnlFTOPlus.TabIndex = 23;
-            // 
-            // btnFixTimeOutPlus
-            // 
-            this.btnFixTimeOutPlus.BackColor = System.Drawing.Color.Transparent;
-            this.btnFixTimeOutPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFixTimeOutPlus.Font = new System.Drawing.Font("SimSun", 72F, System.Drawing.FontStyle.Bold);
-            this.btnFixTimeOutPlus.ForeColor = System.Drawing.Color.White;
-            this.btnFixTimeOutPlus.Location = new System.Drawing.Point(2, 2);
-            this.btnFixTimeOutPlus.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFixTimeOutPlus.Name = "btnFixTimeOutPlus";
-            this.btnFixTimeOutPlus.Size = new System.Drawing.Size(150, 150);
-            this.btnFixTimeOutPlus.TabIndex = 16;
-            this.btnFixTimeOutPlus.Text = "+";
-            this.btnFixTimeOutPlus.UseVisualStyleBackColor = false;
-            this.btnFixTimeOutPlus.Click += new System.EventHandler(this.btnFixTimeOutPlus_Click);
-            // 
-            // trackBarFixTimeOut
-            // 
-            this.trackBarFixTimeOut.Location = new System.Drawing.Point(170, 58);
-            this.trackBarFixTimeOut.Maximum = 8;
-            this.trackBarFixTimeOut.Name = "trackBarFixTimeOut";
-            this.trackBarFixTimeOut.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.trackBarFixTimeOut.Size = new System.Drawing.Size(894, 45);
-            this.trackBarFixTimeOut.TabIndex = 15;
-            this.trackBarFixTimeOut.TickStyle = System.Windows.Forms.TickStyle.Both;
-            this.trackBarFixTimeOut.Value = 5;
-            this.trackBarFixTimeOut.ValueChanged += new System.EventHandler(this.trackBarFixTimeOut_ValueChanged);
-            // 
-            // pnlFTOMins
-            // 
-            this.pnlFTOMins.Controls.Add(this.btnFixTimeOutMins);
-            this.pnlFTOMins.Location = new System.Drawing.Point(2, 2);
-            this.pnlFTOMins.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlFTOMins.Name = "pnlFTOMins";
-            this.pnlFTOMins.Size = new System.Drawing.Size(154, 155);
-            this.pnlFTOMins.TabIndex = 22;
-            // 
-            // btnFixTimeOutMins
-            // 
-            this.btnFixTimeOutMins.BackColor = System.Drawing.Color.Transparent;
-            this.btnFixTimeOutMins.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFixTimeOutMins.Font = new System.Drawing.Font("SimSun", 72F, System.Drawing.FontStyle.Bold);
-            this.btnFixTimeOutMins.ForeColor = System.Drawing.Color.White;
-            this.btnFixTimeOutMins.Location = new System.Drawing.Point(2, 2);
-            this.btnFixTimeOutMins.Margin = new System.Windows.Forms.Padding(2);
-            this.btnFixTimeOutMins.Name = "btnFixTimeOutMins";
-            this.btnFixTimeOutMins.Size = new System.Drawing.Size(150, 150);
-            this.btnFixTimeOutMins.TabIndex = 17;
-            this.btnFixTimeOutMins.Text = "-";
-            this.btnFixTimeOutMins.UseVisualStyleBackColor = false;
-            this.btnFixTimeOutMins.Click += new System.EventHandler(this.btnFixTimeOutMins_Click);
-            // 
-            // lblSpeed
-            // 
-            this.lblSpeed.AutoSize = true;
-            this.lblSpeed.Font = new System.Drawing.Font("Arial", 18F);
-            this.lblSpeed.ForeColor = System.Drawing.Color.White;
-            this.lblSpeed.Location = new System.Drawing.Point(3, 66);
-            this.lblSpeed.Name = "lblSpeed";
-            this.lblSpeed.Size = new System.Drawing.Size(110, 54);
-            this.lblSpeed.TabIndex = 14;
-            this.lblSpeed.Text = "Fixation \r\nTime Out";
-            // 
-            // panelOther
-            // 
-            this.panelOther.BackColor = System.Drawing.Color.Black;
-            this.panelOther.Controls.Add(this.pnlDefaults);
-            this.panelOther.Controls.Add(this.pnlStickyLeft);
-            this.panelOther.Controls.Add(this.pnlOtherAuto);
-            this.panelOther.Controls.Add(this.lblOther);
-            this.panelOther.Location = new System.Drawing.Point(4, 383);
-            this.panelOther.Name = "panelOther";
-            this.panelOther.Size = new System.Drawing.Size(1243, 174);
-            this.panelOther.TabIndex = 21;
-            // 
-            // pnlDefaults
-            // 
-            this.pnlDefaults.Controls.Add(this.btnDefaults);
-            this.pnlDefaults.Location = new System.Drawing.Point(300, 36);
-            this.pnlDefaults.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlDefaults.Name = "pnlDefaults";
-            this.pnlDefaults.Size = new System.Drawing.Size(134, 135);
-            this.pnlDefaults.TabIndex = 26;
-            // 
-            // btnDefaults
-            // 
-            this.btnDefaults.BackColor = System.Drawing.Color.Transparent;
-            this.btnDefaults.FlatAppearance.BorderSize = 3;
-            this.btnDefaults.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDefaults.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDefaults.ForeColor = System.Drawing.Color.White;
-            this.btnDefaults.Location = new System.Drawing.Point(2, 2);
-            this.btnDefaults.Margin = new System.Windows.Forms.Padding(2);
-            this.btnDefaults.Name = "btnDefaults";
-            this.btnDefaults.Size = new System.Drawing.Size(130, 130);
-            this.btnDefaults.TabIndex = 24;
-            this.btnDefaults.Text = "Default Settings";
-            this.btnDefaults.UseVisualStyleBackColor = false;
-            this.btnDefaults.Click += new System.EventHandler(this.btnDefaults_Click);
-            // 
-            // pnlStickyLeft
-            // 
-            this.pnlStickyLeft.BackColor = System.Drawing.Color.Black;
-            this.pnlStickyLeft.Controls.Add(this.panel2);
-            this.pnlStickyLeft.Controls.Add(this.label3);
-            this.pnlStickyLeft.Location = new System.Drawing.Point(32639, 1000);
-            this.pnlStickyLeft.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlStickyLeft.Name = "pnlStickyLeft";
-            this.pnlStickyLeft.Size = new System.Drawing.Size(139, 164);
-            this.pnlStickyLeft.TabIndex = 24;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.buttonStickyLeftClick);
-            this.panel2.Location = new System.Drawing.Point(0, 26);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(134, 135);
-            this.panel2.TabIndex = 23;
-            // 
-            // buttonStickyLeftClick
-            // 
-            this.buttonStickyLeftClick.BackColor = System.Drawing.Color.Black;
-            this.buttonStickyLeftClick.FlatAppearance.BorderSize = 5;
-            this.buttonStickyLeftClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonStickyLeftClick.ForeColor = System.Drawing.Color.White;
-            this.buttonStickyLeftClick.Location = new System.Drawing.Point(0, 2);
-            this.buttonStickyLeftClick.Name = "buttonStickyLeftClick";
-            this.buttonStickyLeftClick.Size = new System.Drawing.Size(130, 130);
-            this.buttonStickyLeftClick.TabIndex = 4;
-            this.buttonStickyLeftClick.UseVisualStyleBackColor = false;
-            this.buttonStickyLeftClick.Click += new System.EventHandler(this.buttonStickyLeftClick_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(0, 1);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(127, 19);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Sticky Left Click";
-            // 
-            // pnlOtherAuto
-            // 
-            this.pnlOtherAuto.BackColor = System.Drawing.Color.Black;
-            this.pnlOtherAuto.Controls.Add(this.pnlAuto);
-            this.pnlOtherAuto.Controls.Add(this.label2);
-            this.pnlOtherAuto.Location = new System.Drawing.Point(765, 9);
-            this.pnlOtherAuto.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlOtherAuto.Name = "pnlOtherAuto";
-            this.pnlOtherAuto.Size = new System.Drawing.Size(139, 164);
-            this.pnlOtherAuto.TabIndex = 22;
-            // 
-            // pnlAuto
-            // 
-            this.pnlAuto.Controls.Add(this.btnAutoStart);
-            this.pnlAuto.Location = new System.Drawing.Point(2, 26);
-            this.pnlAuto.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlAuto.Name = "pnlAuto";
-            this.pnlAuto.Size = new System.Drawing.Size(134, 135);
-            this.pnlAuto.TabIndex = 23;
-            // 
-            // btnAutoStart
-            // 
-            this.btnAutoStart.BackColor = System.Drawing.Color.Black;
-            this.btnAutoStart.FlatAppearance.BorderSize = 5;
-            this.btnAutoStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAutoStart.ForeColor = System.Drawing.Color.White;
-            this.btnAutoStart.Location = new System.Drawing.Point(2, 2);
-            this.btnAutoStart.Name = "btnAutoStart";
-            this.btnAutoStart.Size = new System.Drawing.Size(130, 130);
-            this.btnAutoStart.TabIndex = 4;
-            this.btnAutoStart.UseVisualStyleBackColor = false;
-            this.btnAutoStart.Click += new System.EventHandler(this.btnAutoStart_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 18F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 1);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 27);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "Auto start";
-            // 
-            // lblOther
-            // 
-            this.lblOther.AutoSize = true;
-            this.lblOther.Font = new System.Drawing.Font("Arial", 18F);
-            this.lblOther.ForeColor = System.Drawing.Color.White;
-            this.lblOther.Location = new System.Drawing.Point(19, 78);
-            this.lblOther.Name = "lblOther";
-            this.lblOther.Size = new System.Drawing.Size(73, 27);
-            this.lblOther.TabIndex = 17;
-            this.lblOther.Text = "Other";
-            // 
             // pnlRearrange
             // 
             this.pnlRearrange.BackColor = System.Drawing.Color.Black;
@@ -1800,7 +1800,7 @@ namespace GazeToolBar
             this.pnlCrosshairPage.Location = new System.Drawing.Point(33, 158);
             this.pnlCrosshairPage.Margin = new System.Windows.Forms.Padding(2);
             this.pnlCrosshairPage.Name = "pnlCrosshairPage";
-            this.pnlCrosshairPage.Size = new System.Drawing.Size(168, 165);
+            this.pnlCrosshairPage.Size = new System.Drawing.Size(171, 189);
             this.pnlCrosshairPage.TabIndex = 30;
             this.pnlCrosshairPage.Visible = false;
             // 
@@ -1988,7 +1988,7 @@ namespace GazeToolBar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1825, 1181);
+            this.ClientSize = new System.Drawing.Size(1825, 1061);
             this.Controls.Add(this.pnlRearrange);
             this.Controls.Add(this.pnlCrosshairPage);
             this.Controls.Add(this.pnlZoomSettings);
@@ -2038,26 +2038,6 @@ namespace GazeToolBar
             this.pnlKeysButton.ResumeLayout(false);
             this.pnlSwitchSetting.ResumeLayout(false);
             this.panelCrosshairButton.ResumeLayout(false);
-            this.pnlRearrangeButton.ResumeLayout(false);
-            this.pnlZoomButton.ResumeLayout(false);
-            this.pnlZoomSize.ResumeLayout(false);
-            this.pnlZoomSize.PerformLayout();
-            this.pnlZoomSizeContent.ResumeLayout(false);
-            this.pnlZoomSizeContent.PerformLayout();
-            this.pnlZWSPlus.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarZoomWindowSize)).EndInit();
-            this.pnlZWSMinus.ResumeLayout(false);
-            this.pnlZoomAmount.ResumeLayout(false);
-            this.pnlZoomAmount.PerformLayout();
-            this.pnlZoomAmountContent.ResumeLayout(false);
-            this.pnlZIAPlus.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarZoomAmount)).EndInit();
-            this.pnlZIAMinus.ResumeLayout(false);
-            this.pnlZoomSettings.ResumeLayout(false);
-            this.pnlZoomMode.ResumeLayout(false);
-            this.pnlCornerZoomMode.ResumeLayout(false);
-            this.pnlStaticZoomMode.ResumeLayout(false);
-            this.pnlDynamicZoomMode.ResumeLayout(false);
             this.pnlGeneral.ResumeLayout(false);
             this.panelPrecision.ResumeLayout(false);
             this.panelPrecision.PerformLayout();
@@ -2086,6 +2066,26 @@ namespace GazeToolBar
             this.pnlOtherAuto.ResumeLayout(false);
             this.pnlOtherAuto.PerformLayout();
             this.pnlAuto.ResumeLayout(false);
+            this.pnlRearrangeButton.ResumeLayout(false);
+            this.pnlZoomButton.ResumeLayout(false);
+            this.pnlZoomSize.ResumeLayout(false);
+            this.pnlZoomSize.PerformLayout();
+            this.pnlZoomSizeContent.ResumeLayout(false);
+            this.pnlZoomSizeContent.PerformLayout();
+            this.pnlZWSPlus.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarZoomWindowSize)).EndInit();
+            this.pnlZWSMinus.ResumeLayout(false);
+            this.pnlZoomAmount.ResumeLayout(false);
+            this.pnlZoomAmount.PerformLayout();
+            this.pnlZoomAmountContent.ResumeLayout(false);
+            this.pnlZIAPlus.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarZoomAmount)).EndInit();
+            this.pnlZIAMinus.ResumeLayout(false);
+            this.pnlZoomSettings.ResumeLayout(false);
+            this.pnlZoomMode.ResumeLayout(false);
+            this.pnlCornerZoomMode.ResumeLayout(false);
+            this.pnlStaticZoomMode.ResumeLayout(false);
+            this.pnlDynamicZoomMode.ResumeLayout(false);
             this.pnlRearrange.ResumeLayout(false);
             this.pnlRearrangeControls.ResumeLayout(false);
             this.pnlMoveUpButton.ResumeLayout(false);

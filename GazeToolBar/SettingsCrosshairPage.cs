@@ -23,6 +23,7 @@ namespace GazeToolBar
             connectBehaveMap();
             this.home = home;
             this.form1 = form1;
+            controlRelocateAndResize();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -104,5 +105,42 @@ namespace GazeToolBar
             }
             trackbar.Update();
         }
+
+
+
+
+        private void controlRelocateAndResize()
+        {
+            int percentageSize = 400; //Higher number for smaller trackbars
+            panelSaveAndCancel.Location = ReletiveSize.panelSaveAndCancel(panelSaveAndCancel.Width, panelSaveAndCancel.Height);
+            ReletiveSize.sizeEvenly(panelSaveAndCancel, 0.4);
+            ReletiveSize.resizeLabel(label1, 20);
+            ReletiveSize.resizeLabel(labCrosshairType, 80);
+            pnlSave.Location = ReletiveSize.distribute(panelSaveAndCancel, pnlSave.Location.Y, 1, 2, "wn", 0.5);
+            pnlCancel.Location = ReletiveSize.distribute(panelSaveAndCancel, pnlSave.Location.Y, 2, 2, "wn", 0.7);
+            //Set feed back label to the center of the screen.
+            //lbFKeyFeedback.Location = new Point((pnlPageKeyboard.Width / 2) - (lbFKeyFeedback.Width / 2), lbFKeyFeedback.Location.Y);
+            //pnlPageKeyboard.Location = ReletiveSize.mainPanelLocation(pnlSwitchSetting.Location.Y, pnlSwitchSetting.Height);
+
+            //Zoom type panel
+            //Main panel
+            pnlCrosshairPage.Size = ReletiveSize.panelGeneralSize(panelSaveAndCancel.Location.Y, pnlCrosshairPage.Location.Y);
+            //pnlCrosshairPage.Width = ClientSize.Width;
+            //Crosshair selection panel
+            panelCrosshairSelection.Location = ReletiveSize.distributeToBottom(pnlCrosshairPage, panelCrosshairSelection.Location.X, panelCrosshairSelection.Height, 1, 3, "h", 0);
+            panelCrosshairSelection.Size = new Size(pnlCrosshairPage.Size.Width, panelCrosshairSelection.Size.Height);
+            panelCrosshairHolder.Location = ReletiveSize.distribute(panelCrosshairSelection, panelCrosshairHolder.Location.Y, 1, 1, "w", 0.1);
+            panelCrosshairHolder.Size = ReletiveSize.controlLength(pnlCrosshairPage, panelCrosshairHolder.Size.Height, 0.85);
+            double crosshairPercentage = (double)(panelCrosshairHolder.Size.Width - percentageSize) / (double)panelCrosshairHolder.Size.Width;
+            trackBarCrosshair.Size = ReletiveSize.controlLength(panelCrosshairHolder, trackBarCrosshair.Size.Height, crosshairPercentage);
+            pnlCrosshairUpButton.Location = ReletiveSize.reletiveLocation(trackBarCrosshair, pnlCrosshairUpButton.Location.Y, 7, 'v');
+            labCrosshairType.Location = ReletiveSize.labelPosition(panelCrosshairSelection, labCrosshairType);
+            //Crosshair picture
+            pictureBoxCrosshairPreview.Location = ReletiveSize.distribute(pnlCrosshairPage, pictureBoxCrosshairPreview.Location.X, 2, 3, "h", 0);
+            pictureBoxCrosshairPreview.Location = ReletiveSize.distribute(pnlCrosshairPage, pictureBoxCrosshairPreview.Location.Y, 2, 2, "w", 0.5);
+            pictureBoxCrosshairPreview.Left = (pictureBoxCrosshairPreview.Location.X - (pictureBoxCrosshairPreview.Width / 2));
+        }
+
+
     }
 }

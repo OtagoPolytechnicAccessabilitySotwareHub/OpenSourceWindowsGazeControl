@@ -61,6 +61,8 @@
             this.panelSaveAndCancel = new System.Windows.Forms.Panel();
             this.pnlCancel = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.pnlPageKeyboard = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlLeftClick.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlFKeyHighlight2.SuspendLayout();
@@ -79,6 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelSaveAndCancel.SuspendLayout();
             this.pnlCancel.SuspendLayout();
+            this.pnlPageKeyboard.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLeftClick
@@ -408,7 +411,7 @@
             // panelSaveAndCancel
             // 
             this.panelSaveAndCancel.Controls.Add(this.pnlCancel);
-            this.panelSaveAndCancel.Location = new System.Drawing.Point(283, 614);
+            this.panelSaveAndCancel.Location = new System.Drawing.Point(286, 739);
             this.panelSaveAndCancel.Margin = new System.Windows.Forms.Padding(2);
             this.panelSaveAndCancel.Name = "panelSaveAndCancel";
             this.panelSaveAndCancel.Size = new System.Drawing.Size(782, 164);
@@ -439,19 +442,39 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // ShortcutSettingForm
+            // pnlPageKeyboard
+            // 
+            this.pnlPageKeyboard.Controls.Add(this.pnlLeftClick);
+            this.pnlPageKeyboard.Controls.Add(this.pnlRightClick);
+            this.pnlPageKeyboard.Controls.Add(this.pnlScroll);
+            this.pnlPageKeyboard.Controls.Add(this.pnlDoubleClick);
+            this.pnlPageKeyboard.Location = new System.Drawing.Point(153, 124);
+            this.pnlPageKeyboard.Name = "pnlPageKeyboard";
+            this.pnlPageKeyboard.Size = new System.Drawing.Size(1131, 620);
+            this.pnlPageKeyboard.TabIndex = 34;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(327, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(375, 91);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Shortcuts";
+            // 
+            // SettingShortcutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1338, 802);
+            this.ClientSize = new System.Drawing.Size(1338, 914);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pnlPageKeyboard);
             this.Controls.Add(this.panelSaveAndCancel);
-            this.Controls.Add(this.pnlLeftClick);
-            this.Controls.Add(this.pnlScroll);
-            this.Controls.Add(this.pnlDoubleClick);
-            this.Controls.Add(this.pnlRightClick);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "ShortcutSettingForm";
+            this.Name = "SettingShortcutForm";
             this.Text = "ShortcutSettingForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlLeftClick.ResumeLayout(false);
@@ -476,7 +499,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelSaveAndCancel.ResumeLayout(false);
             this.pnlCancel.ResumeLayout(false);
+            this.pnlPageKeyboard.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -513,5 +538,7 @@
         private System.Windows.Forms.Panel panelSaveAndCancel;
         private System.Windows.Forms.Panel pnlCancel;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Panel pnlPageKeyboard;
+        private System.Windows.Forms.Label label1;
     }
 }

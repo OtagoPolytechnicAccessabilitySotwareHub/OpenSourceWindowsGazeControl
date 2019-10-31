@@ -28,9 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsCrosshairPage));
             this.bhavCrosshairMap = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.pictureBoxCrosshairPreview = new System.Windows.Forms.PictureBox();
             this.panelCrosshairSelection = new System.Windows.Forms.Panel();
@@ -46,6 +44,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlSave = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlCrosshairPage = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCrosshairPreview)).BeginInit();
             this.panelCrosshairSelection.SuspendLayout();
             this.panelCrosshairHolder.SuspendLayout();
@@ -55,12 +55,13 @@
             this.panelSaveAndCancel.SuspendLayout();
             this.pnlCancel.SuspendLayout();
             this.pnlSave.SuspendLayout();
+            this.pnlCrosshairPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxCrosshairPreview
             // 
             this.pictureBoxCrosshairPreview.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBoxCrosshairPreview.Location = new System.Drawing.Point(627, 332);
+            this.pictureBoxCrosshairPreview.Location = new System.Drawing.Point(621, 260);
             this.pictureBoxCrosshairPreview.Name = "pictureBoxCrosshairPreview";
             this.pictureBoxCrosshairPreview.Size = new System.Drawing.Size(150, 150);
             this.pictureBoxCrosshairPreview.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -69,17 +70,17 @@
             // 
             // panelCrosshairSelection
             // 
-            this.panelCrosshairSelection.BackColor = System.Drawing.Color.Black;
+            this.panelCrosshairSelection.BackColor = System.Drawing.Color.Transparent;
             this.panelCrosshairSelection.Controls.Add(this.panelCrosshairHolder);
             this.panelCrosshairSelection.Controls.Add(this.labCrosshairType);
-            this.panelCrosshairSelection.Location = new System.Drawing.Point(30, 87);
+            this.panelCrosshairSelection.Location = new System.Drawing.Point(26, 36);
             this.panelCrosshairSelection.Name = "panelCrosshairSelection";
             this.panelCrosshairSelection.Size = new System.Drawing.Size(1347, 165);
             this.panelCrosshairSelection.TabIndex = 14;
             // 
             // panelCrosshairHolder
             // 
-            this.panelCrosshairHolder.BackColor = System.Drawing.Color.Black;
+            this.panelCrosshairHolder.BackColor = System.Drawing.Color.Transparent;
             this.panelCrosshairHolder.Controls.Add(this.pnlCrosshairUpButton);
             this.panelCrosshairHolder.Controls.Add(this.trackBarCrosshair);
             this.panelCrosshairHolder.Controls.Add(this.pnlCrosshairDownButton);
@@ -164,7 +165,7 @@
             // 
             this.panelSaveAndCancel.Controls.Add(this.pnlCancel);
             this.panelSaveAndCancel.Controls.Add(this.pnlSave);
-            this.panelSaveAndCancel.Location = new System.Drawing.Point(315, 506);
+            this.panelSaveAndCancel.Location = new System.Drawing.Point(323, 565);
             this.panelSaveAndCancel.Margin = new System.Windows.Forms.Padding(2);
             this.panelSaveAndCancel.Name = "panelSaveAndCancel";
             this.panelSaveAndCancel.Size = new System.Drawing.Size(782, 164);
@@ -220,17 +221,42 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // CrosshairSettingsPage
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(502, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(687, 91);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Crosshair Settings";
+            // 
+            // pnlCrosshairPage
+            // 
+            this.pnlCrosshairPage.BackColor = System.Drawing.Color.Transparent;
+            this.pnlCrosshairPage.Controls.Add(this.panelCrosshairSelection);
+            this.pnlCrosshairPage.Controls.Add(this.pictureBoxCrosshairPreview);
+            this.pnlCrosshairPage.Location = new System.Drawing.Point(12, 196);
+            this.pnlCrosshairPage.Name = "pnlCrosshairPage";
+            this.pnlCrosshairPage.Size = new System.Drawing.Size(1465, 342);
+            this.pnlCrosshairPage.TabIndex = 37;
+            // 
+            // SettingsCrosshairPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1421, 744);
+            this.ClientSize = new System.Drawing.Size(1740, 777);
+            this.ControlBox = false;
+            this.Controls.Add(this.pnlCrosshairPage);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panelSaveAndCancel);
-            this.Controls.Add(this.pictureBoxCrosshairPreview);
-            this.Controls.Add(this.panelCrosshairSelection);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "CrosshairSettingsPage";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "SettingsCrosshairPage";
+            this.ShowInTaskbar = false;
             this.Text = "0.";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCrosshairPreview)).EndInit();
@@ -244,7 +270,9 @@
             this.panelSaveAndCancel.ResumeLayout(false);
             this.pnlCancel.ResumeLayout(false);
             this.pnlSave.ResumeLayout(false);
+            this.pnlCrosshairPage.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -264,5 +292,7 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel pnlSave;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel pnlCrosshairPage;
     }
 }

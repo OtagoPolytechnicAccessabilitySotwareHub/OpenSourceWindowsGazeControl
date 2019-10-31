@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GazeToolBar
@@ -68,22 +70,43 @@ namespace GazeToolBar
         {
             double percent = (100 / totalElement) / 100.0;
             double widthPercent = per;
-            if (flag == "h")
+            int parentHeight;
+            int thisElementLocationY;
+            int parentWidth;
+            int thisElementLocationX;
+            switch (flag)
             {
-                int parentHeight = parent.Size.Height;
-                int thisElementLocationY = (int)(percent * parentHeight * (position - 1));
-                return new Point(thisElementXorY, thisElementLocationY);
+                case "h":
+                    parentHeight = parent.Size.Height;
+                    thisElementLocationY = (int)(percent * parentHeight * (position - 1));
+                    return new Point(thisElementXorY, thisElementLocationY);
+                case "w":
+                    parentWidth = parent.Size.Width;
+                    //int thisElementLocationX = (int)(widthPercent * parentWidth * (position - 1)); //(widthPercent * parentWidth)
+                    thisElementLocationX = (int)(widthPercent * parentWidth);
+                    return new Point(thisElementLocationX, thisElementXorY);
+                case "wn":
+
+                    parentWidth = parent.Size.Width;
+                    thisElementLocationX = (int)(widthPercent * parentWidth * (position - 1)); //(widthPercent * parentWidth)
+                    //int thisElementLocationX = (int)(widthPercent * parentWidth);
+                    return new Point(thisElementLocationX, thisElementXorY);
+                default:
+                    return new Point();
+           
             }
-            else if (flag == "w")
-            {
-                int parentWidth = parent.Size.Width;
-                int thisElementLocationX = (int)(widthPercent * parentWidth);
-                return new Point(thisElementLocationX, thisElementXorY);
-            }
-            else
-            {
-                return new Point();
-            }
+            //if (flag == "h")
+            //{
+                
+            //}
+            //else if (flag == "w")
+            //{
+
+            //}
+            //else
+            //{
+            //    return new Point();
+            //}
         }
 
         public static Size controlLength(Panel parent, int thisElementHeight, double percent)
@@ -140,6 +163,43 @@ namespace GazeToolBar
             }
         }
 
+        public static void sizeEvenly(Panel parent, Double gapPercent)
+        {
+            List<Panel> panels = new List<Panel>();
+            foreach (Panel pane in parent.Controls.OfType<Panel>())
+            {
+                panels.Add(pane);
+            }
+
+            int newHeight = Convert.ToInt32(parent.Height);
+            Double gap = parent.Width * gapPercent;
+            int newWidth = Convert.ToInt32(((parent.Width-gap) / panels.Count));
+            int step = 0;
+            foreach (Panel pane in panels)
+            {
+                
+                pane.Size = new Size(newWidth, newHeight);
+                //pane.Left = Convert.ToInt32((newWidth + gap) * step);
+                pane.Top = 0;
+                foreach(Button button in pane.Controls.OfType<Button>())
+                {
+                    button.Size = new Size(newWidth - 4, newHeight - 4);
+                    button.Font = new Font(button.Font.FontFamily, newWidth / 10);
+                }
+                step++;
+            }
+        }
+     
+        public static void resizeLabel(Label label, int size)
+        {
+            label.Font = new Font(label.Font.FontFamily, Constants.SCREEN_SIZE.Width / size);
+            label.Left = Constants.SCREEN_SIZE.Width / 2 - (label.Width / 2);
+            
+        }
+
         public static Size TabControlSize = new Size(Constants.SCREEN_SIZE.Width, Constants.SCREEN_SIZE.Height - 56 * 2);
     }
+
+
+
 }

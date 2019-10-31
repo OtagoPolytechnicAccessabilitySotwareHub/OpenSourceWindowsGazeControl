@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneralSettingsForm));
             this.bhavGeneralMap = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.pnlGeneral = new System.Windows.Forms.Panel();
             this.panelPrecision = new System.Windows.Forms.Panel();
@@ -63,6 +62,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.pnlSave = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlGeneral.SuspendLayout();
             this.panelPrecision.SuspendLayout();
             this.pnlFixTimeLengthContent.SuspendLayout();
@@ -90,9 +90,9 @@
             this.pnlGeneral.Controls.Add(this.panelPrecision);
             this.pnlGeneral.Controls.Add(this.pnlFixationTimeOut);
             this.pnlGeneral.Controls.Add(this.panelOther);
-            this.pnlGeneral.Location = new System.Drawing.Point(12, 12);
+            this.pnlGeneral.Location = new System.Drawing.Point(12, 126);
             this.pnlGeneral.Name = "pnlGeneral";
-            this.pnlGeneral.Size = new System.Drawing.Size(1514, 848);
+            this.pnlGeneral.Size = new System.Drawing.Size(1514, 910);
             this.pnlGeneral.TabIndex = 28;
             // 
             // panelPrecision
@@ -283,6 +283,7 @@
             // 
             this.panelOther.BackColor = System.Drawing.Color.Black;
             this.panelOther.Controls.Add(this.pnlStickyLeft);
+            this.panelOther.Controls.Add(this.label2);
             this.panelOther.Controls.Add(this.pnlOtherAuto);
             this.panelOther.Controls.Add(this.lblOther);
             this.panelOther.Location = new System.Drawing.Point(4, 383);
@@ -337,7 +338,6 @@
             // 
             this.pnlOtherAuto.BackColor = System.Drawing.Color.Black;
             this.pnlOtherAuto.Controls.Add(this.pnlAuto);
-            this.pnlOtherAuto.Controls.Add(this.label2);
             this.pnlOtherAuto.Location = new System.Drawing.Point(765, 9);
             this.pnlOtherAuto.Margin = new System.Windows.Forms.Padding(2);
             this.pnlOtherAuto.Name = "pnlOtherAuto";
@@ -371,11 +371,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 18F);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(3, 1);
+            this.label2.Location = new System.Drawing.Point(329, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 27);
+            this.label2.Size = new System.Drawing.Size(0, 27);
             this.label2.TabIndex = 19;
-            this.label2.Text = "Auto start";
             // 
             // lblOther
             // 
@@ -384,9 +383,9 @@
             this.lblOther.ForeColor = System.Drawing.Color.White;
             this.lblOther.Location = new System.Drawing.Point(19, 78);
             this.lblOther.Name = "lblOther";
-            this.lblOther.Size = new System.Drawing.Size(73, 27);
+            this.lblOther.Size = new System.Drawing.Size(119, 27);
             this.lblOther.TabIndex = 17;
-            this.lblOther.Text = "Other";
+            this.lblOther.Text = "Auto Start";
             // 
             // panelSaveAndCancel
             // 
@@ -448,12 +447,24 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(534, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(628, 91);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "General Settings";
+            // 
             // GeneralSettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1538, 872);
+            this.ClientSize = new System.Drawing.Size(1538, 1048);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.panelSaveAndCancel);
             this.Controls.Add(this.pnlGeneral);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -486,12 +497,12 @@
             this.pnlStickyLeft.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.pnlOtherAuto.ResumeLayout(false);
-            this.pnlOtherAuto.PerformLayout();
             this.pnlAuto.ResumeLayout(false);
             this.panelSaveAndCancel.ResumeLayout(false);
             this.pnlCancel.ResumeLayout(false);
             this.pnlSave.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -530,5 +541,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel pnlSave;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label label1;
     }
 }

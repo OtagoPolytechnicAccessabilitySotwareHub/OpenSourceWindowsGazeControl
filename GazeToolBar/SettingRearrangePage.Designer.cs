@@ -55,6 +55,7 @@
             this.pnlSave = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.pnlRearrange = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlRearrangeControls.SuspendLayout();
             this.pnlMoveUpButton.SuspendLayout();
             this.pnlMoveDownButton.SuspendLayout();
@@ -339,23 +340,35 @@
             this.pnlRearrange.Controls.Add(this.pnlDoubleLeftClickButton);
             this.pnlRearrange.Controls.Add(this.pnlLeftClickButton);
             this.pnlRearrange.Controls.Add(this.pnlSettingsButton);
-            this.pnlRearrange.Location = new System.Drawing.Point(39, 12);
+            this.pnlRearrange.Location = new System.Drawing.Point(12, 103);
             this.pnlRearrange.Name = "pnlRearrange";
-            this.pnlRearrange.Size = new System.Drawing.Size(1388, 671);
+            this.pnlRearrange.Size = new System.Drawing.Size(1388, 550);
             this.pnlRearrange.TabIndex = 35;
             // 
-            // RearrangeSettingPage
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 60F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(530, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(705, 91);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "Rearrange Toolbar";
+            // 
+            // SettingRearrangePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1871, 998);
-            this.Controls.Add(this.pnlRearrange);
             this.Controls.Add(this.panelSaveAndCancel);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pnlRearrange);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "RearrangeSettingPage";
+            this.Name = "SettingRearrangePage";
             this.Text = "RearrangeSettingPage";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlRearrangeControls.ResumeLayout(false);
@@ -373,6 +386,7 @@
             this.pnlSave.ResumeLayout(false);
             this.pnlRearrange.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -403,5 +417,6 @@
         private System.Windows.Forms.Panel pnlSave;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Panel pnlRearrange;
+        private System.Windows.Forms.Label label1;
     }
 }
