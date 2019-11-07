@@ -32,6 +32,11 @@ namespace GazeToolBar
             changeButtonColour(Program.readSettings.kacc, btnAccOn, btnAccOff);
             changeButtonColour(Program.readSettings.spanish, btnespOn, btnespOff);
             changeButtonColour(Program.readSettings.autocomplete, btnAutoOn, btnAutoOff);
+            eng = Program.readSettings.eng;
+            k123 = Program.readSettings.k123;
+            kacc = Program.readSettings.kacc;
+            autocomplete = Program.readSettings.autocomplete;
+            spanish = Program.readSettings.spanish;
             controlRelocateAndResize();
         }
 
@@ -66,13 +71,18 @@ namespace GazeToolBar
         {
             if(switchbool)
             {
-                on.BackColor = Color.White;
-                off.BackColor = Color.Black;
+                on.BackColor = Program.readSettings.secondColour;
+                off.BackColor = Program.readSettings.mainColour;
+                off.ForeColor = Program.readSettings.secondColour;
+                on.ForeColor = Program.readSettings.mainColour;
             }
             else
             {
-                off.BackColor = Color.White;
-                on.BackColor = Color.Black;
+                off.BackColor = Program.readSettings.secondColour;
+                on.BackColor = Program.readSettings.mainColour;
+                on.ForeColor = Program.readSettings.secondColour;
+                off.ForeColor = Program.readSettings.mainColour;
+
             }
         }
 
@@ -83,61 +93,61 @@ namespace GazeToolBar
 
         private void btnAbcOn_Click(object sender, EventArgs e)
         {
-            eng=returnTrue(eng);
+            eng=true;
             changeButtonColour(eng, btnAbcOn, btnAbcOff);
         }
 
         private void btnAbcOff_Click(object sender, EventArgs e)
         {
-            eng = returnTrue(eng);
+            eng = false;
             changeButtonColour(eng, btnAbcOn, btnAbcOff);
         }
 
         private void btn123On_Click(object sender, EventArgs e)
         {
-            k123 = returnTrue(k123);
+            k123 = true;
             changeButtonColour(eng, btn123On, btn123Off);
         }
 
         private void btn123Off_Click(object sender, EventArgs e)
         {
-            k123 = returnTrue(k123);
+            k123 = false;
             changeButtonColour(k123, btn123On, btn123Off);
         }
 
         private void btnAccOn_Click(object sender, EventArgs e)
         {
-            kacc = returnTrue(kacc);
+            kacc = true;
             changeButtonColour(kacc, btnAccOn, btnAccOff);
         }
 
         private void btnAccOff_Click(object sender, EventArgs e)
         {
-            kacc = returnTrue(kacc);
+            kacc = false;
             changeButtonColour(kacc, btnAccOn, btnAccOff);
         }
 
         private void btnespOn_Click(object sender, EventArgs e)
         {
-            spanish = returnTrue(spanish);
+            spanish = true;
             changeButtonColour(spanish, btnespOn, btnespOff);
         }
 
         private void btnespOff_Click(object sender, EventArgs e)
         {
-            spanish = returnTrue(spanish);
+            spanish = false;
             changeButtonColour(spanish, btnespOn, btnespOff);
         }
 
         private void btnAutoOn_Click(object sender, EventArgs e)
         {
-            autocomplete = returnTrue(autocomplete);
+            autocomplete = true;
             changeButtonColour(autocomplete, btnAutoOn, btnAutoOff);
         }
 
         private void btnAutoOff_Click(object sender, EventArgs e)
         {
-            autocomplete = returnTrue(autocomplete);
+            autocomplete = false;
             changeButtonColour(autocomplete, btnAutoOn, btnAutoOff);
         }
 
@@ -187,6 +197,21 @@ namespace GazeToolBar
             pnlAccOff.Location = ReletiveSize.distribute(panelOff, pnlAccOff.Location.Y, 4, 6, "wn", 0.15);
             pnlespOff.Location = ReletiveSize.distribute(panelOff, pnlespOff.Location.Y, 5, 6, "wn", 0.15);
             pnlAutoOff.Location = ReletiveSize.distribute(panelOff, pnlAutoOff.Location.Y, 6, 6, "wn", 0.15);
+            foreach (Panel panel in panelSaveAndCancel.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.secondColour;
+                }
+            }
+            this.BackColor = Program.readSettings.mainColour;
+            label6.ForeColor = Program.readSettings.secondColour;
+            label7.ForeColor = Program.readSettings.secondColour;
+            label8.ForeColor = Program.readSettings.secondColour;
+            foreach (Label label in panelTitle.Controls)
+            {
+                label.ForeColor = Program.readSettings.secondColour;
+            }
 
 
         }

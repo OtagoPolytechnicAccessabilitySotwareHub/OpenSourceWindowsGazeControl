@@ -83,16 +83,16 @@ namespace GazeToolBar
         public void ChangeButtonColor(Button button, bool onOff, bool hasText)
         {
 
-            button.BackColor = onOff ? Constants.SelectedColor : Constants.SettingButtonColor;
+            button.BackColor = onOff ? Program.readSettings.secondColour : Program.readSettings.mainColour;
             if (hasText)
             {
                 if (onOff)
                 {
-                    button.ForeColor = Color.Black;
+                    button.ForeColor = Program.readSettings.mainColour;
                 }
                 else
                 {
-                    button.ForeColor = Color.White;
+                    button.ForeColor = Program.readSettings.secondColour;
                 }
             }
         }
@@ -194,7 +194,27 @@ namespace GazeToolBar
             lblOther.Location = ReletiveSize.labelPosition(panelOther, lblOther);
             pnlOtherAuto.Location = ReletiveSize.centerLocation(panelOther, pnlOtherAuto);
 
-
+            this.BackColor = Program.readSettings.mainColour;
+            foreach (Control control in this.Controls)
+            {
+                control.BackColor = Program.readSettings.mainColour;
+                control.ForeColor = Program.readSettings.secondColour;
+            }
+            panelPrecision.BackColor = Program.readSettings.mainColour;
+            pnlFixationTimeOut.BackColor = Program.readSettings.mainColour;
+            btnAutoStart.ForeColor = Program.readSettings.secondColour;
+            lblOther.ForeColor = Program.readSettings.secondColour;
+            panelOther.BackColor = Program.readSettings.mainColour;
+            pnlOtherAuto.BackColor = Program.readSettings.mainColour;
+            foreach (Panel panel in panelSaveAndCancel.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.secondColour;
+                }
+            }
+            lblFixationDetectionTimeLength.ForeColor = Program.readSettings.secondColour;
+            lblSpeed.ForeColor = Program.readSettings.secondColour;
         }
 
 

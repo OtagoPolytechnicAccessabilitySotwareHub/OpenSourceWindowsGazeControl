@@ -49,7 +49,7 @@ namespace GazeToolBar
             menuItemStartOnOff = new MenuItem();
             settingsItem = new MenuItem();
             initMenuItem();
-            
+            this.BackColor = Program.readSettings.mainColour;
             highlightPannerList = new List<Panel>();
             highlightPannerList.Add(pnlHiLteRightClick);
             highlightPannerList.Add(pnlHighLightSingleLeft);

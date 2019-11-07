@@ -52,10 +52,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonStickyLeftClick = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlOtherAuto = new System.Windows.Forms.Panel();
             this.pnlAuto = new System.Windows.Forms.Panel();
             this.btnAutoStart = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblOther = new System.Windows.Forms.Label();
             this.panelSaveAndCancel = new System.Windows.Forms.Panel();
             this.pnlCancel = new System.Windows.Forms.Panel();
@@ -334,6 +334,16 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "Sticky Left Click";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 18F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(329, 78);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 27);
+            this.label2.TabIndex = 19;
+            // 
             // pnlOtherAuto
             // 
             this.pnlOtherAuto.BackColor = System.Drawing.Color.Black;
@@ -365,16 +375,6 @@
             this.btnAutoStart.TabIndex = 4;
             this.btnAutoStart.UseVisualStyleBackColor = false;
             this.btnAutoStart.Click += new System.EventHandler(this.btnAutoStart_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 18F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(329, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 27);
-            this.label2.TabIndex = 19;
             // 
             // lblOther
             // 

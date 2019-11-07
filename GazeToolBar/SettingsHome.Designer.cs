@@ -318,6 +318,8 @@
             this.Name = "SettingsHome";
             this.ShowIcon = false;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.SettingsHome_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.SettingsHome_Paint);
             this.generalPanel.ResumeLayout(false);
             this.zoomPanel.ResumeLayout(false);
             this.crossPanel.ResumeLayout(false);

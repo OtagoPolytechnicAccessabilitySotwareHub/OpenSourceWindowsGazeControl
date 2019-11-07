@@ -136,7 +136,7 @@
             this.brushColours.Controls.Add(this.colourOptionPanel18);
             this.brushColours.Location = new System.Drawing.Point(12, 12);
             this.brushColours.Name = "brushColours";
-            this.brushColours.Size = new System.Drawing.Size(256, 165);
+            this.brushColours.Size = new System.Drawing.Size(371, 149);
             this.brushColours.TabIndex = 15;
             // 
             // colourOptionPanel1
@@ -168,7 +168,7 @@
             // 
             // colourOptionButton2
             // 
-            this.colourOptionButton2.BackColor = System.Drawing.Color.DarkRed;
+            this.colourOptionButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.colourOptionButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colourOptionButton2.Location = new System.Drawing.Point(3, 3);
             this.colourOptionButton2.Name = "colourOptionButton2";
@@ -187,7 +187,7 @@
             // 
             // colourOptionButton3
             // 
-            this.colourOptionButton3.BackColor = System.Drawing.Color.MidnightBlue;
+            this.colourOptionButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.colourOptionButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colourOptionButton3.Location = new System.Drawing.Point(3, 3);
             this.colourOptionButton3.Name = "colourOptionButton3";
@@ -206,7 +206,7 @@
             // 
             // colourOptionButton4
             // 
-            this.colourOptionButton4.BackColor = System.Drawing.Color.Goldenrod;
+            this.colourOptionButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.colourOptionButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colourOptionButton4.Location = new System.Drawing.Point(3, 3);
             this.colourOptionButton4.Name = "colourOptionButton4";
@@ -225,7 +225,7 @@
             // 
             // colourOptionButton16
             // 
-            this.colourOptionButton16.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.colourOptionButton16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.colourOptionButton16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colourOptionButton16.Location = new System.Drawing.Point(3, 3);
             this.colourOptionButton16.Name = "colourOptionButton16";
@@ -244,7 +244,7 @@
             // 
             // colourOptionButton5
             // 
-            this.colourOptionButton5.BackColor = System.Drawing.Color.Purple;
+            this.colourOptionButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.colourOptionButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colourOptionButton5.Location = new System.Drawing.Point(3, 3);
             this.colourOptionButton5.Name = "colourOptionButton5";
@@ -396,7 +396,7 @@
             // 
             // colourOptionButton13
             // 
-            this.colourOptionButton13.BackColor = System.Drawing.Color.Pink;
+            this.colourOptionButton13.BackColor = System.Drawing.Color.HotPink;
             this.colourOptionButton13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colourOptionButton13.Location = new System.Drawing.Point(3, 3);
             this.colourOptionButton13.Name = "colourOptionButton13";
@@ -434,7 +434,7 @@
             // 
             // colourOptionButton15
             // 
-            this.colourOptionButton15.BackColor = System.Drawing.Color.LightYellow;
+            this.colourOptionButton15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.colourOptionButton15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colourOptionButton15.Location = new System.Drawing.Point(3, 3);
             this.colourOptionButton15.Name = "colourOptionButton15";
@@ -453,7 +453,7 @@
             // 
             // colourOptionButton17
             // 
-            this.colourOptionButton17.BackColor = System.Drawing.Color.Aquamarine;
+            this.colourOptionButton17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.colourOptionButton17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colourOptionButton17.Location = new System.Drawing.Point(3, 3);
             this.colourOptionButton17.Name = "colourOptionButton17";
@@ -493,7 +493,7 @@
             // 
             this.btnMainColour.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMainColour.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMainColour.Location = new System.Drawing.Point(2, 6);
+            this.btnMainColour.Location = new System.Drawing.Point(2, 2);
             this.btnMainColour.Name = "btnMainColour";
             this.btnMainColour.Size = new System.Drawing.Size(195, 90);
             this.btnMainColour.TabIndex = 0;
@@ -569,9 +569,9 @@
             // 
             this.btnPanel.Controls.Add(this.panelTop);
             this.btnPanel.Controls.Add(this.panelBottom);
-            this.btnPanel.Location = new System.Drawing.Point(12, 192);
+            this.btnPanel.Location = new System.Drawing.Point(12, 182);
             this.btnPanel.Name = "btnPanel";
-            this.btnPanel.Size = new System.Drawing.Size(934, 331);
+            this.btnPanel.Size = new System.Drawing.Size(1473, 331);
             this.btnPanel.TabIndex = 21;
             // 
             // panelTop
@@ -598,7 +598,7 @@
             // 
             this.panelSaveAndCancel.Controls.Add(this.pnlCancel);
             this.panelSaveAndCancel.Controls.Add(this.pnlSave);
-            this.panelSaveAndCancel.Location = new System.Drawing.Point(351, 454);
+            this.panelSaveAndCancel.Location = new System.Drawing.Point(351, 555);
             this.panelSaveAndCancel.Margin = new System.Windows.Forms.Padding(2);
             this.panelSaveAndCancel.Name = "panelSaveAndCancel";
             this.panelSaveAndCancel.Size = new System.Drawing.Size(782, 164);
@@ -670,11 +670,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1476, 629);
-            this.Controls.Add(this.label8);
+            this.ClientSize = new System.Drawing.Size(1476, 748);
             this.Controls.Add(this.panelSaveAndCancel);
             this.Controls.Add(this.btnPanel);
             this.Controls.Add(this.brushColours);
+            this.Controls.Add(this.label8);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ColourSettings";
             this.Text = "ColourSettings";

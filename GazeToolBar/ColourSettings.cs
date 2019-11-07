@@ -35,13 +35,16 @@ namespace GazeToolBar
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            
             Close();
+            home.Show();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             Program.readSettings.secondColour = pnlSec.BackColor;
             Program.readSettings.mainColour = pnlMain.BackColor;
+            home.Show();
             Close();
         }
 
@@ -186,18 +189,19 @@ namespace GazeToolBar
             btnPanel.Size = ReletiveSize.panelGeneralSize(panelSaveAndCancel.Top, btnPanel.Top);
             ReletiveSize.resizeLabel(label8, 20);
             saveLeft = panelSaveAndCancel.Left;
+            btnPanel.Top = label8.Top + label8.Height+20;
             panelTop.Height = panelBottom.Height = btnPanel.Height / 2;
-            btnPanel.Top = label8.Top + label8.Height;
             panelTop.Location = ReletiveSize.distribute(btnPanel, panelTop.Location.X, 1, 2, "h", 0.5);
             panelBottom.Location = ReletiveSize.distribute(btnPanel, panelTop.Location.X, 2, 2, "h", 0.5);
             panelTop.Width = panelBottom.Width = btnPanel.Width-200;
             panelTop.Left = panelBottom.Left = 100;
-            ReletiveSize.sizeEvenly(panelTop, 0.4);
-            pnlMain.Location = ReletiveSize.distribute(panelTop, pnlMain.Location.Y, 1, 3, "wn", 0.4);
-            pnlSec.Location = ReletiveSize.distribute(panelTop, pnlSec.Location.Y, 2, 3, "wn", 0.4);
-            pnlIcon.Location = ReletiveSize.distribute(panelTop, pnlIcon.Location.Y, 3, 3, "wn", 0.4);
-
-            ReletiveSize.sizeEvenly(panelBottom, 0.4);
+            ReletiveSize.middleSquare(panelTop, 3);
+            //ReletiveSize.sizeEvenly(panelTop, 0.4);
+            pnlMain.Location = ReletiveSize.distribute(panelTop, 5, 1, 3, "wn", 0.4);
+            pnlSec.Location = ReletiveSize.distribute(panelTop, 5, 2, 3, "wn", 0.4);
+            pnlIcon.Location = ReletiveSize.distribute(panelTop, 5, 3, 3, "wn", 0.4);
+            ReletiveSize.middleSquare(panelBottom, 3);
+            //ReletiveSize.sizeEvenly(panelBottom, 0.4);
             pnlBackColour.Location = ReletiveSize.distribute(panelBottom, 10, 1, 3, "wn", 0.4);
             pnlHighlightColour.Location = ReletiveSize.distribute(panelBottom, 10, 2, 3, "wn", 0.4);
             pnlIconColour.Location = ReletiveSize.distribute(panelBottom, 10, 3, 3, "wn", 0.4);
@@ -237,6 +241,30 @@ namespace GazeToolBar
             }
 
             brushColours.Left = ClientSize.Width + 400;
+            foreach(Panel pane in panelTop.Controls)
+            {
+                pane.ForeColor = Program.readSettings.secondColour;
+            }
+            foreach (Panel pane in panelBottom.Controls)
+            {
+                foreach (Button button in pane.Controls)
+                {
+                    button.ForeColor = Program.readSettings.secondColour;
+                }
+                    
+            }
+            foreach (Control control in this.Controls)
+            {
+                control.BackColor = Program.readSettings.mainColour;
+                control.ForeColor = Program.readSettings.secondColour;
+            }
+            foreach (Panel panel in panelSaveAndCancel.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.secondColour;
+                }
+            }
         }
 
 

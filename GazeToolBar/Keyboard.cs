@@ -123,10 +123,13 @@ namespace GazeToolBar
                     count2 = count2 + panel38.Width / 12;
                     count = 0;
                 }
+                control.BackColor = Program.readSettings.mainColour;
                 foreach (Button button in control.Controls.OfType<Button>())
                 {
                     button.FlatStyle = FlatStyle.Flat;
                     button.FlatAppearance.BorderSize = 0;
+                    button.BackColor = Program.readSettings.mainColour;
+                    button.ForeColor = Program.readSettings.secondColour;
                     button.Size = new Size(panel38.Width / 12 - 4, panel38.Width / 12 - 4);
                     button.Location = new Point(2, 2);
                     button.TabStop = false;

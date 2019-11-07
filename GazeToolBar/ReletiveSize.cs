@@ -93,11 +93,11 @@ namespace GazeToolBar
                     return new Point(thisElementLocationX, thisElementXorY);
                 default:
                     return new Point();
-           
+
             }
             //if (flag == "h")
             //{
-                
+
             //}
             //else if (flag == "w")
             //{
@@ -173,15 +173,15 @@ namespace GazeToolBar
 
             int newHeight = Convert.ToInt32(parent.Height);
             Double gap = parent.Width * gapPercent;
-            int newWidth = Convert.ToInt32(((parent.Width-gap) / panels.Count));
+            int newWidth = Convert.ToInt32(((parent.Width - gap) / panels.Count));
             int step = 0;
             foreach (Panel pane in panels)
             {
-                
+
                 pane.Size = new Size(newWidth, newHeight);
                 //pane.Left = Convert.ToInt32((newWidth + gap) * step);
                 pane.Top = 0;
-                foreach(Button button in pane.Controls.OfType<Button>())
+                foreach (Button button in pane.Controls.OfType<Button>())
                 {
                     button.Size = new Size(newWidth - 4, newHeight - 4);
                     button.Font = new Font(button.Font.FontFamily, newWidth / 10);
@@ -189,12 +189,32 @@ namespace GazeToolBar
                 step++;
             }
         }
-     
+
         public static void resizeLabel(Label label, int size)
         {
             label.Font = new Font(label.Font.FontFamily, Constants.SCREEN_SIZE.Width / size);
             label.Left = Constants.SCREEN_SIZE.Width / 2 - (label.Width / 2);
-            
+
+        }
+        public static void middleSquare(Panel parent, int itemCount)
+        {
+            int step = 1;
+            foreach (Panel pane in parent.Controls.OfType<Panel>())
+            {
+                pane.Width = (parent.Width / itemCount) / 2;
+                pane.Height = (parent.Width / itemCount) / 2;
+                Point p = new Point();
+                p.X = (parent.Width / itemCount) - (pane.Width / 2);
+                p.Y = (parent.Height / itemCount) - (pane.Height / 2);
+                p.X = p.X * step;
+                pane.Location = p;
+                foreach (Button button in pane.Controls.OfType<Button>())
+                {
+                    button.Size = new Size(pane.Width - 4, pane.Height - 4);
+                    button.Font = new Font(button.Font.FontFamily, pane.Width / 10);
+                }
+                step++;
+            }
         }
 
         public static Size TabControlSize = new Size(Constants.SCREEN_SIZE.Width, Constants.SCREEN_SIZE.Height - 56 * 2);

@@ -49,6 +49,25 @@ namespace GazeToolBar
             pnlRightClick.Location = ReletiveSize.distribute(pnlPageKeyboard, pnlRightClick.Location.Y, 2, 4, "wn", 0.25);
             pnlDoubleClick.Location = ReletiveSize.distribute(pnlPageKeyboard, pnlDoubleClick.Location.Y, 3, 4, "wn", 0.25);
             pnlScroll.Location = ReletiveSize.distribute(pnlPageKeyboard, pnlScroll.Location.Y, 4, 4, "wn", 0.25);
+            foreach (Panel panel in panelSaveAndCancel.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.secondColour;
+                }
+            }
+            this.BackColor = Program.readSettings.mainColour;
+            label1.ForeColor = Program.readSettings.secondColour;
+            btClearFKeyDoubleClick.ForeColor = Program.readSettings.secondColour;
+            btClearFKeyLeftClick.ForeColor = Program.readSettings.secondColour;
+            btClearFKeyRightClick.ForeColor = Program.readSettings.secondColour;
+            btClearFKeyScroll.ForeColor = Program.readSettings.secondColour;
+            btFKeyDoubleClick.ForeColor = Program.readSettings.secondColour;
+            btFKeyLeftClick.ForeColor = Program.readSettings.secondColour;
+            btFKeyRightClick.ForeColor = Program.readSettings.secondColour;
+            btFKeyScroll.ForeColor = Program.readSettings.secondColour;
+            btnCancel.ForeColor = Program.readSettings.secondColour;
+            
         }
     }
 }

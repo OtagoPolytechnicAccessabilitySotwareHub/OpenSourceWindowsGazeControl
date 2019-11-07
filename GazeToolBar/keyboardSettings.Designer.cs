@@ -52,41 +52,41 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.panelOn = new System.Windows.Forms.Panel();
+            this.pnlAutoOn = new System.Windows.Forms.Panel();
+            this.pnlespOn = new System.Windows.Forms.Panel();
+            this.pnlAccOn = new System.Windows.Forms.Panel();
+            this.pnl123On = new System.Windows.Forms.Panel();
+            this.pnlAbcOn = new System.Windows.Forms.Panel();
             this.panelOff = new System.Windows.Forms.Panel();
+            this.pnlAbcOff = new System.Windows.Forms.Panel();
+            this.pnl123Off = new System.Windows.Forms.Panel();
+            this.pnlAccOff = new System.Windows.Forms.Panel();
+            this.pnlespOff = new System.Windows.Forms.Panel();
+            this.pnlAutoOff = new System.Windows.Forms.Panel();
             this.panelKeyboard = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.pnlAbcOn = new System.Windows.Forms.Panel();
-            this.pnl123On = new System.Windows.Forms.Panel();
-            this.pnlAccOn = new System.Windows.Forms.Panel();
-            this.pnlespOn = new System.Windows.Forms.Panel();
-            this.pnlAutoOn = new System.Windows.Forms.Panel();
-            this.pnlAutoOff = new System.Windows.Forms.Panel();
-            this.pnlespOff = new System.Windows.Forms.Panel();
-            this.pnlAccOff = new System.Windows.Forms.Panel();
-            this.pnl123Off = new System.Windows.Forms.Panel();
-            this.pnlAbcOff = new System.Windows.Forms.Panel();
             this.panelSaveAndCancel.SuspendLayout();
             this.pnlCancel.SuspendLayout();
             this.pnlSave.SuspendLayout();
             this.panelTitle.SuspendLayout();
             this.panelOn.SuspendLayout();
-            this.panelOff.SuspendLayout();
-            this.panelKeyboard.SuspendLayout();
-            this.pnlAbcOn.SuspendLayout();
-            this.pnl123On.SuspendLayout();
-            this.pnlAccOn.SuspendLayout();
-            this.pnlespOn.SuspendLayout();
             this.pnlAutoOn.SuspendLayout();
-            this.pnlAutoOff.SuspendLayout();
-            this.pnlespOff.SuspendLayout();
-            this.pnlAccOff.SuspendLayout();
-            this.pnl123Off.SuspendLayout();
+            this.pnlespOn.SuspendLayout();
+            this.pnlAccOn.SuspendLayout();
+            this.pnl123On.SuspendLayout();
+            this.pnlAbcOn.SuspendLayout();
+            this.panelOff.SuspendLayout();
             this.pnlAbcOff.SuspendLayout();
+            this.pnl123Off.SuspendLayout();
+            this.pnlAccOff.SuspendLayout();
+            this.pnlespOff.SuspendLayout();
+            this.pnlAutoOff.SuspendLayout();
+            this.panelKeyboard.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSaveAndCancel
             // 
-            this.panelSaveAndCancel.BackColor = System.Drawing.Color.DarkRed;
+            this.panelSaveAndCancel.BackColor = System.Drawing.Color.Transparent;
             this.panelSaveAndCancel.Controls.Add(this.pnlCancel);
             this.panelSaveAndCancel.Controls.Add(this.pnlSave);
             this.panelSaveAndCancel.Location = new System.Drawing.Point(294, 519);
@@ -377,6 +377,46 @@
             this.panelOn.Size = new System.Drawing.Size(1193, 118);
             this.panelOn.TabIndex = 55;
             // 
+            // pnlAutoOn
+            // 
+            this.pnlAutoOn.Controls.Add(this.btnAutoOn);
+            this.pnlAutoOn.Location = new System.Drawing.Point(958, 12);
+            this.pnlAutoOn.Name = "pnlAutoOn";
+            this.pnlAutoOn.Size = new System.Drawing.Size(94, 83);
+            this.pnlAutoOn.TabIndex = 57;
+            // 
+            // pnlespOn
+            // 
+            this.pnlespOn.Controls.Add(this.btnespOn);
+            this.pnlespOn.Location = new System.Drawing.Point(668, 12);
+            this.pnlespOn.Name = "pnlespOn";
+            this.pnlespOn.Size = new System.Drawing.Size(90, 83);
+            this.pnlespOn.TabIndex = 56;
+            // 
+            // pnlAccOn
+            // 
+            this.pnlAccOn.Controls.Add(this.btnAccOn);
+            this.pnlAccOn.Location = new System.Drawing.Point(486, 12);
+            this.pnlAccOn.Name = "pnlAccOn";
+            this.pnlAccOn.Size = new System.Drawing.Size(88, 83);
+            this.pnlAccOn.TabIndex = 55;
+            // 
+            // pnl123On
+            // 
+            this.pnl123On.Controls.Add(this.btn123On);
+            this.pnl123On.Location = new System.Drawing.Point(324, 6);
+            this.pnl123On.Name = "pnl123On";
+            this.pnl123On.Size = new System.Drawing.Size(94, 89);
+            this.pnl123On.TabIndex = 54;
+            // 
+            // pnlAbcOn
+            // 
+            this.pnlAbcOn.Controls.Add(this.btnAbcOn);
+            this.pnlAbcOn.Location = new System.Drawing.Point(119, 15);
+            this.pnlAbcOn.Name = "pnlAbcOn";
+            this.pnlAbcOn.Size = new System.Drawing.Size(88, 91);
+            this.pnlAbcOn.TabIndex = 53;
+            // 
             // panelOff
             // 
             this.panelOff.Controls.Add(this.pnlAbcOff);
@@ -389,6 +429,46 @@
             this.panelOff.Name = "panelOff";
             this.panelOff.Size = new System.Drawing.Size(1190, 119);
             this.panelOff.TabIndex = 56;
+            // 
+            // pnlAbcOff
+            // 
+            this.pnlAbcOff.Controls.Add(this.btnAbcOff);
+            this.pnlAbcOff.Location = new System.Drawing.Point(117, 16);
+            this.pnlAbcOff.Name = "pnlAbcOff";
+            this.pnlAbcOff.Size = new System.Drawing.Size(88, 86);
+            this.pnlAbcOff.TabIndex = 59;
+            // 
+            // pnl123Off
+            // 
+            this.pnl123Off.Controls.Add(this.btn123Off);
+            this.pnl123Off.Location = new System.Drawing.Point(322, 18);
+            this.pnl123Off.Name = "pnl123Off";
+            this.pnl123Off.Size = new System.Drawing.Size(84, 89);
+            this.pnl123Off.TabIndex = 57;
+            // 
+            // pnlAccOff
+            // 
+            this.pnlAccOff.Controls.Add(this.btnAccOff);
+            this.pnlAccOff.Location = new System.Drawing.Point(487, 16);
+            this.pnlAccOff.Name = "pnlAccOff";
+            this.pnlAccOff.Size = new System.Drawing.Size(97, 86);
+            this.pnlAccOff.TabIndex = 56;
+            // 
+            // pnlespOff
+            // 
+            this.pnlespOff.Controls.Add(this.btnespOff);
+            this.pnlespOff.Location = new System.Drawing.Point(682, 18);
+            this.pnlespOff.Name = "pnlespOff";
+            this.pnlespOff.Size = new System.Drawing.Size(90, 86);
+            this.pnlespOff.TabIndex = 55;
+            // 
+            // pnlAutoOff
+            // 
+            this.pnlAutoOff.Controls.Add(this.btnAutoOff);
+            this.pnlAutoOff.Location = new System.Drawing.Point(956, 16);
+            this.pnlAutoOff.Name = "pnlAutoOff";
+            this.pnlAutoOff.Size = new System.Drawing.Size(94, 86);
+            this.pnlAutoOff.TabIndex = 54;
             // 
             // panelKeyboard
             // 
@@ -410,86 +490,6 @@
             this.label8.Size = new System.Drawing.Size(686, 91);
             this.label8.TabIndex = 58;
             this.label8.Text = "Keyboard Settings";
-            // 
-            // pnlAbcOn
-            // 
-            this.pnlAbcOn.Controls.Add(this.btnAbcOn);
-            this.pnlAbcOn.Location = new System.Drawing.Point(119, 15);
-            this.pnlAbcOn.Name = "pnlAbcOn";
-            this.pnlAbcOn.Size = new System.Drawing.Size(88, 91);
-            this.pnlAbcOn.TabIndex = 53;
-            // 
-            // pnl123On
-            // 
-            this.pnl123On.Controls.Add(this.btn123On);
-            this.pnl123On.Location = new System.Drawing.Point(324, 6);
-            this.pnl123On.Name = "pnl123On";
-            this.pnl123On.Size = new System.Drawing.Size(94, 89);
-            this.pnl123On.TabIndex = 54;
-            // 
-            // pnlAccOn
-            // 
-            this.pnlAccOn.Controls.Add(this.btnAccOn);
-            this.pnlAccOn.Location = new System.Drawing.Point(486, 12);
-            this.pnlAccOn.Name = "pnlAccOn";
-            this.pnlAccOn.Size = new System.Drawing.Size(88, 83);
-            this.pnlAccOn.TabIndex = 55;
-            // 
-            // pnlespOn
-            // 
-            this.pnlespOn.Controls.Add(this.btnespOn);
-            this.pnlespOn.Location = new System.Drawing.Point(668, 12);
-            this.pnlespOn.Name = "pnlespOn";
-            this.pnlespOn.Size = new System.Drawing.Size(90, 83);
-            this.pnlespOn.TabIndex = 56;
-            // 
-            // pnlAutoOn
-            // 
-            this.pnlAutoOn.Controls.Add(this.btnAutoOn);
-            this.pnlAutoOn.Location = new System.Drawing.Point(958, 12);
-            this.pnlAutoOn.Name = "pnlAutoOn";
-            this.pnlAutoOn.Size = new System.Drawing.Size(94, 83);
-            this.pnlAutoOn.TabIndex = 57;
-            // 
-            // pnlAutoOff
-            // 
-            this.pnlAutoOff.Controls.Add(this.btnAutoOff);
-            this.pnlAutoOff.Location = new System.Drawing.Point(956, 16);
-            this.pnlAutoOff.Name = "pnlAutoOff";
-            this.pnlAutoOff.Size = new System.Drawing.Size(94, 86);
-            this.pnlAutoOff.TabIndex = 54;
-            // 
-            // pnlespOff
-            // 
-            this.pnlespOff.Controls.Add(this.btnespOff);
-            this.pnlespOff.Location = new System.Drawing.Point(682, 18);
-            this.pnlespOff.Name = "pnlespOff";
-            this.pnlespOff.Size = new System.Drawing.Size(90, 86);
-            this.pnlespOff.TabIndex = 55;
-            // 
-            // pnlAccOff
-            // 
-            this.pnlAccOff.Controls.Add(this.btnAccOff);
-            this.pnlAccOff.Location = new System.Drawing.Point(487, 16);
-            this.pnlAccOff.Name = "pnlAccOff";
-            this.pnlAccOff.Size = new System.Drawing.Size(97, 86);
-            this.pnlAccOff.TabIndex = 56;
-            // 
-            // pnl123Off
-            // 
-            this.pnl123Off.Controls.Add(this.btn123Off);
-            this.pnl123Off.Location = new System.Drawing.Point(322, 18);
-            this.pnl123Off.Name = "pnl123Off";
-            this.pnl123Off.Size = new System.Drawing.Size(84, 89);
-            this.pnl123Off.TabIndex = 57;
-            // 
-            // pnlAbcOff
-            // 
-            this.pnlAbcOff.Controls.Add(this.btnAbcOff);
-            this.pnlAbcOff.Location = new System.Drawing.Point(117, 16);
-            this.pnlAbcOff.Name = "pnlAbcOff";
-            this.pnlAbcOff.Size = new System.Drawing.Size(88, 86);
-            this.pnlAbcOff.TabIndex = 59;
             // 
             // keyboardSettings
             // 
@@ -515,19 +515,19 @@
             this.panelTitle.PerformLayout();
             this.panelOn.ResumeLayout(false);
             this.panelOn.PerformLayout();
+            this.pnlAutoOn.ResumeLayout(false);
+            this.pnlespOn.ResumeLayout(false);
+            this.pnlAccOn.ResumeLayout(false);
+            this.pnl123On.ResumeLayout(false);
+            this.pnlAbcOn.ResumeLayout(false);
             this.panelOff.ResumeLayout(false);
             this.panelOff.PerformLayout();
-            this.panelKeyboard.ResumeLayout(false);
-            this.pnlAbcOn.ResumeLayout(false);
-            this.pnl123On.ResumeLayout(false);
-            this.pnlAccOn.ResumeLayout(false);
-            this.pnlespOn.ResumeLayout(false);
-            this.pnlAutoOn.ResumeLayout(false);
-            this.pnlAutoOff.ResumeLayout(false);
-            this.pnlespOff.ResumeLayout(false);
-            this.pnlAccOff.ResumeLayout(false);
-            this.pnl123Off.ResumeLayout(false);
             this.pnlAbcOff.ResumeLayout(false);
+            this.pnl123Off.ResumeLayout(false);
+            this.pnlAccOff.ResumeLayout(false);
+            this.pnlespOff.ResumeLayout(false);
+            this.pnlAutoOff.ResumeLayout(false);
+            this.panelKeyboard.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

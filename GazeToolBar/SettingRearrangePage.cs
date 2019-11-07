@@ -319,6 +319,15 @@ namespace GazeToolBar
             //Rearrange panel
             pnlRearrange.Size = ReletiveSize.panelRearrangeSize(panelSaveAndCancel.Location.Y, pnlRearrange.Location.Y);
             pnlRearrangeControls.Location = ReletiveSize.centerLocation(pnlRearrange, pnlRearrangeControls);
+            this.BackColor = Program.readSettings.mainColour;
+            label1.ForeColor = Program.readSettings.secondColour;
+            foreach (Panel panel in panelSaveAndCancel.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.secondColour;
+                }
+            }
 
         }
 

@@ -109,6 +109,7 @@ namespace GazeToolBar
         private void colourSettings_Click(object sender, EventArgs e)
         {
             colourSets = new ColourSettings(this, form1, eyeXHost);
+            this.Hide();
             colourSets.Show();
         }
 
@@ -142,8 +143,53 @@ namespace GazeToolBar
             arrangePanel.Location = ReletiveSize.distribute(bottomRow, arrangePanel.Location.Y, 2, 4, "wn", 0.28);
             colourPanel.Location = ReletiveSize.distribute(bottomRow, colourPanel.Location.Y, 3, 4, "wn", 0.28);
             shortcutPanel.Location = ReletiveSize.distribute(bottomRow, shortcutPanel.Location.Y, 4, 4, "wn", 0.28);
-
+            this.BackColor = Program.readSettings.mainColour;
+            foreach (Control control in this.Controls)
+            {
+                control.BackColor = Program.readSettings.mainColour;
+                control.ForeColor = Program.readSettings.secondColour;
+            }
 
         }
+
+
+
+
+        private void SettingsHome_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SettingsHome_Paint(object sender, PaintEventArgs e)
+        {
+            this.BackColor = Program.readSettings.mainColour;
+            foreach (Control control in this.Controls)
+            {
+                control.BackColor = Program.readSettings.mainColour;
+                control.ForeColor = Program.readSettings.secondColour;
+            }
+            foreach (Panel panel in topRow.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.secondColour;
+                }
+            }
+            foreach (Panel panel in bottomRow.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.secondColour;
+                }
+            }
+            foreach (Panel panel in panelSaveAndCancel.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.secondColour;
+                }
+            }
+        }
+
     }
 }

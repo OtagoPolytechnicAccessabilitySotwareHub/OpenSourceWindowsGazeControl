@@ -46,16 +46,16 @@ namespace GazeToolBar
         public void ChangeButtonColor(Button button, bool onOff, bool hasText)
         {
 
-            button.BackColor = onOff ? Constants.SelectedColor : Constants.SettingButtonColor;
+            button.BackColor = onOff ? Program.readSettings.secondColour : Program.readSettings.mainColour;
             if (hasText)
             {
                 if (onOff)
                 {
-                    button.ForeColor = Color.Black;
+                    button.ForeColor = Program.readSettings.mainColour;
                 }
                 else
                 {
-                    button.ForeColor = Color.White;
+                    button.ForeColor = Program.readSettings.secondColour;
                 }
             }
         }
@@ -87,13 +87,10 @@ namespace GazeToolBar
             dynamicZoom = false;
             corners = false;
             //clicked button
-            btnStaticZoomMode.BackColor = Color.White;
-            btnStaticZoomMode.ForeColor = Color.Black;
-            //unselected
-            btnDynamicZoomMode.BackColor = Color.Black;
-            btnDynamicZoomMode.ForeColor = Color.White;
-            btnCornerZoomMode.BackColor = Color.Black;
-            btnCornerZoomMode.ForeColor = Color.White;
+            ChangeButtonColor(btnStaticZoomMode, true, true);
+            ChangeButtonColor(btnDynamicZoomMode, false, true);
+            ChangeButtonColor(btnCornerZoomMode, false, true);
+
         }
 
         private void btnCornerZoomMode_Click(object sender, EventArgs e)
@@ -101,13 +98,16 @@ namespace GazeToolBar
             dynamicZoom = false;
             corners = true;
             //clicked button
-            btnCornerZoomMode.BackColor = Color.White;
-            btnCornerZoomMode.ForeColor = Color.Black;
-            //unselected
-            btnDynamicZoomMode.BackColor = Color.Black;
-            btnDynamicZoomMode.ForeColor = Color.White;
-            btnStaticZoomMode.BackColor = Color.Black;
-            btnStaticZoomMode.ForeColor = Color.White;
+            ChangeButtonColor(btnStaticZoomMode, false, true);
+            ChangeButtonColor(btnDynamicZoomMode, false, true);
+            ChangeButtonColor(btnCornerZoomMode, true, true);
+            //btnCornerZoomMode.BackColor = Color.White;
+            //btnCornerZoomMode.ForeColor = Color.Black;
+            ////unselected
+            //btnDynamicZoomMode.BackColor = Color.Black;
+            //btnDynamicZoomMode.ForeColor = Color.White;
+            //btnStaticZoomMode.BackColor = Color.Black;
+            //btnStaticZoomMode.ForeColor = Color.White;
         }
 
         private void btnDynamicZoomMode_Click(object sender, EventArgs e)
@@ -115,13 +115,16 @@ namespace GazeToolBar
             dynamicZoom = true;
             corners = false;
             //clicked button
-            btnDynamicZoomMode.BackColor = Color.White;
-            btnDynamicZoomMode.ForeColor = Color.Black;
-            //unselected
-            btnStaticZoomMode.BackColor = Color.Black;
-            btnStaticZoomMode.ForeColor = Color.White;
-            btnCornerZoomMode.BackColor = Color.Black;
-            btnCornerZoomMode.ForeColor = Color.White;
+            ChangeButtonColor(btnStaticZoomMode, false, true);
+            ChangeButtonColor(btnDynamicZoomMode, true, true);
+            ChangeButtonColor(btnCornerZoomMode, false, true);
+            //btnDynamicZoomMode.BackColor = Color.White;
+            //btnDynamicZoomMode.ForeColor = Color.Black;
+            ////unselected
+            //btnStaticZoomMode.BackColor = Color.Black;
+            //btnStaticZoomMode.ForeColor = Color.White;
+            //btnCornerZoomMode.BackColor = Color.Black;
+            //btnCornerZoomMode.ForeColor = Color.White;
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -159,22 +162,29 @@ namespace GazeToolBar
         {
             dynamicZoom = Program.readSettings.dynamicZoom;
             corners = Program.readSettings.centerZoom;
+            ChangeButtonColor(btnDynamicZoomMode, false, true);
+            ChangeButtonColor(btnCornerZoomMode, false, true);
+            ChangeButtonColor(btnStaticZoomMode, false, true);
             if (dynamicZoom)
             {
-                btnDynamicZoomMode.BackColor = Color.White;
-                btnDynamicZoomMode.ForeColor = Color.Black;
+
+                ChangeButtonColor(btnStaticZoomMode, false, true);
+                ChangeButtonColor(btnDynamicZoomMode, true, true);
+                ChangeButtonColor(btnCornerZoomMode, false, true);
             }
             else
             {
                 if (corners)
                 {
-                    btnCornerZoomMode.BackColor = Color.White;
-                    btnCornerZoomMode.ForeColor = Color.Black;
+                    ChangeButtonColor(btnDynamicZoomMode, false, true);
+                    ChangeButtonColor(btnCornerZoomMode, true, true);
+                    ChangeButtonColor(btnStaticZoomMode, false, true);
                 }
                 else
                 {
-                    btnStaticZoomMode.BackColor = Color.White;
-                    btnStaticZoomMode.ForeColor = Color.Black;
+                    ChangeButtonColor(btnDynamicZoomMode, false, true);
+                    ChangeButtonColor(btnCornerZoomMode, false, true);
+                    ChangeButtonColor(btnStaticZoomMode, true, true);
                 }
             }
         }
@@ -229,6 +239,23 @@ namespace GazeToolBar
             pnlStaticZoomMode.Location = ReletiveSize.distribute(pnlZoomMode, pnlStaticZoomMode.Location.Y, 1, 3, "wn", 0.3);
             pnlCornerZoomMode.Location = ReletiveSize.distribute(pnlZoomMode, pnlCornerZoomMode.Location.Y, 2, 3, "wn", 0.3);
             pnlDynamicZoomMode.Location = ReletiveSize.distribute(pnlZoomMode, pnlDynamicZoomMode.Location.Y, 3, 3, "wn", 0.3);
+            foreach (Panel panel in panelSaveAndCancel.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.secondColour;
+                }
+            }
+            label1.ForeColor = Program.readSettings.secondColour;
+            pnlZoomMode.BackColor = Program.readSettings.mainColour;
+            pnlZoomSize.BackColor = Program.readSettings.mainColour;
+            pnlZoomAmount.BackColor = Program.readSettings.mainColour;
+            labZoomWindowSize.ForeColor = Program.readSettings.secondColour;
+            labZoomAmount.ForeColor = Program.readSettings.secondColour;
+            this.BackColor = Program.readSettings.mainColour;
+            this.ForeColor = Program.readSettings.secondColour;
+
+
         }
         
 
