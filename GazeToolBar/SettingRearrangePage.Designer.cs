@@ -92,8 +92,10 @@
             // 
             // btnMoveUp
             // 
-            this.btnMoveUp.BackColor = System.Drawing.Color.Black;
+            this.btnMoveUp.BackColor = System.Drawing.Color.Transparent;
+            this.btnMoveUp.FlatAppearance.BorderSize = 0;
             this.btnMoveUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMoveUp.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnMoveUp.Image = global::GazeToolBar.Properties.Resources.button_up;
             this.btnMoveUp.Location = new System.Drawing.Point(2, 2);
             this.btnMoveUp.Margin = new System.Windows.Forms.Padding(2);
@@ -113,7 +115,8 @@
             // 
             // btnMoveDown
             // 
-            this.btnMoveDown.BackColor = System.Drawing.Color.Black;
+            this.btnMoveDown.BackColor = System.Drawing.Color.Transparent;
+            this.btnMoveDown.FlatAppearance.BorderSize = 0;
             this.btnMoveDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMoveDown.Image = global::GazeToolBar.Properties.Resources.button_down;
             this.btnMoveDown.Location = new System.Drawing.Point(2, 2);
@@ -134,7 +137,8 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.BackColor = System.Drawing.Color.Black;
+            this.btnRemove.BackColor = System.Drawing.Color.Transparent;
+            this.btnRemove.FlatAppearance.BorderSize = 0;
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemove.Image = global::GazeToolBar.Properties.Resources.button_left;
             this.btnRemove.Location = new System.Drawing.Point(2, 2);
@@ -147,7 +151,7 @@
             // 
             // pnlRightClickButton
             // 
-            this.pnlRightClickButton.BackColor = System.Drawing.Color.Black;
+            this.pnlRightClickButton.BackColor = System.Drawing.Color.Transparent;
             this.pnlRightClickButton.Controls.Add(this.btnActionRightClick);
             this.pnlRightClickButton.Location = new System.Drawing.Point(187, 330);
             this.pnlRightClickButton.Name = "pnlRightClickButton";
@@ -156,7 +160,8 @@
             // 
             // btnActionRightClick
             // 
-            this.btnActionRightClick.BackColor = System.Drawing.Color.Black;
+            this.btnActionRightClick.BackColor = System.Drawing.Color.Transparent;
+            this.btnActionRightClick.FlatAppearance.BorderSize = 0;
             this.btnActionRightClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActionRightClick.Image = global::GazeToolBar.Properties.Resources.Right_Click_icon;
             this.btnActionRightClick.Location = new System.Drawing.Point(2, 2);
@@ -177,7 +182,8 @@
             // 
             // btnActionSettings
             // 
-            this.btnActionSettings.BackColor = System.Drawing.Color.Black;
+            this.btnActionSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnActionSettings.FlatAppearance.BorderSize = 0;
             this.btnActionSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActionSettings.Image = global::GazeToolBar.Properties.Resources.settings_icon;
             this.btnActionSettings.Location = new System.Drawing.Point(2, 2);
@@ -198,7 +204,8 @@
             // 
             // btnActionLeftClick
             // 
-            this.btnActionLeftClick.BackColor = System.Drawing.Color.Black;
+            this.btnActionLeftClick.BackColor = System.Drawing.Color.Transparent;
+            this.btnActionLeftClick.FlatAppearance.BorderSize = 0;
             this.btnActionLeftClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActionLeftClick.Image = global::GazeToolBar.Properties.Resources.Left_Click_icon;
             this.btnActionLeftClick.Location = new System.Drawing.Point(2, 2);
@@ -220,7 +227,8 @@
             // 
             // btnActionKeyboard
             // 
-            this.btnActionKeyboard.BackColor = System.Drawing.Color.Black;
+            this.btnActionKeyboard.BackColor = System.Drawing.Color.Transparent;
+            this.btnActionKeyboard.FlatAppearance.BorderSize = 0;
             this.btnActionKeyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActionKeyboard.Image = global::GazeToolBar.Properties.Resources.Keyboard_icon;
             this.btnActionKeyboard.Location = new System.Drawing.Point(2, 2);
@@ -240,7 +248,8 @@
             // 
             // btnActionScrollClick
             // 
-            this.btnActionScrollClick.BackColor = System.Drawing.Color.Black;
+            this.btnActionScrollClick.BackColor = System.Drawing.Color.Transparent;
+            this.btnActionScrollClick.FlatAppearance.BorderSize = 0;
             this.btnActionScrollClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActionScrollClick.Image = global::GazeToolBar.Properties.Resources.Scroll_icon;
             this.btnActionScrollClick.Location = new System.Drawing.Point(2, 2);
@@ -260,7 +269,8 @@
             // 
             // btnActionDoubleLeftClick
             // 
-            this.btnActionDoubleLeftClick.BackColor = System.Drawing.Color.Black;
+            this.btnActionDoubleLeftClick.BackColor = System.Drawing.Color.Transparent;
+            this.btnActionDoubleLeftClick.FlatAppearance.BorderSize = 0;
             this.btnActionDoubleLeftClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnActionDoubleLeftClick.Image = global::GazeToolBar.Properties.Resources.Double_Click_icon;
             this.btnActionDoubleLeftClick.Location = new System.Drawing.Point(2, 2);
@@ -340,7 +350,7 @@
             this.pnlRearrange.Controls.Add(this.pnlDoubleLeftClickButton);
             this.pnlRearrange.Controls.Add(this.pnlLeftClickButton);
             this.pnlRearrange.Controls.Add(this.pnlSettingsButton);
-            this.pnlRearrange.Location = new System.Drawing.Point(12, 103);
+            this.pnlRearrange.Location = new System.Drawing.Point(12, 121);
             this.pnlRearrange.Name = "pnlRearrange";
             this.pnlRearrange.Size = new System.Drawing.Size(1388, 550);
             this.pnlRearrange.TabIndex = 35;

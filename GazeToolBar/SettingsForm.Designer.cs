@@ -345,7 +345,7 @@ namespace GazeToolBar
             this.pnlPageKeyboard.Location = new System.Drawing.Point(45, 599);
             this.pnlPageKeyboard.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPageKeyboard.Name = "pnlPageKeyboard";
-            this.pnlPageKeyboard.Size = new System.Drawing.Size(1291, 571);
+            this.pnlPageKeyboard.Size = new System.Drawing.Size(1708, 571);
             this.pnlPageKeyboard.TabIndex = 26;
             this.pnlPageKeyboard.Visible = false;
             // 
@@ -1988,7 +1988,7 @@ namespace GazeToolBar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1825, 1061);
+            this.ClientSize = new System.Drawing.Size(1825, 1181);
             this.Controls.Add(this.pnlRearrange);
             this.Controls.Add(this.pnlCrosshairPage);
             this.Controls.Add(this.pnlZoomSettings);

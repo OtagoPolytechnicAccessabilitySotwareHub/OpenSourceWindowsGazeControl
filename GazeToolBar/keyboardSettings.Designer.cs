@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(keyboardSettings));
+            this.bhavkeyboardSettings = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.panelSaveAndCancel = new System.Windows.Forms.Panel();
             this.pnlCancel = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -534,7 +537,7 @@
         }
 
         #endregion
-
+        private EyeXFramework.Forms.BehaviorMap bhavkeyboardSettings;
         private System.Windows.Forms.Panel panelSaveAndCancel;
         private System.Windows.Forms.Panel pnlCancel;
         private System.Windows.Forms.Button btnCancel;

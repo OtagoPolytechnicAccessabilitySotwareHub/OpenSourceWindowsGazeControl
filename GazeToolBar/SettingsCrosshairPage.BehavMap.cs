@@ -36,6 +36,11 @@ namespace GazeToolBar
         {
             bhavCrosshairMap.Add(buttonCrosshairDown, new GazeAwareBehavior(OnButtonCrosshairDown_Click) { DelayMilliseconds = buttonClickDelay });
             bhavCrosshairMap.Add(buttonCrosshairUp, new GazeAwareBehavior(OnButtonCrosshairUp_Click) { DelayMilliseconds = buttonClickDelay });
+            bhavCrosshairMap.Add(btnSave, new GazeAwareBehavior(OnSave_Click) { DelayMilliseconds = buttonClickDelay });
+            bhavCrosshairMap.Add(btnCancel, new GazeAwareBehavior(OnCancel_Click) { DelayMilliseconds = buttonClickDelay });
+
+            bhavCrosshairMap.Add(pnlSave, new GazeAwareBehavior(OnGazeChangeBTColour));
+            bhavCrosshairMap.Add(pnlCancel, new GazeAwareBehavior(OnGazeChangeBTColour));
 
             bhavCrosshairMap.Add(pnlCrosshairDownButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavCrosshairMap.Add(pnlCrosshairUpButton, new GazeAwareBehavior(OnGazeChangeBTColour));
@@ -51,6 +56,14 @@ namespace GazeToolBar
             if (e.HasGaze) buttonCrosshairUp.PerformClick();
         }
 
+        private void OnCancel_Click(object sender, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnCancel.PerformClick();
+        }
+        private void OnSave_Click(object sender, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnSave.PerformClick();
+        }
 
     }
 }

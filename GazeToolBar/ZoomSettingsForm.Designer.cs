@@ -178,7 +178,7 @@
             // 
             // pnlZoomAmountContent
             // 
-            this.pnlZoomAmountContent.BackColor = System.Drawing.Color.Black;
+            this.pnlZoomAmountContent.BackColor = System.Drawing.Color.Transparent;
             this.pnlZoomAmountContent.Controls.Add(this.pnlZIAPlus);
             this.pnlZoomAmountContent.Controls.Add(this.trackBarZoomAmount);
             this.pnlZoomAmountContent.Controls.Add(this.pnlZIAMinus);
@@ -215,6 +215,7 @@
             // trackBarZoomAmount
             // 
             this.trackBarZoomAmount.AutoSize = false;
+            this.trackBarZoomAmount.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.trackBarZoomAmount.Location = new System.Drawing.Point(170, 58);
             this.trackBarZoomAmount.Maximum = 8;
             this.trackBarZoomAmount.Minimum = 1;
@@ -272,7 +273,7 @@
             // 
             // pnlZoomSizeContent
             // 
-            this.pnlZoomSizeContent.BackColor = System.Drawing.Color.Black;
+            this.pnlZoomSizeContent.BackColor = System.Drawing.Color.Transparent;
             this.pnlZoomSizeContent.Controls.Add(this.pnlZWSPlus);
             this.pnlZoomSizeContent.Controls.Add(this.trackBarZoomWindowSize);
             this.pnlZoomSizeContent.Controls.Add(this.pnlZWSMinus);

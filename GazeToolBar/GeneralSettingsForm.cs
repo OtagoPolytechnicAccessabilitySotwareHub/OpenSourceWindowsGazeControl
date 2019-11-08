@@ -20,6 +20,7 @@ namespace GazeToolBar
         {
             eyeXHost = EyeXHost;
             InitializeComponent();
+            connectBehaveMap();
             this.home = home;
             this.form1 = form1;
             this.BackColor = Program.readSettings.mainColour;

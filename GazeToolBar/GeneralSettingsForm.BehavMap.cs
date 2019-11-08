@@ -31,8 +31,11 @@ namespace GazeToolBar
             bhavGeneralMap.Add(btnFixTimeOutMins, new GazeAwareBehavior(OnbtnFixTimeOutMins_Click) { DelayMilliseconds = buttonClickDelay });
             bhavGeneralMap.Add(btnFixTimeOutPlus, new GazeAwareBehavior(OnbtnFixTimeOutPlus_Click) { DelayMilliseconds = buttonClickDelay });
             bhavGeneralMap.Add(btnAutoStart, new GazeAwareBehavior(OnbtnAutoStart_Click) { DelayMilliseconds = buttonClickDelay });
-            
+            bhavGeneralMap.Add(btnSave, new GazeAwareBehavior(OnSave_Click) { DelayMilliseconds = buttonClickDelay });
+            bhavGeneralMap.Add(btnCancel, new GazeAwareBehavior(OnCancel_Click) { DelayMilliseconds = buttonClickDelay });
 
+            bhavGeneralMap.Add(pnlSave, new GazeAwareBehavior(OnGazeChangeBTColour));
+            bhavGeneralMap.Add(pnlCancel, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavGeneralMap.Add(pnlFTLMins, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavGeneralMap.Add(pnlFTLPlus, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavGeneralMap.Add(pnlFTOMins, new GazeAwareBehavior(OnGazeChangeBTColour));
@@ -49,6 +52,16 @@ namespace GazeToolBar
                 sentButton.BackColor = (e.HasGaze) ? second : main;
             }
         }
+
+        private void OnCancel_Click(object sender, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnCancel.PerformClick();
+        }
+        private void OnSave_Click(object sender, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnSave.PerformClick();
+        }
+
 
         private void OnbtnAutoStart_Click(object sender, GazeAwareEventArgs e)
         {

@@ -62,28 +62,28 @@ namespace GazeToolBar
         {
             WaitForUserKeyPress = true;
             actionToAssignKey = ActionToBePerformed.LeftClick;
-            //lbFKeyFeedback.Text = "please press a key";
+            lbFKeyFeedback.Text = "please press a key";
         }
 
         private void btFKeyRightClick_Click(object sender, EventArgs e)
         {
             WaitForUserKeyPress = true;
             actionToAssignKey = ActionToBePerformed.RightClick;
-            //lbFKeyFeedback.Text = "please press a key";
+            lbFKeyFeedback.Text = "please press a key";
         }
 
         private void btFKeyDoubleClick_Click(object sender, EventArgs e)
         {
             WaitForUserKeyPress = true;
             actionToAssignKey = ActionToBePerformed.DoubleClick;
-            //lbFKeyFeedback.Text = "please press a key";
+            lbFKeyFeedback.Text = "please press a key";
         }
 
         private void btFKeyScroll_Click(object sender, EventArgs e)
         {
             WaitForUserKeyPress = true;
             actionToAssignKey = ActionToBePerformed.Scroll;
-            //lbFKeyFeedback.Text = "please press a key";
+            lbFKeyFeedback.Text = "please press a key";
         }
 
         /*

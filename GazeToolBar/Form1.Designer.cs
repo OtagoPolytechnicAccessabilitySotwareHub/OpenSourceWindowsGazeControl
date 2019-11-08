@@ -59,6 +59,7 @@
             // 
             // pnlHighLightKeyboard
             // 
+            this.pnlHighLightKeyboard.BackColor = System.Drawing.Color.Transparent;
             this.pnlHighLightKeyboard.Controls.Add(this.btnKeyboard);
             this.pnlHighLightKeyboard.Location = new System.Drawing.Point(15, 564);
             this.pnlHighLightKeyboard.Name = "pnlHighLightKeyboard";
@@ -67,8 +68,10 @@
             // 
             // btnKeyboard
             // 
-            this.btnKeyboard.BackColor = System.Drawing.Color.Black;
+            this.btnKeyboard.BackColor = System.Drawing.Color.Transparent;
+            this.btnKeyboard.FlatAppearance.BorderSize = 0;
             this.btnKeyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKeyboard.ForeColor = System.Drawing.Color.Transparent;
             this.btnKeyboard.Image = global::GazeToolBar.Properties.Resources.Keyboard_icon;
             this.btnKeyboard.Location = new System.Drawing.Point(3, 3);
             this.btnKeyboard.Name = "btnKeyboard";
@@ -79,6 +82,7 @@
             // 
             // pnlHighLightScrol
             // 
+            this.pnlHighLightScrol.BackColor = System.Drawing.Color.Transparent;
             this.pnlHighLightScrol.Controls.Add(this.btnScoll);
             this.pnlHighLightScrol.Location = new System.Drawing.Point(15, 455);
             this.pnlHighLightScrol.Name = "pnlHighLightScrol";
@@ -87,8 +91,10 @@
             // 
             // btnScoll
             // 
-            this.btnScoll.BackColor = System.Drawing.Color.Black;
+            this.btnScoll.BackColor = System.Drawing.Color.Transparent;
+            this.btnScoll.FlatAppearance.BorderSize = 0;
             this.btnScoll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScoll.ForeColor = System.Drawing.Color.Transparent;
             this.btnScoll.Image = global::GazeToolBar.Properties.Resources.Scroll_icon;
             this.btnScoll.Location = new System.Drawing.Point(3, 3);
             this.btnScoll.Name = "btnScoll";
@@ -99,6 +105,7 @@
             // 
             // pnlHighLightSettings
             // 
+            this.pnlHighLightSettings.BackColor = System.Drawing.Color.Transparent;
             this.pnlHighLightSettings.Controls.Add(this.btnSettings);
             this.pnlHighLightSettings.Location = new System.Drawing.Point(15, 682);
             this.pnlHighLightSettings.Name = "pnlHighLightSettings";
@@ -107,8 +114,10 @@
             // 
             // btnSettings
             // 
-            this.btnSettings.BackColor = System.Drawing.Color.Black;
+            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.FlatAppearance.BorderSize = 0;
             this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSettings.ForeColor = System.Drawing.Color.Transparent;
             this.btnSettings.Image = global::GazeToolBar.Properties.Resources.settings_icon;
             this.btnSettings.Location = new System.Drawing.Point(3, 3);
             this.btnSettings.Name = "btnSettings";
@@ -119,6 +128,7 @@
             // 
             // pnlHighLightDoubleClick
             // 
+            this.pnlHighLightDoubleClick.BackColor = System.Drawing.Color.Transparent;
             this.pnlHighLightDoubleClick.Controls.Add(this.btnDoubleClick);
             this.pnlHighLightDoubleClick.Location = new System.Drawing.Point(15, 239);
             this.pnlHighLightDoubleClick.Name = "pnlHighLightDoubleClick";
@@ -127,8 +137,10 @@
             // 
             // btnDoubleClick
             // 
-            this.btnDoubleClick.BackColor = System.Drawing.Color.Black;
+            this.btnDoubleClick.BackColor = System.Drawing.Color.Transparent;
+            this.btnDoubleClick.FlatAppearance.BorderSize = 0;
             this.btnDoubleClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDoubleClick.ForeColor = System.Drawing.Color.Transparent;
             this.btnDoubleClick.Image = global::GazeToolBar.Properties.Resources.Double_Click_icon;
             this.btnDoubleClick.Location = new System.Drawing.Point(3, 3);
             this.btnDoubleClick.Name = "btnDoubleClick";
@@ -139,6 +151,7 @@
             // 
             // pnlHighLightSingleLeft
             // 
+            this.pnlHighLightSingleLeft.BackColor = System.Drawing.Color.Transparent;
             this.pnlHighLightSingleLeft.Controls.Add(this.btnSingleLeftClick);
             this.pnlHighLightSingleLeft.Location = new System.Drawing.Point(15, 127);
             this.pnlHighLightSingleLeft.Name = "pnlHighLightSingleLeft";
@@ -147,8 +160,10 @@
             // 
             // btnSingleLeftClick
             // 
-            this.btnSingleLeftClick.BackColor = System.Drawing.Color.Black;
+            this.btnSingleLeftClick.BackColor = System.Drawing.Color.Transparent;
+            this.btnSingleLeftClick.FlatAppearance.BorderSize = 0;
             this.btnSingleLeftClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSingleLeftClick.ForeColor = System.Drawing.Color.Transparent;
             this.btnSingleLeftClick.Image = global::GazeToolBar.Properties.Resources.Left_Click_icon;
             this.btnSingleLeftClick.Location = new System.Drawing.Point(3, 3);
             this.btnSingleLeftClick.Name = "btnSingleLeftClick";
@@ -159,6 +174,7 @@
             // 
             // pnlHiLteRightClick
             // 
+            this.pnlHiLteRightClick.BackColor = System.Drawing.Color.Transparent;
             this.pnlHiLteRightClick.Controls.Add(this.btnRightClick);
             this.pnlHiLteRightClick.Location = new System.Drawing.Point(15, 30);
             this.pnlHiLteRightClick.Name = "pnlHiLteRightClick";
@@ -167,8 +183,10 @@
             // 
             // btnRightClick
             // 
-            this.btnRightClick.BackColor = System.Drawing.Color.Black;
+            this.btnRightClick.BackColor = System.Drawing.Color.Transparent;
+            this.btnRightClick.FlatAppearance.BorderSize = 0;
             this.btnRightClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRightClick.ForeColor = System.Drawing.Color.Transparent;
             this.btnRightClick.Image = global::GazeToolBar.Properties.Resources.Right_Click_icon;
             this.btnRightClick.Location = new System.Drawing.Point(3, 3);
             this.btnRightClick.Name = "btnRightClick";
@@ -190,6 +208,7 @@
             // 
             // pnlHighLightMic
             // 
+            this.pnlHighLightMic.BackColor = System.Drawing.Color.Transparent;
             this.pnlHighLightMic.Controls.Add(this.btnMic);
             this.pnlHighLightMic.Location = new System.Drawing.Point(15, 346);
             this.pnlHighLightMic.Name = "pnlHighLightMic";
@@ -198,8 +217,10 @@
             // 
             // btnMic
             // 
-            this.btnMic.BackColor = System.Drawing.Color.Black;
+            this.btnMic.BackColor = System.Drawing.Color.Transparent;
+            this.btnMic.FlatAppearance.BorderSize = 0;
             this.btnMic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMic.ForeColor = System.Drawing.Color.Transparent;
             this.btnMic.Image = global::GazeToolBar.Properties.Resources.Mic_icon;
             this.btnMic.Location = new System.Drawing.Point(3, 3);
             this.btnMic.Name = "btnMic";

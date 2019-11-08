@@ -34,7 +34,11 @@ namespace GazeToolBar
             bhavZoomMap.Add(btnStaticZoomMode, new GazeAwareBehavior(OnStaticZoomMode_Click) { DelayMilliseconds = buttonClickDelay });
             bhavZoomMap.Add(btnDynamicZoomMode, new GazeAwareBehavior(OnDynamicZoomMode_Click) { DelayMilliseconds = buttonClickDelay });
             bhavZoomMap.Add(btnCornerZoomMode, new GazeAwareBehavior(OnCornerZoomMode_Click) { DelayMilliseconds = buttonClickDelay });
+            bhavZoomMap.Add(btnSave, new GazeAwareBehavior(OnSave_Click) { DelayMilliseconds = buttonClickDelay });
+            bhavZoomMap.Add(btnCancel, new GazeAwareBehavior(OnCancel_Click) { DelayMilliseconds = buttonClickDelay });
 
+            bhavZoomMap.Add(pnlSave, new GazeAwareBehavior(OnGazeChangeBTColour));
+            bhavZoomMap.Add(pnlCancel, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavZoomMap.Add(pnlZWSMinus, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavZoomMap.Add(pnlZWSPlus, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavZoomMap.Add(pnlZIAMinus, new GazeAwareBehavior(OnGazeChangeBTColour));
@@ -44,6 +48,9 @@ namespace GazeToolBar
             bhavZoomMap.Add(pnlCornerZoomMode, new GazeAwareBehavior(OnGazeChangeBTColour));
         }
 
+
+
+
         private void OnGazeChangeBTColour(object s, GazeAwareEventArgs e)
         {
             var sentButton = s as Panel;
@@ -51,6 +58,15 @@ namespace GazeToolBar
             {
                 sentButton.BackColor = (e.HasGaze) ? second : main;
             }
+        }
+
+        private void OnCancel_Click(object sender, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnCancel.PerformClick();
+        }
+        private void OnSave_Click(object sender, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnSave.PerformClick();
         }
 
 
@@ -68,6 +84,7 @@ namespace GazeToolBar
         {
             if (e.HasGaze) btnZoomAmountMinus.PerformClick();
         }
+
 
         private void OnBtnZoomAmountPlus_Click(object sender, GazeAwareEventArgs e)
         {

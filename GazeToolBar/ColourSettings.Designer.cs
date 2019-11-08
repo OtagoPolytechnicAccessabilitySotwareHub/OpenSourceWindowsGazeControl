@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ColourSettings));
+            this.bhavColourSettings = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.brushColours = new System.Windows.Forms.Panel();
             this.colourOptionPanel1 = new System.Windows.Forms.Panel();
             this.colourOptionButton1 = new System.Windows.Forms.Button();
@@ -714,6 +717,8 @@
 
         #endregion
 
+
+        private EyeXFramework.Forms.BehaviorMap bhavColourSettings;
         private System.Windows.Forms.Panel brushColours;
         private System.Windows.Forms.Panel colourOptionPanel1;
         private System.Windows.Forms.Button colourOptionButton1;

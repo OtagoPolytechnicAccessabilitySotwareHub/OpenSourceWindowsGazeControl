@@ -107,7 +107,7 @@
             // 
             // pnlFixTimeLengthContent
             // 
-            this.pnlFixTimeLengthContent.BackColor = System.Drawing.Color.Black;
+            this.pnlFixTimeLengthContent.BackColor = System.Drawing.Color.Transparent;
             this.pnlFixTimeLengthContent.Controls.Add(this.pnlFTLPlus);
             this.pnlFixTimeLengthContent.Controls.Add(this.trackBarFixTimeLength);
             this.pnlFixTimeLengthContent.Controls.Add(this.pnlFTLMins);
@@ -199,7 +199,7 @@
             // 
             // pnlFixTimeOutContent
             // 
-            this.pnlFixTimeOutContent.BackColor = System.Drawing.Color.Black;
+            this.pnlFixTimeOutContent.BackColor = System.Drawing.Color.Transparent;
             this.pnlFixTimeOutContent.Controls.Add(this.pnlFTOPlus);
             this.pnlFixTimeOutContent.Controls.Add(this.trackBarFixTimeOut);
             this.pnlFixTimeOutContent.Controls.Add(this.pnlFTOMins);
@@ -235,6 +235,7 @@
             // 
             // trackBarFixTimeOut
             // 
+            this.trackBarFixTimeOut.BackColor = System.Drawing.Color.Black;
             this.trackBarFixTimeOut.Location = new System.Drawing.Point(170, 58);
             this.trackBarFixTimeOut.Maximum = 8;
             this.trackBarFixTimeOut.Name = "trackBarFixTimeOut";

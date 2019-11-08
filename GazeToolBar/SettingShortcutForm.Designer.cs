@@ -37,6 +37,7 @@
             this.pnlFKeyHighlight1 = new System.Windows.Forms.Panel();
             this.btFKeyLeftClick = new System.Windows.Forms.Button();
             this.lbLeft = new System.Windows.Forms.Label();
+            this.lbFKeyFeedback = new System.Windows.Forms.Label();
             this.pnlRightClick = new System.Windows.Forms.Panel();
             this.lbRight = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -98,6 +99,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::GazeToolBar.Properties.Resources.Left_Click_icon;
             this.pictureBox1.Location = new System.Drawing.Point(19, 22);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
@@ -165,6 +167,18 @@
             this.lbLeft.TabIndex = 3;
             this.lbLeft.Text = "label1";
             // 
+            // lbFKeyFeedback
+            // 
+            this.lbFKeyFeedback.AutoSize = true;
+            this.lbFKeyFeedback.Font = new System.Drawing.Font("Arial", 18F);
+            this.lbFKeyFeedback.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lbFKeyFeedback.Location = new System.Drawing.Point(543, 570);
+            this.lbFKeyFeedback.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbFKeyFeedback.Name = "lbFKeyFeedback";
+            this.lbFKeyFeedback.Size = new System.Drawing.Size(77, 27);
+            this.lbFKeyFeedback.TabIndex = 5;
+            this.lbFKeyFeedback.Text = "label7";
+            // 
             // pnlRightClick
             // 
             this.pnlRightClick.Controls.Add(this.lbRight);
@@ -191,6 +205,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::GazeToolBar.Properties.Resources.Right_Click_icon;
             this.pictureBox2.Location = new System.Drawing.Point(19, 22);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
@@ -272,6 +287,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::GazeToolBar.Properties.Resources.Double_Click_icon;
             this.pictureBox3.Location = new System.Drawing.Point(21, 22);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
@@ -399,6 +415,7 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = global::GazeToolBar.Properties.Resources.Scroll_icon;
             this.pictureBox4.Location = new System.Drawing.Point(19, 22);
             this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
@@ -448,6 +465,7 @@
             this.pnlPageKeyboard.Controls.Add(this.pnlRightClick);
             this.pnlPageKeyboard.Controls.Add(this.pnlScroll);
             this.pnlPageKeyboard.Controls.Add(this.pnlDoubleClick);
+            this.pnlPageKeyboard.Controls.Add(this.lbFKeyFeedback);
             this.pnlPageKeyboard.Location = new System.Drawing.Point(153, 124);
             this.pnlPageKeyboard.Name = "pnlPageKeyboard";
             this.pnlPageKeyboard.Size = new System.Drawing.Size(1131, 620);
@@ -514,6 +532,7 @@
         private System.Windows.Forms.Panel pnlFKeyHighlight1;
         private System.Windows.Forms.Button btFKeyLeftClick;
         private System.Windows.Forms.Label lbLeft;
+        private System.Windows.Forms.Label lbFKeyFeedback;
         private System.Windows.Forms.Panel pnlRightClick;
         private System.Windows.Forms.Label lbRight;
         private System.Windows.Forms.PictureBox pictureBox2;

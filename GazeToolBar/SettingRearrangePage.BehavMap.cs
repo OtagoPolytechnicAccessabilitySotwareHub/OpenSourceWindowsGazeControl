@@ -45,7 +45,11 @@ namespace GazeToolBar
             bhavRearrangeMap.Add(btnActionRightClick, new GazeAwareBehavior(OnBtnActionRightClick_Click) { DelayMilliseconds = buttonClickDelay });
             bhavRearrangeMap.Add(btnActionScrollClick, new GazeAwareBehavior(OnBtnActionScrollClick_Click) { DelayMilliseconds = buttonClickDelay });
             bhavRearrangeMap.Add(btnActionSettings, new GazeAwareBehavior(OnBtnActionSettings_Click) { DelayMilliseconds = buttonClickDelay });
+            bhavRearrangeMap.Add(btnSave, new GazeAwareBehavior(OnSave_Click) { DelayMilliseconds = buttonClickDelay });
+            bhavRearrangeMap.Add(btnCancel, new GazeAwareBehavior(OnCancel_Click) { DelayMilliseconds = buttonClickDelay });
 
+            bhavRearrangeMap.Add(pnlSave, new GazeAwareBehavior(OnGazeChangeBTColour));
+            bhavRearrangeMap.Add(pnlCancel, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavRearrangeMap.Add(pnlMoveUpButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavRearrangeMap.Add(pnlMoveDownButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavRearrangeMap.Add(pnlRemoveButton, new GazeAwareBehavior(OnGazeChangeBTColour));
@@ -55,7 +59,18 @@ namespace GazeToolBar
             bhavRearrangeMap.Add(pnlRightClickButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavRearrangeMap.Add(pnlScrollClickButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavRearrangeMap.Add(pnlSettingsButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-        }   
+        }
+
+
+        private void OnCancel_Click(object sender, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnCancel.PerformClick();
+        }
+        private void OnSave_Click(object sender, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnSave.PerformClick();
+        }
+
 
         private void OnBtnMoveUp_Click(object sender, GazeAwareEventArgs e)
         {

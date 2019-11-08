@@ -139,6 +139,17 @@ namespace GazeToolBar
             pictureBoxCrosshairPreview.Location = ReletiveSize.distribute(pnlCrosshairPage, pictureBoxCrosshairPreview.Location.X, 2, 3, "h", 0);
             pictureBoxCrosshairPreview.Location = ReletiveSize.distribute(pnlCrosshairPage, pictureBoxCrosshairPreview.Location.Y, 2, 2, "w", 0.5);
             pictureBoxCrosshairPreview.Left = (pictureBoxCrosshairPreview.Location.X - (pictureBoxCrosshairPreview.Width / 2));
+
+            foreach (Panel panel in panelSaveAndCancel.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.secondColour;
+                }
+            }
+            label1.ForeColor = Program.readSettings.secondColour;
+            labCrosshairType.ForeColor = Program.readSettings.secondColour;
+            this.BackColor = Program.readSettings.mainColour;
         }
 
 

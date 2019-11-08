@@ -143,11 +143,17 @@
     <Compile Include="AutoStart.cs" />
     <Compile Include="AutoWord.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ColourSettings.BehavMap.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ColourSettings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ColourSettings.Designer.cs">
       <DependentUpon>ColourSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="keyboardSettings.BehaveMap.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Node.cs" />
     <Compile Include="SettingRearrangePage.BehavMap.cs">

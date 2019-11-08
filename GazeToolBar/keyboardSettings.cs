@@ -27,6 +27,7 @@ namespace GazeToolBar
             InitializeComponent();
             this.home = home;
             this.form1 = form1;
+            connectBehaveMap();
             changeButtonColour(Program.readSettings.eng, btnAbcOn, btnAbcOff);
             changeButtonColour(Program.readSettings.k123, btn123On, btn123Off);
             changeButtonColour(Program.readSettings.kacc, btnAccOn, btnAccOff);

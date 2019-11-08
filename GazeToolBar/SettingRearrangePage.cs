@@ -191,7 +191,7 @@ namespace GazeToolBar
                 if (!selectionButton.Equals(""))
                 {
                     Button selButton = GetButtonForString(selectionButton);
-                    selButton.BackColor = Color.Black;
+                    selButton.BackColor = Program.readSettings.mainColour;
                 }
 
                 selectionButton = buttonString;
@@ -208,7 +208,7 @@ namespace GazeToolBar
             if (!selectionButton.Equals("") && !selectionButton.Equals("settings"))
             {
                 Button b = GetButtonForString(selectionButton);
-                b.BackColor = Color.Black;
+                b.BackColor = Program.readSettings.mainColour;
 
                 RemoveAction(selectionButton);
                 selectionButton = "";
@@ -233,7 +233,7 @@ namespace GazeToolBar
 
                 }
 
-                b.BackColor = Color.Black;
+                b.BackColor = Program.readSettings.mainColour;
                 selectionButton = "";
             }
         }
@@ -253,7 +253,7 @@ namespace GazeToolBar
                     RefreshActions();
                 }
 
-                b.BackColor = Color.Black;
+                b.BackColor = Program.readSettings.mainColour;
                 selectionButton = "";
             }
         }
@@ -317,8 +317,9 @@ namespace GazeToolBar
             //Zoom Settings size and location
             //Main Panel
             //Rearrange panel
-            pnlRearrange.Size = ReletiveSize.panelRearrangeSize(panelSaveAndCancel.Location.Y, pnlRearrange.Location.Y);
+            pnlRearrange.Size = ReletiveSize.panelRearrangeSize(panelSaveAndCancel.Location.Y, (label1.Location.Y+label1.Height));
             pnlRearrangeControls.Location = ReletiveSize.centerLocation(pnlRearrange, pnlRearrangeControls);
+            pnlRearrange.Top = (label1.Location.Y + label1.Height);
             this.BackColor = Program.readSettings.mainColour;
             label1.ForeColor = Program.readSettings.secondColour;
             foreach (Panel panel in panelSaveAndCancel.Controls)

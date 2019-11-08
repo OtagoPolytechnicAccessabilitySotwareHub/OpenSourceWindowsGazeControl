@@ -54,7 +54,7 @@ namespace GazeToolBar
             var sentButton = s as Panel;
             if(sentButton != null)
             {
-                sentButton.BackColor = (e.HasGaze) ? Color.Red : Color.Black;
+                sentButton.BackColor = (e.HasGaze) ? Color.Red : Program.readSettings.mainColour;
             }
         }
 
@@ -143,7 +143,7 @@ namespace GazeToolBar
         {
             foreach (Button b in button)
             {
-                b.BackColor = Color.Black;
+                b.BackColor = Program.readSettings.mainColour;
             }
         }
     }
