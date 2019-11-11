@@ -32,7 +32,6 @@ namespace GazeToolBar
             changeButtonColour(Program.readSettings.k123, btn123On, btn123Off);
             changeButtonColour(Program.readSettings.kacc, btnAccOn, btnAccOff);
             changeButtonColour(Program.readSettings.spanish, btnespOn, btnespOff);
-            changeButtonColour(Program.readSettings.autocomplete, btnAutoOn, btnAutoOff);
             eng = Program.readSettings.eng;
             k123 = Program.readSettings.k123;
             kacc = Program.readSettings.kacc;
@@ -53,6 +52,7 @@ namespace GazeToolBar
 
                 //form1.NotifyIcon.BalloonTipTitle = "Saving success";
                 //form1.NotifyIcon.BalloonTipText = "Your settings are successfuly saved";
+                Program.readSettings.createJSON(Program.readSettings.sidebar);
                 this.Close();
                 form1.stateManager.ResetMagnifier();
                 //form1.NotifyIcon.ShowBalloonTip(2000);
@@ -140,17 +140,7 @@ namespace GazeToolBar
             changeButtonColour(spanish, btnespOn, btnespOff);
         }
 
-        private void btnAutoOn_Click(object sender, EventArgs e)
-        {
-            autocomplete = true;
-            changeButtonColour(autocomplete, btnAutoOn, btnAutoOff);
-        }
 
-        private void btnAutoOff_Click(object sender, EventArgs e)
-        {
-            autocomplete = false;
-            changeButtonColour(autocomplete, btnAutoOn, btnAutoOff);
-        }
 
 
         private void controlRelocateAndResize()
@@ -172,32 +162,28 @@ namespace GazeToolBar
             ReletiveSize.resizeLabel(label1, 50);
             ReletiveSize.resizeLabel(label2, 50);
             ReletiveSize.resizeLabel(label3, 50);
-            ReletiveSize.resizeLabel(label4, 50);
             ReletiveSize.resizeLabel(label5, 50);
-            label1.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 2, 6, "wn", 0.15);
-            label2.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 3, 6, "wn", 0.15);
-            label3.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 4, 6, "wn", 0.15);
-            label5.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 5, 6, "wn", 0.15);
-            label4.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 6, 6, "wn", 0.14);
+            label1.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 2, 5, "wn", 0.15);
+            label2.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 3, 5, "wn", 0.15);
+            label3.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 4, 5, "wn", 0.15);
+            label5.Location = ReletiveSize.distribute(panelTitle, label1.Location.Y, 5, 5, "wn", 0.15);
 
 
             ReletiveSize.resizeLabel(label6, 50);
             ReletiveSize.sizeEvenly(panelOn, 0.7);
-            label6.Location = ReletiveSize.distribute(panelOn, label6.Location.Y, 1, 6, "wn", 0.15);
-            pnlAbcOn.Location = ReletiveSize.distribute(panelOn, pnlAbcOn.Location.Y, 2, 6, "wn", 0.15);
-            pnl123On.Location = ReletiveSize.distribute(panelOn, pnl123On.Location.Y, 3, 6, "wn", 0.15);
-            pnlAccOn.Location = ReletiveSize.distribute(panelOn, pnlAccOn.Location.Y, 4, 6, "wn", 0.15);
-            pnlespOn.Location = ReletiveSize.distribute(panelOn, pnlespOn.Location.Y, 5, 6, "wn", 0.15);
-            pnlAutoOn.Location = ReletiveSize.distribute(panelOn, pnlAutoOn.Location.Y, 6, 6, "wn", 0.15);
+            label6.Location = ReletiveSize.distribute(panelOn, label6.Location.Y, 1, 5, "wn", 0.15);
+            pnlAbcOn.Location = ReletiveSize.distribute(panelOn, pnlAbcOn.Location.Y, 2, 5, "wn", 0.15);
+            pnl123On.Location = ReletiveSize.distribute(panelOn, pnl123On.Location.Y, 3, 5, "wn", 0.15);
+            pnlAccOn.Location = ReletiveSize.distribute(panelOn, pnlAccOn.Location.Y, 4, 5, "wn", 0.15);
+            pnlespOn.Location = ReletiveSize.distribute(panelOn, pnlespOn.Location.Y, 5, 5, "wn", 0.15);
 
             ReletiveSize.resizeLabel(label7, 50);
             ReletiveSize.sizeEvenly(panelOff, 0.7);
-            label7.Location = ReletiveSize.distribute(panelOff, label7.Location.Y, 1, 6, "wn", 0.15);
-            pnlAbcOff.Location = ReletiveSize.distribute(panelOff, pnlAbcOff.Location.Y, 2, 6, "wn", 0.15);
-            pnl123Off.Location = ReletiveSize.distribute(panelOff, pnl123Off.Location.Y, 3, 6, "wn", 0.15);
-            pnlAccOff.Location = ReletiveSize.distribute(panelOff, pnlAccOff.Location.Y, 4, 6, "wn", 0.15);
-            pnlespOff.Location = ReletiveSize.distribute(panelOff, pnlespOff.Location.Y, 5, 6, "wn", 0.15);
-            pnlAutoOff.Location = ReletiveSize.distribute(panelOff, pnlAutoOff.Location.Y, 6, 6, "wn", 0.15);
+            label7.Location = ReletiveSize.distribute(panelOff, label7.Location.Y, 1, 5, "wn", 0.15);
+            pnlAbcOff.Location = ReletiveSize.distribute(panelOff, pnlAbcOff.Location.Y, 2, 5, "wn", 0.15);
+            pnl123Off.Location = ReletiveSize.distribute(panelOff, pnl123Off.Location.Y, 3, 5, "wn", 0.15);
+            pnlAccOff.Location = ReletiveSize.distribute(panelOff, pnlAccOff.Location.Y, 4, 5, "wn", 0.15);
+            pnlespOff.Location = ReletiveSize.distribute(panelOff, pnlespOff.Location.Y, 5, 5, "wn", 0.15);
             foreach (Panel panel in panelSaveAndCancel.Controls)
             {
                 foreach (Button button in panel.Controls)

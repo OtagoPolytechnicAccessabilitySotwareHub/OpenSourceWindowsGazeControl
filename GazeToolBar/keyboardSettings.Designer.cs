@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(keyboardSettings));
             this.bhavkeyboardSettings = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.panelSaveAndCancel = new System.Windows.Forms.Panel();
             this.pnlCancel = new System.Windows.Forms.Panel();
@@ -39,7 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAbcOn = new System.Windows.Forms.Button();
             this.btnAbcOff = new System.Windows.Forms.Button();
@@ -49,13 +47,10 @@
             this.btnAccOff = new System.Windows.Forms.Button();
             this.btnespOn = new System.Windows.Forms.Button();
             this.btnespOff = new System.Windows.Forms.Button();
-            this.btnAutoOn = new System.Windows.Forms.Button();
-            this.btnAutoOff = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panelTitle = new System.Windows.Forms.Panel();
             this.panelOn = new System.Windows.Forms.Panel();
-            this.pnlAutoOn = new System.Windows.Forms.Panel();
             this.pnlespOn = new System.Windows.Forms.Panel();
             this.pnlAccOn = new System.Windows.Forms.Panel();
             this.pnl123On = new System.Windows.Forms.Panel();
@@ -65,7 +60,6 @@
             this.pnl123Off = new System.Windows.Forms.Panel();
             this.pnlAccOff = new System.Windows.Forms.Panel();
             this.pnlespOff = new System.Windows.Forms.Panel();
-            this.pnlAutoOff = new System.Windows.Forms.Panel();
             this.panelKeyboard = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.panelSaveAndCancel.SuspendLayout();
@@ -73,7 +67,6 @@
             this.pnlSave.SuspendLayout();
             this.panelTitle.SuspendLayout();
             this.panelOn.SuspendLayout();
-            this.pnlAutoOn.SuspendLayout();
             this.pnlespOn.SuspendLayout();
             this.pnlAccOn.SuspendLayout();
             this.pnl123On.SuspendLayout();
@@ -83,7 +76,6 @@
             this.pnl123Off.SuspendLayout();
             this.pnlAccOff.SuspendLayout();
             this.pnlespOff.SuspendLayout();
-            this.pnlAutoOff.SuspendLayout();
             this.panelKeyboard.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -180,17 +172,6 @@
             this.label3.Size = new System.Drawing.Size(58, 31);
             this.label3.TabIndex = 39;
             this.label3.Text = "àbç";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(894, 28);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(186, 31);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "AutoComplete";
             // 
             // label5
             // 
@@ -307,32 +288,6 @@
             this.btnespOff.UseVisualStyleBackColor = false;
             this.btnespOff.Click += new System.EventHandler(this.btnespOff_Click);
             // 
-            // btnAutoOn
-            // 
-            this.btnAutoOn.BackColor = System.Drawing.Color.Black;
-            this.btnAutoOn.FlatAppearance.BorderSize = 5;
-            this.btnAutoOn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAutoOn.ForeColor = System.Drawing.Color.White;
-            this.btnAutoOn.Location = new System.Drawing.Point(2, 2);
-            this.btnAutoOn.Name = "btnAutoOn";
-            this.btnAutoOn.Size = new System.Drawing.Size(80, 75);
-            this.btnAutoOn.TabIndex = 50;
-            this.btnAutoOn.UseVisualStyleBackColor = false;
-            this.btnAutoOn.Click += new System.EventHandler(this.btnAutoOn_Click);
-            // 
-            // btnAutoOff
-            // 
-            this.btnAutoOff.BackColor = System.Drawing.Color.Black;
-            this.btnAutoOff.FlatAppearance.BorderSize = 5;
-            this.btnAutoOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAutoOff.ForeColor = System.Drawing.Color.White;
-            this.btnAutoOff.Location = new System.Drawing.Point(2, 2);
-            this.btnAutoOff.Name = "btnAutoOff";
-            this.btnAutoOff.Size = new System.Drawing.Size(80, 75);
-            this.btnAutoOff.TabIndex = 51;
-            this.btnAutoOff.UseVisualStyleBackColor = false;
-            this.btnAutoOff.Click += new System.EventHandler(this.btnAutoOff_Click);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -358,7 +313,6 @@
             // panelTitle
             // 
             this.panelTitle.Controls.Add(this.label5);
-            this.panelTitle.Controls.Add(this.label4);
             this.panelTitle.Controls.Add(this.label3);
             this.panelTitle.Controls.Add(this.label2);
             this.panelTitle.Controls.Add(this.label1);
@@ -369,7 +323,6 @@
             // 
             // panelOn
             // 
-            this.panelOn.Controls.Add(this.pnlAutoOn);
             this.panelOn.Controls.Add(this.pnlespOn);
             this.panelOn.Controls.Add(this.pnlAccOn);
             this.panelOn.Controls.Add(this.pnl123On);
@@ -379,14 +332,6 @@
             this.panelOn.Name = "panelOn";
             this.panelOn.Size = new System.Drawing.Size(1193, 118);
             this.panelOn.TabIndex = 55;
-            // 
-            // pnlAutoOn
-            // 
-            this.pnlAutoOn.Controls.Add(this.btnAutoOn);
-            this.pnlAutoOn.Location = new System.Drawing.Point(958, 12);
-            this.pnlAutoOn.Name = "pnlAutoOn";
-            this.pnlAutoOn.Size = new System.Drawing.Size(94, 83);
-            this.pnlAutoOn.TabIndex = 57;
             // 
             // pnlespOn
             // 
@@ -426,7 +371,6 @@
             this.panelOff.Controls.Add(this.pnl123Off);
             this.panelOff.Controls.Add(this.pnlAccOff);
             this.panelOff.Controls.Add(this.pnlespOff);
-            this.panelOff.Controls.Add(this.pnlAutoOff);
             this.panelOff.Controls.Add(this.label7);
             this.panelOff.Location = new System.Drawing.Point(32, 237);
             this.panelOff.Name = "panelOff";
@@ -464,14 +408,6 @@
             this.pnlespOff.Name = "pnlespOff";
             this.pnlespOff.Size = new System.Drawing.Size(90, 86);
             this.pnlespOff.TabIndex = 55;
-            // 
-            // pnlAutoOff
-            // 
-            this.pnlAutoOff.Controls.Add(this.btnAutoOff);
-            this.pnlAutoOff.Location = new System.Drawing.Point(956, 16);
-            this.pnlAutoOff.Name = "pnlAutoOff";
-            this.pnlAutoOff.Size = new System.Drawing.Size(94, 86);
-            this.pnlAutoOff.TabIndex = 54;
             // 
             // panelKeyboard
             // 
@@ -518,7 +454,6 @@
             this.panelTitle.PerformLayout();
             this.panelOn.ResumeLayout(false);
             this.panelOn.PerformLayout();
-            this.pnlAutoOn.ResumeLayout(false);
             this.pnlespOn.ResumeLayout(false);
             this.pnlAccOn.ResumeLayout(false);
             this.pnl123On.ResumeLayout(false);
@@ -529,7 +464,6 @@
             this.pnl123Off.ResumeLayout(false);
             this.pnlAccOff.ResumeLayout(false);
             this.pnlespOff.ResumeLayout(false);
-            this.pnlAutoOff.ResumeLayout(false);
             this.panelKeyboard.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -546,7 +480,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnAbcOn;
         private System.Windows.Forms.Button btnAbcOff;
@@ -556,8 +489,6 @@
         private System.Windows.Forms.Button btnAccOff;
         private System.Windows.Forms.Button btnespOn;
         private System.Windows.Forms.Button btnespOff;
-        private System.Windows.Forms.Button btnAutoOn;
-        private System.Windows.Forms.Button btnAutoOff;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panelTitle;
@@ -565,7 +496,6 @@
         private System.Windows.Forms.Panel panelOff;
         private System.Windows.Forms.Panel panelKeyboard;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel pnlAutoOn;
         private System.Windows.Forms.Panel pnlespOn;
         private System.Windows.Forms.Panel pnlAccOn;
         private System.Windows.Forms.Panel pnl123On;
@@ -574,6 +504,5 @@
         private System.Windows.Forms.Panel pnl123Off;
         private System.Windows.Forms.Panel pnlAccOff;
         private System.Windows.Forms.Panel pnlespOff;
-        private System.Windows.Forms.Panel pnlAutoOff;
     }
 }

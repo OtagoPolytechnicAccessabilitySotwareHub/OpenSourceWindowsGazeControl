@@ -27,7 +27,7 @@ namespace GazeToolBar
         private bool bottom; //for location of keyboard. top or bottom
         private static FormsEyeXHost eyeXHost;
 
-        private const int KeyboardAmount = 6; //How many keyboard.
+        private int KeyboardAmount; //How many keyboard.
         private bool cap; //If shift has been pressed
         private int KeyboardView; //Which keyboard is being displayed
 
@@ -35,9 +35,6 @@ namespace GazeToolBar
         private int third;
         private int predWordSize;
         private keyboardKeys[] keys;
-        private string enteredWord;
-        private List<AutoWord> dictWords;
-        AutoCompleteTree predictTree;
 
         private Panel F1keyboardPanel;
         private Panel F1LeftClickPanel;
@@ -62,21 +59,6 @@ namespace GazeToolBar
             F1DoubleClickPanel = form1DCP;
             F1ScrollPanel = form1ScrollP;
             this.gazeSidePanel = gazeSidePanel;
-            enteredWord = "";
-            dictWords = new List<AutoWord>();
-            //using (StreamReader sr = new StreamReader("fullDictionary.txt"))
-            predictTree = new AutoCompleteTree();
-            using (StreamReader sr = new StreamReader("tempDict.csv"))
-            {
-                string line;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    string[] seperateKeys = line.Split(',');
-                    dictWords.Add(new AutoWord(seperateKeys[0], seperateKeys[1]));
-                    predictTree.Add(seperateKeys[0]);
-                }
-
-            }
 
 
 
@@ -138,44 +120,41 @@ namespace GazeToolBar
             }
 
             third = panel38.Width / 3;
-            typedWordpnl.Width = third;
-            typedWordpnl.Height = 100;//Convert.ToInt32(panel1.Height);
-            typedWordpnl.Left = 0;
-            typedWordpnl.Top = panel38.Top - typedWordpnl.Height;
 
             predWordSize = (third * 2) / 4;
 
-            pnlOp1.Size = new Size(predWordSize, typedWordpnl.Height);
-            pnlOp2.Size = new Size(predWordSize, typedWordpnl.Height);
-            pnlOp3.Size = new Size(predWordSize, typedWordpnl.Height);
-            pnlOp4.Size = new Size(predWordSize, typedWordpnl.Height);
 
-            pnlOp1.Location = new Point(third, typedWordpnl.Top);
-            pnlOp2.Location = new Point(third+predWordSize, typedWordpnl.Top);
-            pnlOp3.Location = new Point(third+(predWordSize*2), typedWordpnl.Top);
-            pnlOp4.Location = new Point(third + (predWordSize * 3), typedWordpnl.Top);
-
-            btnOp1.Size = new Size(predWordSize-6, typedWordpnl.Height-6);
-            btnOp2.Size = new Size(predWordSize - 6, typedWordpnl.Height - 6);
-            btnOp3.Size = new Size(predWordSize - 6, typedWordpnl.Height - 6);
-            btnOp4.Size = new Size(predWordSize - 6, typedWordpnl.Height - 6);
-
-
-            btnOp1.Font = new Font(button34.Font.FontFamily, panel38.Width / 45);
-            btnOp2.Font = new Font(button34.Font.FontFamily, panel38.Width / 45);
-            btnOp3.Font = new Font(button34.Font.FontFamily, panel38.Width / 45);
-            btnOp4.Font = new Font(button34.Font.FontFamily, panel38.Width / 45);
-            typedWord.Font = new Font(button34.Font.FontFamily, panel38.Width / 30);
 
             keys = new keyboardKeys[27];
-            string[] keyboardsAvailable = new string[] { "KeyboardSetOne.txt", "KeyboardSetTwo.txt", "KeyboardSetThree.txt" };
+            List<String> keyboardsAvailable = new List<string>();
+            if (Program.readSettings.eng)
+            {
+                keyboardsAvailable.Add("KeyboardSetOne.txt");
+            }
+            if(Program.readSettings.k123)
+            {
+                keyboardsAvailable.Add("KeyboardSetTwo.txt");
+            }
+            if (Program.readSettings.kacc)
+            {
+                keyboardsAvailable.Add("KeyboardSetThree.txt");
+            }
+            //if (Program.readSettings.k123)
+            //{
+            //    keyboardsAvailable.Add("KeyboardSetOne.txt");
+            //}
+            KeyboardAmount = keyboardsAvailable.Count * 2;
             for (int i = 0; i < 27; i++)
             {
                 keys[i] = new keyboardKeys();
             }
+            btnDoubleLeftClick.BackColor = Program.readSettings.mainColour;
+            btnKeyboard.BackColor = Program.readSettings.mainColour;
+            btnLeftClick.BackColor = Program.readSettings.mainColour;
+            btnRightClick.BackColor = Program.readSettings.mainColour;
+            btnScroll.BackColor = Program.readSettings.mainColour;
 
-
-            for (int i = 0; i < keyboardsAvailable.Length; i++)
+            for (int i = 0; i < keyboardsAvailable.Count; i++)
             {
                 using (StreamReader sr = new StreamReader(keyboardsAvailable[i], Encoding.GetEncoding("iso-8859-1")))
                     {
@@ -305,96 +284,8 @@ namespace GazeToolBar
 
 
 
-        public static int GetDamerauLevenshteinDistance(string s, string t)
-        {
-            var bounds = new { Height = s.Length + 1, Width = t.Length + 1 };
-
-            int[,] matrix = new int[bounds.Height, bounds.Width];
-
-            for (int height = 0; height < bounds.Height; height++) { matrix[height, 0] = height; };
-            for (int width = 0; width < bounds.Width; width++) { matrix[0, width] = width; };
-
-            for (int height = 1; height < bounds.Height; height++)
-            {
-                for (int width = 1; width < bounds.Width; width++)
-                {
-                    int cost = (s[height - 1] == t[width - 1]) ? 0 : 1;
-                    int insertion = matrix[height, width - 1] + 1;
-                    int deletion = matrix[height - 1, width] + 1;
-                    int substitution = matrix[height - 1, width - 1] + cost;
-
-                    int distance = Math.Min(insertion, Math.Min(deletion, substitution));
-
-                    if (height > 1 && width > 1 && s[height - 1] == t[width - 2] && s[height - 2] == t[width - 1])
-                    {
-                        distance = Math.Min(distance, matrix[height - 2, width - 2] + cost);
-                    }
-
-                    matrix[height, width] = distance;
-                }
-            }
-
-            return matrix[bounds.Height - 1, bounds.Width - 1];
-        }
-
-
-        private void fillInSuggestions()
-        {
-            Button[] buttons = new Button[] { btnOp1, btnOp2, btnOp3, btnOp4 };
-            typedWord.Text = enteredWord;
-            if (enteredWord.Length >= 2)
-            {
-                int optionCount = 4;
-                //List<AutoWord> results = new List<AutoWord>();
-
-                //for (int i = 0; i < dictWords.Count; i++)
-                //{
-                //    int distance = GetDamerauLevenshteinDistance(enteredWord, dictWords[i].Word);
-                //    if (distance < 3)
-                //    {
-                //        dictWords[i].CurrentDistance = distance / (1 / dictWords[i].Frequency);
-                //        results.Add(dictWords[i]);
-                //    }
-                //}
-
-                //IntArrayInsertionSort(results);
-                //results.Sort();
-
-                String[] results;
-                results = predictTree.suggestions(enteredWord);
-                if(results!=null)
-                {
-                    if (results.Length-1 < 4)
-                    {
-                        if (results.Length - 1 >= 0)
-                        {
-                            optionCount = results.Length - 1;
-                        }
-                    }
-                    for (int i = 0; i < optionCount; i++)
-                    {
-                        buttons[i].Text = results[i];
-                    }
-                }
-                else
-                {
-                    optionCount = 4;
-                }
-                for (int i = optionCount; i < 4; i++)
-                {
-                    buttons[i].Text = "";
-                }
-            }
-            //else
-            //{
-            //    foreach(Button button in buttons)
-            //    {
-            //        button.Text = "";
-            //    }
-            //}
-
-
-        }
+        
+        
 
 
 
@@ -409,28 +300,16 @@ namespace GazeToolBar
         {
             button.BackColor = Color.Cyan;
             SendKeys.Send(keys[key].getKey(KeyboardView)); //set background color when clicked
-            if (keys[key].getKey(KeyboardView)[0] != '{')
-            {
-                enteredWord += keys[key].getKey(KeyboardView);
-                typedWord.Text = enteredWord;
-                fillInSuggestions();
-            }
-            else
-            {
-                enteredWord = "";
-                fillInSuggestions();
-            }
             await Task.Delay(FlashDelay);     //delay before deactivting button flash
-            button.BackColor = Color.Black;   //revert back to original color
+            button.BackColor = Program.readSettings.mainColour;   //revert back to original color
         }
 
         private async void buttonClicker(String key, Button button)  //for buttons that dont use keyboardview
         {
             button.BackColor = Color.Cyan;
             SendKeys.Send(key);               //set background color when clicked
-            fillInSuggestions();
             await Task.Delay(FlashDelay);     //delay before deactivting button flash
-            button.BackColor = Color.Black;   //revert back to original color
+            button.BackColor = Program.readSettings.mainColour;   //revert back to original color
         }
         //Buttons
 
@@ -440,7 +319,7 @@ namespace GazeToolBar
             KeyboardView = (KeyboardView + 2) % KeyboardAmount;
             rename_buttons();
             await Task.Delay(FlashDelay);
-            button10.BackColor = Color.Black;
+            button10.BackColor = Program.readSettings.mainColour;
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -583,11 +462,6 @@ namespace GazeToolBar
             {
                 button4.Text = "⤓";
                 panel38.Location = new Point(Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Left), Convert.ToInt32(System.Windows.SystemParameters.WorkArea.Top));
-                typedWordpnl.Top = panel38.Top + panel38.Height;
-                pnlOp1.Location = new Point(third, typedWordpnl.Top);
-                pnlOp2.Location = new Point(third + predWordSize, typedWordpnl.Top);
-                pnlOp3.Location = new Point(third + (predWordSize * 2), typedWordpnl.Top);
-                pnlOp4.Location = new Point(third + (predWordSize * 3), typedWordpnl.Top);
             }
             else
             {
@@ -606,15 +480,10 @@ namespace GazeToolBar
                     int taskBHeight = Convert.ToInt32(Math.Abs(System.Windows.SystemParameters.PrimaryScreenHeight - System.Windows.SystemParameters.WorkArea.Height));
                     panel38.Top = (ClientSize.Height - panel38.Height - taskBHeight);
                 }
-                typedWordpnl.Top = panel38.Top - typedWordpnl.Height;
-                pnlOp1.Location = new Point(third, typedWordpnl.Top);
-                pnlOp2.Location = new Point(third + predWordSize, typedWordpnl.Top);
-                pnlOp3.Location = new Point(third + (predWordSize * 2), typedWordpnl.Top);
-                pnlOp4.Location = new Point(third + (predWordSize * 3), typedWordpnl.Top);
             }
             bottom =! bottom;
             await Task.Delay(FlashDelay);
-            button4.BackColor = Color.Black;
+            button4.BackColor = Program.readSettings.mainColour;
         }
 
 
@@ -638,8 +507,6 @@ namespace GazeToolBar
         {
             buttonClicker(" ", button19);
             //buttonClicker(button31x, button19);
-            enteredWord = "";
-            fillInSuggestions();
         }
 
 
@@ -647,8 +514,6 @@ namespace GazeToolBar
         private void button36_Click(object sender, EventArgs e)
         {
             buttonClicker("{TAB}", button36);
-            enteredWord = "";
-            fillInSuggestions();
         }
 
 
@@ -656,19 +521,11 @@ namespace GazeToolBar
         private void button34_Click(object sender, EventArgs e)
         {
             buttonClicker("{ENTER}", button34);
-            enteredWord = "";
-            fillInSuggestions();
         }
 
 
         private void button28_Click(object sender, EventArgs e)
         {
-            if (enteredWord.Length > 0)
-            {
-                enteredWord = enteredWord.Substring(0, (enteredWord.Length - 1));
-                typedWord.Text = enteredWord;
-                fillInSuggestions();
-            }
             buttonClicker("{BACKSPACE}", button28);
         }
 
@@ -683,7 +540,7 @@ namespace GazeToolBar
             {
                 KeyboardView -= 1;
                 await Task.Delay(FlashDelay);
-                button8.BackColor = Color.Black;
+                button8.BackColor = Program.readSettings.mainColour;
             }
             else
             {
@@ -724,55 +581,6 @@ namespace GazeToolBar
             gazeSidePanel.btnDoubleClick.PerformClick();
         }
 
-        private void btnOp1_Click(object sender, EventArgs e)
-        {
-            btnOp1.BackColor = Color.Cyan;
-            enterSuggestion(btnOp1);
-            btnOp1.BackColor = Color.Black;   //revert back to original color
-            
-        }
 
-        private void btnOp2_Click(object sender, EventArgs e)
-        {
-            btnOp2.BackColor = Color.Cyan;
-            enterSuggestion(btnOp2);
-            btnOp2.BackColor = Color.Black;   //revert back to original color
-        }
-
-        private void btnOp3_Click(object sender, EventArgs e)
-        {
-            btnOp3.BackColor = Color.Cyan;
-            enterSuggestion(btnOp3);
-            btnOp3.BackColor = Color.Black;   //revert back to original color
-        }
-
-        private void btnOp4_Click(object sender, EventArgs e)
-        {
-            btnOp4.BackColor = Color.Cyan;
-            enterSuggestion(btnOp4);
-            btnOp4.BackColor = Color.Black;   //revert back to original color
-        }
-
-        private void enterSuggestion(Button suggestedWord)
-        {
-            if (enteredWord.Length >= 2)
-            {
-                Console.WriteLine(enteredWord);
-                Console.WriteLine(enteredWord.Length);
-                for (int i = 0; i < enteredWord.Length; i++)
-                {
-                    SendKeys.Send("{BACKSPACE}");
-                }
-
-                char[] splitWords = suggestedWord.Text.ToCharArray();
-                foreach (char chara in splitWords)
-                {
-                    SendKeys.Send(chara.ToString());
-                }
-                SendKeys.Send(" ");
-                enteredWord = "";
-                fillInSuggestions();
-            }
-        }
     }
 }

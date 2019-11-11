@@ -26,7 +26,8 @@ namespace GazeToolBar
         private ZoomSettingsForm zoomSettings;
         private SettingsCrosshairPage crossSettings;
         private SettingRearrangePage buttonArrangement;
-        private SettingShortcutForm shortcutSettings;
+        //private SettingShortcutForm shortcutSettings;
+        private SettingsForm shortcutSettings;
         private keyboardSettings keyboardSettings;
         private ColourSettings colourSets;
 
@@ -49,6 +50,8 @@ namespace GazeToolBar
             List<String> selectedActions = new List<String>();
             Program.readSettings.createJSON(selectedActions.ToArray<string>());
             Close();
+
+            form1.refreshColour();
         }
 
 
@@ -94,7 +97,8 @@ namespace GazeToolBar
 
         private void shortcutButton_Click(object sender, EventArgs e)
         {
-            shortcutSettings = new SettingShortcutForm(this, form1, eyeXHost);
+            //shortcutSettings = new SettingShortcutForm(this, form1, eyeXHost);
+            shortcutSettings = new SettingsForm(this, form1, eyeXHost);
             shortcutSettings.Show();
         }
 

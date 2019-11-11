@@ -135,7 +135,7 @@ namespace GazeToolBar
                 Program.readSettings.maxZoom = trackBarZoomAmount.Value;
                 Program.readSettings.zoomWindowSize = trackBarZoomWindowSize.Value;
 
-
+                Program.readSettings.createJSON(Program.readSettings.sidebar);
                 //form1.NotifyIcon.BalloonTipTitle = "Saving success";
                 //form1.NotifyIcon.BalloonTipText = "Your settings are successfuly saved";
                 this.Close();

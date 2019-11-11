@@ -119,7 +119,7 @@ namespace GazeToolBar
                 }
 
                 form1.OnStartTextChange();
-
+                Program.readSettings.createJSON(Program.readSettings.sidebar);
                 Close();
                 //form1.NotifyIcon.BalloonTipTitle = "Saving success";
                 //form1.NotifyIcon.BalloonTipText = "Your settings are successfuly saved";

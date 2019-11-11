@@ -24,7 +24,7 @@ namespace GazeToolBar
             eyeXHost.Connect(bhavGeneralMap);
 
             setupMap();
-            setupGeneralMap();
+            setupShortcutMap();
         }
         
         private void removeCurrentMap()
@@ -62,12 +62,10 @@ namespace GazeToolBar
             {
                 case SettingState.General: //General settings
                     eyeXHost.Connect(bhavGeneralMap);
-                    setupGeneralMap();
                     currentSelection = SettingState.General;
                     break;
                 case SettingState.Zoom: //Zoom settings
                     eyeXHost.Connect(bhavZoomMap);
-                    setupZoomMap();
                     currentSelection = SettingState.Zoom;
                     break;
                 case SettingState.Shortcut: //Shortcut settings
@@ -77,17 +75,14 @@ namespace GazeToolBar
                     break;
                 case SettingState.Rearrange: //Rearrange settings
                     eyeXHost.Connect(bhavRearrangeMap);
-                    setupRearrangeMap();
                     currentSelection = SettingState.Rearrange;
                     break;
                 case SettingState.Crosshair: //Crosshair settings
                     eyeXHost.Connect(bhavCrosshairMap);
-                    setupCrosshairMap();
                     currentSelection = SettingState.Crosshair;
                     break;
                 case SettingState.Confirm: //Confirm page 
                     eyeXHost.Connect(bhavConfirmMap);
-                    setupConfirmMap();
                     currentSelection = SettingState.Confirm;
                     break;
                 default:
@@ -109,43 +104,7 @@ namespace GazeToolBar
             }
         }
 
-        private void setupGeneralMap()
-        {
-            bhavGeneralMap.Add(btnFixTimeLengthMins, new GazeAwareBehavior(OnbtnFixTimeLengthMins_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavGeneralMap.Add(btnFixTimeLengthPlus, new GazeAwareBehavior(OnbtnFixTimeLengthPlus_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavGeneralMap.Add(btnFixTimeOutMins, new GazeAwareBehavior(OnbtnFixTimeOutMins_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavGeneralMap.Add(btnFixTimeOutPlus, new GazeAwareBehavior(OnbtnFixTimeOutPlus_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavGeneralMap.Add(btnAutoStart, new GazeAwareBehavior(OnbtnAutoStart_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavGeneralMap.Add(buttonStickyLeftClick, new GazeAwareBehavior(OnButtonStickyLeftClick_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavGeneralMap.Add(btnDefaults, new GazeAwareBehavior(OnBtnDefaults_Click) { DelayMilliseconds = buttonClickDelay });
-
-            bhavGeneralMap.Add(pnlFTLMins, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavGeneralMap.Add(pnlFTLPlus, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavGeneralMap.Add(pnlFTOMins, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavGeneralMap.Add(pnlFTOPlus, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavGeneralMap.Add(pnlOtherAuto, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavGeneralMap.Add(pnlStickyLeft, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavGeneralMap.Add(pnlDefaults, new GazeAwareBehavior(OnGazeChangeBTColour));
-        }
-
-        private void setupZoomMap()
-        {
-            bhavZoomMap.Add(btnZoomSizeMinus, new GazeAwareBehavior(OnBtnZoomSizeMinus_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavZoomMap.Add(btnZoomSizePlus, new GazeAwareBehavior(OnBtnZoomSizePlus_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavZoomMap.Add(btnZoomAmountMinus, new GazeAwareBehavior(OnBtnZoomAmountMinus_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavZoomMap.Add(btnZoomAmountPlus, new GazeAwareBehavior(OnBtnZoomAmountPlus_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavZoomMap.Add(btnStaticZoomMode, new GazeAwareBehavior(OnStaticZoomMode_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavZoomMap.Add(btnDynamicZoomMode, new GazeAwareBehavior(OnDynamicZoomMode_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavZoomMap.Add(btnCornerZoomMode, new GazeAwareBehavior(btnCornerZoomMode_Click) { DelayMilliseconds = buttonClickDelay });
-
-            bhavZoomMap.Add(pnlZWSMinus, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavZoomMap.Add(pnlZWSPlus, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavZoomMap.Add(pnlZIAMinus, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavZoomMap.Add(pnlZIAPlus, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavZoomMap.Add(pnlStaticZoomMode, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavZoomMap.Add(pnlDynamicZoomMode, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavZoomMap.Add(pnlCornerZoomMode, new GazeAwareBehavior(OnGazeChangeBTColour));
-        }
+        
 
         private void setupShortcutMap()
         {
@@ -171,63 +130,14 @@ namespace GazeToolBar
             bhavShortcutMap.Add(pnlFKeyHighlight8, new GazeAwareBehavior(OnGazeChangeBTColour));
         }
 
-        private void setupRearrangeMap()
-        {
-            bhavRearrangeMap.Add(btnMoveUp, new GazeAwareBehavior(OnBtnMoveUp_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavRearrangeMap.Add(btnMoveDown, new GazeAwareBehavior(OnBtnMoveDown_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavRearrangeMap.Add(btnRemove, new GazeAwareBehavior(OnBtnRemove_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavRearrangeMap.Add(btnActionDoubleLeftClick, new GazeAwareBehavior(OnBtnActionDoubleLeftClick_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavRearrangeMap.Add(btnActionKeyboard, new GazeAwareBehavior(OnBtnActionKeyboard_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavRearrangeMap.Add(btnActionLeftClick, new GazeAwareBehavior(OnBtnActionLeftClick_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavRearrangeMap.Add(btnActionRightClick, new GazeAwareBehavior(OnBtnActionRightClick_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavRearrangeMap.Add(btnActionScrollClick, new GazeAwareBehavior(OnBtnActionScrollClick_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavRearrangeMap.Add(btnActionSettings, new GazeAwareBehavior(OnBtnActionSettings_Click) { DelayMilliseconds = buttonClickDelay });
+        
 
-            bhavRearrangeMap.Add(pnlMoveUpButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavRearrangeMap.Add(pnlMoveDownButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavRearrangeMap.Add(pnlRemoveButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavRearrangeMap.Add(pnlDoubleLeftClickButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavRearrangeMap.Add(pnlKeyboardButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavRearrangeMap.Add(pnlLeftClickButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavRearrangeMap.Add(pnlRightClickButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavRearrangeMap.Add(pnlScrollClickButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavRearrangeMap.Add(pnlSettingsButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-        }
-
-        private void setupCrosshairMap()
-        {
-            bhavCrosshairMap.Add(buttonCrosshairDown, new GazeAwareBehavior(OnButtonCrosshairDown_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavCrosshairMap.Add(buttonCrosshairUp, new GazeAwareBehavior(OnButtonCrosshairUp_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavCrosshairMap.Add(btnFeedback, new GazeAwareBehavior(OnBtnFeedback_Click) { DelayMilliseconds = buttonClickDelay });
-
-            bhavCrosshairMap.Add(pnlCrosshairDownButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavCrosshairMap.Add(pnlCrosshairUpButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavCrosshairMap.Add(pnlFeedbackContent, new GazeAwareBehavior(OnGazeChangeBTColour));
-        }
-
-        private void setupConfirmMap()
-        {
-            bhavConfirmMap.Add(btnDefaultConfirmYes, new GazeAwareBehavior(OnBtnDefaultConfirmYes_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavConfirmMap.Add(btnDefaultConfirmNo, new GazeAwareBehavior(OnBtnDefaultConfirmNo_Click) { DelayMilliseconds = buttonClickDelay });
-
-            bhavConfirmMap.Add(pnlDefaultConfirmYes, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavConfirmMap.Add(pnlDefaultConfirmNo, new GazeAwareBehavior(OnGazeChangeBTColour));
-        }
+        
         private void setupMap()
         {
             bhavSettingMap.Add(btnSave, new GazeAwareBehavior(OnbtnSave_Click) { DelayMilliseconds = buttonClickDelay });
             bhavSettingMap.Add(btnCancel, new GazeAwareBehavior(OnbtnCancel_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavSettingMap.Add(btnZoomSettings, new GazeAwareBehavior(OnBtnZoomSettings_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavSettingMap.Add(btnShortCutKeySetting, new GazeAwareBehavior(OnBtnKeyboardSetting_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavSettingMap.Add(btnGeneralSetting, new GazeAwareBehavior(OnBtnGeneralSetting_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavSettingMap.Add(btnRearrangeSetting, new GazeAwareBehavior(OnBtnRearrangeSetting_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavSettingMap.Add(buttonCrosshairSetting, new GazeAwareBehavior(OnbuttonCrosshairSetting_Click) { DelayMilliseconds = buttonClickDelay });
 
-            bhavSettingMap.Add(pnlGeneralButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavSettingMap.Add(pnlKeysButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavSettingMap.Add(pnlZoomButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavSettingMap.Add(pnlRearrangeButton, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavSettingMap.Add(panelCrosshairButton, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavSettingMap.Add(pnlSave, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavSettingMap.Add(pnlCancel, new GazeAwareBehavior(OnGazeChangeBTColour));
         }
@@ -241,26 +151,7 @@ namespace GazeToolBar
                 sentButton.BackColor = (e.HasGaze) ? Color.Red : Color.Black;
             }
         }
-        private void OnbtnFixTimeOutPlus_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnFixTimeOutPlus.PerformClick();
-        }
-
-        private void OnbtnFixTimeOutMins_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnFixTimeOutMins.PerformClick();
-        }
-
-        private void OnbtnFixTimeLengthPlus_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnFixTimeLengthPlus.PerformClick();
-        }
-
-        private void OnbtnFixTimeLengthMins_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnFixTimeLengthMins.PerformClick();
-        }
-
+        
         private void OnbtnCancel_Click(object sender, GazeAwareEventArgs e)
         {
             btnCancel.PerformClick();
@@ -271,144 +162,7 @@ namespace GazeToolBar
             btnSave.PerformClick();
         }
 
-        private void OnbtnAutoStart_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnAutoStart.PerformClick();
-        }
-
-        private void OnBtnGeneralSetting_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnGeneralSetting.PerformClick();
-        }
-
-        private void OnBtnKeyboardSetting_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnShortCutKeySetting.PerformClick();
-        }
-
-        private void OnBtnZoomSettings_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnZoomSettings.PerformClick();
-        }
-
-        private void OnBtnRearrangeSetting_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnRearrangeSetting.PerformClick();
-        }
-
-        private void OnBtnZoomSizeMinus_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnZoomSizeMinus.PerformClick();
-        }
-
-        private void OnBtnZoomSizePlus_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnZoomSizePlus.PerformClick();
-        }
-
-        private void OnBtnZoomAmountMinus_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnZoomAmountMinus.PerformClick();
-        }
-
-        private void OnBtnZoomAmountPlus_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnZoomAmountPlus.PerformClick();
-        }
-
-        private void OnStaticZoomMode_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnStaticZoomMode.PerformClick();
-        }
-
-        private void OnDynamicZoomMode_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnDynamicZoomMode.PerformClick();
-        }
-
-        private void OnBtnMoveUp_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnMoveUp.PerformClick();
-        }
-
-        private void OnBtnMoveDown_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnMoveDown.PerformClick();
-        }
-
-        private void OnBtnRemove_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnRemove.PerformClick();
-        }
-
-        private void OnBtnActionDoubleLeftClick_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnActionDoubleLeftClick.PerformClick();
-        }
-
-        private void OnBtnActionKeyboard_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnActionKeyboard.PerformClick();
-        }
-
-        private void OnBtnActionLeftClick_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnActionLeftClick.PerformClick();
-        }
-
-        private void OnBtnActionRightClick_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnActionRightClick.PerformClick();
-        }
-
-        private void OnBtnActionScrollClick_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnActionScrollClick.PerformClick();
-        }
-
-        private void OnBtnActionSettings_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnActionSettings.PerformClick();
-        }
-
-        private void OnbuttonCrosshairSetting_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) buttonCrosshairSetting.PerformClick();
-        }
-
-        private void OnButtonCrosshairDown_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) buttonCrosshairDown.PerformClick();
-        }
-
-        private void OnButtonCrosshairUp_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) buttonCrosshairUp.PerformClick();
-        }
-
-        private void OnBtnFeedback_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnFeedback.PerformClick();
-        }
-
-        private void OnButtonStickyLeftClick_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) buttonStickyLeftClick.PerformClick();
-        }
-
-        private void OnBtnDefaults_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnDefaults.PerformClick();
-        }
-
-        private void OnBtnDefaultConfirmYes_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnDefaultConfirmYes.PerformClick();
-        }
-        private void OnBtnDefaultConfirmNo_Click(object sender, GazeAwareEventArgs e)
-        {
-            if (e.HasGaze) btnDefaultConfirmNo.PerformClick();
-        }
+       
 
 
         //====================================================================================

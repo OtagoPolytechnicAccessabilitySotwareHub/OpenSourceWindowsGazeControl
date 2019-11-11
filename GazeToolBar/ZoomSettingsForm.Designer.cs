@@ -112,7 +112,7 @@
             this.btnCornerZoomMode.Name = "btnCornerZoomMode";
             this.btnCornerZoomMode.Size = new System.Drawing.Size(150, 150);
             this.btnCornerZoomMode.TabIndex = 34;
-            this.btnCornerZoomMode.Text = "Corner Zoom";
+            this.btnCornerZoomMode.Text = "Corner Zoom Window";
             this.btnCornerZoomMode.UseVisualStyleBackColor = false;
             this.btnCornerZoomMode.Click += new System.EventHandler(this.btnCornerZoomMode_Click);
             // 
@@ -137,7 +137,7 @@
             this.btnStaticZoomMode.Name = "btnStaticZoomMode";
             this.btnStaticZoomMode.Size = new System.Drawing.Size(150, 150);
             this.btnStaticZoomMode.TabIndex = 34;
-            this.btnStaticZoomMode.Text = "Centered Zoom";
+            this.btnStaticZoomMode.Text = "Centered Zoom Window";
             this.btnStaticZoomMode.UseVisualStyleBackColor = false;
             this.btnStaticZoomMode.Click += new System.EventHandler(this.btnStaticZoomMode_Click);
             // 
@@ -162,7 +162,7 @@
             this.btnDynamicZoomMode.Name = "btnDynamicZoomMode";
             this.btnDynamicZoomMode.Size = new System.Drawing.Size(150, 150);
             this.btnDynamicZoomMode.TabIndex = 31;
-            this.btnDynamicZoomMode.Text = "Dynamic Zoom";
+            this.btnDynamicZoomMode.Text = "Dynamic Zoom Window";
             this.btnDynamicZoomMode.UseVisualStyleBackColor = false;
             this.btnDynamicZoomMode.Click += new System.EventHandler(this.btnDynamicZoomMode_Click);
             // 

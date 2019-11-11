@@ -41,8 +41,8 @@ namespace GazeToolBar
 
         public Form1()
         {
-            
-            
+
+
             InitializeComponent();
             contextMenu = new ContextMenu();
             menuItemExit = new MenuItem();
@@ -70,7 +70,7 @@ namespace GazeToolBar
             String[] sidebarArrangement = Program.readSettings.sidebar;
             ArrangeSidebar(sidebarArrangement);
 
-            
+
         }
 
         public void ArrangeSidebar(string[] sidebarArrangement)
@@ -144,7 +144,7 @@ namespace GazeToolBar
 
         public void menuItemAutostart_click(object o, EventArgs e)
         {
-            if(AutoStart.IsOn())
+            if (AutoStart.IsOn())
             {
                 AutoStart.SetOff();
             }
@@ -235,7 +235,7 @@ namespace GazeToolBar
             return false;
         }
 
-        private void checkIfKeyboardIsOpen()
+        public void checkIfKeyboardIsOpen()
         {
             if (checkOpenForm(typeof(Keyboard)))
             {
@@ -251,6 +251,7 @@ namespace GazeToolBar
             if (!checkOpenForm(typeof(SettingsForm)))
             {
                 //settings = new SettingsForm(this, eyeXHost);
+                Form2.Close();
                 settings = new SettingsHome(this, eyeXHost);
                 settings.Show();
             }
@@ -287,11 +288,11 @@ namespace GazeToolBar
             checkIfKeyboardIsOpen();
         }
 
-        private void openKeyboard()
+        public void openKeyboard()
         {
             if (!checkOpenForm(typeof(Keyboard))) //Checks if keyboard is onscreen
             {
-                Form2 = new Keyboard(eyeXHost, this, pnlHighLightKeyboard, pnlHighLightSingleLeft,pnlHiLteRightClick, pnlHighLightDoubleClick,pnlHighLightScrol); //if not, create keyboard and show it
+                Form2 = new Keyboard(eyeXHost, this, pnlHighLightKeyboard, pnlHighLightSingleLeft, pnlHiLteRightClick, pnlHighLightDoubleClick, pnlHighLightScrol); //if not, create keyboard and show it
                 //AttemptToggle(SystemFlags.actionToBePerformed);
                 stopScroll();
                 if (Form2.Visible)
@@ -312,13 +313,13 @@ namespace GazeToolBar
 
         }
 
-        private void openKeyboardAfterAction()
+        public void openKeyboardAfterAction()
         {
 
             Form2.Show();
             btnKeyboard.Enabled = true;
             this.BringToFront();
-            
+
         }
 
         private void btnKeyboard_Click(object sender, EventArgs e)
@@ -343,7 +344,16 @@ namespace GazeToolBar
 
         }
 
-
+        public void refreshColour()
+        {
+            this.BackColor = Program.readSettings.mainColour;
+            btnDoubleClick.BackColor = Program.readSettings.mainColour;
+            btnKeyboard.BackColor = Program.readSettings.mainColour;
+            btnSingleLeftClick.BackColor = Program.readSettings.mainColour;
+            btnRightClick.BackColor = Program.readSettings.mainColour;
+            btnScoll.BackColor = Program.readSettings.mainColour;
+            btnSettings.BackColor = Program.readSettings.mainColour;
+        }
         public void OnStartTextChange()
         {
             if (AutoStart.IsOn())

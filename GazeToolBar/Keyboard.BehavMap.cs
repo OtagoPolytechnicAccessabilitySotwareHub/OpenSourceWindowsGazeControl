@@ -142,15 +142,7 @@ namespace GazeToolBar
             Form2Map.Add(button37, new GazeAwareBehavior(button37_Click) { DelayMilliseconds = buttonClickDelay });
             Form2Map.Add(panel32, new GazeAwareBehavior(OnGazeChangeBTColour));
 
-            //Autopredict word buttons
-            Form2Map.Add(btnOp1, new GazeAwareBehavior(btnOp1_Click) { DelayMilliseconds = buttonClickDelayPred });
-            Form2Map.Add(pnlOp1, new GazeAwareBehavior(OnGazeChangeBTColour));
-            Form2Map.Add(btnOp2, new GazeAwareBehavior(btnOp2_Click) { DelayMilliseconds = buttonClickDelayPred });
-            Form2Map.Add(pnlOp2, new GazeAwareBehavior(OnGazeChangeBTColour));
-            Form2Map.Add(btnOp3, new GazeAwareBehavior(btnOp3_Click) { DelayMilliseconds = buttonClickDelayPred });
-            Form2Map.Add(pnlOp3, new GazeAwareBehavior(OnGazeChangeBTColour));
-            Form2Map.Add(btnOp4, new GazeAwareBehavior(btnOp4_Click) { DelayMilliseconds = buttonClickDelayPred });
-            Form2Map.Add(pnlOp4, new GazeAwareBehavior(OnGazeChangeBTColour));
+           
 
 
 

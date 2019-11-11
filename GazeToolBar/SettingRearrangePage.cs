@@ -276,8 +276,7 @@ namespace GazeToolBar
                 Program.readSettings.sidebar = selectedActions.ToArray<string>();
                 Program.readSettings.createJSON(selectedActions.ToArray<string>());
                 form1.ArrangeSidebar(Program.readSettings.sidebar);
-
-
+                
                 //form1.NotifyIcon.BalloonTipTitle = "Saving success";
                 //form1.NotifyIcon.BalloonTipText = "Your settings are successfuly saved";
                 this.Close();

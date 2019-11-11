@@ -43,10 +43,24 @@ namespace GazeToolBar
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Program.readSettings.secondColour = pnlSec.BackColor;
-            Program.readSettings.mainColour = pnlMain.BackColor;
-            home.Show();
-            Close();
+            try
+            {
+                Program.readSettings.secondColour = pnlSec.BackColor;
+                Program.readSettings.mainColour = pnlMain.BackColor;
+                Program.readSettings.createJSON(Program.readSettings.sidebar);
+                home.Show();
+                this.Close();
+            }
+            catch (Exception exception)
+            {
+                //form1.NotifyIcon.BalloonTipTitle = "Saving error";
+                //form1.NotifyIcon.BalloonTipText = "For some reason, your settings are not successfuly saved, click me to show error message";
+                //form1.NotifyIcon.Tag = exception.Message;
+                this.Close();
+                //form1.NotifyIcon.BalloonTipClicked += NotifyIcon_BalloonTipClicked;
+                //form1.NotifyIcon.ShowBalloonTip(5000);
+            }
+
         }
 
         private void btnMainColour_Click(object sender, EventArgs e)

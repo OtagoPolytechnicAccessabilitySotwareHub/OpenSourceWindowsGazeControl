@@ -35,6 +35,7 @@ namespace GazeToolBar
 
                 //form1.NotifyIcon.BalloonTipTitle = "Saving success";
                 //form1.NotifyIcon.BalloonTipText = "Your settings are successfuly saved";
+                Program.readSettings.createJSON(Program.readSettings.sidebar);
                 this.Close();
                 form1.stateManager.ResetMagnifier();
                 //form1.NotifyIcon.ShowBalloonTip(2000);

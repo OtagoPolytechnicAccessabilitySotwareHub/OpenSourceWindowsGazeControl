@@ -114,16 +114,6 @@
             this.btnScroll = new System.Windows.Forms.Button();
             this.panelDLeftClick = new System.Windows.Forms.Panel();
             this.btnDoubleLeftClick = new System.Windows.Forms.Button();
-            this.btnOp1 = new System.Windows.Forms.Button();
-            this.btnOp2 = new System.Windows.Forms.Button();
-            this.btnOp3 = new System.Windows.Forms.Button();
-            this.btnOp4 = new System.Windows.Forms.Button();
-            this.typedWord = new System.Windows.Forms.Label();
-            this.pnlOp1 = new System.Windows.Forms.Panel();
-            this.pnlOp2 = new System.Windows.Forms.Panel();
-            this.pnlOp3 = new System.Windows.Forms.Panel();
-            this.pnlOp4 = new System.Windows.Forms.Panel();
-            this.typedWordpnl = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -166,11 +156,6 @@
             this.panelRightClick.SuspendLayout();
             this.panelScroll.SuspendLayout();
             this.panelDLeftClick.SuspendLayout();
-            this.pnlOp1.SuspendLayout();
-            this.pnlOp2.SuspendLayout();
-            this.pnlOp3.SuspendLayout();
-            this.pnlOp4.SuspendLayout();
-            this.typedWordpnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1073,6 +1058,7 @@
             // btnKeyboard
             // 
             this.btnKeyboard.BackColor = System.Drawing.Color.Black;
+            this.btnKeyboard.FlatAppearance.BorderSize = 0;
             this.btnKeyboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKeyboard.Image = global::GazeToolBar.Properties.Resources.Keyboard_icon;
             this.btnKeyboard.Location = new System.Drawing.Point(2, 2);
@@ -1093,6 +1079,7 @@
             // btnLeftClick
             // 
             this.btnLeftClick.BackColor = System.Drawing.Color.Black;
+            this.btnLeftClick.FlatAppearance.BorderSize = 0;
             this.btnLeftClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLeftClick.Image = global::GazeToolBar.Properties.Resources.Left_Click_icon;
             this.btnLeftClick.Location = new System.Drawing.Point(2, 2);
@@ -1113,6 +1100,7 @@
             // btnRightClick
             // 
             this.btnRightClick.BackColor = System.Drawing.Color.Black;
+            this.btnRightClick.FlatAppearance.BorderSize = 0;
             this.btnRightClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRightClick.Image = global::GazeToolBar.Properties.Resources.Right_Click_icon;
             this.btnRightClick.Location = new System.Drawing.Point(2, 2);
@@ -1133,6 +1121,7 @@
             // btnScroll
             // 
             this.btnScroll.BackColor = System.Drawing.Color.Black;
+            this.btnScroll.FlatAppearance.BorderSize = 0;
             this.btnScroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnScroll.Image = global::GazeToolBar.Properties.Resources.Scroll_icon;
             this.btnScroll.Location = new System.Drawing.Point(2, 2);
@@ -1153,6 +1142,7 @@
             // btnDoubleLeftClick
             // 
             this.btnDoubleLeftClick.BackColor = System.Drawing.Color.Black;
+            this.btnDoubleLeftClick.FlatAppearance.BorderSize = 0;
             this.btnDoubleLeftClick.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDoubleLeftClick.Image = global::GazeToolBar.Properties.Resources.Double_Click_icon;
             this.btnDoubleLeftClick.Location = new System.Drawing.Point(2, 2);
@@ -1162,121 +1152,12 @@
             this.btnDoubleLeftClick.UseVisualStyleBackColor = false;
             this.btnDoubleLeftClick.Click += new System.EventHandler(this.btnDoubleLeftClick_Click);
             // 
-            // btnOp1
-            // 
-            this.btnOp1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnOp1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOp1.ForeColor = System.Drawing.Color.White;
-            this.btnOp1.Location = new System.Drawing.Point(3, 3);
-            this.btnOp1.Name = "btnOp1";
-            this.btnOp1.Size = new System.Drawing.Size(133, 59);
-            this.btnOp1.TabIndex = 45;
-            this.btnOp1.UseVisualStyleBackColor = false;
-            this.btnOp1.Click += new System.EventHandler(this.btnOp1_Click);
-            // 
-            // btnOp2
-            // 
-            this.btnOp2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnOp2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOp2.ForeColor = System.Drawing.Color.White;
-            this.btnOp2.Location = new System.Drawing.Point(3, 3);
-            this.btnOp2.Name = "btnOp2";
-            this.btnOp2.Size = new System.Drawing.Size(96, 64);
-            this.btnOp2.TabIndex = 46;
-            this.btnOp2.UseVisualStyleBackColor = false;
-            this.btnOp2.Click += new System.EventHandler(this.btnOp2_Click);
-            // 
-            // btnOp3
-            // 
-            this.btnOp3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnOp3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOp3.ForeColor = System.Drawing.Color.White;
-            this.btnOp3.Location = new System.Drawing.Point(3, 3);
-            this.btnOp3.Name = "btnOp3";
-            this.btnOp3.Size = new System.Drawing.Size(118, 39);
-            this.btnOp3.TabIndex = 47;
-            this.btnOp3.UseVisualStyleBackColor = false;
-            this.btnOp3.Click += new System.EventHandler(this.btnOp3_Click);
-            // 
-            // btnOp4
-            // 
-            this.btnOp4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnOp4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOp4.ForeColor = System.Drawing.Color.White;
-            this.btnOp4.Location = new System.Drawing.Point(3, 3);
-            this.btnOp4.Name = "btnOp4";
-            this.btnOp4.Size = new System.Drawing.Size(136, 49);
-            this.btnOp4.TabIndex = 48;
-            this.btnOp4.UseVisualStyleBackColor = false;
-            this.btnOp4.Click += new System.EventHandler(this.btnOp4_Click);
-            // 
-            // typedWord
-            // 
-            this.typedWord.AutoSize = true;
-            this.typedWord.BackColor = System.Drawing.Color.Black;
-            this.typedWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.typedWord.ForeColor = System.Drawing.Color.White;
-            this.typedWord.Location = new System.Drawing.Point(3, 3);
-            this.typedWord.Name = "typedWord";
-            this.typedWord.Size = new System.Drawing.Size(0, 46);
-            this.typedWord.TabIndex = 49;
-            // 
-            // pnlOp1
-            // 
-            this.pnlOp1.BackColor = System.Drawing.Color.Black;
-            this.pnlOp1.Controls.Add(this.btnOp1);
-            this.pnlOp1.Location = new System.Drawing.Point(258, 23);
-            this.pnlOp1.Name = "pnlOp1";
-            this.pnlOp1.Size = new System.Drawing.Size(200, 100);
-            this.pnlOp1.TabIndex = 50;
-            // 
-            // pnlOp2
-            // 
-            this.pnlOp2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pnlOp2.Controls.Add(this.btnOp2);
-            this.pnlOp2.Location = new System.Drawing.Point(512, 23);
-            this.pnlOp2.Name = "pnlOp2";
-            this.pnlOp2.Size = new System.Drawing.Size(200, 100);
-            this.pnlOp2.TabIndex = 51;
-            // 
-            // pnlOp3
-            // 
-            this.pnlOp3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pnlOp3.Controls.Add(this.btnOp3);
-            this.pnlOp3.Location = new System.Drawing.Point(740, 23);
-            this.pnlOp3.Name = "pnlOp3";
-            this.pnlOp3.Size = new System.Drawing.Size(200, 100);
-            this.pnlOp3.TabIndex = 52;
-            // 
-            // pnlOp4
-            // 
-            this.pnlOp4.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pnlOp4.Controls.Add(this.btnOp4);
-            this.pnlOp4.Location = new System.Drawing.Point(975, 23);
-            this.pnlOp4.Name = "pnlOp4";
-            this.pnlOp4.Size = new System.Drawing.Size(200, 100);
-            this.pnlOp4.TabIndex = 53;
-            // 
-            // typedWordpnl
-            // 
-            this.typedWordpnl.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.typedWordpnl.Controls.Add(this.typedWord);
-            this.typedWordpnl.Location = new System.Drawing.Point(76, 128);
-            this.typedWordpnl.Name = "typedWordpnl";
-            this.typedWordpnl.Size = new System.Drawing.Size(200, 100);
-            this.typedWordpnl.TabIndex = 54;
-            // 
             // Keyboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1444, 904);
             this.ControlBox = false;
-            this.Controls.Add(this.typedWordpnl);
-            this.Controls.Add(this.pnlOp4);
-            this.Controls.Add(this.pnlOp3);
-            this.Controls.Add(this.pnlOp2);
-            this.Controls.Add(this.pnlOp1);
             this.Controls.Add(this.panelDLeftClick);
             this.Controls.Add(this.panelScroll);
             this.Controls.Add(this.panelRightClick);
@@ -1330,12 +1211,6 @@
             this.panelRightClick.ResumeLayout(false);
             this.panelScroll.ResumeLayout(false);
             this.panelDLeftClick.ResumeLayout(false);
-            this.pnlOp1.ResumeLayout(false);
-            this.pnlOp2.ResumeLayout(false);
-            this.pnlOp3.ResumeLayout(false);
-            this.pnlOp4.ResumeLayout(false);
-            this.typedWordpnl.ResumeLayout(false);
-            this.typedWordpnl.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1427,15 +1302,5 @@
         private System.Windows.Forms.Button btnScroll;
         private System.Windows.Forms.Panel panelDLeftClick;
         private System.Windows.Forms.Button btnDoubleLeftClick;
-        private System.Windows.Forms.Button btnOp1;
-        private System.Windows.Forms.Button btnOp2;
-        private System.Windows.Forms.Button btnOp3;
-        private System.Windows.Forms.Button btnOp4;
-        private System.Windows.Forms.Label typedWord;
-        private System.Windows.Forms.Panel pnlOp1;
-        private System.Windows.Forms.Panel pnlOp2;
-        private System.Windows.Forms.Panel pnlOp3;
-        private System.Windows.Forms.Panel pnlOp4;
-        private System.Windows.Forms.Panel typedWordpnl;
     }
 }

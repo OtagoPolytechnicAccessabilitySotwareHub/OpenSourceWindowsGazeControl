@@ -38,7 +38,6 @@ namespace GazeToolBar
                 //path = Application.StartupPath + "\\" + "Settings.json";
                 //ReadWriteJson();
                 readSettings = new Settings(path);
-
                 onStartUp = AutoStart.IsOn();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
