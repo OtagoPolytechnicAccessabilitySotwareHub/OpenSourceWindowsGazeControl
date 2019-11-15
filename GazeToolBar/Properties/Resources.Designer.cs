@@ -211,6 +211,111 @@ namespace GazeToolBar.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &quot;abc&quot;
+        ///&quot;q&quot;,&quot;Q&quot;
+        ///&quot;w&quot;, &quot;W&quot;
+        ///&quot;e&quot;, &quot;E&quot;
+        ///&quot;r&quot;, &quot;R&quot;
+        ///&quot;t&quot;, &quot;T&quot;
+        ///&quot;y&quot;, &quot;Y&quot;
+        ///&quot;u&quot;, &quot;U&quot;
+        ///&quot;i&quot;, &quot;I&quot;
+        ///&quot;o&quot;, &quot;O&quot;
+        ///&quot;p&quot;, &quot;P&quot;
+        ///&quot;a&quot;, &quot;A&quot;
+        ///&quot;s&quot;, &quot;S&quot;
+        ///&quot;d&quot;, &quot;D&quot;
+        ///&quot;f&quot;, &quot;F&quot;
+        ///&quot;g&quot;, &quot;G&quot;
+        ///&quot;h&quot;, &quot;H&quot;
+        ///&quot;j&quot;, &quot;J&quot;
+        ///&quot;k&quot;, &quot;K&quot;
+        ///&quot;l&quot;, &quot;L&quot;
+        ///&quot;z&quot;, &quot;Z&quot;
+        ///&quot;x&quot;, &quot;X&quot;
+        ///&quot;c&quot;, &quot;C&quot;
+        ///&quot;v&quot;, &quot;V&quot;
+        ///&quot;b&quot;, &quot;B&quot;
+        ///&quot;n&quot;, &quot;N&quot;
+        ///&quot;m&quot;, &quot;M&quot;.
+        /// </summary>
+        internal static string KeyboardSetOne {
+            get {
+                return ResourceManager.GetString("KeyboardSetOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to àbç
+        ///à,À
+        ///á,Á
+        ///â,Â
+        ///ã,Ã
+        ///ä,Ä
+        ///ç,Ç
+        ///è,È
+        ///é,É
+        ///ê,Ê
+        ///ë,Ë
+        ///ì,Ì
+        ///í,Í
+        ///î,Î
+        ///ï,Ï
+        ///ñ,Ñ
+        ///ò,Ò
+        ///ó,Ó
+        ///ô,Ô
+        ///õ,Õ
+        ///ö,Ö
+        ///ù,Ú
+        ///ú,Û
+        ///ü,Ü
+        ///û,Ù
+        ///¿,¿
+        ///¡,¡.
+        /// </summary>
+        internal static string KeyboardSetThree {
+            get {
+                return ResourceManager.GetString("KeyboardSetThree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &quot;123&quot;
+        ///&quot;1&quot; , &quot;{F1}&quot;
+        ///&quot;2&quot;, &quot;{F2}&quot;
+        ///&quot;3&quot;, &quot;{F3}&quot;
+        ///&quot;4&quot;, &quot;{F4}&quot;
+        ///&quot;5&quot;, &quot;{F5}&quot;
+        ///&quot;6&quot;, &quot;{F6}&quot;
+        ///&quot;7&quot;, &quot;{F7}&quot;
+        ///&quot;8&quot;, &quot;{F8}&quot;
+        ///&quot;9&quot;, &quot;{F9}&quot;
+        ///&quot;0&quot;, &quot;{F10}&quot;
+        ///&quot;@&quot;, &quot;{F11}&quot;
+        ///&quot;#&quot;, &quot;{F12}&quot;
+        ///&quot;$&quot;, &quot;{HOME}&quot;
+        ///&quot;?&quot;, &quot;{END}&quot;
+        ///&quot;{(}&quot;, &quot;{PRTSC}&quot;
+        ///&quot;{)}&quot;, &quot;{UP}&quot;
+        ///&quot;&apos;&quot;, &quot;{%}&quot;
+        ///&quot;\&quot;&quot;, &quot;{{}&quot;
+        ///&quot;!&quot;, &quot;{}}&quot;
+        ///&quot;-&quot;, &quot;/&quot;
+        ///&quot;{+}&quot;, &quot;[&quot;
+        ///&quot;=&quot;, &quot;]&quot;
+        ///&quot;&lt;&quot;, &quot;{LEFT}&quot;
+        ///&quot;&gt;&quot;, &quot;{DOWN}&quot;
+        ///&quot;;&quot;, &quot;{RIGHT}&quot;
+        ///&quot;:&quot;, &quot;&amp;&quot;.
+        /// </summary>
+        internal static string KeyboardSetTwo {
+            get {
+                return ResourceManager.GetString("KeyboardSetTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Left_Click_icon {

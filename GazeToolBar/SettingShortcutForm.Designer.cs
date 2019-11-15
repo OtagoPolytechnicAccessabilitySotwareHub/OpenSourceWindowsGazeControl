@@ -494,6 +494,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SettingShortcutForm";
             this.Text = "ShortcutSettingForm";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlLeftClick.ResumeLayout(false);
             this.pnlLeftClick.PerformLayout();
@@ -518,6 +519,7 @@
             this.panelSaveAndCancel.ResumeLayout(false);
             this.pnlCancel.ResumeLayout(false);
             this.pnlPageKeyboard.ResumeLayout(false);
+            this.pnlPageKeyboard.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

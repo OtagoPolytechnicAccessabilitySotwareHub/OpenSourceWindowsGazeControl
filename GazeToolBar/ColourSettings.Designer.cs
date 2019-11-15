@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ColourSettings));
             this.bhavColourSettings = new EyeXFramework.Forms.BehaviorMap(this.components);
             this.brushColours = new System.Windows.Forms.Panel();
             this.colourOptionPanel1 = new System.Windows.Forms.Panel();
@@ -681,6 +680,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ColourSettings";
             this.Text = "ColourSettings";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.brushColours.ResumeLayout(false);
             this.colourOptionPanel1.ResumeLayout(false);

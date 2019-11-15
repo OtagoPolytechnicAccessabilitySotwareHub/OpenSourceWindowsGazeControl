@@ -380,6 +380,7 @@
             this.MinimizeBox = false;
             this.Name = "SettingRearrangePage";
             this.Text = "RearrangeSettingPage";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlRearrangeControls.ResumeLayout(false);
             this.pnlMoveUpButton.ResumeLayout(false);

@@ -258,6 +258,7 @@
             this.Name = "SettingsCrosshairPage";
             this.ShowInTaskbar = false;
             this.Text = "0.";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCrosshairPreview)).EndInit();
             this.panelCrosshairSelection.ResumeLayout(false);

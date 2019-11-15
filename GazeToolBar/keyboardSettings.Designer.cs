@@ -446,6 +446,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "keyboardSettings";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panelSaveAndCancel.ResumeLayout(false);
             this.pnlCancel.ResumeLayout(false);

@@ -140,6 +140,15 @@
 			<Component Id="Newtonsoft.Json.dll" Guid="41cb5ef8-22bd-4e59-b6a4-b084e0f1b860">
 			  <File Id="Newtonsoft.Json.dll" Name="Newtonsoft.Json.dll" Source="$(var.GazeToolBar_TargetDir)Newtonsoft.Json.dll" />
 			</Component>
+      <Component Id="keyboardSetOne.txt" Guid="*">
+        <File Id="keyboardSetOne.txt" Name="keyboardSetOne.txt" Source="$(var.GazeToolBar_TargetDir)keyboardSetOne.txt" />
+      </Component>
+      <Component Id="keyboardSetTwo.txt" Guid="*">
+        <File Id="keyboardSetTwo.txt" Name="keyboardSetTwo.txt" Source="$(var.GazeToolBar_TargetDir)keyboardSetTwo.txt" />
+      </Component>
+      <Component Id="keyboardSetThree.txt" Guid="*">
+        <File Id="keyboardSetThree.txt" Name="keyboardSetThree.txt" Source="$(var.GazeToolBar_TargetDir)keyboardSetThree.txt" />
+      </Component>
 		</ComponentGroup>
 	</Fragment>
 
@@ -184,4 +193,7 @@
     </ComponentGroup>
   </Fragment>
 
+  
+  
+  
 </Wix>

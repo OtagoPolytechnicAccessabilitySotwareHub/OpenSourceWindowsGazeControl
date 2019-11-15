@@ -375,8 +375,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\Mic-icon.png" />
-    <Content Include="KeyboardSetOne.txt" />
-    <Content Include="KeyboardSetTwo.txt" />
+    <None Include="bin\Debug\KeyboardSetThree.txt" />
+    <Content Include="Images\KeyboardSetOne.txt" />
+    <Content Include="Images\KeyboardSetThree.txt" />
+    <Content Include="Images\KeyboardSetTwo.txt" />
+    <Content Include="KeyboardSetOne.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="KeyboardSetTwo.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="practiceDict.txt" />
     <Content Include="programIcon.ico" />
     <Content Include="Gaze.ico">
@@ -409,6 +417,7 @@
     <None Include="Resources\crosshair_4.png" />
     <None Include="Resources\crosshair_3.png" />
     <None Include="Resources\crosshair_8.png" />
+    <Content Include="Resources\KeyboardSetOne.txt" />
     <Content Include="Tobii.EyeX.Client.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

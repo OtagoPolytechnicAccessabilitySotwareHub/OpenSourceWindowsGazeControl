@@ -449,6 +449,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ZoomSettingsForm";
             this.Text = "ZoomSettingsForm";
+            this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ZoomSettingsForm_Load);
             this.pnlZoomMode.ResumeLayout(false);

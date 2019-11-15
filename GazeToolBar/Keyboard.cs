@@ -124,21 +124,22 @@ namespace GazeToolBar
             predWordSize = (third * 2) / 4;
 
 
-
+            
             keys = new keyboardKeys[27];
             List<String> keyboardsAvailable = new List<string>();
+
             if (Program.readSettings.eng)
             {
                 keyboardsAvailable.Add("KeyboardSetOne.txt");
             }
-            if(Program.readSettings.k123)
+            if (Program.readSettings.k123)
             {
                 keyboardsAvailable.Add("KeyboardSetTwo.txt");
             }
-            if (Program.readSettings.kacc)
-            {
-                keyboardsAvailable.Add("KeyboardSetThree.txt");
-            }
+            //if (Program.readSettings.kacc)
+            //{
+            //    keyboardsAvailable.Add(Properties.Resources.KeyboardSetThree);
+            //}
             //if (Program.readSettings.k123)
             //{
             //    keyboardsAvailable.Add("KeyboardSetOne.txt");
@@ -168,8 +169,8 @@ namespace GazeToolBar
                             lineNum++;
                             string[] seperateKeys = line.Split(',');
                             keys[lineNum].addKey(seperateKeys[0]);
-                            keys[lineNum].addKey(seperateKeys[1]);                            
-                        }
+                            keys[lineNum].addKey(seperateKeys[1]);
+                    }
 
                 }
                 

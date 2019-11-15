@@ -41,14 +41,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GazeToolBar.exe" size="1755648">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GazeToolBar.exe" size="1756672">
       <assemblyIdentity name="GazeToolBar" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>1FNjynT7yQ9F0H6Q43ZUf7uP6uw4hZR6iCOKIsRh6dQ=</dsig:DigestValue>
+        <dsig:DigestValue>AsOgzpqXHIc5pMcU05FVtUU8MLr6jEfBVmgBENTcy48=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -72,7 +72,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zfIPfy0uvg37SB0+umBj6Rz+ANhy/MX5Jb/pUoduZJY=</dsig:DigestValue>
+        <dsig:DigestValue>pNjycLCu5A7UN9jmZzvrY678SDv51fXJKF4CLcVOelI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -208,6 +208,33 @@
       <dsig:DigestValue>8Z4tqI6OIfzqOtBS8Kp4joYJDrS4FfwuV8kyH/k2o+Q=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Images\KeyboardSetOne.txt" size="133">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>DHDbyWPljX0fNwkccp7N8+u+UZpcf2H23kSL39mqX6w=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Images\KeyboardSetThree.txt" size="133">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>PUR3Bl1+JcxThbgmrOKAomDXFANVNbHJa2SdvIDDM6I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Images\KeyboardSetTwo.txt" size="218">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>tuz1SYlFpfAHMOThLMaZQS/rlnPakKdDZaG7TfYf4pQ=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Images\Left-Click-icon.png" size="1551">
     <hash>
       <dsig:Transforms>
@@ -262,22 +289,22 @@
       <dsig:DigestValue>sii5u5B04BgPl/v2+OFo5heboRDDIQDQcwLlXms2taw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="KeyboardSetOne.txt" size="264">
+  <file name="KeyboardSetOne.txt" size="133">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>wPabUKAIa9TWHMWb2AAq6/oz+90jB/aCaJwsdBOFOJQ=</dsig:DigestValue>
+      <dsig:DigestValue>DHDbyWPljX0fNwkccp7N8+u+UZpcf2H23kSL39mqX6w=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="KeyboardSetTwo.txt" size="352">
+  <file name="KeyboardSetTwo.txt" size="218">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>lYotEqdSFgg4JbWWcnA2EIMcRfCTY0lyYEY8WkWuaEc=</dsig:DigestValue>
+      <dsig:DigestValue>xyvpd0ib5YGi7EPbHL3aOA05cVZYT0TU59aCVEdGfS4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="practiceDict.txt" size="5989">
@@ -296,6 +323,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>72x7WhLoLnI8i4htwZDANbKh1VMqZHJ6vd2hlObI/Qc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\KeyboardSetOne.txt" size="133">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>DHDbyWPljX0fNwkccp7N8+u+UZpcf2H23kSL39mqX6w=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Tobii.EyeX.Client.dll" size="1228504">
