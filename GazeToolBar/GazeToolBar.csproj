@@ -376,9 +376,21 @@
   <ItemGroup>
     <None Include="Images\Mic-icon.png" />
     <None Include="bin\Debug\KeyboardSetThree.txt" />
+    <None Include="Images\Double-Click-iconbl.png" />
+    <None Include="Images\Double-Click-iconwt.png" />
+    <None Include="Images\Keyboard-iconbl.png" />
+    <None Include="Images\Keyboard-iconwt.png" />
     <Content Include="Images\KeyboardSetOne.txt" />
     <Content Include="Images\KeyboardSetThree.txt" />
     <Content Include="Images\KeyboardSetTwo.txt" />
+    <None Include="Images\Left-Click-iconbl.png" />
+    <None Include="Images\Left-Click-iconwt.png" />
+    <None Include="Images\Right-Click-iconbl.png" />
+    <None Include="Images\Right-Click-iconwt.png" />
+    <None Include="Images\Scroll-iconbl.png" />
+    <None Include="Images\Scroll-iconwt.png" />
+    <None Include="Images\settings-iconbl.png" />
+    <None Include="Images\settings-iconwt.png" />
     <Content Include="KeyboardSetOne.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -417,6 +429,14 @@
     <None Include="Resources\crosshair_4.png" />
     <None Include="Resources\crosshair_3.png" />
     <None Include="Resources\crosshair_8.png" />
+    <None Include="Resources\button_downbl.png" />
+    <None Include="Resources\button_downwt.png" />
+    <None Include="Resources\button_leftbl.png" />
+    <None Include="Resources\button_leftwt.png" />
+    <None Include="Resources\button_rightbl.png" />
+    <None Include="Resources\button_rightwt.png" />
+    <None Include="Resources\button_upbl.png" />
+    <None Include="Resources\button_upwt.png" />
     <Content Include="Resources\KeyboardSetOne.txt" />
     <Content Include="Tobii.EyeX.Client.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -36,6 +36,6 @@ namespace GazeToolBar
 
         public Color mainColour { get; set; }
         public Color secondColour { get; set; }
-        public String iconColour { get; set; }
+        public int iconColour { get; set; }
     }
 }

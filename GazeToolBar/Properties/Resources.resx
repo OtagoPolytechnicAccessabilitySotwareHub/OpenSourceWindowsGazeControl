@@ -190,4 +190,64 @@
   <data name="KeyboardSetTwo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\KeyboardSetTwo.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="button_downbl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_downbl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_downwt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_downwt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_leftbl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_leftbl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_leftwt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_leftwt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_rightbl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_rightbl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_rightwt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_rightwt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_upbl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_upbl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_upwt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_upwt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Double_Click_iconbl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Double-Click-iconbl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Double_Click_iconwt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Double-Click-iconwt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_iconbl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Keyboard-iconbl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_iconwt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Keyboard-iconwt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Left_Click_iconbl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Left-Click-iconbl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Left_Click_iconwt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Left-Click-iconwt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Right_Click_iconbl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Right-Click-iconbl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Right_Click_iconwt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Right-Click-iconwt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Scroll_iconbl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Scroll-iconbl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Scroll_iconwt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Scroll-iconwt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings_iconbl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\settings-iconbl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings_iconwt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\settings-iconwt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -73,9 +73,49 @@ namespace GazeToolBar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap button_downbl {
+            get {
+                object obj = ResourceManager.GetObject("button_downbl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_downwt {
+            get {
+                object obj = ResourceManager.GetObject("button_downwt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_left {
             get {
                 object obj = ResourceManager.GetObject("button_left", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_leftbl {
+            get {
+                object obj = ResourceManager.GetObject("button_leftbl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_leftwt {
+            get {
+                object obj = ResourceManager.GetObject("button_leftwt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +133,49 @@ namespace GazeToolBar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap button_rightbl {
+            get {
+                object obj = ResourceManager.GetObject("button_rightbl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_rightwt {
+            get {
+                object obj = ResourceManager.GetObject("button_rightwt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap button_up {
             get {
                 object obj = ResourceManager.GetObject("button_up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_upbl {
+            get {
+                object obj = ResourceManager.GetObject("button_upbl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap button_upwt {
+            get {
+                object obj = ResourceManager.GetObject("button_upwt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,6 +273,26 @@ namespace GazeToolBar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Double_Click_iconbl {
+            get {
+                object obj = ResourceManager.GetObject("Double_Click_iconbl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Double_Click_iconwt {
+            get {
+                object obj = ResourceManager.GetObject("Double_Click_iconwt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Drag_and_drop_icon {
             get {
                 object obj = ResourceManager.GetObject("Drag_and_drop_icon", resourceCulture);
@@ -211,33 +311,53 @@ namespace GazeToolBar.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;abc&quot;
-        ///&quot;q&quot;,&quot;Q&quot;
-        ///&quot;w&quot;, &quot;W&quot;
-        ///&quot;e&quot;, &quot;E&quot;
-        ///&quot;r&quot;, &quot;R&quot;
-        ///&quot;t&quot;, &quot;T&quot;
-        ///&quot;y&quot;, &quot;Y&quot;
-        ///&quot;u&quot;, &quot;U&quot;
-        ///&quot;i&quot;, &quot;I&quot;
-        ///&quot;o&quot;, &quot;O&quot;
-        ///&quot;p&quot;, &quot;P&quot;
-        ///&quot;a&quot;, &quot;A&quot;
-        ///&quot;s&quot;, &quot;S&quot;
-        ///&quot;d&quot;, &quot;D&quot;
-        ///&quot;f&quot;, &quot;F&quot;
-        ///&quot;g&quot;, &quot;G&quot;
-        ///&quot;h&quot;, &quot;H&quot;
-        ///&quot;j&quot;, &quot;J&quot;
-        ///&quot;k&quot;, &quot;K&quot;
-        ///&quot;l&quot;, &quot;L&quot;
-        ///&quot;z&quot;, &quot;Z&quot;
-        ///&quot;x&quot;, &quot;X&quot;
-        ///&quot;c&quot;, &quot;C&quot;
-        ///&quot;v&quot;, &quot;V&quot;
-        ///&quot;b&quot;, &quot;B&quot;
-        ///&quot;n&quot;, &quot;N&quot;
-        ///&quot;m&quot;, &quot;M&quot;.
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keyboard_iconbl {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_iconbl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Keyboard_iconwt {
+            get {
+                object obj = ResourceManager.GetObject("Keyboard_iconwt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to abc
+        ///q,Q
+        ///w,W
+        ///e,E
+        ///r,R
+        ///t,T
+        ///y,Y
+        ///u,U
+        ///i,I
+        ///o,O
+        ///p,P
+        ///a,A
+        ///s,S
+        ///d,D
+        ///f,F
+        ///g,G
+        ///h,H
+        ///j,J
+        ///k,K
+        ///l,L
+        ///z,Z
+        ///x,X
+        ///c,C
+        ///v,V
+        ///b,B
+        ///n,N
+        ///m,M.
         /// </summary>
         internal static string KeyboardSetOne {
             get {
@@ -246,31 +366,31 @@ namespace GazeToolBar.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to àbç
-        ///à,À
-        ///á,Á
-        ///â,Â
-        ///ã,Ã
-        ///ä,Ä
-        ///ç,Ç
-        ///è,È
-        ///é,É
-        ///ê,Ê
-        ///ë,Ë
-        ///ì,Ì
-        ///í,Í
-        ///î,Î
-        ///ï,Ï
-        ///ñ,Ñ
-        ///ò,Ò
-        ///ó,Ó
-        ///ô,Ô
-        ///õ,Õ
-        ///ö,Ö
-        ///ù,Ú
-        ///ú,Û
-        ///ü,Ü
-        ///û,Ù
+        ///   Looks up a localized string similar to ?b?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
+        ///?,?
         ///¿,¿
         ///¡,¡.
         /// </summary>
@@ -281,33 +401,33 @@ namespace GazeToolBar.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;123&quot;
-        ///&quot;1&quot; , &quot;{F1}&quot;
-        ///&quot;2&quot;, &quot;{F2}&quot;
-        ///&quot;3&quot;, &quot;{F3}&quot;
-        ///&quot;4&quot;, &quot;{F4}&quot;
-        ///&quot;5&quot;, &quot;{F5}&quot;
-        ///&quot;6&quot;, &quot;{F6}&quot;
-        ///&quot;7&quot;, &quot;{F7}&quot;
-        ///&quot;8&quot;, &quot;{F8}&quot;
-        ///&quot;9&quot;, &quot;{F9}&quot;
-        ///&quot;0&quot;, &quot;{F10}&quot;
-        ///&quot;@&quot;, &quot;{F11}&quot;
-        ///&quot;#&quot;, &quot;{F12}&quot;
-        ///&quot;$&quot;, &quot;{HOME}&quot;
-        ///&quot;?&quot;, &quot;{END}&quot;
-        ///&quot;{(}&quot;, &quot;{PRTSC}&quot;
-        ///&quot;{)}&quot;, &quot;{UP}&quot;
-        ///&quot;&apos;&quot;, &quot;{%}&quot;
-        ///&quot;\&quot;&quot;, &quot;{{}&quot;
-        ///&quot;!&quot;, &quot;{}}&quot;
-        ///&quot;-&quot;, &quot;/&quot;
-        ///&quot;{+}&quot;, &quot;[&quot;
-        ///&quot;=&quot;, &quot;]&quot;
-        ///&quot;&lt;&quot;, &quot;{LEFT}&quot;
-        ///&quot;&gt;&quot;, &quot;{DOWN}&quot;
-        ///&quot;;&quot;, &quot;{RIGHT}&quot;
-        ///&quot;:&quot;, &quot;&amp;&quot;.
+        ///   Looks up a localized string similar to 123
+        ///1,{F1}
+        ///2,{F2}
+        ///3,{F3}
+        ///4,{F4}
+        ///5,{F5}
+        ///6,{F6}
+        ///7,{F7}
+        ///8,{F8}
+        ///9,{F9}
+        ///0,{F10}
+        ///@,{F11}
+        ///¦,{F12}
+        ///¤,{HOME}
+        ///?,{END}
+        ///{(},{PRTSC}
+        ///{)},{UP}
+        ///&apos;,{%}
+        ///\,{{}
+        ///!,{}}
+        ///-,/
+        ///{+},[
+        ///=,]
+        ///&lt;,{LEFT}
+        ///&gt;,{DOWN}
+        ///;,{RIGHT}
+        ///:,&amp;.
         /// </summary>
         internal static string KeyboardSetTwo {
             get {
@@ -321,6 +441,26 @@ namespace GazeToolBar.Properties {
         internal static System.Drawing.Bitmap Left_Click_icon {
             get {
                 object obj = ResourceManager.GetObject("Left_Click_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Left_Click_iconbl {
+            get {
+                object obj = ResourceManager.GetObject("Left_Click_iconbl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Left_Click_iconwt {
+            get {
+                object obj = ResourceManager.GetObject("Left_Click_iconwt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -348,9 +488,49 @@ namespace GazeToolBar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Right_Click_iconbl {
+            get {
+                object obj = ResourceManager.GetObject("Right_Click_iconbl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Right_Click_iconwt {
+            get {
+                object obj = ResourceManager.GetObject("Right_Click_iconwt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Scroll_icon {
             get {
                 object obj = ResourceManager.GetObject("Scroll_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Scroll_iconbl {
+            get {
+                object obj = ResourceManager.GetObject("Scroll_iconbl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Scroll_iconwt {
+            get {
+                object obj = ResourceManager.GetObject("Scroll_iconwt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -371,6 +551,26 @@ namespace GazeToolBar.Properties {
         internal static System.Drawing.Bitmap settings_icon {
             get {
                 object obj = ResourceManager.GetObject("settings_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_iconbl {
+            get {
+                object obj = ResourceManager.GetObject("settings_iconbl", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings_iconwt {
+            get {
+                object obj = ResourceManager.GetObject("settings_iconwt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

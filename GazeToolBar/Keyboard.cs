@@ -154,7 +154,30 @@ namespace GazeToolBar
             btnLeftClick.BackColor = Program.readSettings.mainColour;
             btnRightClick.BackColor = Program.readSettings.mainColour;
             btnScroll.BackColor = Program.readSettings.mainColour;
-
+            switch (Program.readSettings.iconColour)
+            {
+                case 0:
+                    btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconbl;
+                    btnLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_iconbl;
+                    btnDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_iconbl;
+                    btnScroll.Image = GazeToolBar.Properties.Resources.Scroll_iconbl;
+                    btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconbl;
+                    break;
+                case 1:
+                    btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconwt;
+                    btnLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_iconwt;
+                    btnDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_iconwt;
+                    btnScroll.Image = GazeToolBar.Properties.Resources.Scroll_iconwt;
+                    btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconwt;
+                    break;
+                case 2:
+                    btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_icon;
+                    btnLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_icon;
+                    btnDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_icon;
+                    btnScroll.Image = GazeToolBar.Properties.Resources.Scroll_icon;
+                    btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_icon;
+                    break;
+            }
             for (int i = 0; i < keyboardsAvailable.Count; i++)
             {
                 using (StreamReader sr = new StreamReader(keyboardsAvailable[i], Encoding.GetEncoding("iso-8859-1")))

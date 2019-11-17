@@ -54,7 +54,7 @@ namespace GazeToolBar
             var sentButton = s as Panel;
             if(sentButton != null)
             {
-                sentButton.BackColor = (e.HasGaze) ? Color.Red : Program.readSettings.mainColour;
+                sentButton.BackColor = (e.HasGaze) ? Program.readSettings.secondColour : Program.readSettings.mainColour;
             }
         }
 
@@ -66,7 +66,8 @@ namespace GazeToolBar
                 //Reset the button color to its origin color
                 resetButtonsColor();
                 //Set this button to other color, so people know this button has selected
-                btnDoubleClick.BackColor = Constants.SelectedColor;
+                //btnDoubleClick.BackColor = Constants.SelectedColor;
+                btnDoubleClick.BackColor = Program.readSettings.secondColour;
                 //Click this button
                 btnDoubleClick.PerformClick();
             }
@@ -77,7 +78,7 @@ namespace GazeToolBar
             if (e.HasGaze)
             {
                 resetButtonsColor();
-                btnRightClick.BackColor = Constants.SelectedColor;
+                btnRightClick.BackColor = Program.readSettings.secondColour;
                 btnRightClick.PerformClick();
             }
         }
@@ -87,7 +88,7 @@ namespace GazeToolBar
             if (e.HasGaze)
             {
                 resetButtonsColor();
-                btnSingleLeftClick.BackColor = Constants.SelectedColor;
+                btnSingleLeftClick.BackColor = Program.readSettings.secondColour;
                 btnSingleLeftClick.PerformClick();
             }
         }
@@ -106,7 +107,7 @@ namespace GazeToolBar
             if (e.HasGaze)
             {
                 resetButtonsColor();
-                btnScoll.BackColor = Constants.SelectedColor;
+                btnScoll.BackColor = Program.readSettings.secondColour;
                 btnScoll.PerformClick();
             }
         }
@@ -125,7 +126,7 @@ namespace GazeToolBar
             if (e.HasGaze)
             {
                 resetButtonsColor();
-                btnMic.BackColor = Constants.SelectedColor;
+                btnMic.BackColor = Program.readSettings.secondColour;
                 btnMic.PerformClick();
             }
         }

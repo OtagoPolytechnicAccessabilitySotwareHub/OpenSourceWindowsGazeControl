@@ -14,7 +14,7 @@ namespace GazeToolBar
     partial class SettingsForm
     {
 
-        int buttonClickDelay = 500;
+        int buttonClickDelay = 800;
         String notAssigned = "N/A";
         SettingState currentSelection = SettingState.General;
 
@@ -154,12 +154,12 @@ namespace GazeToolBar
         
         private void OnbtnCancel_Click(object sender, GazeAwareEventArgs e)
         {
-            btnCancel.PerformClick();
+            if (e.HasGaze) btnCancel.PerformClick();
         }
 
         private void OnbtnSave_Click(object sender, GazeAwareEventArgs e)
         {
-            btnSave.PerformClick();
+            if (e.HasGaze) btnSave.PerformClick();
         }
 
        

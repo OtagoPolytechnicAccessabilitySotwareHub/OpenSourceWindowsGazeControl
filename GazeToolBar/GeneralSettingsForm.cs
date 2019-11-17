@@ -96,6 +96,7 @@ namespace GazeToolBar
                     button.ForeColor = Program.readSettings.secondColour;
                 }
             }
+            Program.onStartUp = onOff;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

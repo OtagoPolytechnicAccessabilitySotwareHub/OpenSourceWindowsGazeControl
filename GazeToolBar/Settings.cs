@@ -40,7 +40,7 @@ namespace GazeToolBar
         public bool spanish { get; set; }
         public Color mainColour { get; set; }
         public Color secondColour { get; set; }
-        public String iconColour { get; set; }
+        public int iconColour { get; set; }
 
         SettingJSON settingsJson;
         public Settings(string path)
@@ -51,35 +51,43 @@ namespace GazeToolBar
             }
             else
             {
-                string s = File.ReadAllText(path);
-                settingsJson = JsonConvert.DeserializeObject<SettingJSON>(s);
-                fixationTimeLength = settingsJson.fixationTimeLength;
-                fixationTimeOut = settingsJson.fixationTimeOut;
-                leftClick = settingsJson.leftClick;
-                doubleClick = settingsJson.doubleClick;
-                rightClick = settingsJson.rightClick;
-                scroll = settingsJson.scroll;
-                micInput = settingsJson.micInput;
-                micInputOff = settingsJson.micInputOff;
-                sidebar = settingsJson.sidebar;
-                maxZoom = settingsJson.maxZoom;
-                Crosshair = settingsJson.Crosshair;
-                zoomWindowSize = settingsJson.zoomWindowSize;
-                stickyLeftClick = settingsJson.stickyLeftClick;
-                selectionFeedback = settingsJson.selectionFeedback;
-                dynamicZoom = settingsJson.dynamicZoom;                                  //Changed for TESTINGVARIABLE
-                centerZoom = settingsJson.centerZoom;
-                eng = settingsJson.eng;
-                k123 = settingsJson.k123;
-                kacc = settingsJson.kacc;
-                spanish = settingsJson.spanish;
-                autocomplete = settingsJson.autocomplete;
-                mainColour = settingsJson.mainColour;
-                secondColour = settingsJson.secondColour;
-                iconColour = settingsJson.iconColour;
-                //dynamicZoom = false;
-                //centerZoom = false;
-                Console.WriteLine("Settings loaded");
+                try
+                {
+                    string s = File.ReadAllText(path);
+                    settingsJson = JsonConvert.DeserializeObject<SettingJSON>(s);
+                    fixationTimeLength = settingsJson.fixationTimeLength;
+                    fixationTimeOut = settingsJson.fixationTimeOut;
+                    leftClick = settingsJson.leftClick;
+                    doubleClick = settingsJson.doubleClick;
+                    rightClick = settingsJson.rightClick;
+                    scroll = settingsJson.scroll;
+                    micInput = settingsJson.micInput;
+                    micInputOff = settingsJson.micInputOff;
+                    sidebar = settingsJson.sidebar;
+                    maxZoom = settingsJson.maxZoom;
+                    Crosshair = settingsJson.Crosshair;
+                    zoomWindowSize = settingsJson.zoomWindowSize;
+                    stickyLeftClick = settingsJson.stickyLeftClick;
+                    selectionFeedback = settingsJson.selectionFeedback;
+                    dynamicZoom = settingsJson.dynamicZoom;                                  //Changed for TESTINGVARIABLE
+                    centerZoom = settingsJson.centerZoom;
+                    eng = settingsJson.eng;
+                    k123 = settingsJson.k123;
+                    kacc = settingsJson.kacc;
+                    spanish = settingsJson.spanish;
+                    autocomplete = settingsJson.autocomplete;
+                    mainColour = settingsJson.mainColour;
+                    secondColour = settingsJson.secondColour;
+                    iconColour = 1;
+                    //iconColour = settingsJson.iconColour;
+                    //dynamicZoom = false;
+                    //centerZoom = false;
+
+                }
+                catch(Exception e)//If loading fails. Create new default settings.
+                {
+                    defaultSettings();
+                }
             }
         }
 
@@ -141,8 +149,8 @@ namespace GazeToolBar
             spanish = true;
             autocomplete = true;
             mainColour = Color.Black;
-            secondColour = Color.Cyan;
-            iconColour = "Cyan";
+            secondColour = Color.White;
+            iconColour = 2;
         }
 
 

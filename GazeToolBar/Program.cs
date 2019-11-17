@@ -14,7 +14,6 @@ namespace GazeToolBar
     static class Program
     {
         public static string path { get; set; }
-        //public static SettingJSON readSettings { get; set; }
         public static Settings readSettings { get; set; }
         public static bool onStartUp { get; set; }
 
@@ -35,9 +34,7 @@ namespace GazeToolBar
                 System.IO.FileInfo file = new System.IO.FileInfo(path);
                 file.Directory.Create(); // If the directory already exists, this method does nothing.
 
-                //path = Application.StartupPath + "\\" + "Settings.json";
-                //ReadWriteJson();
-                readSettings = new Settings(path);
+                readSettings = new Settings(path);//Load settings
                 onStartUp = AutoStart.IsOn();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
@@ -50,38 +47,5 @@ namespace GazeToolBar
             }
 
         }
-
-        //public static void ReadWriteJson()
-        //{
-        //    if (!File.Exists(path))
-        //    {
-        //        SettingJSON defaultSetting = new SettingJSON();
-        //        defaultSetting.fixationTimeLength = Constants.DEFAULT_TIME_LENGTH;
-        //        defaultSetting.fixationTimeOut = Constants.DEFAULT_TIME_OUT;
-        //        defaultSetting.leftClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-        //        defaultSetting.doubleClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-        //        defaultSetting.rightClick = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-        //        defaultSetting.scroll = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-        //        defaultSetting.micInput = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-        //        defaultSetting.micInputOff = Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE;
-        //        defaultSetting.sidebar = new string[] { "right_click", "left_click", "double_left_click", "scroll", "keyboard", "settings" };
-        //        defaultSetting.maxZoom = 3;
-        //        defaultSetting.Crosshair = 3;
-        //        defaultSetting.zoomWindowSize = 10;
-        //        defaultSetting.stickyLeftClick = false;
-        //        defaultSetting.selectionFeedback = true;
-        //        defaultSetting.dynamicZoom = false;
-        //        string JSONstr = JsonConvert.SerializeObject(defaultSetting);
-        //        File.AppendAllText(path, JSONstr);
-
-        //        //readSettings = defaultSetting;
-        //    }
-        //    else
-        //    {
-        //        string s = File.ReadAllText(path);
-        //        //readSettings = JsonConvert.DeserializeObject<SettingJSON>(s);
-        //        Console.WriteLine("Settings loaded");
-        //    }
-        //}
     }
 }
