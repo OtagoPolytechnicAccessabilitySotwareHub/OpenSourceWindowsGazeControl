@@ -166,7 +166,9 @@ namespace GazeToolBar
         {
             Form2 = new Keyboard(eyeXHost, this, pnlHighLightKeyboard, pnlHighLightSingleLeft, pnlHiLteRightClick, pnlHighLightDoubleClick, pnlHighLightScrol);
 
-
+            refreshColour();
+            Console.WriteLine("*****************");
+            Console.WriteLine(Program.readSettings.iconNumber);
             FKeyMapDictionary = new Dictionary<ActionToBePerformed, string>();
             FKeyMapDictionary.Add(ActionToBePerformed.DoubleClick, Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE);
             FKeyMapDictionary.Add(ActionToBePerformed.LeftClick, Constants.KEY_FUNCTION_UNASSIGNED_MESSAGE);
@@ -353,6 +355,8 @@ namespace GazeToolBar
             btnRightClick.BackColor = Program.readSettings.mainColour;
             btnScoll.BackColor = Program.readSettings.mainColour;
             btnSettings.BackColor = Program.readSettings.mainColour;
+            Console.WriteLine("Pick a colour");
+            Console.WriteLine(Program.readSettings.iconNumber);
             switch (Program.readSettings.iconNumber)
             {
                 case 0:
@@ -362,6 +366,7 @@ namespace GazeToolBar
                     btnScoll.Image = GazeToolBar.Properties.Resources.Scroll_iconbl;
                     btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconbl;
                     btnSettings.Image = GazeToolBar.Properties.Resources.settings_iconbl;
+                    Console.WriteLine("Colour black $$$$$");
                     break;
                 case 1:
                     btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconwt;
@@ -370,6 +375,7 @@ namespace GazeToolBar
                     btnScoll.Image = GazeToolBar.Properties.Resources.Scroll_iconwt;
                     btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconwt;
                     btnSettings.Image = GazeToolBar.Properties.Resources.settings_iconwt;
+                    Console.WriteLine("Colour white $$$$$");
                     break;
                 case 2:
                     btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_icon;
@@ -378,6 +384,7 @@ namespace GazeToolBar
                     btnScoll.Image = GazeToolBar.Properties.Resources.Scroll_icon;
                     btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_icon;
                     btnSettings.Image = GazeToolBar.Properties.Resources.settings_icon;
+                    Console.WriteLine("Colour blue $$$$$");
                     break;
                 case 3:
                     btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconrd;
@@ -386,6 +393,7 @@ namespace GazeToolBar
                     btnScoll.Image = GazeToolBar.Properties.Resources.Scroll_iconrd;
                     btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconrd;
                     btnSettings.Image = GazeToolBar.Properties.Resources.settings_iconrd;
+                    Console.WriteLine("Colour red $$$$$");
                     break;
                 case 4:
                     btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconyl;
@@ -394,6 +402,7 @@ namespace GazeToolBar
                     btnScoll.Image = GazeToolBar.Properties.Resources.Scroll_iconyl;
                     btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconyl;
                     btnSettings.Image = GazeToolBar.Properties.Resources.settings_iconyl;
+                    Console.WriteLine("Colour yellow $$$$$");
                     break;
                 case 5:
                     btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_icongr;
@@ -402,6 +411,10 @@ namespace GazeToolBar
                     btnScoll.Image = GazeToolBar.Properties.Resources.Scroll_icongr;
                     btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_icongr;
                     btnSettings.Image = GazeToolBar.Properties.Resources.settings_icongr;
+                    Console.WriteLine("Colour green $$$$$");
+                    break;
+                default:
+                    Console.WriteLine("This didn't work");
                     break;
             }
         }

@@ -106,7 +106,7 @@ namespace GazeToolBar
                     //centerZoom = false;
 
                 }
-                catch(Exception e)//If loading fails. Create new default settings.
+                catch (Exception e)//If loading fails. Create new default settings.
                 {
                     defaultSettings();
                 }
@@ -172,7 +172,28 @@ namespace GazeToolBar
             autocomplete = true;
             mainColour = Color.Black;
             secondColour = Color.White;
-            iconNumber = 2;
+            iconNumber = 3;
+            switch (iconNumber)
+            {
+                case 0:
+                    iconColour = Color.Black;
+                    break;
+                case 1:
+                    iconColour = Color.White;
+                    break;
+                case 2:
+                    iconColour = Color.Cyan;
+                    break;
+                case 3:
+                    iconColour = Color.Red;
+                    break;
+                case 4:
+                    iconColour = Color.Yellow;
+                    break;
+                case 5:
+                    iconColour = Color.Lime;
+                    break;
+            }
         }
 
 

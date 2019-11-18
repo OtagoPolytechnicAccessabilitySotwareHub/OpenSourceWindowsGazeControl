@@ -36,6 +36,8 @@ namespace GazeToolBar
 
                 readSettings = new Settings(path);//Load settings
                 onStartUp = AutoStart.IsOn();
+                Console.WriteLine("*******************");
+                Console.WriteLine(readSettings.iconNumber);
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new Form1());
