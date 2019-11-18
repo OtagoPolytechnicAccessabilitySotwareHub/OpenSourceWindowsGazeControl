@@ -289,7 +289,8 @@ namespace GazeToolBar
             button23.Text = strip_Keys(keys[25].getKey(KeyboardView));
             button2.Text = strip_Keys(keys[26].getKey(KeyboardView));
 
-            
+            Console.WriteLine("***********");
+            Console.WriteLine(Program.readSettings.mainColour);
             //------------------------------------------------------//
 
             //Resizes text on keys
