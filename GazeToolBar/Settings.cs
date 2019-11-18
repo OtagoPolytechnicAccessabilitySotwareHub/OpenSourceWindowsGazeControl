@@ -40,7 +40,8 @@ namespace GazeToolBar
         public bool spanish { get; set; }
         public Color mainColour { get; set; }
         public Color secondColour { get; set; }
-        public int iconColour { get; set; }
+        public Color iconColour { get; set; }
+        public int iconNumber { get; set; }
 
         SettingJSON settingsJson;
         public Settings(string path)
@@ -78,7 +79,28 @@ namespace GazeToolBar
                     autocomplete = settingsJson.autocomplete;
                     mainColour = settingsJson.mainColour;
                     secondColour = settingsJson.secondColour;
-                    iconColour = 1;
+                    iconNumber = settingsJson.iconColour;
+                    switch (settingsJson.iconColour)
+                    {
+                        case 0:
+                            iconColour = Color.Black;
+                            break;
+                        case 1:
+                            iconColour = Color.White;
+                            break;
+                        case 2:
+                            iconColour = Color.Cyan;
+                            break;
+                        case 3:
+                            iconColour = Color.Red;
+                            break;
+                        case 4:
+                            iconColour = Color.Yellow;
+                            break;
+                        case 5:
+                            iconColour = Color.Lime;
+                            break;
+                    }
                     //iconColour = settingsJson.iconColour;
                     //dynamicZoom = false;
                     //centerZoom = false;
@@ -119,7 +141,7 @@ namespace GazeToolBar
             //centerZoom = false;
             setting.mainColour = mainColour;
             setting.secondColour = secondColour;
-            setting.iconColour = iconColour;
+            setting.iconColour = iconNumber;
             string settings = JsonConvert.SerializeObject(setting);
             File.WriteAllText(Program.path, settings);
         }
@@ -150,7 +172,7 @@ namespace GazeToolBar
             autocomplete = true;
             mainColour = Color.Black;
             secondColour = Color.White;
-            iconColour = 2;
+            iconNumber = 2;
         }
 
 

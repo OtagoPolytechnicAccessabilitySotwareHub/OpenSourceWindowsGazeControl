@@ -120,13 +120,18 @@ namespace GazeToolBar
         private void button1_Click(object sender, EventArgs e)
         {
             Program.readSettings.defaultSettings();
+            controlRelocateAndResize();
         }
 
         private void controlRelocateAndResize()
         {
             int percentageSize = 400; //Higher number for smaller trackbars
             panelSaveAndCancel.Location = ReletiveSize.panelSaveAndCancel(panelSaveAndCancel.Width, panelSaveAndCancel.Height);
-            ReletiveSize.sizeEvenly(panelSaveAndCancel,0.4);
+            panelSaveAndCancel.Width = Constants.SCREEN_SIZE.Width;
+            panelSaveAndCancel.Left = 10;
+            ReletiveSize.sizeEvenly(panelSaveAndCancel,0.6);
+            defaultPanel.Left = 0;
+            backPanel.Left = (panelSaveAndCancel.Width / 2) - (backPanel.Width / 2);
             button1.Location = ReletiveSize.distribute(panelSaveAndCancel, button1.Location.Y, 1, 2, "wn", 0);
             backButton.Location = ReletiveSize.distribute(panelSaveAndCancel, button1.Location.Y, 2, 2, "wn", 0);
             ReletiveSize.resizeLabel(label1,20);
@@ -151,8 +156,37 @@ namespace GazeToolBar
             foreach (Control control in this.Controls)
             {
                 control.BackColor = Program.readSettings.mainColour;
-                control.ForeColor = Program.readSettings.secondColour;
+                control.ForeColor = Program.readSettings.iconColour;
             }
+            this.BackColor = Program.readSettings.mainColour;
+            foreach (Control control in this.Controls)
+            {
+                control.BackColor = Program.readSettings.mainColour;
+                control.ForeColor = Program.readSettings.iconColour;
+            }
+            foreach (Panel panel in topRow.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.iconColour;
+                }
+            }
+            foreach (Panel panel in bottomRow.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.iconColour;
+                }
+            }
+            foreach (Panel panel in panelSaveAndCancel.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.iconColour;
+                }
+            }
+            button1.BackColor = Color.White;
+            button1.ForeColor = Color.Black;
 
         }
 
@@ -170,29 +204,31 @@ namespace GazeToolBar
             foreach (Control control in this.Controls)
             {
                 control.BackColor = Program.readSettings.mainColour;
-                control.ForeColor = Program.readSettings.secondColour;
+                control.ForeColor = Program.readSettings.iconColour;
             }
             foreach (Panel panel in topRow.Controls)
             {
                 foreach (Button button in panel.Controls)
                 {
-                    button.ForeColor = Program.readSettings.secondColour;
+                    button.ForeColor = Program.readSettings.iconColour;
                 }
             }
             foreach (Panel panel in bottomRow.Controls)
             {
                 foreach (Button button in panel.Controls)
                 {
-                    button.ForeColor = Program.readSettings.secondColour;
+                    button.ForeColor = Program.readSettings.iconColour;
                 }
             }
             foreach (Panel panel in panelSaveAndCancel.Controls)
             {
                 foreach (Button button in panel.Controls)
                 {
-                    button.ForeColor = Program.readSettings.secondColour;
+                    button.ForeColor = Program.readSettings.iconColour;
                 }
             }
+            button1.BackColor = Color.White;
+            button1.ForeColor = Color.Black;
         }
 
     }

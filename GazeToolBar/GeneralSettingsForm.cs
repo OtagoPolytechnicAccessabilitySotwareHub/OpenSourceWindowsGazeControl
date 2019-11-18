@@ -204,19 +204,19 @@ namespace GazeToolBar
             }
             panelPrecision.BackColor = Program.readSettings.mainColour;
             pnlFixationTimeOut.BackColor = Program.readSettings.mainColour;
-            btnAutoStart.ForeColor = Program.readSettings.secondColour;
-            lblOther.ForeColor = Program.readSettings.secondColour;
+            btnAutoStart.ForeColor = Program.readSettings.iconColour;
+            lblOther.ForeColor = Program.readSettings.iconColour;
             panelOther.BackColor = Program.readSettings.mainColour;
             pnlOtherAuto.BackColor = Program.readSettings.mainColour;
             foreach (Panel panel in panelSaveAndCancel.Controls)
             {
                 foreach (Button button in panel.Controls)
                 {
-                    button.ForeColor = Program.readSettings.secondColour;
+                    button.ForeColor = Program.readSettings.iconColour;
                 }
             }
-            lblFixationDetectionTimeLength.ForeColor = Program.readSettings.secondColour;
-            lblSpeed.ForeColor = Program.readSettings.secondColour;
+            lblFixationDetectionTimeLength.ForeColor = Program.readSettings.iconColour;
+            lblSpeed.ForeColor = Program.readSettings.iconColour;
         }
 
 

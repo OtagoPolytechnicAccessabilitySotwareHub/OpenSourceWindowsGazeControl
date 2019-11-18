@@ -12,6 +12,7 @@ namespace GazeToolBar
     partial class SettingsHome
     {
         int buttonClickDelay = 500;
+        int defaultDelay = 800;
         Color main = Program.readSettings.mainColour;
         Color second = Program.readSettings.secondColour;
 
@@ -46,7 +47,7 @@ namespace GazeToolBar
             behavSetting.Add(colourSettings, new GazeAwareBehavior(btcolourSettings_Click) { DelayMilliseconds = buttonClickDelay }); //look at button to activate it
             behavSetting.Add(colourPanel, new GazeAwareBehavior(OnGazeChangeBTColour));
 
-            behavSetting.Add(button1, new GazeAwareBehavior(btbutton1_Click) { DelayMilliseconds = buttonClickDelay }); //look at button to activate it
+            behavSetting.Add(button1, new GazeAwareBehavior(btbutton1_Click) { DelayMilliseconds = defaultDelay }); //look at button to activate it
             behavSetting.Add(defaultPanel, new GazeAwareBehavior(OnGazeChangeBTColour));
         }
 

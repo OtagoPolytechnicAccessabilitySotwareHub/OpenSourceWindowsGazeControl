@@ -380,6 +380,12 @@
     <None Include="Images\Double-Click-iconwt.png" />
     <None Include="Images\Keyboard-iconbl.png" />
     <None Include="Images\Keyboard-iconwt.png" />
+    <None Include="Images\Double-Click-icongr.png" />
+    <None Include="Images\Double-Click-iconrd.png" />
+    <None Include="Images\Double-Click-iconyl.png" />
+    <None Include="Images\Keyboard-icongr.png" />
+    <None Include="Images\Keyboard-iconrd.png" />
+    <None Include="Images\Keyboard-iconyl.png" />
     <Content Include="Images\KeyboardSetOne.txt" />
     <Content Include="Images\KeyboardSetThree.txt" />
     <Content Include="Images\KeyboardSetTwo.txt" />
@@ -391,6 +397,18 @@
     <None Include="Images\Scroll-iconwt.png" />
     <None Include="Images\settings-iconbl.png" />
     <None Include="Images\settings-iconwt.png" />
+    <None Include="Images\Left-Click-icongr.png" />
+    <None Include="Images\Left-Click-iconrd.png" />
+    <None Include="Images\Left-Click-iconyl.png" />
+    <None Include="Images\Right-Click-icongr.png" />
+    <None Include="Images\Right-Click-iconrd.png" />
+    <None Include="Images\Right-Click-iconyl.png" />
+    <None Include="Images\Scroll-icongr.png" />
+    <None Include="Images\Scroll-iconrd.png" />
+    <None Include="Images\Scroll-iconyl.png" />
+    <None Include="Images\settings-icongr.png" />
+    <None Include="Images\settings-iconrd.png" />
+    <None Include="Images\settings-iconyl.png" />
     <Content Include="KeyboardSetOne.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -437,6 +455,18 @@
     <None Include="Resources\button_rightwt.png" />
     <None Include="Resources\button_upbl.png" />
     <None Include="Resources\button_upwt.png" />
+    <None Include="Resources\button_downgr.png" />
+    <None Include="Resources\button_downrd.png" />
+    <None Include="Resources\button_downyl.png" />
+    <None Include="Resources\button_leftgr.png" />
+    <None Include="Resources\button_leftrd.png" />
+    <None Include="Resources\button_leftyl.png" />
+    <None Include="Resources\button_rightgr.png" />
+    <None Include="Resources\button_rightrd.png" />
+    <None Include="Resources\button_rightyl.png" />
+    <None Include="Resources\button_upgr.png" />
+    <None Include="Resources\button_uprd.png" />
+    <None Include="Resources\button_upyl.png" />
     <Content Include="Resources\KeyboardSetOne.txt" />
     <Content Include="Tobii.EyeX.Client.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

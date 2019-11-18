@@ -342,13 +342,54 @@ namespace GazeToolBar
             //Set feed back label to the center of the screen.
             lbFKeyFeedback.Location = new Point((pnlPageKeyboard.Width / 2) - (lbFKeyFeedback.Width / 2), lbFKeyFeedback.Location.Y);
             //pnlPageKeyboard.Location = ReletiveSize.mainPanelLocation(pnlSwitchSetting.Location.Y, pnlSwitchSetting.Height);
-            label1.ForeColor = Program.readSettings.secondColour;
+            label1.ForeColor = Program.readSettings.iconColour;
             //Zoom Settings size and location
             //Main Panel
             lbDouble.Text = form1.FKeyMapDictionary[ActionToBePerformed.DoubleClick];
             lbRight.Text = form1.FKeyMapDictionary[ActionToBePerformed.RightClick];
             lbLeft.Text = form1.FKeyMapDictionary[ActionToBePerformed.LeftClick];
             lbScroll.Text = form1.FKeyMapDictionary[ActionToBePerformed.Scroll];
+
+
+            switch(Program.readSettings.iconNumber)
+            {
+                case 0:
+                    pictureBox1.Image = GazeToolBar.Properties.Resources.Left_Click_iconbl;
+                    pictureBox2.Image = GazeToolBar.Properties.Resources.Right_Click_iconbl;
+                    pictureBox3.Image = GazeToolBar.Properties.Resources.Double_Click_iconbl;
+                    pictureBox4.Image = GazeToolBar.Properties.Resources.Scroll_iconbl;
+                    break;
+                case 1:
+                    pictureBox1.Image = GazeToolBar.Properties.Resources.Left_Click_iconwt;
+                    pictureBox2.Image = GazeToolBar.Properties.Resources.Right_Click_iconwt;
+                    pictureBox3.Image = GazeToolBar.Properties.Resources.Double_Click_iconwt;
+                    pictureBox4.Image = GazeToolBar.Properties.Resources.Scroll_iconwt;
+                    break;
+                case 2:
+                    pictureBox1.Image = GazeToolBar.Properties.Resources.Left_Click_icon;
+                    pictureBox2.Image = GazeToolBar.Properties.Resources.Right_Click_icon;
+                    pictureBox3.Image = GazeToolBar.Properties.Resources.Double_Click_icon;
+                    pictureBox4.Image = GazeToolBar.Properties.Resources.Scroll_icon;
+                    break;
+                case 3:
+                    pictureBox1.Image = GazeToolBar.Properties.Resources.Left_Click_iconrd;
+                    pictureBox2.Image = GazeToolBar.Properties.Resources.Right_Click_iconrd;
+                    pictureBox3.Image = GazeToolBar.Properties.Resources.Double_Click_iconrd;
+                    pictureBox4.Image = GazeToolBar.Properties.Resources.Scroll_iconrd;
+                    break;
+                case 4:
+                    pictureBox1.Image = GazeToolBar.Properties.Resources.Left_Click_iconyl;
+                    pictureBox2.Image = GazeToolBar.Properties.Resources.Right_Click_iconyl;
+                    pictureBox3.Image = GazeToolBar.Properties.Resources.Double_Click_iconyl;
+                    pictureBox4.Image = GazeToolBar.Properties.Resources.Scroll_iconyl;
+                    break;
+                case 5:
+                    pictureBox1.Image = GazeToolBar.Properties.Resources.Left_Click_icongr;
+                    pictureBox2.Image = GazeToolBar.Properties.Resources.Right_Click_icongr;
+                    pictureBox3.Image = GazeToolBar.Properties.Resources.Double_Click_icongr;
+                    pictureBox4.Image = GazeToolBar.Properties.Resources.Scroll_icongr;
+                    break;
+            }
         }
 
 

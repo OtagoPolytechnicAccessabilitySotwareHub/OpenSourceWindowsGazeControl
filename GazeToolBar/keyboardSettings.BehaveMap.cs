@@ -111,7 +111,7 @@ namespace GazeToolBar
             var sentButton = s as Panel;
             if (sentButton != null)
             {
-                sentButton.BackColor = (e.HasGaze) ? Color.Red : Program.readSettings.mainColour;
+                sentButton.BackColor = (e.HasGaze) ? Program.readSettings.secondColour : Program.readSettings.mainColour;
             }
         }
     }

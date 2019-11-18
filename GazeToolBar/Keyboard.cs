@@ -111,7 +111,7 @@ namespace GazeToolBar
                     button.FlatStyle = FlatStyle.Flat;
                     button.FlatAppearance.BorderSize = 0;
                     button.BackColor = Program.readSettings.mainColour;
-                    button.ForeColor = Program.readSettings.secondColour;
+                    button.ForeColor = Program.readSettings.iconColour;
                     button.Size = new Size(panel38.Width / 12 - 4, panel38.Width / 12 - 4);
                     button.Location = new Point(2, 2);
                     button.TabStop = false;
@@ -154,7 +154,8 @@ namespace GazeToolBar
             btnLeftClick.BackColor = Program.readSettings.mainColour;
             btnRightClick.BackColor = Program.readSettings.mainColour;
             btnScroll.BackColor = Program.readSettings.mainColour;
-            switch (Program.readSettings.iconColour)
+
+            switch (Program.readSettings.iconNumber)
             {
                 case 0:
                     btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconbl;
@@ -176,6 +177,27 @@ namespace GazeToolBar
                     btnDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_icon;
                     btnScroll.Image = GazeToolBar.Properties.Resources.Scroll_icon;
                     btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_icon;
+                    break;
+                case 3:
+                    btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconrd;
+                    btnLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_iconrd;
+                    btnDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_iconrd;
+                    btnScroll.Image = GazeToolBar.Properties.Resources.Scroll_iconrd;
+                    btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconrd;
+                    break;
+                case 4:
+                    btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconyl;
+                    btnLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_iconyl;
+                    btnDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_iconyl;
+                    btnScroll.Image = GazeToolBar.Properties.Resources.Scroll_iconyl;
+                    btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconyl;
+                    break;
+                case 5:
+                    btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_icongr;
+                    btnLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_icongr;
+                    btnDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_icongr;
+                    btnScroll.Image = GazeToolBar.Properties.Resources.Scroll_icongr;
+                    btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_icongr;
                     break;
             }
             for (int i = 0; i < keyboardsAvailable.Count; i++)
@@ -322,7 +344,7 @@ namespace GazeToolBar
 
         private async void buttonClicker(int key, Button button)
         {
-            button.BackColor = Color.Cyan;
+            button.BackColor = Program.readSettings.secondColour;
             SendKeys.Send(keys[key].getKey(KeyboardView)); //set background color when clicked
             await Task.Delay(FlashDelay);     //delay before deactivting button flash
             button.BackColor = Program.readSettings.mainColour;   //revert back to original color
@@ -330,7 +352,7 @@ namespace GazeToolBar
 
         private async void buttonClicker(String key, Button button)  //for buttons that dont use keyboardview
         {
-            button.BackColor = Color.Cyan;
+            button.BackColor = Program.readSettings.secondColour;
             SendKeys.Send(key);               //set background color when clicked
             await Task.Delay(FlashDelay);     //delay before deactivting button flash
             button.BackColor = Program.readSettings.mainColour;   //revert back to original color
@@ -481,7 +503,7 @@ namespace GazeToolBar
         //Button for switching keyboard location from bottom and top of screen.
         private async void button4_Click(object sender, EventArgs e)
         {
-            button4.BackColor = Color.Cyan;
+            button4.BackColor = Program.readSettings.secondColour;
             if (bottom)
             {
                 button4.Text = "⤓";
@@ -558,7 +580,7 @@ namespace GazeToolBar
         //Shift key.
         private async void button8_Click(object sender, EventArgs e)
         {
-            button8.BackColor = Color.Cyan;
+            button8.BackColor = Program.readSettings.secondColour;
             //If shift key is currently active
             if (cap)
             {

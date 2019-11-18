@@ -274,6 +274,7 @@
             // 
             // panelSaveAndCancel
             // 
+            this.panelSaveAndCancel.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.panelSaveAndCancel.Controls.Add(this.defaultPanel);
             this.panelSaveAndCancel.Controls.Add(this.backPanel);
             this.panelSaveAndCancel.Location = new System.Drawing.Point(363, 668);

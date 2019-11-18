@@ -353,7 +353,7 @@ namespace GazeToolBar
             btnRightClick.BackColor = Program.readSettings.mainColour;
             btnScoll.BackColor = Program.readSettings.mainColour;
             btnSettings.BackColor = Program.readSettings.mainColour;
-            switch (Program.readSettings.iconColour)
+            switch (Program.readSettings.iconNumber)
             {
                 case 0:
                     btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconbl;
@@ -378,7 +378,30 @@ namespace GazeToolBar
                     btnScoll.Image = GazeToolBar.Properties.Resources.Scroll_icon;
                     btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_icon;
                     btnSettings.Image = GazeToolBar.Properties.Resources.settings_icon;
-                    Console.WriteLine("iconsChanged");
+                    break;
+                case 3:
+                    btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconrd;
+                    btnSingleLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_iconrd;
+                    btnDoubleClick.Image = GazeToolBar.Properties.Resources.Double_Click_iconrd;
+                    btnScoll.Image = GazeToolBar.Properties.Resources.Scroll_iconrd;
+                    btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconrd;
+                    btnSettings.Image = GazeToolBar.Properties.Resources.settings_iconrd;
+                    break;
+                case 4:
+                    btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconyl;
+                    btnSingleLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_iconyl;
+                    btnDoubleClick.Image = GazeToolBar.Properties.Resources.Double_Click_iconyl;
+                    btnScoll.Image = GazeToolBar.Properties.Resources.Scroll_iconyl;
+                    btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconyl;
+                    btnSettings.Image = GazeToolBar.Properties.Resources.settings_iconyl;
+                    break;
+                case 5:
+                    btnRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_icongr;
+                    btnSingleLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_icongr;
+                    btnDoubleClick.Image = GazeToolBar.Properties.Resources.Double_Click_icongr;
+                    btnScoll.Image = GazeToolBar.Properties.Resources.Scroll_icongr;
+                    btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_icongr;
+                    btnSettings.Image = GazeToolBar.Properties.Resources.settings_icongr;
                     break;
             }
         }

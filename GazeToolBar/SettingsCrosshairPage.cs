@@ -145,11 +145,11 @@ namespace GazeToolBar
             {
                 foreach (Button button in panel.Controls)
                 {
-                    button.ForeColor = Program.readSettings.secondColour;
+                    button.ForeColor = Program.readSettings.iconColour;
                 }
             }
-            label1.ForeColor = Program.readSettings.secondColour;
-            labCrosshairType.ForeColor = Program.readSettings.secondColour;
+            label1.ForeColor = Program.readSettings.iconColour;
+            labCrosshairType.ForeColor = Program.readSettings.iconColour;
             this.BackColor = Program.readSettings.mainColour;
         }
 

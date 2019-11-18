@@ -85,6 +85,19 @@
             this.pnlSave = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.iconPanel = new System.Windows.Forms.Panel();
+            this.iconPanelGreen = new System.Windows.Forms.Panel();
+            this.iconbtnGreen = new System.Windows.Forms.Button();
+            this.iconPanelBlue = new System.Windows.Forms.Panel();
+            this.iconbtnBlue = new System.Windows.Forms.Button();
+            this.iconPanelYellow = new System.Windows.Forms.Panel();
+            this.iconbtnYellow = new System.Windows.Forms.Button();
+            this.iconPanelRed = new System.Windows.Forms.Panel();
+            this.iconbtnRed = new System.Windows.Forms.Button();
+            this.iconPanelWhite = new System.Windows.Forms.Panel();
+            this.iconbtnWhite = new System.Windows.Forms.Button();
+            this.iconPanelBlack = new System.Windows.Forms.Panel();
+            this.iconbtnBlack = new System.Windows.Forms.Button();
             this.brushColours.SuspendLayout();
             this.colourOptionPanel1.SuspendLayout();
             this.colourOptionPanel2.SuspendLayout();
@@ -113,6 +126,13 @@
             this.panelSaveAndCancel.SuspendLayout();
             this.pnlCancel.SuspendLayout();
             this.pnlSave.SuspendLayout();
+            this.iconPanel.SuspendLayout();
+            this.iconPanelGreen.SuspendLayout();
+            this.iconPanelBlue.SuspendLayout();
+            this.iconPanelYellow.SuspendLayout();
+            this.iconPanelRed.SuspendLayout();
+            this.iconPanelWhite.SuspendLayout();
+            this.iconPanelBlack.SuspendLayout();
             this.SuspendLayout();
             // 
             // brushColours
@@ -667,12 +687,146 @@
             this.label8.TabIndex = 59;
             this.label8.Text = "Color Settings";
             // 
+            // iconPanel
+            // 
+            this.iconPanel.Controls.Add(this.iconPanelGreen);
+            this.iconPanel.Controls.Add(this.iconPanelBlue);
+            this.iconPanel.Controls.Add(this.iconPanelYellow);
+            this.iconPanel.Controls.Add(this.iconPanelRed);
+            this.iconPanel.Controls.Add(this.iconPanelWhite);
+            this.iconPanel.Controls.Add(this.iconPanelBlack);
+            this.iconPanel.Location = new System.Drawing.Point(478, 9);
+            this.iconPanel.Name = "iconPanel";
+            this.iconPanel.Size = new System.Drawing.Size(293, 135);
+            this.iconPanel.TabIndex = 60;
+            // 
+            // iconPanelGreen
+            // 
+            this.iconPanelGreen.Controls.Add(this.iconbtnGreen);
+            this.iconPanelGreen.Location = new System.Drawing.Point(510, 181);
+            this.iconPanelGreen.Name = "iconPanelGreen";
+            this.iconPanelGreen.Size = new System.Drawing.Size(144, 104);
+            this.iconPanelGreen.TabIndex = 5;
+            // 
+            // iconbtnGreen
+            // 
+            this.iconbtnGreen.BackColor = System.Drawing.Color.Lime;
+            this.iconbtnGreen.FlatAppearance.BorderSize = 0;
+            this.iconbtnGreen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconbtnGreen.Location = new System.Drawing.Point(3, 3);
+            this.iconbtnGreen.Name = "iconbtnGreen";
+            this.iconbtnGreen.Size = new System.Drawing.Size(106, 72);
+            this.iconbtnGreen.TabIndex = 1;
+            this.iconbtnGreen.UseVisualStyleBackColor = false;
+            this.iconbtnGreen.Click += new System.EventHandler(this.iconbtnGreen_Click);
+            // 
+            // iconPanelBlue
+            // 
+            this.iconPanelBlue.Controls.Add(this.iconbtnBlue);
+            this.iconPanelBlue.Location = new System.Drawing.Point(507, 42);
+            this.iconPanelBlue.Name = "iconPanelBlue";
+            this.iconPanelBlue.Size = new System.Drawing.Size(144, 104);
+            this.iconPanelBlue.TabIndex = 2;
+            // 
+            // iconbtnBlue
+            // 
+            this.iconbtnBlue.BackColor = System.Drawing.Color.Cyan;
+            this.iconbtnBlue.FlatAppearance.BorderSize = 0;
+            this.iconbtnBlue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconbtnBlue.Location = new System.Drawing.Point(3, 3);
+            this.iconbtnBlue.Name = "iconbtnBlue";
+            this.iconbtnBlue.Size = new System.Drawing.Size(106, 72);
+            this.iconbtnBlue.TabIndex = 1;
+            this.iconbtnBlue.UseVisualStyleBackColor = false;
+            this.iconbtnBlue.Click += new System.EventHandler(this.iconbtnBlue_Click);
+            // 
+            // iconPanelYellow
+            // 
+            this.iconPanelYellow.Controls.Add(this.iconbtnYellow);
+            this.iconPanelYellow.Location = new System.Drawing.Point(275, 181);
+            this.iconPanelYellow.Name = "iconPanelYellow";
+            this.iconPanelYellow.Size = new System.Drawing.Size(144, 104);
+            this.iconPanelYellow.TabIndex = 4;
+            // 
+            // iconbtnYellow
+            // 
+            this.iconbtnYellow.BackColor = System.Drawing.Color.Yellow;
+            this.iconbtnYellow.FlatAppearance.BorderSize = 0;
+            this.iconbtnYellow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconbtnYellow.Location = new System.Drawing.Point(3, 3);
+            this.iconbtnYellow.Name = "iconbtnYellow";
+            this.iconbtnYellow.Size = new System.Drawing.Size(106, 72);
+            this.iconbtnYellow.TabIndex = 1;
+            this.iconbtnYellow.UseVisualStyleBackColor = false;
+            this.iconbtnYellow.Click += new System.EventHandler(this.iconbtnYellow_Click);
+            // 
+            // iconPanelRed
+            // 
+            this.iconPanelRed.Controls.Add(this.iconbtnRed);
+            this.iconPanelRed.Location = new System.Drawing.Point(46, 181);
+            this.iconPanelRed.Name = "iconPanelRed";
+            this.iconPanelRed.Size = new System.Drawing.Size(144, 104);
+            this.iconPanelRed.TabIndex = 3;
+            // 
+            // iconbtnRed
+            // 
+            this.iconbtnRed.BackColor = System.Drawing.Color.Red;
+            this.iconbtnRed.FlatAppearance.BorderSize = 0;
+            this.iconbtnRed.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconbtnRed.Location = new System.Drawing.Point(3, 3);
+            this.iconbtnRed.Name = "iconbtnRed";
+            this.iconbtnRed.Size = new System.Drawing.Size(106, 72);
+            this.iconbtnRed.TabIndex = 0;
+            this.iconbtnRed.UseVisualStyleBackColor = false;
+            this.iconbtnRed.Click += new System.EventHandler(this.iconbtnRed_Click);
+            // 
+            // iconPanelWhite
+            // 
+            this.iconPanelWhite.Controls.Add(this.iconbtnWhite);
+            this.iconPanelWhite.Location = new System.Drawing.Point(272, 42);
+            this.iconPanelWhite.Name = "iconPanelWhite";
+            this.iconPanelWhite.Size = new System.Drawing.Size(144, 104);
+            this.iconPanelWhite.TabIndex = 1;
+            // 
+            // iconbtnWhite
+            // 
+            this.iconbtnWhite.BackColor = System.Drawing.Color.White;
+            this.iconbtnWhite.FlatAppearance.BorderSize = 0;
+            this.iconbtnWhite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconbtnWhite.ForeColor = System.Drawing.Color.Black;
+            this.iconbtnWhite.Location = new System.Drawing.Point(3, 3);
+            this.iconbtnWhite.Name = "iconbtnWhite";
+            this.iconbtnWhite.Size = new System.Drawing.Size(106, 72);
+            this.iconbtnWhite.TabIndex = 1;
+            this.iconbtnWhite.UseVisualStyleBackColor = false;
+            this.iconbtnWhite.Click += new System.EventHandler(this.iconbtnWhite_Click);
+            // 
+            // iconPanelBlack
+            // 
+            this.iconPanelBlack.Controls.Add(this.iconbtnBlack);
+            this.iconPanelBlack.Location = new System.Drawing.Point(43, 42);
+            this.iconPanelBlack.Name = "iconPanelBlack";
+            this.iconPanelBlack.Size = new System.Drawing.Size(144, 104);
+            this.iconPanelBlack.TabIndex = 0;
+            // 
+            // iconbtnBlack
+            // 
+            this.iconbtnBlack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconbtnBlack.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.iconbtnBlack.Location = new System.Drawing.Point(3, 3);
+            this.iconbtnBlack.Name = "iconbtnBlack";
+            this.iconbtnBlack.Size = new System.Drawing.Size(106, 72);
+            this.iconbtnBlack.TabIndex = 0;
+            this.iconbtnBlack.UseVisualStyleBackColor = true;
+            this.iconbtnBlack.Click += new System.EventHandler(this.iconbtnBlack_Click);
+            // 
             // ColourSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1476, 748);
+            this.ClientSize = new System.Drawing.Size(1476, 751);
+            this.Controls.Add(this.iconPanel);
             this.Controls.Add(this.panelSaveAndCancel);
             this.Controls.Add(this.btnPanel);
             this.Controls.Add(this.brushColours);
@@ -710,6 +864,13 @@
             this.panelSaveAndCancel.ResumeLayout(false);
             this.pnlCancel.ResumeLayout(false);
             this.pnlSave.ResumeLayout(false);
+            this.iconPanel.ResumeLayout(false);
+            this.iconPanelGreen.ResumeLayout(false);
+            this.iconPanelBlue.ResumeLayout(false);
+            this.iconPanelYellow.ResumeLayout(false);
+            this.iconPanelRed.ResumeLayout(false);
+            this.iconPanelWhite.ResumeLayout(false);
+            this.iconPanelBlack.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -774,5 +935,18 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panelBottom;
+        private System.Windows.Forms.Panel iconPanel;
+        private System.Windows.Forms.Panel iconPanelGreen;
+        private System.Windows.Forms.Button iconbtnGreen;
+        private System.Windows.Forms.Panel iconPanelBlue;
+        private System.Windows.Forms.Button iconbtnBlue;
+        private System.Windows.Forms.Panel iconPanelYellow;
+        private System.Windows.Forms.Button iconbtnYellow;
+        private System.Windows.Forms.Panel iconPanelRed;
+        private System.Windows.Forms.Button iconbtnRed;
+        private System.Windows.Forms.Panel iconPanelWhite;
+        private System.Windows.Forms.Button iconbtnWhite;
+        private System.Windows.Forms.Panel iconPanelBlack;
+        private System.Windows.Forms.Button iconbtnBlack;
     }
 }

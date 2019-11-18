@@ -19,7 +19,8 @@ namespace GazeToolBar
         private List<Panel> panels;
         private List<Button> buttons;
         private int saveLeft;
-        private Boolean colourbeingchanged;
+        private int colourbeingchanged;
+        private int tempIconColour;
 
         public ColourSettings(SettingsHome home, Form1 form1, FormsEyeXHost EyeXHost)
         {
@@ -30,6 +31,8 @@ namespace GazeToolBar
             this.form1 = form1;
             pnlMain.BackColor = Program.readSettings.mainColour;
             pnlSec.BackColor = Program.readSettings.secondColour;
+            pnlIcon.BackColor = Program.readSettings.iconColour;
+            tempIconColour = Program.readSettings.iconNumber;
             this.BackColor = Program.readSettings.mainColour;
             controlRelocateAndResize();
         }
@@ -47,6 +50,8 @@ namespace GazeToolBar
             {
                 Program.readSettings.secondColour = pnlSec.BackColor;
                 Program.readSettings.mainColour = pnlMain.BackColor;
+                Program.readSettings.iconNumber = tempIconColour;
+                Program.readSettings.iconColour = pnlIcon.BackColor;
                 Program.readSettings.createJSON(Program.readSettings.sidebar);
                 home.Show();
                 this.Close();
@@ -68,7 +73,7 @@ namespace GazeToolBar
             btnPanel.Left = ClientSize.Width + 4000;
             panelSaveAndCancel.Left = ClientSize.Width + 4000;
             brushColours.Left = 0;
-            colourbeingchanged = false;
+            colourbeingchanged = 0;
         }
 
         private void btnHighLight_Click(object sender, EventArgs e)
@@ -76,28 +81,34 @@ namespace GazeToolBar
             btnPanel.Left = ClientSize.Width + 4000;
             panelSaveAndCancel.Left = ClientSize.Width + 4000;
             brushColours.Left = 0;
-            colourbeingchanged = true;
+            colourbeingchanged = 1;
         }
 
         private void btnIcon_Click(object sender, EventArgs e)
         {
-
+            btnPanel.Left = ClientSize.Width + 4000;
+            panelSaveAndCancel.Left = ClientSize.Width + 4000;
+            iconPanel.Left = 0;
+            colourbeingchanged = 2;
         }
 
 
         private void changeColour(Button buttonClicked)
         {
-            if(colourbeingchanged)//Highlight colour is being changed
+            switch(colourbeingchanged)
             {
-                
-                pnlSec.BackColor = buttonClicked.BackColor;
-            }
-            else
-            {
-
-                pnlMain.BackColor = buttonClicked.BackColor;
+                case 0:
+                    pnlMain.BackColor = buttonClicked.BackColor;
+                    break;
+                case 1:
+                    pnlSec.BackColor = buttonClicked.BackColor;
+                    break;
+                case 2:
+                    pnlIcon.BackColor = buttonClicked.BackColor;
+                    break;
             }
             btnPanel.Left = 0;
+            iconPanel.Left = ClientSize.Width + 4000;
             panelSaveAndCancel.Left = saveLeft;
             brushColours.Left = ClientSize.Width + 4000;
         }
@@ -254,35 +265,98 @@ namespace GazeToolBar
                     button.Width = colourPanelwidth - 6;
                 }
             }
-
-            brushColours.Left = ClientSize.Width + 400;
-            foreach(Panel pane in panelTop.Controls)
+            iconPanel.Height = Convert.ToInt32(Constants.SCREEN_SIZE.Height - (Constants.SCREEN_SIZE.Height * 0.2));
+            iconPanel.Top = Convert.ToInt32(Constants.SCREEN_SIZE.Height * 0.2);
+            iconPanel.Left = 0;
+            iconPanel.Width = Constants.SCREEN_SIZE.Width;
+            colourPanelwidth = Convert.ToInt32((iconPanel.Width - (iconPanel.Width * 0.3)) / 4);
+            colourPanelheight = Convert.ToInt32((iconPanel.Height - (iconPanel.Height * 0.3)) / 4);
+            down = Convert.ToInt32(iconPanel.Height * 0.075);
+            left = Convert.ToInt32(iconPanel.Width * 0.075);
+            countLeft = 0;
+            foreach (Panel pane in iconPanel.Controls.OfType<Panel>())
             {
-                pane.ForeColor = Program.readSettings.secondColour;
+
+                pane.Height = colourPanelheight;
+                pane.Top = down;
+                pane.Left = left;
+                pane.Width = colourPanelwidth;
+                countLeft++;
+                left += (colourPanelwidth * 2);
+                if (countLeft > 2)
+                {
+                    countLeft = 0;
+                    left = Convert.ToInt32(iconPanel.Width * 0.075);
+                    down = down + (2 * colourPanelheight);
+                }
+                foreach (Button button in pane.Controls.OfType<Button>())
+                {
+                    button.Height = colourPanelheight - 6;
+                    button.Width = colourPanelwidth - 6;
+                }
+            }
+            brushColours.Left = ClientSize.Width + 400;
+            iconPanel.Left = ClientSize.Width + 400;
+            foreach (Panel pane in panelTop.Controls)
+            {
+                pane.ForeColor = Program.readSettings.iconColour;
             }
             foreach (Panel pane in panelBottom.Controls)
             {
                 foreach (Button button in pane.Controls)
                 {
-                    button.ForeColor = Program.readSettings.secondColour;
+                    button.ForeColor = Program.readSettings.iconColour;
                 }
                     
             }
             foreach (Control control in this.Controls)
             {
                 control.BackColor = Program.readSettings.mainColour;
-                control.ForeColor = Program.readSettings.secondColour;
+                control.ForeColor = Program.readSettings.iconColour;
             }
             foreach (Panel panel in panelSaveAndCancel.Controls)
             {
                 foreach (Button button in panel.Controls)
                 {
-                    button.ForeColor = Program.readSettings.secondColour;
+                    button.ForeColor = Program.readSettings.iconColour;
                 }
             }
         }
 
-
-
+        private void iconbtnBlack_Click(object sender, EventArgs e)
+        {
+            tempIconColour = 0;
+            changeColour(iconbtnBlack);
         }
+
+        private void iconbtnWhite_Click(object sender, EventArgs e)
+        {
+            tempIconColour = 1;
+            changeColour(iconbtnWhite);
+        }
+
+        private void iconbtnBlue_Click(object sender, EventArgs e)
+        {
+            tempIconColour = 2;
+            changeColour(iconbtnBlue);
+        }
+
+        private void iconbtnRed_Click(object sender, EventArgs e)
+        {
+            tempIconColour = 3;
+            changeColour(iconbtnRed);
+        }
+
+        private void iconbtnYellow_Click(object sender, EventArgs e)
+        {
+            tempIconColour = 4;
+            changeColour(iconbtnYellow);
+        }
+
+        private void iconbtnGreen_Click(object sender, EventArgs e)
+        {
+            Program.readSettings.iconNumber = 5;
+            changeColour(iconbtnGreen);
+        }
+    }
     }

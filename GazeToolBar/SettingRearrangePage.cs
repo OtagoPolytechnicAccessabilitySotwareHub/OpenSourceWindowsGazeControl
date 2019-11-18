@@ -195,7 +195,7 @@ namespace GazeToolBar
                 }
 
                 selectionButton = buttonString;
-                b.BackColor = Color.Red;
+                b.BackColor = Program.readSettings.secondColour;
             }
             else
             {
@@ -320,14 +320,86 @@ namespace GazeToolBar
             pnlRearrangeControls.Location = ReletiveSize.centerLocation(pnlRearrange, pnlRearrangeControls);
             pnlRearrange.Top = (label1.Location.Y + label1.Height);
             this.BackColor = Program.readSettings.mainColour;
-            label1.ForeColor = Program.readSettings.secondColour;
+            label1.ForeColor = Program.readSettings.iconColour;
             foreach (Panel panel in panelSaveAndCancel.Controls)
             {
                 foreach (Button button in panel.Controls)
                 {
-                    button.ForeColor = Program.readSettings.secondColour;
+                    button.ForeColor = Program.readSettings.iconColour;
                 }
             }
+
+            switch (Program.readSettings.iconNumber)
+            {
+                case 0:
+                    btnActionRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconbl;
+                    btnActionLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_iconbl;
+                    btnActionDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_iconbl;
+                    btnActionScrollClick.Image = GazeToolBar.Properties.Resources.Scroll_iconbl;
+                    btnActionKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconbl;
+                    btnActionSettings.Image = GazeToolBar.Properties.Resources.settings_iconbl;
+                    btnMoveUp.Image = GazeToolBar.Properties.Resources.button_upbl;
+                    btnMoveDown.Image = GazeToolBar.Properties.Resources.button_downbl;
+                    btnRemove.Image = GazeToolBar.Properties.Resources.button_leftbl;
+                    break;
+                case 1:
+                    btnActionRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconwt;
+                    btnActionLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_iconwt;
+                    btnActionDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_iconwt;
+                    btnActionScrollClick.Image = GazeToolBar.Properties.Resources.Scroll_iconwt;
+                    btnActionKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconwt;
+                    btnActionSettings.Image = GazeToolBar.Properties.Resources.settings_iconwt;
+                    btnMoveUp.Image = GazeToolBar.Properties.Resources.button_upwt;
+                    btnMoveDown.Image = GazeToolBar.Properties.Resources.button_downwt;
+                    btnRemove.Image = GazeToolBar.Properties.Resources.button_leftwt;
+                    break;
+                case 2:
+                    btnActionRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_icon;
+                    btnActionLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_icon;
+                    btnActionDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_icon;
+                    btnActionScrollClick.Image = GazeToolBar.Properties.Resources.Scroll_icon;
+                    btnActionKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_icon;
+                    btnActionSettings.Image = GazeToolBar.Properties.Resources.settings_icon;
+                    btnMoveUp.Image = GazeToolBar.Properties.Resources.button_up;
+                    btnMoveDown.Image = GazeToolBar.Properties.Resources.button_down;
+                    btnRemove.Image = GazeToolBar.Properties.Resources.button_left;
+                    break;
+                case 3:
+                    btnActionRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconrd;
+                    btnActionLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_iconrd;
+                    btnActionDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_iconrd;
+                    btnActionScrollClick.Image = GazeToolBar.Properties.Resources.Scroll_iconrd;
+                    btnActionKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconrd;
+                    btnActionSettings.Image = GazeToolBar.Properties.Resources.settings_iconrd;
+                    btnMoveUp.Image = GazeToolBar.Properties.Resources.button_uprd;
+                    btnMoveDown.Image = GazeToolBar.Properties.Resources.button_downrd;
+                    btnRemove.Image = GazeToolBar.Properties.Resources.button_leftrd;
+                    break;
+                case 4:
+                    btnActionRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_iconyl;
+                    btnActionLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_iconyl;
+                    btnActionDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_iconyl;
+                    btnActionScrollClick.Image = GazeToolBar.Properties.Resources.Scroll_iconyl;
+                    btnActionKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_iconyl;
+                    btnActionSettings.Image = GazeToolBar.Properties.Resources.settings_iconyl;
+                    btnMoveUp.Image = GazeToolBar.Properties.Resources.button_upyl;
+                    btnMoveDown.Image = GazeToolBar.Properties.Resources.button_downyl;
+                    btnRemove.Image = GazeToolBar.Properties.Resources.button_leftyl;
+                    break;
+                case 5:
+                    btnActionRightClick.Image = GazeToolBar.Properties.Resources.Right_Click_icongr;
+                    btnActionLeftClick.Image = GazeToolBar.Properties.Resources.Left_Click_icongr;
+                    btnActionDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_icongr;
+                    btnActionScrollClick.Image = GazeToolBar.Properties.Resources.Scroll_icongr;
+                    btnActionKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_icongr;
+                    btnActionSettings.Image = GazeToolBar.Properties.Resources.settings_iconbl;
+                    btnMoveUp.Image = GazeToolBar.Properties.Resources.button_upgr;
+                    btnMoveDown.Image = GazeToolBar.Properties.Resources.button_downgr;
+                    btnRemove.Image = GazeToolBar.Properties.Resources.button_leftgr;
+                    break;
+            }
+
+
 
         }
 

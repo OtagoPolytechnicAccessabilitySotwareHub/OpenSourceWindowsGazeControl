@@ -250,4 +250,94 @@
   <data name="settings_iconwt" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\settings-iconwt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="button_downgr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_downgr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_downrd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_downrd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_downyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_downyl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_leftgr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_leftgr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_leftrd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_leftrd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_leftyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_leftyl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_rightgr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_rightgr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_rightrd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_rightrd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_rightyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_rightyl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_upgr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_upgr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_uprd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_uprd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="button_upyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\button_upyl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Double_Click_icongr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Double-Click-icongr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Double_Click_iconrd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Double-Click-iconrd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Double_Click_iconyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Double-Click-iconyl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_icongr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Keyboard-icongr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_iconrd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Keyboard-iconrd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Keyboard_iconyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Keyboard-iconyl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Left_Click_icongr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Left-Click-icongr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Left_Click_iconrd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Left-Click-iconrd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Left_Click_iconyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Left-Click-iconyl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Right_Click_icongr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Right-Click-icongr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Right_Click_iconrd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Right-Click-iconrd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Right_Click_iconyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Right-Click-iconyl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Scroll_icongr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Scroll-icongr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Scroll_iconrd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Scroll-iconrd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Scroll_iconyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Scroll-iconyl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings_icongr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\settings-icongr.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings_iconrd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\settings-iconrd.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings_iconyl" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\settings-iconyl.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

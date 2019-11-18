@@ -46,7 +46,7 @@ namespace GazeToolBar
         public void ChangeButtonColor(Button button, bool onOff, bool hasText)
         {
 
-            button.BackColor = onOff ? Program.readSettings.secondColour : Program.readSettings.mainColour;
+            button.BackColor = onOff ? Program.readSettings.iconColour : Program.readSettings.mainColour;
             if (hasText)
             {
                 if (onOff)
@@ -55,7 +55,7 @@ namespace GazeToolBar
                 }
                 else
                 {
-                    button.ForeColor = Program.readSettings.secondColour;
+                    button.ForeColor = Program.readSettings.iconColour;
                 }
             }
         }
@@ -243,17 +243,17 @@ namespace GazeToolBar
             {
                 foreach (Button button in panel.Controls)
                 {
-                    button.ForeColor = Program.readSettings.secondColour;
+                    button.ForeColor = Program.readSettings.iconColour;
                 }
             }
-            label1.ForeColor = Program.readSettings.secondColour;
+            label1.ForeColor = Program.readSettings.iconColour;
             pnlZoomMode.BackColor = Program.readSettings.mainColour;
             pnlZoomSize.BackColor = Program.readSettings.mainColour;
             pnlZoomAmount.BackColor = Program.readSettings.mainColour;
-            labZoomWindowSize.ForeColor = Program.readSettings.secondColour;
-            labZoomAmount.ForeColor = Program.readSettings.secondColour;
+            labZoomWindowSize.ForeColor = Program.readSettings.iconColour;
+            labZoomAmount.ForeColor = Program.readSettings.iconColour;
             this.BackColor = Program.readSettings.mainColour;
-            this.ForeColor = Program.readSettings.secondColour;
+            this.ForeColor = Program.readSettings.iconColour;
 
 
         }

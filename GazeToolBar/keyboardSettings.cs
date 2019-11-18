@@ -72,16 +72,16 @@ namespace GazeToolBar
         {
             if(switchbool)
             {
-                on.BackColor = Program.readSettings.secondColour;
+                on.BackColor = Program.readSettings.iconColour;
                 off.BackColor = Program.readSettings.mainColour;
-                off.ForeColor = Program.readSettings.secondColour;
+                off.ForeColor = Program.readSettings.iconColour;
                 on.ForeColor = Program.readSettings.mainColour;
             }
             else
             {
-                off.BackColor = Program.readSettings.secondColour;
+                off.BackColor = Program.readSettings.iconColour;
                 on.BackColor = Program.readSettings.mainColour;
-                on.ForeColor = Program.readSettings.secondColour;
+                on.ForeColor = Program.readSettings.iconColour;
                 off.ForeColor = Program.readSettings.mainColour;
 
             }
@@ -188,16 +188,16 @@ namespace GazeToolBar
             {
                 foreach (Button button in panel.Controls)
                 {
-                    button.ForeColor = Program.readSettings.secondColour;
+                    button.ForeColor = Program.readSettings.iconColour;
                 }
             }
             this.BackColor = Program.readSettings.mainColour;
-            label6.ForeColor = Program.readSettings.secondColour;
-            label7.ForeColor = Program.readSettings.secondColour;
-            label8.ForeColor = Program.readSettings.secondColour;
+            label6.ForeColor = Program.readSettings.iconColour;
+            label7.ForeColor = Program.readSettings.iconColour;
+            label8.ForeColor = Program.readSettings.iconColour;
             foreach (Label label in panelTitle.Controls)
             {
-                label.ForeColor = Program.readSettings.secondColour;
+                label.ForeColor = Program.readSettings.iconColour;
             }
 
 
