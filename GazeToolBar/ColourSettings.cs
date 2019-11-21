@@ -355,7 +355,7 @@ namespace GazeToolBar
 
         private void iconbtnGreen_Click(object sender, EventArgs e)
         {
-            Program.readSettings.iconNumber = 5;
+            tempIconColour = 5;
             changeColour(iconbtnGreen);
         }
     }
