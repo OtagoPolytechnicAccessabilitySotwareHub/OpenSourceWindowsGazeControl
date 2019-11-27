@@ -121,22 +121,25 @@ namespace GazeToolBar
 
                 form1.OnStartTextChange();
                 Program.readSettings.createJSON(Program.readSettings.sidebar);
-                Close();
-                //form1.NotifyIcon.BalloonTipTitle = "Saving success";
-                //form1.NotifyIcon.BalloonTipText = "Your settings are successfuly saved";
+                form1.NotifyIcon.BalloonTipTitle = "Saving success";
+                form1.NotifyIcon.BalloonTipText = "Your settings are successfuly saved";
                 this.Close();
                 form1.stateManager.ResetMagnifier();
-                //form1.NotifyIcon.ShowBalloonTip(2000);
+                form1.NotifyIcon.ShowBalloonTip(2000);
             }
             catch (Exception exception)
             {
-                //form1.NotifyIcon.BalloonTipTitle = "Saving error";
-                //form1.NotifyIcon.BalloonTipText = "For some reason, your settings are not successfuly saved, click me to show error message";
-                //form1.NotifyIcon.Tag = exception.Message;
+                form1.NotifyIcon.BalloonTipTitle = "Saving error";
+                form1.NotifyIcon.BalloonTipText = "For some reason, your settings are not successfuly saved, click me to show error message";
+                form1.NotifyIcon.Tag = exception.Message;
                 this.Close();
-                //form1.NotifyIcon.BalloonTipClicked += NotifyIcon_BalloonTipClicked;
-                //form1.NotifyIcon.ShowBalloonTip(5000);
+                form1.NotifyIcon.BalloonTipClicked += NotifyIcon_BalloonTipClicked;
+                form1.NotifyIcon.ShowBalloonTip(5000);
             }
+        }
+        void NotifyIcon_BalloonTipClicked(object sender, EventArgs e)
+        {
+            MessageBox.Show((String)((NotifyIcon)sender).Tag, "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void GeneralSettingsForm_Load(object sender, EventArgs e)

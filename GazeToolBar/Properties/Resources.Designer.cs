@@ -546,37 +546,72 @@ namespace GazeToolBar.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ?b?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
-        ///?,?
+        ///   Looks up a localized string similar to àbç
+        ///à,À
+        ///á,Á
+        ///â,Â
+        ///ã,Ã
+        ///ä,Ä
+        ///ç,Ç
+        ///è,È
+        ///é,É
+        ///ê,Ê
+        ///ë,Ë
+        ///ì,Ì
+        ///í,Í
+        ///î,Î
+        ///ï,Ï
+        ///ñ,Ñ
+        ///ò,Ò
+        ///ó,Ó
+        ///ô,Ô
+        ///õ,Õ
+        ///ö,Ö
+        ///ù,Ú
+        ///ú,Û
+        ///ü,Ü
+        ///û,Ù
         ///¿,¿
         ///¡,¡.
         /// </summary>
         internal static string KeyboardSetThree {
             get {
                 return ResourceManager.GetString("KeyboardSetThree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to àbç
+        ///à,À
+        ///á,Á
+        ///â,Â
+        ///ã,Ã
+        ///ä,Ä
+        ///ç,Ç
+        ///è,È
+        ///é,É
+        ///ê,Ê
+        ///ë,Ë
+        ///ì,Ì
+        ///í,Í
+        ///î,Î
+        ///ï,Ï
+        ///ñ,Ñ
+        ///ò,Ò
+        ///ó,Ó
+        ///ô,Ô
+        ///õ,Õ
+        ///ö,Ö
+        ///ù,Ú
+        ///ú,Û
+        ///ü,Ü
+        ///û,Ù
+        ///¿,¿
+        ///¡,¡.
+        /// </summary>
+        internal static string KeyboardSetThree1 {
+            get {
+                return ResourceManager.GetString("KeyboardSetThree1", resourceCulture);
             }
         }
         

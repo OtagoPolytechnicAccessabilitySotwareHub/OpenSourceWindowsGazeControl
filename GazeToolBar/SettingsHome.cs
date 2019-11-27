@@ -187,7 +187,7 @@ namespace GazeToolBar
             }
             button1.BackColor = Color.White;
             button1.ForeColor = Color.Black;
-
+            button1.Font = new Font(button1.Font.FontFamily, Constants.SCREEN_SIZE.Width / 80);
         }
 
 

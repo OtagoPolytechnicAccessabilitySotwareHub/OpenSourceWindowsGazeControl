@@ -32,8 +32,6 @@ namespace GazeToolBar
         private int KeyboardView; //Which keyboard is being displayed
 
         //Lists for each key on the keyboard. Enter, Tab, Space, ,, ., shift not included.
-        private int third;
-        private int predWordSize;
         private keyboardKeys[] keys;
 
         private Panel F1keyboardPanel;
@@ -59,8 +57,6 @@ namespace GazeToolBar
             F1DoubleClickPanel = form1DCP;
             F1ScrollPanel = form1ScrollP;
             this.gazeSidePanel = gazeSidePanel;
-
-
 
         }
 
