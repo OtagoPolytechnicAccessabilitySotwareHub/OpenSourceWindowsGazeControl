@@ -75,8 +75,9 @@ namespace GazeToolBar
 
             dynamicZoom = Program.readSettings.dynamicZoom;
             corners = Program.readSettings.centerZoom;
-            
 
+            connectBehaveMap();
+            form1.shortCutKeyWorker.StopKeyboardWorker();
             form1.LowLevelKeyBoardHook.OnKeyPressed += GetKeyPress;
 
         }

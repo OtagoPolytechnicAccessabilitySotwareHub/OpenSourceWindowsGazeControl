@@ -83,6 +83,7 @@ namespace GazeToolBar
 
             foreach (String s in Program.readSettings.sidebar)
             {
+                Console.WriteLine(s);
                 AddAction(s);
             }
         }
@@ -103,8 +104,12 @@ namespace GazeToolBar
 
         public void RemoveAction(String actionString)
         {
-            selectedActions.Remove(actionString);
-            RefreshActions();
+            if(actionString!="settings")
+            {
+                selectedActions.Remove(actionString);
+                RefreshActions();
+            }
+
         }
 
         public void RefreshActions()
@@ -392,7 +397,7 @@ namespace GazeToolBar
                     btnActionDoubleLeftClick.Image = GazeToolBar.Properties.Resources.Double_Click_icongr;
                     btnActionScrollClick.Image = GazeToolBar.Properties.Resources.Scroll_icongr;
                     btnActionKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_icongr;
-                    btnActionSettings.Image = GazeToolBar.Properties.Resources.settings_iconbl;
+                    btnActionSettings.Image = GazeToolBar.Properties.Resources.settings_icongr;
                     btnMoveUp.Image = GazeToolBar.Properties.Resources.button_upgr;
                     btnMoveDown.Image = GazeToolBar.Properties.Resources.button_downgr;
                     btnRemove.Image = GazeToolBar.Properties.Resources.button_leftgr;

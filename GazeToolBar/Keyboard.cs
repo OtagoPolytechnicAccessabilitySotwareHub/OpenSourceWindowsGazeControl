@@ -119,11 +119,6 @@ namespace GazeToolBar
                 }
             }
 
-            third = panel38.Width / 3;
-
-            predWordSize = (third * 2) / 4;
-
-
             
             keys = new keyboardKeys[27];
             List<String> keyboardsAvailable = new List<string>();
@@ -144,11 +139,6 @@ namespace GazeToolBar
             //{
             //    keyboardsAvailable.Add("KeyboardSetOne.txt");
             //}
-            KeyboardAmount = keyboardsAvailable.Count * 2;
-            for (int i = 0; i < 27; i++)
-            {
-                keys[i] = new keyboardKeys();
-            }
             btnDoubleLeftClick.BackColor = Program.readSettings.mainColour;
             btnKeyboard.BackColor = Program.readSettings.mainColour;
             btnLeftClick.BackColor = Program.readSettings.mainColour;
@@ -200,38 +190,6 @@ namespace GazeToolBar
                     btnKeyboard.Image = GazeToolBar.Properties.Resources.Keyboard_icongr;
                     break;
             }
-            for (int i = 0; i < keyboardsAvailable.Count; i++)
-            {
-                using (StreamReader sr = new StreamReader(keyboardsAvailable[i], Encoding.GetEncoding("iso-8859-1")))
-                    {
-                        string line;
-                        int lineNum = 0;
-                        string firstEnt = sr.ReadLine();
-                        keys[lineNum].addKey(firstEnt);
-                        keys[lineNum].addKey(firstEnt);
-                        while ((line = sr.ReadLine()) != null)
-                        {
-                            lineNum++;
-                            string[] seperateKeys = line.Split(',');
-                            keys[lineNum].addKey(seperateKeys[0]);
-                            keys[lineNum].addKey(seperateKeys[1]);
-                    }
-
-                }
-                
-            }
-
-            //puts correct text on keys
-            rename_buttons();
-            //Keys that are never renamed
-            button28.Text = "⌫";
-            button8.Text = "⇧";
-            button36.Text = "⭾";    
-            button34.Text = "↵";
-            button6.Text = "Ctrl";
-            button19.Text = "⎵";
-            button3.Text = ".";
-            button22.Text = ",";
 
             //close button
             pnlHighLightKeyboard.Location = F1keyboardPanel.Location;
@@ -253,6 +211,59 @@ namespace GazeToolBar
             panelDLeftClick.Location = F1DoubleClickPanel.Location;
             panelDLeftClick.Left = Convert.ToInt32((F1DoubleClickPanel.Left + System.Windows.SystemParameters.WorkArea.Width));
             panelDLeftClick.Size = F1DoubleClickPanel.Size;
+            if (keyboardsAvailable.Count>0)
+            {
+                KeyboardAmount = keyboardsAvailable.Count * 2;
+                for (int i = 0; i < 27; i++)
+                {
+                    keys[i] = new keyboardKeys();
+                }
+
+
+
+                for (int i = 0; i < keyboardsAvailable.Count; i++)
+                {
+                    using (StreamReader sr = new StreamReader(keyboardsAvailable[i], Encoding.GetEncoding("iso-8859-1")))
+                    {
+                        string line;
+                        int lineNum = 0;
+                        string firstEnt = sr.ReadLine();
+                        keys[lineNum].addKey(firstEnt);
+                        keys[lineNum].addKey(firstEnt);
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            lineNum++;
+                            string[] seperateKeys = line.Split(',');
+                            keys[lineNum].addKey(seperateKeys[0]);
+                            keys[lineNum].addKey(seperateKeys[1]);
+                        }
+
+                    }
+
+                }
+
+                //puts correct text on keys
+                rename_buttons();
+                //Keys that are never renamed
+                button28.Text = "⌫";
+                button8.Text = "⇧";
+                button36.Text = "⭾";
+                button34.Text = "↵";
+                button6.Text = "Ctrl";
+                button19.Text = "⎵";
+                button3.Text = ".";
+                button22.Text = ",";
+
+                
+            }
+            else
+            {
+                foreach (Control control in panel38.Controls)
+                { 
+                    control.Location = (new Point(Constants.SCREEN_SIZE.Width+500, Constants.SCREEN_SIZE.Width+500));
+                }
+            }
+            
         }
 
         //Changes text on keyboard when 'abc' and shift are pressed
