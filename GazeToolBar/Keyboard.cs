@@ -615,8 +615,11 @@ namespace GazeToolBar
             this.Close();
         }
 
+
+
         private void btnLeftClick_Click(object sender, EventArgs e)
         {
+            Console.WriteLine("Gazeclick");
             gazeSidePanel.btnSingleLeftClick.PerformClick();
         }
 

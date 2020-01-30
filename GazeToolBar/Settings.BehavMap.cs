@@ -16,93 +16,93 @@ namespace GazeToolBar
 
         int buttonClickDelay = 800;
         String notAssigned = "N/A";
-        SettingState currentSelection = SettingState.General;
+        //SettingState currentSelection = SettingState.General;
 
         private void connectBehaveMap()
         {
-            eyeXHost.Connect(bhavSettingMap);
-            eyeXHost.Connect(bhavGeneralMap);
+            eyeXHost.Connect(bhavShortcutMap);
+            //eyeXHost.Connect(bhavGeneralMap);
 
             setupMap();
             setupShortcutMap();
         }
         
-        private void removeCurrentMap()
-        {
-            switch (currentSelection)
-            {
-                case SettingState.General: //General settings
-                    bhavGeneralMap.Dispose();
-                    break;
-                case SettingState.Zoom: //Zoom settings
-                    bhavZoomMap.Dispose();
-                    break;
-                case SettingState.Shortcut: //Shortcut settings
-                    bhavShortcutMap.Dispose();
-                    break;
-                case SettingState.Rearrange: //Rearrange settings
-                    bhavRearrangeMap.Dispose();
-                    break;
-                case SettingState.Crosshair: //Crosshair settings
-                    bhavCrosshairMap.Dispose();
-                    break;
-                case SettingState.Confirm: //Confirm page
-                    bhavConfirmMap.Dispose();
-                    break;
-                default:
-                    break;
-            }
-        }
+        //private void removeCurrentMap()
+        //{
+        //    switch (currentSelection)
+        //    {
+        //        case SettingState.General: //General settings
+        //            bhavGeneralMap.Dispose();
+        //            break;
+        //        case SettingState.Zoom: //Zoom settings
+        //            bhavZoomMap.Dispose();
+        //            break;
+        //        case SettingState.Shortcut: //Shortcut settings
+        //            bhavShortcutMap.Dispose();
+        //            break;
+        //        case SettingState.Rearrange: //Rearrange settings
+        //            bhavRearrangeMap.Dispose();
+        //            break;
+        //        case SettingState.Crosshair: //Crosshair settings
+        //            bhavCrosshairMap.Dispose();
+        //            break;
+        //        case SettingState.Confirm: //Confirm page
+        //            bhavConfirmMap.Dispose();
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
         
         
-        public void UseMap(SettingState mapToAdd)
-        {
-            removeCurrentMap();
-            switch (mapToAdd)
-            {
-                case SettingState.General: //General settings
-                    eyeXHost.Connect(bhavGeneralMap);
-                    currentSelection = SettingState.General;
-                    break;
-                case SettingState.Zoom: //Zoom settings
-                    eyeXHost.Connect(bhavZoomMap);
-                    currentSelection = SettingState.Zoom;
-                    break;
-                case SettingState.Shortcut: //Shortcut settings
-                    eyeXHost.Connect(bhavShortcutMap);
-                    setupShortcutMap();
-                    currentSelection = SettingState.Shortcut;
-                    break;
-                case SettingState.Rearrange: //Rearrange settings
-                    eyeXHost.Connect(bhavRearrangeMap);
-                    currentSelection = SettingState.Rearrange;
-                    break;
-                case SettingState.Crosshair: //Crosshair settings
-                    eyeXHost.Connect(bhavCrosshairMap);
-                    currentSelection = SettingState.Crosshair;
-                    break;
-                case SettingState.Confirm: //Confirm page 
-                    eyeXHost.Connect(bhavConfirmMap);
-                    currentSelection = SettingState.Confirm;
-                    break;
-                default:
-                    break;
-            }
-        }
+        //public void UseMap(SettingState mapToAdd)
+        //{
+        //    //removeCurrentMap();
+        //    switch (mapToAdd)
+        //    {
+        //        case SettingState.General: //General settings
+        //            eyeXHost.Connect(bhavGeneralMap);
+        //            currentSelection = SettingState.General;
+        //            break;
+        //        case SettingState.Zoom: //Zoom settings
+        //            eyeXHost.Connect(bhavZoomMap);
+        //            currentSelection = SettingState.Zoom;
+        //            break;
+        //        case SettingState.Shortcut: //Shortcut settings
+        //            eyeXHost.Connect(bhavShortcutMap);
+        //            setupShortcutMap();
+        //            currentSelection = SettingState.Shortcut;
+        //            break;
+        //        case SettingState.Rearrange: //Rearrange settings
+        //            eyeXHost.Connect(bhavRearrangeMap);
+        //            currentSelection = SettingState.Rearrange;
+        //            break;
+        //        case SettingState.Crosshair: //Crosshair settings
+        //            eyeXHost.Connect(bhavCrosshairMap);
+        //            currentSelection = SettingState.Crosshair;
+        //            break;
+        //        case SettingState.Confirm: //Confirm page 
+        //            eyeXHost.Connect(bhavConfirmMap);
+        //            currentSelection = SettingState.Confirm;
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
         
 
-        public void RemoveAndAddMainBhavMap(string removeOrAdd)
-        {
-            if (removeOrAdd == "add")
-            {
-                eyeXHost.Connect(bhavSettingMap);
-                setupMap();
-            }
-            else if (removeOrAdd == "remove")
-            {
-                bhavSettingMap.Dispose();
-            }
-        }
+        //public void RemoveAndAddMainBhavMap(string removeOrAdd)
+        //{
+        //    if (removeOrAdd == "add")
+        //    {
+        //        eyeXHost.Connect(bhavSettingMap);
+        //        setupMap();
+        //    }
+        //    else if (removeOrAdd == "remove")
+        //    {
+        //        bhavSettingMap.Dispose();
+        //    }
+        //}
 
         
 
@@ -135,11 +135,11 @@ namespace GazeToolBar
         
         private void setupMap()
         {
-            bhavSettingMap.Add(btnSave, new GazeAwareBehavior(OnbtnSave_Click) { DelayMilliseconds = buttonClickDelay });
-            bhavSettingMap.Add(btnCancel, new GazeAwareBehavior(OnbtnCancel_Click) { DelayMilliseconds = buttonClickDelay });
+            bhavShortcutMap.Add(btnSave, new GazeAwareBehavior(OnbtnSave_Click) { DelayMilliseconds = buttonClickDelay });
+            bhavShortcutMap.Add(btnCancel, new GazeAwareBehavior(OnbtnCancel_Click) { DelayMilliseconds = buttonClickDelay });
 
-            bhavSettingMap.Add(pnlSave, new GazeAwareBehavior(OnGazeChangeBTColour));
-            bhavSettingMap.Add(pnlCancel, new GazeAwareBehavior(OnGazeChangeBTColour));
+            bhavShortcutMap.Add(pnlSave, new GazeAwareBehavior(OnGazeChangeBTColour));
+            bhavShortcutMap.Add(pnlCancel, new GazeAwareBehavior(OnGazeChangeBTColour));
         }
 
         //toggle border on and off on gaze to gaze to give feed back.

@@ -84,6 +84,9 @@ namespace GazeToolBar
             {
                 case 0:
                     currentSecond.Enabled = false;
+                    Button tempButton = findIconColour();
+                    tempButton.Enabled = false;
+                    tempButton.Text = "Icon Color";
                     break;
                 case 1:
                     currentMain.Enabled = false;
@@ -98,6 +101,7 @@ namespace GazeToolBar
                     }
                     break;
             }
+            
             currentSecond.ForeColor = currentMain.BackColor;
             currentMain.ForeColor = currentSecond.BackColor;
             currentSecond.Text = "Highlight colour";
@@ -148,6 +152,9 @@ namespace GazeToolBar
                     pnlMain.BackColor = buttonClicked.BackColor;
                     currentMain.Text = "";
                     currentMain = buttonClicked;
+                    Button tempButton = findIconColour();
+                    tempButton.Enabled = true;
+                    tempButton.Text = "";
                     break;
                 case 1:
                     pnlSec.BackColor = buttonClicked.BackColor;
@@ -175,7 +182,20 @@ namespace GazeToolBar
         }
 
 
-
+        private Button findIconColour()
+        {
+            foreach (Panel pane in brushColours.Controls.OfType<Panel>())
+            {
+                foreach (Button button in pane.Controls.OfType<Button>())
+                {
+                    if (button.BackColor == pnlIcon.BackColor)
+                    {
+                        return button;
+                    }
+                }
+            }
+            return null;
+        }
 
         private void eliminateIconColourOption()
         {

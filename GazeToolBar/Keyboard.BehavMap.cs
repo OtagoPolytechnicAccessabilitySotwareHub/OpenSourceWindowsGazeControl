@@ -142,30 +142,57 @@ namespace GazeToolBar
             Form2Map.Add(button37, new GazeAwareBehavior(button37_Click) { DelayMilliseconds = buttonClickDelay });
             Form2Map.Add(panel32, new GazeAwareBehavior(OnGazeChangeBTColour));
 
-           
+
 
 
 
 
             //New side panel buttons
 
-            Form2Map.Add(btnKeyboard, new GazeAwareBehavior(btnKeyboard_Click) { DelayMilliseconds = 1000 });
+            Form2Map.Add(btnKeyboard, new GazeAwareBehavior(btnKeyboard_click) { DelayMilliseconds = 1000 });
             Form2Map.Add(pnlHighLightKeyboard, new GazeAwareBehavior(OnGazeChangeBTColour2));
 
-            Form2Map.Add(btnDoubleLeftClick, new GazeAwareBehavior(btnDoubleLeftClick_Click) { DelayMilliseconds = 1000 });
+            Form2Map.Add(btnDoubleLeftClick, new GazeAwareBehavior(btnDoubleLeftClick_click) { DelayMilliseconds = 1000 });
             Form2Map.Add(panelDLeftClick, new GazeAwareBehavior(OnGazeChangeBTColour2));
 
-            Form2Map.Add(btnLeftClick, new GazeAwareBehavior(btnLeftClick_Click) { DelayMilliseconds = 1000 });
+            Form2Map.Add(btnLeftClick, new GazeAwareBehavior(btnLeftClick_click) { DelayMilliseconds = 1000 });
             Form2Map.Add(panelLeftClick, new GazeAwareBehavior(OnGazeChangeBTColour2));
 
-            Form2Map.Add(btnRightClick, new GazeAwareBehavior(btnRightClick_Click) { DelayMilliseconds = 1000 });
+            Form2Map.Add(btnRightClick, new GazeAwareBehavior(btnRightClick_click) { DelayMilliseconds = 1000 });
             Form2Map.Add(panelRightClick, new GazeAwareBehavior(OnGazeChangeBTColour2));
 
-            Form2Map.Add(btnScroll, new GazeAwareBehavior(btnScroll_Click) { DelayMilliseconds = 1000 });
+            Form2Map.Add(btnScroll, new GazeAwareBehavior(btnScroll_click) { DelayMilliseconds = 1000 });
             Form2Map.Add(panelScroll, new GazeAwareBehavior(OnGazeChangeBTColour2));
 
 
         }
+
+        private void btnKeyboard_click(object s, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnKeyboard.PerformClick();
+        }
+
+        private void btnDoubleLeftClick_click(object s, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnDoubleLeftClick.PerformClick();
+        }
+
+        private void btnLeftClick_click(object s, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnLeftClick.PerformClick();
+        }
+
+        private void btnRightClick_click(object s, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnRightClick.PerformClick();
+        }
+
+        private void btnScroll_click(object s, GazeAwareEventArgs e)
+        {
+            if (e.HasGaze) btnScroll.PerformClick();
+        }
+
+
 
         //toggle border on and off on gaze to gaze to give feed back.
         private void OnGazeChangeBTColour(object s, GazeAwareEventArgs e) 

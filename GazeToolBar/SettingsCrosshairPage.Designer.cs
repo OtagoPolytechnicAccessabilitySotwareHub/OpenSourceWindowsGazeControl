@@ -60,7 +60,7 @@
             // 
             // pictureBoxCrosshairPreview
             // 
-            this.pictureBoxCrosshairPreview.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxCrosshairPreview.BackColor = System.Drawing.Color.White;
             this.pictureBoxCrosshairPreview.Location = new System.Drawing.Point(621, 260);
             this.pictureBoxCrosshairPreview.Name = "pictureBoxCrosshairPreview";
             this.pictureBoxCrosshairPreview.Size = new System.Drawing.Size(150, 150);
@@ -260,6 +260,7 @@
             this.Text = "0.";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.SettingsCrosshairPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCrosshairPreview)).EndInit();
             this.panelCrosshairSelection.ResumeLayout(false);
             this.panelCrosshairSelection.PerformLayout();

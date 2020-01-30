@@ -159,6 +159,10 @@ namespace GazeToolBar
             this.BackColor = Program.readSettings.mainColour;
         }
 
-
+        private void SettingsCrosshairPage_Load(object sender, EventArgs e)
+        {
+            trackBarCrosshair.Value = Program.readSettings.Crosshair;
+            UpdateCrosshair();
+        }
     }
 }

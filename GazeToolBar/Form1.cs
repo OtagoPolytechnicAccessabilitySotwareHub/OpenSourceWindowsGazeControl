@@ -203,10 +203,9 @@ namespace GazeToolBar
             timer2.Enabled = true;
 
             Height = (int)System.Windows.SystemParameters.PrimaryScreenHeight;
-
             String[] sidebarArrangement = Program.readSettings.sidebar;
             ArrangeSidebar(sidebarArrangement);
-
+            SystemFlags.actionToBePerformed = ActionToBePerformed.none;
             //if (!checkOpenForm(typeof(SettingsForm)))
             //{
             //    settings = new SettingsForm(this, eyeXHost);
@@ -267,26 +266,62 @@ namespace GazeToolBar
 
         private void btnRightClick_Click(object sender, EventArgs e)
         {
-
+            
             stopScroll();
-            SystemFlags.actionButtonSelected = true;//raise action button flag
-            SystemFlags.actionToBePerformed = ActionToBePerformed.RightClick;
+            if (SystemFlags.actionToBePerformed == ActionToBePerformed.RightClick)//|| (SystemFlags.actionButtonSelected == true))
+            {
+                
+                SystemFlags.actionToBePerformed = ActionToBePerformed.none;
+                SystemFlags.actionButtonSelected = false;
+                stateManager.SetState(SystemState.Wait);
+                stateManager.ResetMagnifier();
+                stateManager.zoomForm.ResetZoomLens();
+            }
+            else
+            {
+                SystemFlags.actionButtonSelected = true;//raise action button flag
+                SystemFlags.actionToBePerformed = ActionToBePerformed.RightClick;
+                
+            }
             checkIfKeyboardIsOpen();
         }
 
         private void btnSingleLeftClick_Click(object sender, EventArgs e)
         {
             stopScroll();
-            SystemFlags.actionButtonSelected = true;//raise action button flag
-            SystemFlags.actionToBePerformed = ActionToBePerformed.LeftClick;
+            Console.WriteLine(SystemFlags.actionToBePerformed);
+            if (SystemFlags.actionToBePerformed == ActionToBePerformed.LeftClick)
+            {
+                SystemFlags.actionToBePerformed = ActionToBePerformed.none;
+                SystemFlags.actionButtonSelected = false;
+                stateManager.SetState(SystemState.Wait);
+                stateManager.ResetMagnifier();
+                stateManager.zoomForm.ResetZoomLens();
+            }
+            else
+            {
+                SystemFlags.actionButtonSelected = true;//raise action button flag
+                SystemFlags.actionToBePerformed = ActionToBePerformed.LeftClick;
+            }
             checkIfKeyboardIsOpen();
         }
 
         private void btnDoubleClick_Click(object sender, EventArgs e)
         {
             stopScroll();
-            SystemFlags.actionButtonSelected = true;//raise action button flag
-            SystemFlags.actionToBePerformed = ActionToBePerformed.DoubleClick;
+            if (SystemFlags.actionToBePerformed == ActionToBePerformed.DoubleClick)
+            {
+                SystemFlags.actionToBePerformed = ActionToBePerformed.none;
+                SystemFlags.actionButtonSelected = false;
+                stateManager.SetState(SystemState.Wait);
+                stateManager.ResetMagnifier();
+                stateManager.zoomForm.ResetZoomLens();
+            }
+            else
+            {
+                SystemFlags.actionButtonSelected = true;//raise action button flag
+                SystemFlags.actionToBePerformed = ActionToBePerformed.DoubleClick;
+            }
             checkIfKeyboardIsOpen();
         }
 

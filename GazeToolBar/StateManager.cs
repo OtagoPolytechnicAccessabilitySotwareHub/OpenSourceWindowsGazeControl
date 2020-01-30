@@ -25,7 +25,7 @@ namespace GazeToolBar
         private Timer ControlTimer;
 
         //This is the form that appears when clicking on an area of the screen
-        private ZoomLens zoomForm;
+        public ZoomLens zoomForm;
 
         //This controls the magnification on the ZoomLens
         //private ZoomMagnifier magnifier;

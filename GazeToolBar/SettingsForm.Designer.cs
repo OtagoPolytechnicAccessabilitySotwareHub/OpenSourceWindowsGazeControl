@@ -169,7 +169,7 @@ namespace GazeToolBar
             // 
             // pnlPageKeyboard
             // 
-            this.pnlPageKeyboard.BackColor = System.Drawing.Color.Black;
+            this.pnlPageKeyboard.BackColor = System.Drawing.Color.Transparent;
             this.pnlPageKeyboard.Controls.Add(this.pnlLeftClick);
             this.pnlPageKeyboard.Controls.Add(this.lbFKeyFeedback);
             this.pnlPageKeyboard.Controls.Add(this.pnlRightClick);
@@ -607,7 +607,7 @@ namespace GazeToolBar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1825, 1181);
+            this.ClientSize = new System.Drawing.Size(1825, 1061);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnlPageKeyboard);
             this.Controls.Add(this.panelSaveAndCancel);
@@ -660,7 +660,7 @@ namespace GazeToolBar
         private Button btnSave;
         private Button btnCancel;
         private Panel panelSaveAndCancel;
-        private EyeXFramework.Forms.BehaviorMap bhavSettingMap;
+        
         private Panel pnlPageKeyboard;
         private Panel pnlLeftClick;
         private Label lbLeft;
@@ -706,5 +706,6 @@ namespace GazeToolBar
         private PictureBox pictureBox6;
         private EyeXFramework.Forms.BehaviorMap bhavConfirmMap;
         private Label label1;
+        private EyeXFramework.Forms.BehaviorMap bhavSettingMap;
     }
 }

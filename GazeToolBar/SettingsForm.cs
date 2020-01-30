@@ -76,15 +76,38 @@ namespace GazeToolBar
             dynamicZoom = Program.readSettings.dynamicZoom;
             corners = Program.readSettings.centerZoom;
 
-            connectBehaveMap();
+            //connectBehaveMap();
             form1.shortCutKeyWorker.StopKeyboardWorker();
             form1.LowLevelKeyBoardHook.OnKeyPressed += GetKeyPress;
-
+            setColours();
         }
 
         
 
         ///
+
+        private void setColours()
+        {
+            this.BackColor = Program.readSettings.mainColour;
+            //pnlPageKeyboard
+
+            foreach (Panel panel in panelSaveAndCancel.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    button.ForeColor = Program.readSettings.iconColour;
+                }
+            }
+
+            btFKeyLeftClick.ForeColor = Program.readSettings.iconColour;
+            btClearFKeyLeftClick.ForeColor = Program.readSettings.iconColour;
+            btFKeyRightClick.ForeColor = Program.readSettings.iconColour;
+            btClearFKeyRightClick.ForeColor = Program.readSettings.iconColour;
+            btFKeyDoubleClick.ForeColor = Program.readSettings.iconColour;
+            btClearFKeyDoubleClick.ForeColor = Program.readSettings.iconColour;
+            btFKeyScroll.ForeColor = Program.readSettings.iconColour;
+            btClearFKeyScroll.ForeColor = Program.readSettings.iconColour;
+        }
        
         ///
         public void ChangeButtonColor(Button button, bool onOff, bool hasText)
@@ -95,11 +118,11 @@ namespace GazeToolBar
             {
                 if (onOff)
                 {
-                    button.ForeColor = Color.Black;
+                    button.ForeColor = Program.readSettings.mainColour;
                 }
                 else
                 {
-                    button.ForeColor = Color.White;
+                    button.ForeColor = Program.readSettings.secondColour;
                 }
             }
         }

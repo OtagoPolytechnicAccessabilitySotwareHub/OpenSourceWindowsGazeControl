@@ -13,10 +13,10 @@ namespace GazeToolBar
     */
     public static class Constants
     {
-        public static readonly int MIN_TIME_LENGTH = 500;
-        public static readonly int GAP_TIME_LENGTH = 200;
+        public static readonly int MIN_TIME_LENGTH = 200;
+        public static readonly int GAP_TIME_LENGTH = 100;
         public static readonly int DEFAULT_TIME_LENGTH = 1000;
-        public static readonly int MIN_TIME_OUT = 4500;
+        public static readonly int MIN_TIME_OUT = 3000;
         public static readonly int GAP_TIME_OUT = 500;
         public static readonly int MINTST = 1;
         public static readonly int GAPTST = 2;

@@ -158,7 +158,7 @@
             this.brushColours.Controls.Add(this.colourOptionPanel18);
             this.brushColours.Location = new System.Drawing.Point(12, 12);
             this.brushColours.Name = "brushColours";
-            this.brushColours.Size = new System.Drawing.Size(371, 149);
+            this.brushColours.Size = new System.Drawing.Size(451, 164);
             this.brushColours.TabIndex = 15;
             // 
             // colourOptionPanel1
