@@ -23,7 +23,6 @@ namespace GazeToolBar
             eyeXHost.Connect(bhavShortcutMap);
             //eyeXHost.Connect(bhavGeneralMap);
 
-            setupMap();
             setupShortcutMap();
         }
         
@@ -128,19 +127,17 @@ namespace GazeToolBar
             bhavShortcutMap.Add(pnlFKeyHighlight6, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavShortcutMap.Add(pnlFKeyHighlight7, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavShortcutMap.Add(pnlFKeyHighlight8, new GazeAwareBehavior(OnGazeChangeBTColour));
-        }
-
-        
-
-        
-        private void setupMap()
-        {
             bhavShortcutMap.Add(btnSave, new GazeAwareBehavior(OnbtnSave_Click) { DelayMilliseconds = buttonClickDelay });
             bhavShortcutMap.Add(btnCancel, new GazeAwareBehavior(OnbtnCancel_Click) { DelayMilliseconds = buttonClickDelay });
 
             bhavShortcutMap.Add(pnlSave, new GazeAwareBehavior(OnGazeChangeBTColour));
             bhavShortcutMap.Add(pnlCancel, new GazeAwareBehavior(OnGazeChangeBTColour));
         }
+
+        
+
+        
+
 
         //toggle border on and off on gaze to gaze to give feed back.
         private void OnGazeChangeBTColour(object s, GazeAwareEventArgs e)

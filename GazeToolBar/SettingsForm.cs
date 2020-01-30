@@ -76,7 +76,7 @@ namespace GazeToolBar
             dynamicZoom = Program.readSettings.dynamicZoom;
             corners = Program.readSettings.centerZoom;
 
-            //connectBehaveMap();
+            connectBehaveMap();
             form1.shortCutKeyWorker.StopKeyboardWorker();
             form1.LowLevelKeyBoardHook.OnKeyPressed += GetKeyPress;
             setColours();
@@ -193,7 +193,7 @@ namespace GazeToolBar
 
         private void Settings_Shown(object sender, EventArgs e)
         {
-            connectBehaveMap();
+            
             form1.shortCutKeyWorker.StopKeyboardWorker();
         }
 
